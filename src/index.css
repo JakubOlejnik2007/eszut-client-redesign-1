@@ -20,3 +20,16 @@
   font-weight:normal;
   src: url("assets/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype");
 }
+
+.logo{
+  font-family: 'sfProDisplay';
+  font-weight: bolder;
+  transition: 1s;
+  font-size: 25px;
+  width: 0px;
+}
+.logo:hover{
+  color: var(--accentColor);
+  transition: 1s;
+  cursor: pointer;
+}

@@ -12,18 +12,17 @@ function App() {
     <>
       <nav className='navbar'>  <div className='logo'>ESZUT</div> </nav>  
 
-      <h1>Elektroniczy System Zgłaszania Usterek Technicznych</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+    <main>
+      <div className='window'>
+
+        <div className='titleBar'>
+          test
+        </div>
+        <div className='windowContent'>
+          tu bedzie widok
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    </main>
       <PWABadge />
     </>
   )
