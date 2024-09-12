@@ -21,6 +21,16 @@
   src: url("assets/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype");
 }
 
+::-moz-selection {
+  color: var(--accentColor);
+  background: #583939;
+}
+
+::selection {
+  color: var(--accentColor);
+  background: #583939;
+}
+
 .logo{
   font-family: 'sfProDisplay';
   font-weight: bolder;
