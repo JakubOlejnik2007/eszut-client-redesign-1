@@ -1,6 +1,6 @@
 :root{
   --cornerSize: 8px;
-  --defaultPadding: 15px;
+  --defaultPadding: 8px;
   --pageBackBG: #333333;
   --pageForeBG: #333333; 
   --navBarColor: #1b1a1b9d;
@@ -35,8 +35,8 @@ body{
   border-radius: var(--cornerSize);
 
   border-width: 1px;
-  border-color: #1d1d1d;
-  border-top-color: rgba(255, 255, 255, 0.212);
+  border-color: rgba(255, 255, 255, 0.120);
+  border-top-color: rgba(255, 255, 255, 0.205);
   border-style: solid;
 }
 
@@ -49,6 +49,7 @@ body{
   border-width: 1px;
   border-color: #1d1d1d;
   border-bottom-style: solid;
+
 }
 .windowContent{
   padding: var(--defaultPadding);
@@ -87,7 +88,7 @@ nav{
   text-align: left;
   background-color: var(--navBarColor);
   filter: drop-shadow(0px 0px 5px #0000005a);
-  padding: 15px;
+  padding: var(--defaultPadding);
   backdrop-filter: blur(20px);
   border-bottom: #ffffff53;
   border-bottom-width: 1px;

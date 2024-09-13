@@ -16,7 +16,7 @@ function App() {
       <div className='window'>
 
         <div className='titleBar'>
-          test
+          Zgłoś usterkę
         </div>
         <div className='windowContent'>
           tu bedzie widok
