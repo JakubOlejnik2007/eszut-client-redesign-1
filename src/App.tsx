@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import appLogo from '/favicon.svg'
 import PWABadge from './PWABadge.tsx'
 import { Navbar } from './pages/navbar.tsx'
 import './App.css'
@@ -12,13 +10,11 @@ function App() {
   return (
     <>
     <main>
-    <Navbar>test</Navbar>
+    <Navbar loggedin={false} ></Navbar>
 
       <div className='window'>
 
-        <div className='titleBar'>
-          Zgłoś usterkę
-        </div>
+        <div className='titleBar'>Zgłoś usterkę</div>
         <div className='windowContent'>
           tu bedzie widok
         </div>
