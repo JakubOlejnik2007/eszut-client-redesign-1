@@ -1,12 +1,11 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import PWABadge from './PWABadge.tsx'
 import { Navbar } from './pages/navbar.tsx'
+import { ReportIssueScreen } from './pages/reportIssue.tsx'
 import './App.css'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
     <main>
@@ -16,7 +15,7 @@ function App() {
 
         <div className='titleBar'>Zgłoś usterkę</div>
         <div className='windowContent'>
-          tu bedzie widok
+          <ReportIssueScreen></ReportIssueScreen>
         </div>
       </div>
     </main>

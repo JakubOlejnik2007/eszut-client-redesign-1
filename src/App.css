@@ -39,18 +39,18 @@ body{
 
 }
 .navButton:active{
-  background-color: #ff706028;
+  background-color: #ff706028;  
   color: var(--accentColor);
 }
 .navButton:last-child{
-  margin-left: auto;
+  margin-left: auto;  
   margin-right: 15px;
 }
 
 
 .window{
   background-color: #333333;
-  max-width: 850px;
+  max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
   margin-top:100px ;
@@ -72,18 +72,17 @@ body{
   border-width: 1px;
   border-color: #1d1d1d;
   border-bottom-style: solid;
-
+  font-weight: bold;
 }
+
 .windowContent{
-  padding: var(--defaultPadding);
+
   min-height: 512px;
   background-color: #2b2b2b;
   border-bottom-left-radius: var(--cornerSize);
   border-bottom-right-radius: var(--cornerSize);
+  display: flex;
 }
-
-
-
 
 #root {
   margin: 0 auto;
@@ -94,14 +93,16 @@ body{
 }
 
 button{
-  padding: var(--test)
+
 }
 
 
-.card {
-  padding: 2em;
+.divider{
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-color: var(--navBarColor);
+  padding: 15px;
 }
-
 
 
 nav{
