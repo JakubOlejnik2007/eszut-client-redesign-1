@@ -40,7 +40,7 @@
   font-weight: bolder;
   transition: 1s;
   font-size: 25px;
-  width: 0px;
+  width: 80px;
 }
 .logo:hover{
   color: var(--accentColor);

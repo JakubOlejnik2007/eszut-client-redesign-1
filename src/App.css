@@ -6,6 +6,7 @@
   --navBarColor: #1b1a1b9d;
   --mainText: #B8B8B8;
   --secondaryText: #8F8F8F;
+  --buttonText: #ffffffa0;
   --accentColor: #FF7060;
 }
 
@@ -22,7 +23,25 @@ body{
   background-size: cover; */
 }
 
+.navButton{
+  color: var(--buttonText);
+  background-color: #ffffff00;
+  border-style: none;
+  width: 80px;
+  margin-left: 10px;
+  border-radius: var(--cornerSize);
+  transition: 0.2s;
 
+}
+.navButton:hover{
+  background-color: #ffffff0d;
+  transition: 0.0s;
+
+}
+.navButton:last-child{
+  margin-left: auto;
+  margin-right: 15px;
+}
 
 
 .window{
@@ -94,4 +113,5 @@ nav{
   border-bottom: #ffffff53;
   border-bottom-width: 1px;
   border-bottom-style: outset;
+  display: flex;
 }
