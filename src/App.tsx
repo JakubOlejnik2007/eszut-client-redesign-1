@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import appLogo from '/favicon.svg'
 import PWABadge from './PWABadge.tsx'
+import { Navbar } from './pages/navbar.tsx'
 import './App.css'
 
 
@@ -10,9 +11,9 @@ function App() {
 
   return (
     <>
-      <nav className='navbar'>  <div className='logo'>ESZUT</div> </nav>  
-
     <main>
+    <Navbar>test</Navbar>
+
       <div className='window'>
 
         <div className='titleBar'>
