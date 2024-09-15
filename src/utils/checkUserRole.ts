@@ -1,5 +1,5 @@
-import TUserRole from "../types/userroles.enum";
+import EUserRole from "../types/userroles.enum";
 
-const checkUserRole = (minRole: TUserRole, userRole: TUserRole) => userRole >= minRole;
+const checkUserRole = (minRole: EUserRole, userRole: EUserRole) => userRole >= minRole;
 
 export default checkUserRole;

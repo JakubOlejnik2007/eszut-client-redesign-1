@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import TUserRole from "./userroles.enum";
+import EUserRole from "./userroles.enum";
 
 type TNavigationItem = {
     id: string,
@@ -7,7 +7,7 @@ type TNavigationItem = {
     name: string,
     element: ReactNode,
     isMenu: boolean,
-    minUserRole: TUserRole
+    minUserRole: EUserRole
 }
 
 export default TNavigationItem;

@@ -1,4 +1,4 @@
-import TUserRole from "../types/userroles.enum"
+import EUserRole from "../types/userroles.enum"
 import NAVIGATION_ITEMS from "../utils/navigationItems"
 import NavItem from "./navItem"
 
@@ -12,7 +12,7 @@ const Navbar = (props: any) => {
 
             <div className='logo'>ESZUT</div>
             {
-                NAVIGATION_ITEMS.map((item, index) => <NavItem key={index} {...item} userRole={TUserRole.USER} />)
+                NAVIGATION_ITEMS.map((item, index) => <NavItem key={index} {...item} userRole={EUserRole.USER} />)
             }
 
 
