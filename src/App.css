@@ -1,5 +1,6 @@
 :root{
   --cornerSize: 8px;
+  --smallCornerSize: 4px;
   --defaultPadding: 8px;
   --pageBackBG: #333333;
   --pageForeBG: #333333; 
@@ -20,14 +21,16 @@ body{
   font-family: 'sfProDisplay';
   /* background-image: url(https://cataas.com/cat);
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;  */
 }
 
 .navButton{
   color: var(--buttonText);
   background-color: #ffffff00;
   border-style: none;
-  width: 80px;
+  /* width: 128px; */
+  padding-left: var(--defaultPadding);
+  padding-right: var(--defaultPadding);
   margin-left: 10px;
   border-radius: var(--cornerSize);
   transition: 0.2s;
@@ -96,6 +99,15 @@ button{
 
 }
 
+.textInput{
+  background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
+  border-color: #1d1d1d;
+  border-width: 1px;
+  color: var(--mainText);
+  border-style: none;
+  border-radius: var(--smallCornerSize);
+  padding: var(--defaultPadding);
+}
 
 .divider{
   border-right-width: 1px;
@@ -103,7 +115,6 @@ button{
   border-color: var(--navBarColor);
   padding: 15px;
 }
-
 
 nav{
   position: fixed;
