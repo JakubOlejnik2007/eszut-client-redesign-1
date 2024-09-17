@@ -11,8 +11,8 @@ function App() {
   return (
     <>
       <main>
-        <Navbar />
         <Router>
+          <Navbar />
           <Routes>
             {
               NAVIGATION_ITEMS.map((item, index) =>
