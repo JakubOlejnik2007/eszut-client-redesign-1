@@ -9,7 +9,25 @@ export const ReportIssueScreen = () => {
             a także pozostawić zwięzły opis tego co się stało oraz wybrać jedną z dostępnych kategorii zgłoszenia. Do zgłoszenia jest przypisywany domyślny priorytet, który wynika z kategorii.
             </div>
             </div>        
-        <div style={{backgroundColor: '', width: '65%'}}className="content-padding text-justify"><h3 style={{textAlign: "center"}}>Zgłoś usterkę</h3>miejsce usterki: [placeholder]<br></br>opis usterki <input type="text" className="textInput"></input><br></br>kategoria zgłoszenia:</div>        
+        <div style={{backgroundColor: '', width: '65%', marginLeft: '28px'}}className="content-padding text-justify"><h3 style={{textAlign: "center"}}>Zgłoś usterkę</h3>
+
+
+
+        miejsce usterki: 
+        <br/><select>
+    <option value="1">weź to tam zrób</option>
+    <option value="2">by było to wiesz</option>
+    <option value="3">z bazy danych</option>
+        </select><br/>
+        opis usterki 
+        <br/><textarea className="textInput"></textarea><br></br>kategoria zgłoszenia:
+        <br/><select>
+    <option value="1">to też</option>
+        </select><br/>
+        <button>🗑️</button>        <button>ślij</button>
+
+        </div>        
+
 
         </>
     )

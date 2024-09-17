@@ -149,7 +149,22 @@ transition: 0.5s;
   border-style: none;
   border-radius: var(--smallCornerSize);
   padding: var(--defaultPadding);
+  min-width: 512px;
+
 }
+
+select{
+  background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
+  border-color: #1d1d1d;
+  border-width: 1px;
+  color: var(--mainText);
+  box-shadow: inset 2px 2px 5px #1010104a,inset -2px -2px 5px #1010104a !important;
+  border-style: none;
+  border-radius: var(--smallCornerSize);
+  padding: var(--defaultPadding);
+  min-width: 512px;
+}
+
 
 .divider{
   border-right-width: 1px;
