@@ -80,7 +80,7 @@ body{
 
 .windowContent{
 
-  min-height: 256px;
+  min-height: 64px;
   background-color: #2b2b2b;
   border-bottom-left-radius: var(--cornerSize);
   border-bottom-right-radius: var(--cornerSize);
@@ -95,9 +95,48 @@ body{
   padding: 0px;
 }
 
+
+
 button{
 
 }
+
+.microsoftLoginButton{
+padding-right: 24px;
+padding-left: 24px;
+height: 32px;
+background-color: #1d1d1d;
+border-color: #141414;
+border-style: none;
+border-radius: 200px;
+color: var(--buttonText);
+filter: drop-shadow(0px 0px 5px #0000005a);
+margin-top: 12px;
+margin-bottom: 16px;
+transition: 0.5s;
+}
+
+.microsoftLoginButton:hover{
+  background-color: #333333;
+  transform: scale(100%);
+  transition: 0.5s;
+}
+
+.microsoftLoginButton:active{
+  background-color: #111111;
+  transform: scale(90%);
+  transition: 0.1s;
+}
+
+.microsoftLoginButton span.micLogo{
+  background: url(assets/microsoft.svg) no-repeat;
+  background-size: 15px;
+  float: left;
+  width: 15px;
+  height: 15px;
+  margin-right: 12px;
+}
+
 
 .textInput{
   background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
@@ -131,3 +170,4 @@ nav{
   border-bottom-style: outset;
   display: flex;
 }
+
