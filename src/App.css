@@ -126,6 +126,8 @@ transition: 0.5s;
   background-color: #111111;
   transform: scale(90%);
   transition: 0.1s;
+  filter: drop-shadow(0px 0px 2px #00000093);
+
 }
 
 .microsoftLoginButton span.micLogo{
@@ -143,6 +145,7 @@ transition: 0.5s;
   border-color: #1d1d1d;
   border-width: 1px;
   color: var(--mainText);
+  box-shadow: inset 2px 2px 5px #1010104a,inset -2px -2px 5px #1010104a !important;
   border-style: none;
   border-radius: var(--smallCornerSize);
   padding: var(--defaultPadding);
