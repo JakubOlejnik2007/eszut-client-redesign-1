@@ -55,3 +55,7 @@
 .content-padding{
   padding: 15px;
 }
+
+hr{
+  color: rgba(255, 255, 255, 0.120)
+}

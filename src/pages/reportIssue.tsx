@@ -1,4 +1,4 @@
-export const ReportIssueScreen = (props:any) => {
+export const ReportIssueScreen = () => {
     return(
         <>
         
