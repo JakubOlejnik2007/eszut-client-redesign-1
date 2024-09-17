@@ -118,7 +118,7 @@ transition: 0.5s;
 
 .microsoftLoginButton:hover{
   background-color: #333333;
-  transform: scale(115%);
+  transform: scale(100%);
   transition: 0.5s;
 }
 
