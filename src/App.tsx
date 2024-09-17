@@ -5,24 +5,30 @@ import { ReportIssueScreen } from './pages/reportIssue.tsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
 import NAVIGATION_ITEMS from "./utils/navigationItems"
+import WindowWrapper from './components/windowWrapper.tsx';
 
 function App() {
   return (
     <>
       <main>
         <Navbar />
-
-        <div className='window'>
-
-          <div className='titleBar'>Zgłoś usterkę</div>
-          <div className='windowContent'>
-            <ReportIssueScreen></ReportIssueScreen>
-          </div>
-        </div>
+        <Router>
+          <Routes>
+            {
+              NAVIGATION_ITEMS.map((item, index) =>
+                <Route
+                  key={index}  // Dodanie unikalnego klucza
+                  path={item.path}
+                  element={<WindowWrapper title={item.name} element={item.element} />}
+                />
+              )
+            }
+          </Routes>
+        </Router>
       </main>
       <PWABadge />
     </>
   )
 }
 
-export default App
+export default App;
