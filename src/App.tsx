@@ -13,11 +13,11 @@ function App() {
         <Navbar />
 
         <div className='window'>
-          <Router>
-            <Routes>
-              {NAVIGATION_ITEMS.map(item => <Route path={item.path} element={item.element} />)}
-            </Routes>
-          </Router>
+
+          <div className='titleBar'>Zgłoś usterkę</div>
+          <div className='windowContent'>
+            <ReportIssueScreen></ReportIssueScreen>
+          </div>
         </div>
       </main>
       <PWABadge />
