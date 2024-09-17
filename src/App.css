@@ -80,7 +80,7 @@ body{
 
 .windowContent{
 
-  min-height: 512px;
+  min-height: 256px;
   background-color: #2b2b2b;
   border-bottom-left-radius: var(--cornerSize);
   border-bottom-right-radius: var(--cornerSize);

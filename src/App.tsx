@@ -2,6 +2,7 @@
 import PWABadge from './PWABadge.tsx'
 import Navbar from './components/navbar.tsx'
 import { ReportIssueScreen } from './pages/reportIssue.tsx'
+import { LogInScreen } from './pages/logIn.tsx'
 import './App.css'
 
 
@@ -15,7 +16,8 @@ function App() {
 
           <div className='titleBar'>Zgłoś usterkę</div>
           <div className='windowContent'>
-            <ReportIssueScreen></ReportIssueScreen>
+            <LogInScreen/>
+            {/* <ReportIssueScreen></ReportIssueScreen> */}
           </div>
         </div>
       </main>
