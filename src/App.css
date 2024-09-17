@@ -113,6 +113,19 @@ color: var(--buttonText);
 filter: drop-shadow(0px 0px 5px #0000005a);
 margin-top: 12px;
 margin-bottom: 16px;
+transition: 0.5s;
+}
+
+.microsoftLoginButton:hover{
+  background-color: #333333;
+  transform: scale(115%);
+  transition: 0.5s;
+}
+
+.microsoftLoginButton:active{
+  background-color: #111111;
+  transform: scale(90%);
+  transition: 0.1s;
 }
 
 .microsoftLoginButton span.micLogo{
