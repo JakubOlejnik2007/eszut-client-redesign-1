@@ -141,6 +141,9 @@ transition: 0.5s;
 
 
 .textInput{
+  margin-bottom: 12px;
+  margin-top: 6px;
+
   background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
   border-color: #1d1d1d;
   border-width: 1px;
@@ -154,6 +157,9 @@ transition: 0.5s;
 }
 
 select{
+  margin-bottom: 12px;
+  margin-top: 6px;
+
   background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
   border-color: #1d1d1d;
   border-width: 1px;
@@ -163,8 +169,28 @@ select{
   border-radius: var(--smallCornerSize);
   padding: var(--defaultPadding);
   min-width: 528px;
+  
 }
 
+select option {
+  margin: 40px;
+  background: rgb(33, 33, 33);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0);
+}
+
+select option:checked{
+  background:  linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
+  ;
+}
+select base{
+  background-color: red;
+}
+
+
+label{
+  color: var(--secondaryText);
+}
 
 .divider{
   border-right-width: 1px;

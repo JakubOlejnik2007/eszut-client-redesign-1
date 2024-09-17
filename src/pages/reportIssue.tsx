@@ -13,17 +13,20 @@ export const ReportIssueScreen = () => {
 
 
 
-        miejsce usterki: 
+        <label>miejsce usterki:</label> 
         <br/><select>
-    <option value="1">weź to tam zrób</option>
-    <option value="2">by było to wiesz</option>
-    <option value="3">z bazy danych</option>
+            <option value="1">weź to tam zrób</option>
+            <option value="2">by było to wiesz</option>
+            <option value="3">z bazy danych</option>
         </select><br/>
-        opis usterki 
-        <br/><textarea className="textInput"></textarea><br></br>kategoria zgłoszenia:
+        <label>opis usterki</label>
+        <br/><textarea className="textInput"></textarea><br></br>
+        <label>kategoria zgłoszenia:</label>
         <br/><select>
-    <option value="1">to też</option>
+            <option value="1">to też</option>
         </select><br/>
+
+        
         <button>🗑️</button>        <button>ślij</button>
 
         </div>        
