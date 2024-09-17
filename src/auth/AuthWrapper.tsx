@@ -8,8 +8,8 @@ import config from "../utils/config";
 
 const msalConfig = {
     auth: {
-        clientId: 'e4c482a1-9923-4462-bf05-b70d64942c19', // Twój Client ID
-        authority: 'https://login.microsoftonline.com/84867874-5f7d-4b12-b070-d6cea5a3265e', // Twój Tenant ID
+        clientId: 'e4c482a1-9923-4462-bf05-b70d64942c19',
+        authority: 'https://login.microsoftonline.com/84867874-5f7d-4b12-b070-d6cea5a3265e',
         redirectUri: 'http://localhost:5173',
     },
 };
@@ -66,13 +66,13 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
         initializeMsal();
     }, []);
 
-    /*useEffect(() => {
-      const userDataFromSession = sessionStorage.getItem("user");
-      if (userDataFromSession) {
-        const parsedUserData = JSON.parse(userDataFromSession);
-        setUser(parsedUserData);
-      }
-    }, []);*/
+    useEffect(() => {
+        const userDataFromSession = sessionStorage.getItem("AuthData");
+        if (userDataFromSession) {
+            const parsedUserData = JSON.parse(userDataFromSession);
+            setUser(parsedUserData);
+        }
+    }, []);
 
     const login = async () => {
         if (!isInitialized) {
@@ -82,7 +82,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
 
         try {
             const loginResponse = await msalInstance.loginPopup({
-                scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"], // Uprawnienia potrzebne do pobierania zespołów
+                scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"],
             });
             setUser({
                 AuthResult: loginResponse,
@@ -102,7 +102,14 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                     AuthResult: prevState?.AuthResult ?? undefined,
                 } as IUser;
             });
+
+            sessionStorage.setItem("AuthData", JSON.stringify({
+                AuthRole: loginResponse,
+                role: response.data.role as EUserRole
+            }));
+
             navigate(urls.client.reportProblem)
+
 
             // Pobranie listy zespołów po zalogowaniu
             //await fetchTeams(loginResponse.accessToken);
@@ -113,8 +120,9 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     };
 
     const logout = async () => {
-        //sessionStorage.removeItem("user");
+        sessionStorage.removeItem("AuthData");
         setUser(null);
+        console.log("log out")
         navigate("/");
     };
 
