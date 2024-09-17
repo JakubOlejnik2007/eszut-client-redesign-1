@@ -12,6 +12,7 @@ const urls = {
     backend: {
         auth: {
             login: "/login",
+            getUserRole: "/get-user-role"
         },
         problem: {
             getUnsolvedProblems: "/get-unsolved-problems",

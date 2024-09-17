@@ -6,24 +6,29 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
 import NAVIGATION_ITEMS from "./utils/navigationItems"
 import WindowWrapper from './components/windowWrapper.tsx';
+import { AuthWrapper } from './auth/AuthWrapper.tsx';
 
 function App() {
   return (
     <>
       <main>
         <Router>
-          <Navbar />
-          <Routes>
-            {
-              NAVIGATION_ITEMS.map((item, index) =>
-                <Route
-                  key={index}  // Dodanie unikalnego klucza
-                  path={item.path}
-                  element={<WindowWrapper title={item.name} element={item.element} />}
-                />
-              )
-            }
-          </Routes>
+
+          <AuthWrapper>
+            <Navbar />
+            <Routes>
+              {
+                NAVIGATION_ITEMS.map((item, index) =>
+                  <Route
+                    key={index}  // Dodanie unikalnego klucza
+                    path={item.path}
+                    element={<WindowWrapper title={item.name} element={item.element} />}
+                  />
+                )
+              }
+            </Routes>
+
+          </AuthWrapper>
         </Router>
       </main>
       <PWABadge />
