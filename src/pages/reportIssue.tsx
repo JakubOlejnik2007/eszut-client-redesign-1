@@ -14,11 +14,25 @@ export const ReportIssueScreen = () => {
 
 
         <label>miejsce usterki:</label> 
-        <br/><select>
+        <br/>
+
+        {/* <div class="dropdown">
+        <button className="dropbtn">miejsce usterki</button>
+        <div className="dropdown-content">
+            <a href="#">10</a>
+            <a href="#">11</a>
+            <a href="#">12</a>
+         </div>
+         </div> */}
+
+
+        <select>
             <option value="1">weź to tam zrób</option>
             <option value="2">by było to wiesz</option>
             <option value="3">z bazy danych</option>
-        </select><br/>
+        </select>
+
+        <br/>
         <label>opis usterki</label>
         <br/><textarea className="textInput"></textarea><br></br>
         <label>kategoria zgłoszenia:</label>
@@ -26,7 +40,7 @@ export const ReportIssueScreen = () => {
             <option value="1">to też</option>
         </select><br/>
 
-        
+
         <button>🗑️</button>        <button>ślij</button>
 
         </div>        

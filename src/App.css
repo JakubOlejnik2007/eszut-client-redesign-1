@@ -172,20 +172,19 @@ select{
   
 }
 
-select option {
+ select option {
   margin: 40px;
-  background: rgb(33, 33, 33);
-  color: #fff;
+  color: #000000;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0);
 }
-
+/*
 select option:checked{
   background:  linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
   ;
 }
 select base{
   background-color: red;
-}
+} */
 
 
 label{
