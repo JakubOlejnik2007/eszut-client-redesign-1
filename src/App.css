@@ -152,7 +152,7 @@ transition: 0.5s;
   border-style: none;
   border-radius: var(--smallCornerSize);
   padding: var(--defaultPadding);
-  min-width: 512px;
+  width: 512px;
 
 }
 

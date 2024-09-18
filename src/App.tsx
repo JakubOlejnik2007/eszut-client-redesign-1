@@ -1,4 +1,3 @@
-//import { useState } from 'react'
 import PWABadge from './PWABadge.tsx'
 import Navbar from './components/navbar.tsx'
 import { BrowserRouter as Router } from 'react-router-dom';
