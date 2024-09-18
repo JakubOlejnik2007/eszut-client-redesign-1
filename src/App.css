@@ -98,7 +98,7 @@ body{
 
 
 button{
-
+  border-style: solid;
 }
 
 .microsoftLoginButton{
@@ -141,6 +141,9 @@ transition: 0.5s;
 
 
 .textInput{
+  margin-bottom: 12px;
+  margin-top: 6px;
+
   background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
   border-color: #1d1d1d;
   border-width: 1px;
@@ -149,6 +152,43 @@ transition: 0.5s;
   border-style: none;
   border-radius: var(--smallCornerSize);
   padding: var(--defaultPadding);
+  min-width: 512px;
+
+}
+
+select{
+  margin-bottom: 12px;
+  margin-top: 6px;
+
+  background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
+  border-color: #1d1d1d;
+  border-width: 1px;
+  color: var(--mainText);
+  box-shadow: inset 2px 2px 5px #1010104a,inset -2px -2px 5px #1010104a !important;
+  border-style: none;
+  border-radius: var(--smallCornerSize);
+  padding: var(--defaultPadding);
+  min-width: 528px;
+  
+}
+
+ select option {
+  margin: 40px;
+  color: #000000;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0);
+}
+/*
+select option:checked{
+  background:  linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
+  ;
+}
+select base{
+  background-color: red;
+} */
+
+
+label{
+  color: var(--secondaryText);
 }
 
 .divider{

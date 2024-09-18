@@ -9,8 +9,9 @@ export const LogInScreen = () => {
 
             <div style={{ backgroundColor: '', width: '100%' }} className="content-padding text-justify">
                 <h3 style={{ textAlign: "center" }}>Zaloguj się z Microsoft</h3>
-                <button className="microsoftLoginButton" onClick={login}>Sign in with microsoft</button>
-
+                <center>
+                <button className="microsoftLoginButton" onClick={login}><span className="micLogo"/>Sign in with microsoft</button>
+                </center>
             </div>
 
         </>

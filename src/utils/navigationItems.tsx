@@ -1,10 +1,11 @@
 import { LogInScreen } from "../pages/logIn";
 import { ReportIssueScreen } from "../pages/reportIssue";
+import { AboutScreen } from "../pages/about";
 import TNavigationItem from "../types/navigationItem.type";
 import EUserRole from "../types/userroles.enum";
 import urls from "./urls";
 
-const Placeholder = () => <div>Placeholder</div>;
+const Placeholder = () => <div style={{padding: "var(--defaultPadding)"}}>Placeholder</div>;
 
 const NAVIGATION_ITEMS: TNavigationItem[] = [
   {
@@ -19,7 +20,7 @@ const NAVIGATION_ITEMS: TNavigationItem[] = [
     id: "2",
     path: urls.client.about,
     name: "O aplikacji",
-    element: <Placeholder />,
+    element: <AboutScreen />,
     isMenu: true,
     minUserRole: EUserRole.GUEST,
   },
