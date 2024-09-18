@@ -152,7 +152,12 @@ transition: 0.5s;
   border-style: none;
   border-radius: var(--smallCornerSize);
   padding: var(--defaultPadding);
+  width: 512px;
   min-width: 512px;
+  max-width: 512px;
+
+  min-height: 58px;
+  height: 58px;
 
 }
 
