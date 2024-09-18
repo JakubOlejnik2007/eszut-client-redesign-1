@@ -5,6 +5,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css'
 import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 function App() {
 
@@ -13,12 +16,14 @@ function App() {
   return (
     <>
       <main>
-        <Router>
-          <AuthWrapper>
-            <Navbar />
-            <RenderMenu />
-          </AuthWrapper>
-        </Router>
+        <QueryClientProvider client={queryClient}>
+          <Router>
+            <AuthWrapper>
+              <Navbar />
+              <RenderMenu />
+            </AuthWrapper>
+          </Router>
+        </QueryClientProvider>
       </main>
       <PWABadge />
     </>
