@@ -1,33 +1,22 @@
 //import { useState } from 'react'
 import PWABadge from './PWABadge.tsx'
 import Navbar from './components/navbar.tsx'
-import { ReportIssueScreen } from './pages/reportIssue.tsx'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css'
-import NAVIGATION_ITEMS from "./utils/navigationItems"
-import WindowWrapper from './components/windowWrapper.tsx';
-import { AuthWrapper } from './auth/AuthWrapper.tsx';
+import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
+import RenderMenu from './components/renderMenu.tsx';
 
 function App() {
+
+  const { user } = AuthData();
+  console.log("User:", user)
   return (
     <>
       <main>
         <Router>
-
           <AuthWrapper>
             <Navbar />
-            <Routes>
-              {
-                NAVIGATION_ITEMS.map((item, index) =>
-                  <Route
-                    key={index}  // Dodanie unikalnego klucza
-                    path={item.path}
-                    element={<WindowWrapper title={item.name} element={item.element} />}
-                  />
-                )
-              }
-            </Routes>
-
+            <RenderMenu />
           </AuthWrapper>
         </Router>
       </main>

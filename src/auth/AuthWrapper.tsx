@@ -123,6 +123,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
         sessionStorage.removeItem("AuthData");
         setUser(null);
         console.log("log out")
+        await msalInstance.logoutPopup();
         navigate("/");
     };
 
