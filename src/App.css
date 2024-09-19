@@ -163,6 +163,7 @@ transition: 0.5s;
 
 }
 .mainButton{
+  margin-top: 24px;
   height: 30px;
   min-width: 30px;
   border-radius: var(--smallCornerSize);
@@ -200,11 +201,14 @@ transition: 0.5s;
 
 }.trashButton:active{
   background-color: rgba(255, 0, 60, 0.092);
-  color: #fa45458d;
+  color: #ffbebe8d;
 
 }
 
-
+.mainButton:last-child{
+  float: right;
+  margin-right: 80px;
+}
 
 
 select{
