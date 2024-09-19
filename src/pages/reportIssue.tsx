@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getCategories, getPlaces } from "../service/apiFetchFunctions";
+import { getCategories, getPlaces, insertNewProblem } from "../service/apiFetchFunctions";
 import { useEffect, useState } from "react";
 import { IInsertNewProblem } from "../types/requestsTypes";
 import { AuthData } from "../auth/AuthWrapper";
@@ -61,6 +61,8 @@ export const ReportIssueScreen = () => {
     const handleSubmitClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         console.log(formData)
+
+        const response = await insertNewProblem(formData, user?.AuthRole.accessToken as string)
     }
 
 
