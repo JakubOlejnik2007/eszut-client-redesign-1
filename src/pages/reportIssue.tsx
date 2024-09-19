@@ -80,7 +80,7 @@ export const ReportIssueScreen = () => {
                 </select><br />
 
 
-                <button className="mainButton trashButton">🗑️</button>        <button className="mainButton">ślij</button>
+                <button className="mainButton trashButton">Wyczyść</button>        <button className="mainButton">Wyślij</button>
 
             </div>
 

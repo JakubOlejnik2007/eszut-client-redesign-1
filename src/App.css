@@ -140,6 +140,7 @@ transition: 0.5s;
 }
 
 
+
 .textInput{
   margin-bottom: 12px;
   margin-top: 6px;
@@ -173,6 +174,8 @@ transition: 0.5s;
   transform: scale(100%);
   filter: drop-shadow(0px 0px 5px #0000005a);
   transition: 0.5s;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .mainButton:hover{
@@ -189,12 +192,18 @@ transition: 0.5s;
 }
 .trashButton{
   background-color: #ff353532;
+  color: #ffbfbf;
 }
 .trashButton:hover{
   background-color: rgba(255, 46, 64, 0.392);
+  color: #ffdbdb;
+
 }.trashButton:active{
   background-color: rgba(255, 0, 60, 0.092);
+  color: #fa45458d;
+
 }
+
 
 
 
