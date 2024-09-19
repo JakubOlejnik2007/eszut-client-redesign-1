@@ -171,7 +171,6 @@ transition: 0.5s;
   border-width: 1px;
   border-color: #ffffff1d;
   border-top-color: #ffffff2f;
-
   background-color: #ffffff4b;
   color:white;
   transform: scale(100%);
@@ -209,7 +208,7 @@ transition: 0.5s;
 
 .mainButton:last-child{
   float: right;
-  margin-right: 80px;
+  margin-right: 67px;
 }
 
 
