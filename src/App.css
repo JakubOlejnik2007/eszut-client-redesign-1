@@ -170,6 +170,8 @@ transition: 0.5s;
   border-style: solid;
   border-width: 1px;
   border-color: #ffffff1d;
+  border-top-color: #ffffff2f;
+
   background-color: #ffffff4b;
   color:white;
   transform: scale(100%);
