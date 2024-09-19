@@ -1,10 +1,28 @@
 import { useQuery } from "react-query";
 import { getCategories, getPlaces } from "../service/apiFetchFunctions";
+import { useEffect, useState } from "react";
+import { IInsertNewProblem } from "../types/requestsTypes";
+import { AuthData } from "../auth/AuthWrapper";
 
 export const ReportIssueScreen = () => {
 
+    const [formData, setFormData] = useState<IInsertNewProblem>({
+        PlaceID: '',
+        CategoryID: '',
+        whoName: '',
+        whoEmail: '',
+        what: '',
+    })
+
+    const { user } = AuthData();
+
+    console.log("Report problem", user);
+
+
+
     const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
+
 
     if (categoriesQuery.isError || placesQuery.isError) return (
         <div>Error</div>
@@ -17,6 +35,19 @@ export const ReportIssueScreen = () => {
         </div>
     );
 
+    const places = placesQuery.data as IPlace[];
+    const categories = categoriesQuery.data as ICategory[];
+
+    useEffect(() => {
+        setFormData({
+            PlaceID: places[0]._id,
+            CategoryID: categories[0]._id,
+            whoName: user?.AuthRole.account.name as string,
+            whoEmail: user?.AuthRole.account.username as string,
+            what: '',
+        })
+    }, [])
+
     interface ICategory {
         _id: string;
         name: string;
@@ -27,8 +58,11 @@ export const ReportIssueScreen = () => {
         name: string;
     }
 
-    const places = placesQuery.data as IPlace[];
-    const categories = categoriesQuery.data as ICategory[];
+    const handleSubmitClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+        console.log(formData)
+    }
+
 
     console.log(placesQuery.data, placesQuery.data)
     return (
@@ -41,7 +75,9 @@ export const ReportIssueScreen = () => {
                     a także pozostawić zwięzły opis tego co się stało oraz wybrać jedną z dostępnych kategorii zgłoszenia. Do zgłoszenia jest przypisywany domyślny priorytet, który wynika z kategorii.
                 </div>
             </div>
-            <div style={{ backgroundColor: '', width: '65%', marginLeft: '48px',}} className="content-padding text-justify"><h3 style={{ textAlign: "center" }}>Zgłoś usterkę</h3>
+            <form style={{ backgroundColor: '', width: '65%', marginLeft: '48px', }} className="content-padding text-justify"
+                onSubmit={() => console.log(formData)}
+            ><h3 style={{ textAlign: "center" }}>Zgłoś usterkę</h3>
 
 
 
@@ -58,9 +94,11 @@ export const ReportIssueScreen = () => {
          </div> */}
 
 
-                <select>
+                <select onChange={(e) => {
+                    setFormData({ ...formData, PlaceID: e.target.value })
+                }}>
                     {
-                        places.map(place => (
+                        places.map((place) => (
                             <option value={place._id}>{place.name}</option>
                         ))
                     }
@@ -68,9 +106,13 @@ export const ReportIssueScreen = () => {
 
                 <br />
                 <label>opis usterki</label>
-                <br /><textarea className="textInput"></textarea><br></br>
+                <br /><textarea className="textInput" onChange={(e) => {
+                    setFormData({ ...formData, what: e.target.value })
+                }}></textarea><br></br>
                 <label>kategoria zgłoszenia:</label>
-                <br /><select>
+                <br /><select onChange={(e) => {
+                    setFormData({ ...formData, CategoryID: e.target.value })
+                }}>
 
                     {
                         categories.map(place => (
@@ -80,9 +122,13 @@ export const ReportIssueScreen = () => {
                 </select><br />
 
 
-                <button className="mainButton trashButton">Wyczyść</button>        <button className="mainButton">Wyślij</button>
+                <button className="mainButton trashButton" type="reset" onClick={() => {
+                    setFormData(prevState => {
+                        return { ...prevState, what: '', CategoryID: '', PlaceID: '' }
+                    })
+                }}>Wyczyść</button>        <button className="mainButton" type="submit" onClick={handleSubmitClick}>Wyślij</button>
 
-            </div>
+            </form>
 
 
         </>

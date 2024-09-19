@@ -16,7 +16,7 @@ const msalConfig = {
 
 interface IUser {
     role: EUserRole;
-    AuthResult: AuthenticationResult;
+    AuthRole: AuthenticationResult;
 }
 
 const AuthContext = createContext<{
@@ -46,7 +46,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                     if (event.eventType === EventType.LOGIN_SUCCESS && event.payload) {
                         const authResult = event.payload as AuthenticationResult;
                         setUser({
-                            AuthResult: authResult,
+                            AuthRole: authResult,
                             role: EUserRole.GUEST
                         });
                     }
@@ -85,7 +85,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"],
             });
             setUser({
-                AuthResult: loginResponse,
+                AuthRole: loginResponse,
                 role: EUserRole.GUEST
             });
 
@@ -99,7 +99,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 return {
                     ...prevState,
                     role: response.data.role as EUserRole,
-                    AuthResult: prevState?.AuthResult ?? undefined,
+                    AuthRole: prevState?.AuthRole ?? undefined,
                 } as IUser;
             });
 
