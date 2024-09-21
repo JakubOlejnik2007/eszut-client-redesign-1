@@ -24,28 +24,20 @@ export const ReportIssueScreen = () => {
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
 
 
-    if (categoriesQuery.isError || placesQuery.isError) return (
-        <div>Error</div>
-    )
-    if (categoriesQuery.isLoading || placesQuery.isLoading) return (
-        <div className="h-100 d-flex align-items-center justify-content-center">
-            <div className="spinner-border" role="status">
-                you spin me
-            </div>
-        </div>
-    );
+
 
     const places = placesQuery.data as IPlace[];
     const categories = categoriesQuery.data as ICategory[];
 
     useEffect(() => {
-        setFormData({
-            PlaceID: places[0]._id,
-            CategoryID: categories[0]._id,
-            whoName: user?.AuthRole.account.name as string,
-            whoEmail: user?.AuthRole.account.username as string,
-            what: '',
-        })
+        if (places && categories)
+            setFormData({
+                PlaceID: places[0]._id,
+                CategoryID: categories[0]._id,
+                whoName: user?.AuthRole.account.name as string,
+                whoEmail: user?.AuthRole.account.username as string,
+                what: '',
+            })
     }, [])
 
     interface ICategory {
@@ -64,6 +56,17 @@ export const ReportIssueScreen = () => {
 
         const response = await insertNewProblem(formData, user?.AuthRole.accessToken as string)
     }
+
+    if (categoriesQuery.isError || placesQuery.isError) return (
+        <div>Error</div>
+    )
+    if (categoriesQuery.isLoading || placesQuery.isLoading) return (
+        <div className="h-100 d-flex align-items-center justify-content-center">
+            <div className="spinner-border" role="status">
+                you spin me
+            </div>
+        </div>
+    );
 
 
     console.log(placesQuery.data, placesQuery.data)

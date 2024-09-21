@@ -12,7 +12,7 @@ const WindowWrapper = ({ title, element, minUserRole, userRole }: { title: strin
         if (minUserRole > userRole) {
             console.log("redirect");
 
-            navigate(-1);
+            navigate("/");
         }
     })
     return (

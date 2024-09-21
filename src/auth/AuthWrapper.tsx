@@ -21,13 +21,16 @@ interface IUser {
 
 const AuthContext = createContext<{
     user: IUser | null,
-    login: (() => void),
-    logout: () => void
+    login: () => void,
+    logout: () => void,
+    isLoading: boolean
 }>({
     user: null,
     login: () => { },
-    logout: () => { }
+    logout: () => { },
+    isLoading: true
 });
+
 export const AuthData = () => useContext(AuthContext);
 
 const msalInstance = new PublicClientApplication(msalConfig);
@@ -35,7 +38,7 @@ const msalInstance = new PublicClientApplication(msalConfig);
 export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<IUser | null>(null);
     const [isInitialized, setIsInitialized] = useState(false);
-    console.log(user)
+    const [isLoading, setIsLoading] = useState(true); // Nowy stan isLoading
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -58,8 +61,10 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 }
 
                 setIsInitialized(true);
+                setIsLoading(false); // Zakończenie ładowania
             } catch (error) {
                 console.error('Błąd podczas inicjalizacji MSAL', error);
+                setIsLoading(false); // Zakończenie ładowania nawet przy błędzie
             }
         };
 
@@ -72,6 +77,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
             const parsedUserData = JSON.parse(userDataFromSession);
             setUser(parsedUserData);
         }
+        setIsLoading(false); // Ustawienie isLoading na false po sprawdzeniu sesji
     }, []);
 
     const login = async () => {
@@ -93,27 +99,20 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 headers: {
                     Authorization: `Bearer ${loginResponse.accessToken}`,
                 },
-            })
-            console.log(response.data);
-            setUser((prevState) => {
-                return {
-                    ...prevState,
-                    role: response.data.role as EUserRole,
-                    AuthRole: prevState?.AuthRole ?? undefined,
-                } as IUser;
             });
+
+            setUser((prevState) => ({
+                ...prevState,
+                role: response.data.role as EUserRole,
+                AuthRole: prevState?.AuthRole ?? undefined,
+            }) as IUser);
 
             sessionStorage.setItem("AuthData", JSON.stringify({
                 AuthRole: loginResponse,
                 role: response.data.role as EUserRole
             }));
 
-            navigate(urls.client.reportProblem)
-
-
-            // Pobranie listy zespołów po zalogowaniu
-            //await fetchTeams(loginResponse.accessToken);
-            //await testToken(loginResponse.accessToken)
+            navigate(urls.client.reportProblem);
         } catch (error) {
             console.error('Błąd podczas logowania', error);
         }
@@ -122,15 +121,17 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     const logout = async () => {
         sessionStorage.removeItem("AuthData");
         setUser(null);
-        console.log("log out")
         await msalInstance.logoutPopup();
         navigate("/");
     };
 
+    if (isLoading) {
+        return <div>Loading...</div>; // Renderuj coś podczas ładowania
+    }
+
     return (
-        <AuthContext.Provider value={{ user, login, logout }}>
+        <AuthContext.Provider value={{ user, login, logout, isLoading }}>
             {children}
         </AuthContext.Provider>
     );
 };
-
