@@ -38,7 +38,7 @@ const msalInstance = new PublicClientApplication(msalConfig);
 export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<IUser | null>(null);
     const [isInitialized, setIsInitialized] = useState(false);
-    const [isLoading, setIsLoading] = useState(true); // Nowy stan isLoading
+    const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -61,10 +61,10 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 }
 
                 setIsInitialized(true);
-                setIsLoading(false); // Zakończenie ładowania
+                setIsLoading(false);
             } catch (error) {
                 console.error('Błąd podczas inicjalizacji MSAL', error);
-                setIsLoading(false); // Zakończenie ładowania nawet przy błędzie
+                setIsLoading(false);
             }
         };
 
@@ -77,7 +77,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
             const parsedUserData = JSON.parse(userDataFromSession);
             setUser(parsedUserData);
         }
-        setIsLoading(false); // Ustawienie isLoading na false po sprawdzeniu sesji
+        setIsLoading(false);
     }, []);
 
     const login = async () => {
@@ -126,7 +126,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     };
 
     if (isLoading) {
-        return <div>Loading...</div>; // Renderuj coś podczas ładowania
+        return <div>Loading...</div>;
     }
 
     return (
