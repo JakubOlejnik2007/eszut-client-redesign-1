@@ -5,6 +5,7 @@ import './App.css'
 import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import NotificationsWrapper from './components/notificationsWrapper.tsx';
 
 const queryClient = new QueryClient();
 
@@ -18,8 +19,10 @@ function App() {
         <QueryClientProvider client={queryClient}>
           <Router>
             <AuthWrapper>
+              <NotificationsWrapper>
               <Navbar />
               <RenderMenu />
+              </NotificationsWrapper>
             </AuthWrapper>
           </Router>
         </QueryClientProvider>

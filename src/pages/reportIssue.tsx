@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { IInsertNewProblem } from "../types/requestsTypes";
 import { AuthData } from "../auth/AuthWrapper";
 import { IPlace, ICategory } from "../types/formPartials.interface";
+import { Notif } from "../components/notificationsWrapper";
+import { ENotifType } from "../types/notification.interface";
 
 export const ReportIssueScreen = () => {
 
@@ -16,6 +18,8 @@ export const ReportIssueScreen = () => {
     })
 
     const { user } = AuthData();
+
+    const { displayNotif } = Notif();
 
     console.log("Report problem", user);
 
@@ -52,6 +56,7 @@ export const ReportIssueScreen = () => {
         console.log(response)
         if (response === "OK") {
             console.log("Problem registrated");
+            displayNotif({ message: "Problem został zarejestrowany", type: ENotifType.SUCCESS });
             handleReset(e)
         }
     }
