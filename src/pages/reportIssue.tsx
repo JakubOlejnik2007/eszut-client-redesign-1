@@ -3,6 +3,7 @@ import { getCategories, getPlaces, insertNewProblem } from "../service/apiFetchF
 import { useEffect, useState } from "react";
 import { IInsertNewProblem } from "../types/requestsTypes";
 import { AuthData } from "../auth/AuthWrapper";
+import { IPlace, ICategory } from "../types/formPartials.interface";
 
 export const ReportIssueScreen = () => {
 
@@ -40,15 +41,6 @@ export const ReportIssueScreen = () => {
             })
     }, [])
 
-    interface ICategory {
-        _id: string;
-        name: string;
-    }
-
-    interface IPlace {
-        _id: string;
-        name: string;
-    }
 
     const handleSubmitClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();

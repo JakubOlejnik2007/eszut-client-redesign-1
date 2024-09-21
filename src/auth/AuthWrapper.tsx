@@ -4,20 +4,12 @@ import { useNavigate } from "react-router-dom/dist";
 import urls from "../utils/urls";
 import EUserRole from "../types/userroles.enum";
 import axios from "axios";
-import config from "../utils/config";
+import config, { msalConfig } from "../utils/config";
+import IUser from "../types/user.interface";
 
-const msalConfig = {
-    auth: {
-        clientId: 'e4c482a1-9923-4462-bf05-b70d64942c19',
-        authority: 'https://login.microsoftonline.com/84867874-5f7d-4b12-b070-d6cea5a3265e',
-        redirectUri: 'http://localhost:5173',
-    },
-};
 
-interface IUser {
-    role: EUserRole;
-    AuthRole: AuthenticationResult;
-}
+
+
 
 const AuthContext = createContext<{
     user: IUser | null,
