@@ -24,9 +24,6 @@ export const ReportIssueScreen = () => {
     const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
 
-
-
-
     const places = placesQuery.data as IPlace[];
     const categories = categoriesQuery.data as ICategory[];
 
@@ -39,14 +36,31 @@ export const ReportIssueScreen = () => {
                 whoEmail: user?.AuthRole.account.username as string,
                 what: '',
             })
-    }, [])
+    }, [places, categories])
 
 
     const handleSubmitClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         console.log(formData)
 
+        if (!formData.CategoryID || !formData.PlaceID || !formData.what || !formData.whoName || !formData.whoEmail) {
+            console.error("Formularz jest nie wypełniony");
+            return;
+        }
+
         const response = await insertNewProblem(formData, user?.AuthRole.accessToken as string)
+        console.log(response)
+        if (response === "OK") {
+            console.log("Problem registrated");
+            handleReset(e)
+        }
+    }
+
+    const handleReset = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+        setFormData(prevState => {
+            return { ...prevState, what: '' }
+        })
     }
 
     if (categoriesQuery.isError || placesQuery.isError) return (
@@ -103,11 +117,14 @@ export const ReportIssueScreen = () => {
 
                 <br />
                 <label>opis usterki</label>
-                <br /><textarea className="textInput" onChange={(e) => {
+                <br />
+                <textarea className="textInput" onChange={(e) => {
                     setFormData({ ...formData, what: e.target.value })
-                }}></textarea><br></br>
+                }} value={formData.what}></textarea>
+                <br></br>
                 <label>kategoria zgłoszenia:</label>
-                <br /><select onChange={(e) => {
+                <br />
+                <select onChange={(e) => {
                     setFormData({ ...formData, CategoryID: e.target.value })
                 }}>
 
@@ -116,14 +133,11 @@ export const ReportIssueScreen = () => {
                             <option value={place._id}>{place.name}</option>
                         ))
                     }
-                </select><br />
+                </select>
+                <br />
 
 
-                <button className="mainButton trashButton" type="reset" onClick={() => {
-                    setFormData(prevState => {
-                        return { ...prevState, what: '', CategoryID: '', PlaceID: '' }
-                    })
-                }}>Wyczyść</button>        <button className="mainButton" type="submit" onClick={handleSubmitClick}>Wyślij</button>
+                <button className="mainButton trashButton" type="reset" onClick={handleReset}>Wyczyść</button>        <button className="mainButton" type="submit" onClick={handleSubmitClick}>Wyślij</button>
 
             </form>
 
