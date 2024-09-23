@@ -1,0 +1,31 @@
+.notification {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.notification.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.notification-message {
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: #4caf50;
+    transition: width 0.1s linear;
+    border-radius: 2px;
+}
