@@ -1,12 +1,20 @@
 .notification {
-    background-color: #333;
+    backdrop-filter: blur(20px);
     color: white;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(0px 0px 5px #0000005a);
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    z-index: 99999px;
+
+    background-color: var(--navBarColor);
+
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.120);
+    border-top-color: rgba(255, 255, 255, 0.205);
+    border-style: solid;
 }
 
 .notification.fade-in {
@@ -16,7 +24,7 @@
 
 .notification.fade-out {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(100%);
 }
 
 .notification-message {
@@ -24,8 +32,8 @@
 }
 
 .progress-bar {
-    height: 4px;
-    background-color: #4caf50;
+    height: 2px;
+    background-color: #ffffff;
     transition: width 0.1s linear;
-    border-radius: 2px;
+    border-radius: var(--smallCornerSize)
 }

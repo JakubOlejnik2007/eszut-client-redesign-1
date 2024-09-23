@@ -13,6 +13,7 @@ export const AboutScreen = () => {
 
                     Na stronie głównej aplikacji użytkownik może zgłosić usterkę. W tym celu należy uzupełnić formularz, podając dane zgłaszajacego, opis usterki, a następnie wybrać z listy miejsce wystąpienia usterki oraz kategorię. Jeżeli towarzyszą temu odpowiednie okoliczności, można także zmienić priorytet zgłoszenia.
                     <br />            <br />
+                    <hr />
 
 
                     <h3 style={{ textAlign: "center" }}>Autorzy</h3>

@@ -144,6 +144,7 @@ transition: 0.5s;
 .textInput{
   margin-bottom: 12px;
   margin-top: 6px;
+  font-family: 'sfProDisplay';
 
   background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
   border-color: #1d1d1d;
@@ -215,6 +216,7 @@ transition: 0.5s;
 select{
   margin-bottom: 12px;
   margin-top: 6px;
+  font-family: 'sfProDisplay';
 
   background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
   border-color: #1d1d1d;
