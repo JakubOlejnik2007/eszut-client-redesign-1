@@ -5,6 +5,7 @@ import TNavigationItem from "../types/navigationItem.type";
 import EUserRole from "../types/userroles.enum";
 import urls from "./urls";
 import { DziennikLog } from "../pages/dziennikLog";
+import { ReportsScreen } from "../pages/reports";
 
 const Placeholder = () => <div style={{padding: "var(--defaultPadding)"}}>Placeholder</div>;
 
@@ -26,7 +27,7 @@ const NAVIGATION_ITEMS: TNavigationItem[] = [
     minUserRole: EUserRole.GUEST,
   },
   { id: "3", path: urls.client.mainpage, name: "Zaloguj się", element: <LogInScreen />, isMenu: false, minUserRole: EUserRole.GUEST },
-  { id: "4.1", path: urls.client.problems, name: "Zgłoszenia", element: <Placeholder />, isMenu: true, minUserRole: EUserRole.ADMIN },
+  { id: "4.1", path: urls.client.problems, name: "Zgłoszenia", element: <ReportsScreen />, isMenu: true, minUserRole: EUserRole.ADMIN },
   { id: "4.2", path: urls.client.archive, name: "Archiwum", element: <Placeholder />, isMenu: true, minUserRole: EUserRole.ADMIN },
   { id: "4.5", path: urls.client.displaylog, name: "Dziennik LOG", element: <DziennikLog />, isMenu: true, minUserRole: EUserRole.ADMIN }
 ];
