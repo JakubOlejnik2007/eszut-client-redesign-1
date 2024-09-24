@@ -1,25 +1,23 @@
 import { AuthenticationResult, EventType, PublicClientApplication } from "@azure/msal-browser";
-import { createContext, ReactNode, useContext, useEffect, useState } from "react"
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom/dist";
+import axios from "axios";
 import urls from "../utils/urls";
 import EUserRole from "../types/userroles.enum";
-import axios from "axios";
 import config, { msalConfig } from "../utils/config";
 import IUser from "../types/user.interface";
-
-
-
-
 
 const AuthContext = createContext<{
     user: IUser | null,
     login: () => void,
     logout: () => void,
+    acquireToken: () => Promise<string | null>,
     isLoading: boolean
 }>({
     user: null,
     login: () => { },
     logout: () => { },
+    acquireToken: async () => null,
     isLoading: true
 });
 
@@ -72,6 +70,43 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
         setIsLoading(false);
     }, []);
 
+    const acquireToken = async (): Promise<string | null> => {
+        try {
+            const activeAccount = msalInstance.getActiveAccount();
+            if (!activeAccount) {
+                throw new Error("Brak aktywnego konta użytkownika");
+            }
+
+            const tokenResponse = await msalInstance.acquireTokenSilent({
+                scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"],
+                account: activeAccount
+            });
+
+            setUser((prevState) => ({
+                ...prevState,
+                AuthRole: {
+                    ...prevState?.AuthRole,
+                    accessToken: tokenResponse.accessToken,
+                    expiresOn: tokenResponse.expiresOn
+                }
+            }) as IUser);
+
+            sessionStorage.setItem("AuthData", JSON.stringify({
+                ...user,
+                AuthRole: {
+                    ...user?.AuthRole,
+                    accessToken: tokenResponse.accessToken,
+                    expiresOn: tokenResponse.expiresOn
+                }
+            }));
+
+            return tokenResponse.accessToken;
+        } catch (error) {
+            console.error('Błąd podczas odświeżania tokena', error);
+            return null;
+        }
+    };
+
     const login = async () => {
         if (!isInitialized) {
             console.error('MSAL nie jest jeszcze zainicjalizowany');
@@ -87,9 +122,10 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 role: EUserRole.GUEST
             });
 
+            const token = loginResponse.accessToken;
             const response = await axios.get(`${config.backend}${urls.backend.auth.getUserRole}`, {
                 headers: {
-                    Authorization: `Bearer ${loginResponse.accessToken}`,
+                    Authorization: `Bearer ${token}`,
                 },
             });
 
@@ -117,12 +153,22 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
         navigate("/");
     };
 
+    useEffect(() => {
+        const intervalId = setInterval(async () => {
+            console.log("Token refresh")
+            const result = await acquireToken();
+            console.log(result)
+        }, 15 * 60 * 1000);
+
+        return () => clearInterval(intervalId);
+    }, [user]);
+
     if (isLoading) {
         return <div>Loading...</div>;
     }
 
     return (
-        <AuthContext.Provider value={{ user, login, logout, isLoading }}>
+        <AuthContext.Provider value={{ user, login, logout, acquireToken, isLoading }}>
             {children}
         </AuthContext.Provider>
     );
