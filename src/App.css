@@ -50,7 +50,6 @@ body{
   margin-right: 15px;
 }
 
-
 .window{
   background-color: #333333;
   max-width: 1024px;
@@ -207,7 +206,19 @@ transition: 0.5s;
 
 }
 
+.warningButton{
+  background-color: #ffb53532;
+  color: #ffd8bf;
+}
+.warningButton:hover{
+  background-color: rgba(255, 164, 46, 0.392);
+  color: #ffecdb;
 
+}.warningButton:active{
+  background-color: rgba(255, 102, 0, 0.092);
+  color: #ffd9be8d;
+
+}
 
 
 select{
@@ -270,6 +281,7 @@ nav{
 }
 
 .report{
+  flex-direction: column;
   filter: drop-shadow(0px 0px 5px #0000005a);
   background-color: var(--navBarColor);
   border-style: solid;
@@ -284,7 +296,7 @@ nav{
   min-width: 269px;
   max-width: 269px;
   width: 269px;
-  flex-grow: 1;
+  display: flex;
 }
 
 .report:hover{
