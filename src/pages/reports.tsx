@@ -18,7 +18,7 @@ export const ReportsScreen = () => {
     }
 
     return (
-        <div style={{ display: "flex", maxWidth: "365px" }}>
+        <div style={{ display: "flex", maxWidth: "100%", width:"100%", flexWrap: "wrap",}}>
             {
                 unsolvedProblemsQuery.data.map((problem: any) => UnsolvedProblem(problem))
             }
@@ -42,9 +42,9 @@ const UnsolvedProblem = ({ categoryName, placeName, whoName, whoEmail, what }: a
                 {what}
             </div>
             <hr />
-
+            <div className="bottomButtons">
             <button className="mainButton trashButton" type="reset">Wyczyść</button>           <button className="mainButton" type="submit" >Wycieraczka</button>
-
+            </div>
 
         </div>)
 }

@@ -207,10 +207,7 @@ transition: 0.5s;
 
 }
 
-.mainButton:last-child{
-  float: right;
-  margin-right: 67px;
-}
+
 
 
 select{
@@ -284,7 +281,10 @@ nav{
   padding: 20px;
   padding-top: 8px;
   transition: 0.5s;
-  min-width: 270px;
+  min-width: 269px;
+  max-width: 269px;
+  width: 269px;
+  flex-grow: 1;
 }
 
 .report:hover{
@@ -295,6 +295,15 @@ nav{
   background-color: #2d2d2d9d;
 
 }
+
+.bottomButtons{
+  float: right;
+}
+.bottomButtons button
+{
+  margin-left: var(--defaultPadding)
+}
+
 
 a{
   color: rgba(255, 255, 255, 0.806);
