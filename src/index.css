@@ -56,7 +56,12 @@
   padding: 15px;
 }
 
-hr{
-  color: rgba(255, 255, 255, 0.120)
-}
 
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.120);
+  margin: 10px 0;
+  padding: 0;
+}

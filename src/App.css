@@ -284,6 +284,7 @@ nav{
   padding: 20px;
   padding-top: 8px;
   transition: 0.5s;
+  min-width: 270px;
 }
 
 .report:hover{
