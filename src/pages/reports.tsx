@@ -14,7 +14,7 @@ export const ReportsScreen = () => {
     }
 
     if (unsolvedProblemsQuery.isLoading) {
-        return <>You spin me</>
+        return <img src="src/assets/loading.gif" className="spinner"></img>
     }
 
     return (
@@ -69,7 +69,7 @@ const UnsolvedProblem = ({ categoryName, placeName, whoName, whoEmail, what, pri
             }
             <div style={{ flexGrow: 1 }}></div>
             <div className="bottomButtons">
-                <button className="mainButton warningButton" type="reset">Dodaj adnotację</button>           <button className="mainButton" type="submit" >Podejmij problem</button>
+                <button className="mainButton secondaryButton" type="reset">Dodaj adnotację</button>           <button className="mainButton" type="submit" >Podejmij problem</button>
             </div>
 
         </div>)

@@ -72,9 +72,8 @@ export const ReportIssueScreen = () => {
         <div>Error</div>
     )
     if (categoriesQuery.isLoading || placesQuery.isLoading) return (
-        <center>
             <img src="src/assets/loading.gif" className="spinner"></img>
-            </center>
+
     );
 
 
