@@ -62,13 +62,35 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     }, []);
 
     useEffect(() => {
+        if (!isInitialized) {
+            return;
+        }
         const userDataFromSession = sessionStorage.getItem("AuthData");
         if (userDataFromSession) {
             const parsedUserData = JSON.parse(userDataFromSession);
-            setUser(parsedUserData);
+            const tokenExpiry = parsedUserData?.AuthRole?.expiresOn;
+
+            if (tokenExpiry) {
+                const tokenExpirationDate = new Date(tokenExpiry);
+                const currentTime = new Date();
+
+                // Sprawdź, czy token jest przedawniony
+                if (currentTime > tokenExpirationDate) {
+                    console.log("Token przedawniony, próbuję odświeżyć...");
+                    acquireToken().then((newToken) => {
+                        if (newToken) {
+                            console.log("Token został pomyślnie odświeżony.");
+                        } else {
+                            console.error("Nie udało się odświeżyć tokena.");
+                        }
+                    });
+                } else {
+                    console.log("Token jest ważny.");
+                }
+            }
         }
         setIsLoading(false);
-    }, []);
+    }, [isInitialized]);
 
     const acquireToken = async (): Promise<string | null> => {
         try {
