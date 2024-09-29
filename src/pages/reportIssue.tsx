@@ -71,12 +71,10 @@ export const ReportIssueScreen = () => {
     if (categoriesQuery.isError || placesQuery.isError) return (
         <div>Error</div>
     )
-    if (categoriesQuery.isLoading || placesQuery.isLoading) return (
-        <div className="h-100 d-flex align-items-center justify-content-center">
-            <div className="spinner-border" role="status">
-                you spin me
-            </div>
-        </div>
+    if (categoriesQuery.isLoading || placesQuery.isLoading || true) return (
+        <center>
+            <img src="src/assets/loading.gif" className="spinner"></img>
+            </center>
     );
 
 
