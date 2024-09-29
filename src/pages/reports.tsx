@@ -36,7 +36,7 @@ const UnsolvedProblem = ({ categoryName, placeName, whoName, whoEmail, what, pri
 
     return (
         <div className="report">
-                        <div className="clockExpired">⏰</div>
+                        <div className="clockExpired"><img src="src/assets/alarm.png" height="18px"></img></div>
             <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
                 <text style={{ fontSize: "15px", color: "var(--secondaryText)" }}>
                     {daysDiff > 0 ? <> {daysDiff} {daysDiff === 1 ? "dzień" : "dni"}</> : <> Dziś:&nbsp;{reportDate.toTimeString().split(" ")[0]}</>}
