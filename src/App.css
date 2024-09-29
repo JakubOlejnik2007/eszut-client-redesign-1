@@ -6,7 +6,7 @@
   --pageForeBG: #333333; 
   --navBarColor: #1b1a1b9d;
   --mainText: #B8B8B8;
-  --secondaryText: #8F8F8F;
+  --secondaryText: #ffffff6f;
   --buttonText: #ffffffa0;
   --accentColor: #FF7060;
 }
@@ -219,6 +219,19 @@ transition: 0.5s;
 
 }
 
+.secondaryButton{
+  background-color: #ffffff27;
+  color: #ffffffb8;
+}
+.secondaryButton:hover{
+  background-color: #ffffff2b;
+  color: #ffffffe6;
+
+}.secondaryButton:active{
+  background-color: #ffffff19;
+  color: #ffffff4e;
+
+}
 
 select{
   margin-bottom: 12px;
@@ -298,15 +311,29 @@ nav{
   display: flex;
 }
 
+/* alternate version; yellow accent */
+/* .expired{
+  border-color: #ff9a1e;
+  border-top-color: #ffc71e;
+} */
+
 .report:hover{
   filter: drop-shadow(0px 0px 10px #0000009d);
-  transform: scale(102.5%);
+  /* transform: scale(102.5%); */
   transition: 0.5s;
-
   background-color: #2d2d2d9d;
 
 }
-
+.expired{
+  background-color: #7c262622;
+  border-color: #ff381e;
+  border-top-color: #ff4f1e;
+}
+.expired:hover{
+  background-color: #7c262649;
+  border-color: #ff531e;
+  border-top-color: #ff691e;
+}
 .bottomButtons{
   float: right;
 }
@@ -321,7 +348,7 @@ a{
   text-decoration: none;
 }
 a:hover{
-  color: rgb(255, 181, 181);
+  color: rgb(255, 201, 181);
 }
 
 .spinner{
@@ -331,3 +358,4 @@ margin-bottom: 120px;
   width: 20px;
   height: 20px;
 }
+
