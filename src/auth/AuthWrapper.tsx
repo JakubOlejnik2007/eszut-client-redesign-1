@@ -62,35 +62,42 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     }, []);
 
     useEffect(() => {
-        if (!isInitialized) {
-            return;
-        }
         const userDataFromSession = sessionStorage.getItem("AuthData");
         if (userDataFromSession) {
             const parsedUserData = JSON.parse(userDataFromSession);
-            const tokenExpiry = parsedUserData?.AuthRole?.expiresOn;
+            const accounts = msalInstance.getAllAccounts();
 
-            if (tokenExpiry) {
-                const tokenExpirationDate = new Date(tokenExpiry);
-                const currentTime = new Date();
+            if (accounts.length > 0) {
+                // Ustaw aktywne konto w MSAL
+                msalInstance.setActiveAccount(accounts[0]);
 
-                // Sprawdź, czy token jest przedawniony
-                if (currentTime > tokenExpirationDate) {
-                    console.log("Token przedawniony, próbuję odświeżyć...");
-                    acquireToken().then((newToken) => {
-                        if (newToken) {
-                            console.log("Token został pomyślnie odświeżony.");
-                        } else {
-                            console.error("Nie udało się odświeżyć tokena.");
-                        }
-                    });
-                } else {
-                    console.log("Token jest ważny.");
+                // Sprawdź, czy token jest nadal ważny
+                const tokenExpiry = parsedUserData?.AuthRole?.expiresOn;
+                if (tokenExpiry) {
+                    const tokenExpirationDate = new Date(tokenExpiry);
+                    const currentTime = new Date();
+
+                    if (currentTime > tokenExpirationDate) {
+                        // Token jest przeterminowany, trzeba go odświeżyć
+                        acquireToken().then((newToken) => {
+                            if (newToken) {
+                                console.log("Token został pomyślnie odświeżony.");
+                            } else {
+                                console.error("Nie udało się odświeżyć tokena.");
+                                logout();
+                            }
+                        });
+                    } else {
+                        // Token jest ważny, ustaw użytkownika
+                        setUser(parsedUserData);
+                    }
                 }
             }
+        } else {
+            setIsLoading(false);
         }
-        setIsLoading(false);
     }, [isInitialized]);
+
 
     const acquireToken = async (): Promise<string | null> => {
         try {
@@ -104,23 +111,20 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 account: activeAccount
             });
 
-            setUser((prevState) => ({
-                ...prevState,
-                AuthRole: {
-                    ...prevState?.AuthRole,
-                    accessToken: tokenResponse.accessToken,
-                    expiresOn: tokenResponse.expiresOn
-                }
-            }) as IUser);
-
-            sessionStorage.setItem("AuthData", JSON.stringify({
+            // Zaktualizuj stan użytkownika w jednym miejscu i dopiero po tym
+            const updatedUser = {
                 ...user,
                 AuthRole: {
                     ...user?.AuthRole,
                     accessToken: tokenResponse.accessToken,
                     expiresOn: tokenResponse.expiresOn
                 }
-            }));
+            };
+
+            setUser(updatedUser as IUser);
+
+            // Użyj zaktualizowanego użytkownika do zapisania w sessionStorage
+            sessionStorage.setItem("AuthData", JSON.stringify(updatedUser));
 
             return tokenResponse.accessToken;
         } catch (error) {
@@ -128,6 +132,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
             return null;
         }
     };
+
 
     const login = async () => {
         if (!isInitialized) {
@@ -174,16 +179,6 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
         await msalInstance.logoutPopup();
         navigate("/");
     };
-
-    useEffect(() => {
-        const intervalId = setInterval(async () => {
-            console.log("Token refresh")
-            const result = await acquireToken();
-            console.log(result)
-        }, 15 * 60 * 1000);
-
-        return () => clearInterval(intervalId);
-    }, [user]);
 
     if (isLoading) {
         return <div>Loading...</div>;
