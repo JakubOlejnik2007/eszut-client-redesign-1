@@ -36,6 +36,7 @@ const UnsolvedProblem = ({ categoryName, placeName, whoName, whoEmail, what, pri
 
     return (
         <div className="report">
+                        <div className="clockExpired">⏰</div>
             <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
                 <text style={{ fontSize: "15px", color: "var(--secondaryText)" }}>
                     {daysDiff > 0 ? <> {daysDiff} {daysDiff === 1 ? "dzień" : "dni"}</> : <> Dziś:&nbsp;{reportDate.toTimeString().split(" ")[0]}</>}
@@ -46,6 +47,7 @@ const UnsolvedProblem = ({ categoryName, placeName, whoName, whoEmail, what, pri
             <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>Sala: {placeName} <br />
                 {/* <a href={`mailto:${whoEmail}?Subject=Wiadomość w sprawie twojego zgłoszenia&body=Wiadomość`}>{whoName} ({whoEmail})</a> */}
                 <a href={`mailto:${whoEmail}?Subject=Zgłoszenie z dnia: ${reportDate.toLocaleDateString("pl")}&body======={Dane zgłoszenia}======%0AZgłoszenie z dnia ${reportDate.toLocaleString("pl")}.%0AZgłaszajcy: ${whoName} (${whoEmail}).%0ADane zgłoszenia:%0A[${priority}] (${placeName}, ${categoryName})%0AOpis: "${what}"%0A${whoDealsName !== "" ? `%0A%0AAdministrator odpowiedzialny: ${whoDealsName} (${whoDealsEmail})%0A` : ""}======{Dane zgłoszenia}======%0A%0A`}>{whoName} ✉</a>
+
 
             </div>
             <hr />
