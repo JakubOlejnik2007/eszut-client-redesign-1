@@ -14,8 +14,10 @@ const NotificationsWrapper = ({ children }: { children: ReactNode }) => {
     const [notifData, setNotifData] = useState<NotifData | null>(null);
     const [show, setShow] = useState(false);
     const [progress, setProgress] = useState(100);
+    let previousInterval: number;
 
     const displayNotif = (data: NotifData) => {
+        clearInterval(previousInterval)
         setNotifData(data);
         setShow(true);
         setProgress(100);
@@ -26,17 +28,21 @@ const NotificationsWrapper = ({ children }: { children: ReactNode }) => {
             setProgress((prev) => prev - (100 / (duration / 100)));
         }, 100);
 
+
+
         setTimeout(() => {
             setShow(false);
             setTimeout(() => setNotifData(null), 500);
             clearInterval(interval);
         }, duration);
+
+        previousInterval = interval;
     };
 
     return (
         <NotifContext.Provider value={{ displayNotif }}>
             {notifData && (
-                <div className={`notification ${show ? 'fade-in' : 'fade-out'}`} style={{ position: 'fixed', left: 10, bottom: 10 }}>
+                <div className={`notification ${show ? 'fade-in' : 'fade-out'}`} style={{ position: 'fixed', left: 10, bottom: 10, zIndex: 100 }}>
                     <div className="notification-message">
                         {notifData.message}
                     </div>

@@ -1,6 +1,8 @@
 import { useQuery } from "react-query";
-import { getUnsolvedProblems } from "../service/apiFetchFunctions";
+import { getUnsolvedProblems, putTakeOnProblem } from "../service/apiFetchFunctions";
 import { AuthData } from "../auth/AuthWrapper";
+import { ENotifType } from "../types/notification.interface";
+import { Notif } from "../components/notificationsWrapper";
 
 export const ReportsScreen = () => {
 
@@ -17,12 +19,17 @@ export const ReportsScreen = () => {
         return <img src="src/assets/loading.gif" className="spinner"></img>
     }
 
+    const refreshQueries = () => {
+        unsolvedProblemsQuery.refetch();
+    }
+
     return (
         <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
             {//<UnsolvedProblem categoryName="problem psychiczny" placeName="10" whoName="cameraman" whoEmail="cameraman@ep09.net" when={Date.now()} />
             }
             {
-                unsolvedProblemsQuery.data.map((problem: any) => UnsolvedProblem(problem))
+                unsolvedProblemsQuery.data.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
+
             }
 
 
@@ -30,7 +37,13 @@ export const ReportsScreen = () => {
     )
 }
 
-const UnsolvedProblem = ({ categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail }: any) => {
+const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail }: any, refreshQuery: () => void) => {
+
+    console.log({ _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail })
+
+    const { user } = AuthData();
+    const { displayNotif } = Notif();
+
     const reportDate = new Date(when);
 
     const dayToDeadline = (reportDate: Date, priority: number) => {
@@ -38,6 +51,23 @@ const UnsolvedProblem = ({ categoryName, placeName, whoName, whoEmail, what, pri
     }
 
     const daysLeft = dayToDeadline(reportDate, priority);
+
+
+    const handleTakeOnProblem = async (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+
+        try {
+            const response = await putTakeOnProblem(user?.AuthRole.accessToken as string, _id)
+            console.log(response)
+            if (response !== "OK") throw new Error();
+            displayNotif({ message: "Przypisano problem", type: ENotifType.SUCCESS });
+            refreshQuery();
+        } catch (e) {
+            console.log(e);
+            displayNotif({ message: "Akutalizcja problemu nie powiodła się", type: ENotifType.ERROR });
+        }
+
+    }
 
     return (
         <div className={`report ${daysLeft <= 0 ? "expired" : ""}`}>
@@ -82,7 +112,9 @@ const UnsolvedProblem = ({ categoryName, placeName, whoName, whoEmail, what, pri
             }
             <div style={{ flexGrow: 1 }}></div>
             <div className="bottomButtons">
-                <button className="mainButton secondaryButton" type="reset">Dodaj adnotację</button>           <button className="mainButton" type="submit" >Podejmij problem</button>
+                <button className="mainButton secondaryButton" type="reset">Dodaj adnotację</button>
+                <button className="mainButton" type="submit"
+                    onClick={handleTakeOnProblem}>Podejmij problem</button>
             </div>
 
         </div>)

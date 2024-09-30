@@ -14,3 +14,11 @@ export const insertNewProblem = async (newProblem: IInsertNewProblem, AuthToken:
 
 export const getUnsolvedProblems = async (AuthToken: string) =>
     await createApiRequest("GET", `${config.backend}${urls.backend.problem.getUnsolvedProblems}`, {}, AuthToken);
+
+export const putTakeOnProblem = async (AuthToken: string, ProblemID: string) =>
+    await createApiRequest(
+        "PUT",
+        `${config.backend}${urls.backend.problem.takeOnProblem}`,
+        { ProblemID },
+        AuthToken
+    );
