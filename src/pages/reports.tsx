@@ -45,10 +45,10 @@ const UnsolvedProblem = ({ categoryName, placeName, whoName, whoEmail, what, pri
 
     return (
         <div className="report expired">
-                        <div className="clockExpired"><img src="src/assets/alarm.png" height="18px"></img></div>
+            <div className="clockExpired"><img src="src/assets/alarm.png" height="18px"></img></div>
             <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
-                <text style={{ fontSize: "15px", color: "var(--secondaryText)" }}>
-                    {" "}{daysLeft}&nbsp;dni
+                <br /><text style={{ fontSize: "15px", color: "var(--secondaryText)" }}>
+                    {"Czas na rozwiązanie: "}{daysLeft}&nbsp;dni
 
 
                 </text>
