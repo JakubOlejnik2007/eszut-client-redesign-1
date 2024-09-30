@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getUnsolvedProblems, putTakeOnProblem } from "../service/apiFetchFunctions";
+import { getUnsolvedProblems, putRejectProblem, putTakeOnProblem } from "../service/apiFetchFunctions";
 import { AuthData } from "../auth/AuthWrapper";
 import { ENotifType } from "../types/notification.interface";
 import { Notif } from "../components/notificationsWrapper";
@@ -107,6 +107,22 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
 
     }
 
+    const handleRejectProblem = async (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+
+        try {
+            const response = await putRejectProblem(user?.AuthRole.accessToken as string, _id)
+            console.log(response)
+            if (response !== "OK") throw new Error();
+            displayNotif({ message: "Zrezygnowano z problemu", type: ENotifType.SUCCESS });
+            refreshQuery();
+        } catch (e) {
+            console.log(e);
+            displayNotif({ message: "Akutalizcja problemu nie powiodła się", type: ENotifType.ERROR });
+        }
+
+    }
+
     return (
         <div className={`report ${daysLeft <= 0 ? "expired" : ""}`}>
             {priority}
@@ -156,7 +172,7 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
                         <button className="mainButton" type="submit" onClick={handleTakeOnProblem}>
                             Podejmij problem
                         </button> :
-                        <button className="mainButton" type="submit" onClick={handleTakeOnProblem}>
+                        <button className="mainButton" type="submit" onClick={handleRejectProblem}>
                             Zrezygnuj
                         </button>
                 }

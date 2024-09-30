@@ -22,3 +22,6 @@ export const putTakeOnProblem = async (AuthToken: string, ProblemID: string) =>
         { ProblemID },
         AuthToken
     );
+
+export const putRejectProblem = async (AuthToken: string, ProblemID: string) =>
+    await createApiRequest("PUT", `${config.backend}${urls.backend.problem.rejectProblem}`, { ProblemID }, AuthToken);
