@@ -106,12 +106,49 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 throw new Error("Brak aktywnego konta użytkownika");
             }
 
+            // Sprawdzenie, czy token już istnieje
+            const currentUser = user;
+            const tokenExpiry = currentUser?.AuthRole?.expiresOn;
+            const currentTime = new Date();
+
+            // Jeśli token istnieje i jest przeterminowany, odśwież token
+            if (tokenExpiry) {
+                const tokenExpirationDate = new Date(tokenExpiry);
+                if (currentTime > tokenExpirationDate) {
+                    console.log('Token jest przeterminowany, odświeżanie...');
+                    // Próbujemy odświeżyć token
+                    const refreshedTokenResponse = await msalInstance.acquireTokenSilent({
+                        scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"],
+                        account: activeAccount
+                    });
+
+                    const updatedUser = {
+                        ...user,
+                        AuthRole: {
+                            ...user?.AuthRole,
+                            accessToken: refreshedTokenResponse.accessToken,
+                            expiresOn: refreshedTokenResponse.expiresOn
+                        }
+                    };
+
+                    setUser(updatedUser as IUser);
+                    sessionStorage.setItem("AuthData", JSON.stringify(updatedUser));
+
+                    return refreshedTokenResponse.accessToken;
+                }
+            }
+
+            // Jeśli token jeszcze jest ważny, zwróć istniejący
+            if (currentUser?.AuthRole?.accessToken) {
+                return currentUser.AuthRole.accessToken;
+            }
+
+            // Jeśli nie ma tokena lub token wygasł, spróbuj pozyskać nowy token
             const tokenResponse = await msalInstance.acquireTokenSilent({
                 scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"],
                 account: activeAccount
             });
 
-            // Zaktualizuj stan użytkownika w jednym miejscu i dopiero po tym
             const updatedUser = {
                 ...user,
                 AuthRole: {
@@ -122,16 +159,16 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
             };
 
             setUser(updatedUser as IUser);
-
-            // Użyj zaktualizowanego użytkownika do zapisania w sessionStorage
             sessionStorage.setItem("AuthData", JSON.stringify(updatedUser));
 
             return tokenResponse.accessToken;
+
         } catch (error) {
             console.error('Błąd podczas odświeżania tokena', error);
             return null;
         }
     };
+
 
 
     const login = async () => {
