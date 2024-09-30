@@ -312,7 +312,7 @@ nav{
 }
 
 /* alternate version; yellow accent */
-/* .expired{
+/* .expired{                                    
   border-color: #ff9a1e;
   border-top-color: #ffc71e;
 } */
@@ -324,6 +324,8 @@ nav{
   background-color: #2d2d2d9d;
 
 }
+
+
 .expired{
   background-color: #7c262622;
   border-color: #ff381e;
@@ -333,7 +335,20 @@ nav{
   background-color: #7c262649;
   border-color: #ff531e;
   border-top-color: #ff691e;
+  
 }
+/* 
+.expired{
+  
+  border-color: #ff381e;
+  border-top-color: #ff4f1e;
+  
+}
+.expired:hover{
+  border-color: #ff531e;
+  border-top-color: #ff691e;
+} */
+
 .bottomButtons{
   float: right;
 }
@@ -349,6 +364,14 @@ a{
 }
 a:hover{
   color: rgb(255, 201, 181);
+  
+}
+
+.clockExpired{
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  animation: shake 0.25s infinite;
 }
 
 .spinner{
