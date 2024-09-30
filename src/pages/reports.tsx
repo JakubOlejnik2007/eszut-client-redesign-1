@@ -32,23 +32,24 @@ export const ReportsScreen = () => {
 
 const UnsolvedProblem = ({ categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail }: any) => {
     const reportDate = new Date(when);
-    const currDate = new Date(Date.now());
 
     const dayToDeadline = (reportDate: Date, priority: number) => {
-        return (((reportDate.getTime() + 43200000 * 2 ** (priority - 1)) - (new Date(Date.now()).getTime())) / (1000 * 60 * 60 * 24)).toFixed(1);
+        return parseFloat((((reportDate.getTime() + 43200000 * 2 ** (priority - 1)) - (new Date(Date.now()).getTime())) / (1000 * 60 * 60 * 24)).toFixed(1));
     }
 
     const daysLeft = dayToDeadline(reportDate, priority);
 
-    console.log(reportDate.getTime() + 43200000 * 2 ** (priority - 1))
-    console.log(dayToDeadline(reportDate, priority));
-
     return (
-        <div className="report expired">
-            <div className="clockExpired"><img src="src/assets/alarm.png" height="18px"></img></div>
+        <div className={`report ${daysLeft <= 0 ? "expired" : ""}`}>
+            {priority}
+            {daysLeft <= 0 ? <div className="clockExpired"><img src="src/assets/alarm.png" height="18px"></img></div> : ""}
             <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
                 <br /><text style={{ fontSize: "15px", color: "var(--secondaryText)" }}>
-                    {"Czas na rozwiązanie: "}{daysLeft}&nbsp;dni
+                    {
+                        daysLeft > 0 ? <>Czas na rozwiązanie: {daysLeft}&nbsp;dni</> : <>Zaległe przez: {-daysLeft}&nbsp;dni</>
+                    }
+
+
 
 
                 </text>
