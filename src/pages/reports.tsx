@@ -3,12 +3,42 @@ import { getUnsolvedProblems, putTakeOnProblem } from "../service/apiFetchFuncti
 import { AuthData } from "../auth/AuthWrapper";
 import { ENotifType } from "../types/notification.interface";
 import { Notif } from "../components/notificationsWrapper";
+import { useEffect, useState } from "react";
 
 export const ReportsScreen = () => {
 
     const { user } = AuthData();
 
+    const [underYou, setUnderYou] = useState<any[]>([]);
+    const [underRealization, setUnderRealization] = useState<any[]>([]);
+    const [other, setOther] = useState<any[]>([]);
+
     const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(user?.AuthRole.accessToken as string));
+
+    const refreshQueries = () => {
+        unsolvedProblemsQuery.refetch();
+    }
+
+    useEffect(() => {
+        if (unsolvedProblemsQuery.isSuccess) {
+            const underYouProblems: any[] = [];
+            const underRealizationProblems: any[] = [];
+            const otherProblems: any[] = [];
+            unsolvedProblemsQuery.data.forEach((element: any) => {
+                if (element.isUnderRealization && element.whoDealsEmail && user?.AuthRole.account.username === element.whoDealsEmail) {
+                    underYouProblems.push(element);
+                } else if (element.isUnderRealization) {
+                    underRealizationProblems.push(element);
+                } else {
+                    otherProblems.push(element);
+                }
+            });
+
+            setUnderYou(underYouProblems);
+            setUnderRealization(underRealizationProblems);
+            setOther(otherProblems);
+        }
+    }, [unsolvedProblemsQuery.isSuccess, unsolvedProblemsQuery.data])
 
     if (unsolvedProblemsQuery.isError) {
         console.log(unsolvedProblemsQuery.error)
@@ -19,30 +49,38 @@ export const ReportsScreen = () => {
         return <img src="src/assets/loading.gif" className="spinner"></img>
     }
 
-    const refreshQueries = () => {
-        unsolvedProblemsQuery.refetch();
-    }
+
+
+
 
     return (
-        <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
-            {//<UnsolvedProblem categoryName="problem psychiczny" placeName="10" whoName="cameraman" whoEmail="cameraman@ep09.net" when={Date.now()} />
-            }
-            {
-                unsolvedProblemsQuery.data.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
-
-            }
-
-
+        <div>
+            <h2>Twoje</h2>
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
+                {
+                    underYou.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
+                }
+            </div>
+            <h2>Realizowane</h2>
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
+                {
+                    underRealization.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
+                }
+            </div>
+            <h2>Inne</h2>
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
+                {
+                    other.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
+                }
+            </div>
         </div>
     )
 }
 
 const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail }: any, refreshQuery: () => void) => {
-
-    console.log({ _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail })
-
     const { user } = AuthData();
     const { displayNotif } = Notif();
+
 
     const reportDate = new Date(when);
 
@@ -113,8 +151,15 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
             <div style={{ flexGrow: 1 }}></div>
             <div className="bottomButtons">
                 <button className="mainButton secondaryButton" type="reset">Dodaj adnotację</button>
-                <button className="mainButton" type="submit"
-                    onClick={handleTakeOnProblem}>Podejmij problem</button>
+                {
+                    whoDealsEmail !== user?.AuthRole.account.username as string ?
+                        <button className="mainButton" type="submit" onClick={handleTakeOnProblem}>
+                            Podejmij problem
+                        </button> :
+                        <button className="mainButton" type="submit" onClick={handleTakeOnProblem}>
+                            Zrezygnuj
+                        </button>
+                }
             </div>
 
         </div>)
