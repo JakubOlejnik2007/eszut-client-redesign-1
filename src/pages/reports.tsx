@@ -61,23 +61,25 @@ export const ReportsScreen = () => {
                     underYou.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
                 }
             </div>
-            <h2>Realizowane</h2>
-            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
-                {
-                    underRealization.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
-                }
-            </div>
+
             <h2>Inne</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
                     other.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
                 }
             </div>
+
+            <h2>Realizowane</h2>
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
+                {
+                    underRealization.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
+                }
+            </div>
         </div>
     )
 }
 
-const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail }: any, refreshQuery: () => void) => {
+const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail, isUnderRealization }: any, refreshQuery: () => void) => {
     const { user } = AuthData();
     const { displayNotif } = Notif();
 
@@ -151,7 +153,7 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
             </div>
             <hr />
             {
-                whoDealsName && <>
+                isUnderRealization && <>
                     <div>
                         <h2 style={{ fontSize: "15px", textAlign: "left" }}>
                             Rozwiązywany
@@ -168,13 +170,19 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
             <div className="bottomButtons">
                 <button className="mainButton secondaryButton" type="reset">Dodaj adnotację</button>
                 {
-                    whoDealsEmail !== user?.AuthRole.account.username as string ?
+                    isUnderRealization ?
+                        <>
+                            {
+                                whoDealsEmail === user?.AuthRole.account.username as string ?
+                                    <button className="mainButton" type="submit" onClick={handleRejectProblem}>
+                                        Zrezygnuj
+                                    </button> : <></>
+                            }
+                        </> :
                         <button className="mainButton" type="submit" onClick={handleTakeOnProblem}>
                             Podejmij problem
-                        </button> :
-                        <button className="mainButton" type="submit" onClick={handleRejectProblem}>
-                            Zrezygnuj
                         </button>
+
                 }
             </div>
 
