@@ -55,21 +55,21 @@ export const ReportsScreen = () => {
 
     return (
         <div>
-            <h2>Twoje</h2>
+            <h2>Realizowane przez ciebie</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
                     underYou.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
                 }
             </div>
-
-            <h2>Inne</h2>
+            <hr></hr>
+            <h2>Niepodjęte</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
                     other.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
                 }
             </div>
-
-            <h2>Realizowane</h2>
+            <hr></hr>
+            <h2>Realizowane przez innych administratorów</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
                     underRealization.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))

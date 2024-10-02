@@ -319,7 +319,7 @@ nav{
 
 .report:hover{
   filter: drop-shadow(0px 0px 10px #0000009d);
-  /* transform: scale(102.5%); */
+  transform: scale(102.5%);
   transition: 0.5s;
   background-color: #2d2d2d9d;
 
@@ -373,7 +373,9 @@ a:hover{
   right: 20px;
   animation: shake 0.25s infinite;
 }
-
+.shake{
+  animation: shake 0.25s infinite;
+}
 .spinner{
 
 margin-top: 120px;
