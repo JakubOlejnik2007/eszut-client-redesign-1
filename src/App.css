@@ -327,14 +327,14 @@ nav{
 
 
  .expired{
-  background-color: #7c262638;
-  border-color: #ff7f8a44;
+  background-color: #291d1f;
+  border-color: #ffa4ac44;
   border-top-color: #ff4f1e00;
 }
 .expired:hover{
-  background-color: #7c262649;
-  border-color: #ff53614d;
-  border-top-color: #ff691e;
+  background-color: #6f001336;
+  border-color: #ffa4ac44;
+  border-top-color: #ff4f1e00;
 }  
 
 .reportTitle{
@@ -351,15 +351,15 @@ nav{
 
 .waga1{
   background-color: rgba(255, 0, 0, 0.133);
-  border-color: #885151;
+  border-color: #885151ab;
 }
 .waga2{
   background-color: rgba(255, 0, 132, 0.071);
-  border-color: #88516e;
+  border-color: #88516e9f;
 }
 .waga3{
   background-color: rgba(144, 0, 255, 0.071);
-  border-color: #6e5188;
+  border-color: #6e5188ab;
 } 
 
 
