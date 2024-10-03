@@ -127,7 +127,10 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
 
     return (
         <div className={`report ${daysLeft <= 0 ? "expired" : ""}`}>
-            {priority}
+            {/* {priority} */}
+
+            <div className={`waga${priority} reportTitle`}>
+            </div>
             {daysLeft <= 0 ? <div className="clockExpired"><img src="src/assets/alarm.png" height="18px"></img></div> : ""}
             <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
                 <br /><text style={{ fontSize: "15px", color: "var(--secondaryText)" }}>

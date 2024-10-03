@@ -326,28 +326,43 @@ nav{
 }
 
 
-.expired{
-  background-color: #7c262622;
-  border-color: #ff381e;
-  border-top-color: #ff4f1e;
+ .expired{
+  background-color: #56565638;
+  border-color: #ffffff44;
+  border-top-color: #ff4f1e00;
 }
 .expired:hover{
   background-color: #7c262649;
-  border-color: #ff531e;
+  border-color: #ff53614d;
   border-top-color: #ff691e;
-  
+}  
+
+.reportTitle{
+  margin: -21px;
+  margin-top: -9px;
+  margin-bottom: 0px;
+  border-radius: var(--smallCornerSize);
+  border-style: solid;
+  border-width: 1px;
+  height: 20px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
-/* 
-.expired{
-  
-  border-color: #ff381e;
-  border-top-color: #ff4f1e;
-  
+
+.waga1{
+  background-color: rgb(69, 37, 37);
+  border-color: #885151;
 }
-.expired:hover{
-  border-color: #ff531e;
-  border-top-color: #ff691e;
-} */
+.waga2{
+  background-color: rgb(71, 42, 57);
+  border-color: #88516e;
+}
+.waga3{
+  background-color: rgb(57, 39, 70);
+  border-color: #6e5188;
+} 
+
+
 
 .bottomButtons{
   float: right;
@@ -369,7 +384,7 @@ a:hover{
 
 .clockExpired{
   position: absolute;
-  top: 25px;
+  top: 38px;
   right: 20px;
   animation: shake 0.25s infinite;
 }
