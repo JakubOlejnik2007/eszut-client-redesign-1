@@ -327,8 +327,8 @@ nav{
 
 
  .expired{
-  background-color: #56565638;
-  border-color: #ffffff44;
+  background-color: #7c262638;
+  border-color: #ff7f8a44;
   border-top-color: #ff4f1e00;
 }
 .expired:hover{
@@ -350,15 +350,15 @@ nav{
 }
 
 .waga1{
-  background-color: rgb(69, 37, 37);
+  background-color: rgba(255, 0, 0, 0.133);
   border-color: #885151;
 }
 .waga2{
-  background-color: rgb(71, 42, 57);
+  background-color: rgba(255, 0, 132, 0.071);
   border-color: #88516e;
 }
 .waga3{
-  background-color: rgb(57, 39, 70);
+  background-color: rgba(144, 0, 255, 0.071);
   border-color: #6e5188;
 } 
 
