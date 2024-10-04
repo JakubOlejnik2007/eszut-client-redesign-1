@@ -55,7 +55,7 @@ export const ReportIssueScreen = () => {
         const response = await insertNewProblem(formData, user?.AuthRole.accessToken as string)
         console.log(response)
         if (response === "OK") {
-            console.log("Problem registrated");
+            console.log("Problem registered");
             displayNotif({ message: "Problem został zarejestrowany", type: ENotifType.SUCCESS });
             handleReset(e)
         }
@@ -86,6 +86,8 @@ export const ReportIssueScreen = () => {
                 <div style={{ color: '#8F8F8F', marginRight: '24px', marginLeft: '24px' }}>Formularz znajdujący się na tej stronie umożliwia zgłoszenie wystąpienia usterki związanej z komputerem, dziennikiem, rzutnikiem itp.
                     W tym celu należy wypełnić formularz, podając dane na temat osoby, która zgłasza wystąpeinie problemu, wskazać lokalizację usterki (numer sali),
                     a także pozostawić zwięzły opis tego co się stało oraz wybrać jedną z dostępnych kategorii zgłoszenia. Do zgłoszenia jest przypisywany domyślny priorytet, który wynika z kategorii.
+                
+                    <div style={{position: 'absolute', bottom: '25px'}} className="creditsText">Design / UI - Mateusz Stoch <br/>Funkcjonalność aplikacji - Jakub Olejnik</div>
                 </div>
             </div>
             <form style={{ backgroundColor: '', width: '65%', marginLeft: '48px', }} className="content-padding text-justify"
