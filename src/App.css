@@ -399,3 +399,11 @@ margin-bottom: 120px;
   height: 20px;
 }
 
+.logElement{
+background-color: #1D1D1D;
+height: 25px;
+display: flex;
+}
+.logElement:nth-child(even) {
+background-color: #222222;
+}

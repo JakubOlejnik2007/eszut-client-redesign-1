@@ -1,20 +1,47 @@
 export const DziennikLog = () => {
     return(
         <>
-        <center>
-        <div style={{backgroundColor: '', width: '75%'}}className="content-padding text-justify">
+        <div style={{backgroundColor: '', width: '100%', margin: '-15px'}}className="content-padding text-justify">
             <h3 style={{textAlign: "center"}}>Dzisiaj</h3>
-            <div style={{width:'1000px'}}></div>
 
-                Dziennik log sigma monolog
+
+
+            <LogElement/>
+            <LogElement/>
+            <LogElement/>
+            <LogElement/>
+
+
             <br/>
             <br/>
 
 
         </div>
-        </center>
         </>
     )
 }
 
 
+export const LogElement = () => {
+    return(
+
+
+
+            <div className="logElement"> 
+
+            <div style={{backgroundColor: '', width: '74%', height: '25px'}}>ERROR: Aziur nie działa</div> 
+
+            <div style={{borderColor: '#191919', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid'}}></div>
+            <div style={{borderColor: '', width: '0.5%', height: '25px'}}></div>
+
+            <div style={{backgroundColor: '', width: '25%', height: '25px'}}>10:25 10.25.2025</div>
+
+
+            </div>
+        )
+}
+
+
+  // border-right-width: 1px;
+  // border-right-style: solid;
+  // border-color: var(--navBarColor);

@@ -80,6 +80,7 @@ export const ReportsScreen = () => {
 }
 
 const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail, isUnderRealization }: any, refreshQuery: () => void) => {
+
     const { user } = AuthData();
     const { displayNotif } = Notif();
 
@@ -137,10 +138,6 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
                     {
                         daysLeft > 0 ? <>Czas na rozwiązanie: {daysLeft}&nbsp;dni</> : <>Zaległe przez: {-daysLeft}&nbsp;dni</>
                     }
-
-
-
-
                 </text>
             </h1>
             <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>Sala: {placeName} <br />
@@ -163,7 +160,6 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
                         </h2>
                         <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>
                             {whoDealsName} <br />({whoDealsEmail})
-
                         </div>
                     </div>
                     <hr />
@@ -190,6 +186,9 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
             </div>
 
         </div>)
+
+
+
 }
 
 
