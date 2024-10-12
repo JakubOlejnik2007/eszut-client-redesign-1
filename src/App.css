@@ -401,9 +401,13 @@ margin-bottom: 120px;
 
 .logElement{
 background-color: #1D1D1D;
-height: 25px;
+height: 30px;
+line-height: 30px;
 display: flex;
+color: #787878;
 }
+
 .logElement:nth-child(even) {
 background-color: #222222;
 }
+
