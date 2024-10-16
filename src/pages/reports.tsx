@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getUnsolvedProblems} from "../service/apiFetchFunctions";
+import { getUnsolvedProblems } from "../service/apiFetchFunctions";
 import { AuthData } from "../auth/AuthWrapper";
 import { useEffect, useState } from "react";
 import UnsolvedProblem from "../components/UnsolvedProblem";
@@ -58,21 +58,24 @@ export const ReportsScreen = () => {
             <h2>Realizowane przez ciebie</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
-                    underYou.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
+                    underYou.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
+                    )
                 }
             </div>
             <hr></hr>
             <h2>Niepodjęte</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
-                    other.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
+                    other.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
+                    )
                 }
             </div>
             <hr></hr>
             <h2>Realizowane przez innych administratorów</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
-                    underRealization.map((problem: any) => UnsolvedProblem({ ...problem }, refreshQueries))
+                    underRealization.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
+                    )
                 }
             </div>
         </div>
