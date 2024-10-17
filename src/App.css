@@ -1,9 +1,9 @@
-:root{
+:root {
   --cornerSize: 8px;
   --smallCornerSize: 4px;
   --defaultPadding: 8px;
   --pageBackBG: #333333;
-  --pageForeBG: #333333; 
+  --pageForeBG: #333333;
   --navBarColor: #1b1a1b9d;
   --mainText: #B8B8B8;
   --secondaryText: #ffffff6f;
@@ -13,7 +13,7 @@
 
 
 
-body{
+body {
   color: var(--mainText);
   background-color: #333333;
   margin: 0px;
@@ -24,7 +24,7 @@ body{
   background-size: cover;  */
 }
 
-.navButton{
+.navButton {
   color: var(--buttonText);
   background-color: #ffffff00;
   border-style: none;
@@ -36,26 +36,29 @@ body{
   transition: 0.2s;
 
 }
-.navButton:hover{
+
+.navButton:hover {
   background-color: #ffffff0d;
   transition: 0.0s;
 
 }
-.navButton:active{
-  background-color: #ff706028;  
+
+.navButton:active {
+  background-color: #ff706028;
   color: var(--accentColor);
 }
-.navButton:last-child{
-  margin-left: auto;  
+
+.navButton:last-child {
+  margin-left: auto;
   margin-right: 15px;
 }
 
-.window{
+.window {
   background-color: #333333;
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
-  margin-top:100px ;
+  margin-top: 100px;
   filter: drop-shadow(0px 0px 10px #0000005a);
   border-radius: var(--cornerSize);
   border-width: 1px;
@@ -64,19 +67,19 @@ body{
   border-style: solid;
 }
 
-.titleBar{
+.titleBar {
   background-color: #333333;
   padding: var(--defaultPadding);
   border-top-left-radius: var(--cornerSize);
   border-top-right-radius: var(--cornerSize);
-  background: linear-gradient(180deg, rgba(59,59,59,1) 19%, rgba(51,51,51,1) 100%, rgba(35,35,35,1) 105%); 
+  background: linear-gradient(180deg, rgba(59, 59, 59, 1) 19%, rgba(51, 51, 51, 1) 100%, rgba(35, 35, 35, 1) 105%);
   border-width: 1px;
   border-color: #1d1d1d;
   border-bottom-style: solid;
   font-weight: bold;
 }
 
-.windowContent{
+.windowContent {
 
   min-height: 64px;
   background-color: #2b2b2b;
@@ -95,32 +98,32 @@ body{
 
 
 
-button{
+button {
   border-style: solid;
 }
 
-.microsoftLoginButton{
-padding-right: 24px;
-padding-left: 24px;
-height: 32px;
-background-color: #1d1d1d;
-border-color: #141414;
-border-style: none;
-border-radius: 200px;
-color: var(--buttonText);
-filter: drop-shadow(0px 0px 5px #0000005a);
-margin-top: 12px;
-margin-bottom: 16px;
-transition: 0.5s;
+.microsoftLoginButton {
+  padding-right: 24px;
+  padding-left: 24px;
+  height: 32px;
+  background-color: #1d1d1d;
+  border-color: #141414;
+  border-style: none;
+  border-radius: 200px;
+  color: var(--buttonText);
+  filter: drop-shadow(0px 0px 5px #0000005a);
+  margin-top: 12px;
+  margin-bottom: 16px;
+  transition: 0.5s;
 }
 
-.microsoftLoginButton:hover{
+.microsoftLoginButton:hover {
   background-color: #333333;
   transform: scale(100%);
   transition: 0.5s;
 }
 
-.microsoftLoginButton:active{
+.microsoftLoginButton:active {
   background-color: #111111;
   transform: scale(90%);
   transition: 0.1s;
@@ -128,7 +131,7 @@ transition: 0.5s;
 
 }
 
-.microsoftLoginButton span.micLogo{
+.microsoftLoginButton span.micLogo {
   background: url(assets/microsoft.svg) no-repeat;
   background-size: 15px;
   float: left;
@@ -139,16 +142,16 @@ transition: 0.5s;
 
 
 
-.textInput{
+.textInput {
   margin-bottom: 12px;
   margin-top: 6px;
   font-family: 'sfProDisplay';
 
-  background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
+  background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34, 34, 34, 1) 100%);
   border-color: #1d1d1d;
   border-width: 1px;
   color: var(--mainText);
-  box-shadow: inset 2px 2px 5px #1010104a,inset -2px -2px 5px #1010104a !important;
+  box-shadow: inset 2px 2px 5px #1010104a, inset -2px -2px 5px #1010104a !important;
   border-style: none;
   border-radius: var(--smallCornerSize);
   padding: var(--defaultPadding);
@@ -161,7 +164,8 @@ transition: 0.5s;
   height: 58px;
 
 }
-.mainButton{
+
+.mainButton {
   margin-top: 24px;
   height: 30px;
   min-width: 30px;
@@ -171,7 +175,7 @@ transition: 0.5s;
   border-color: #ffffff1d;
   border-top-color: #ffffff2f;
   background-color: #ffffff4b;
-  color:white;
+  color: white;
   transform: scale(100%);
   filter: drop-shadow(0px 0px 5px #0000005a);
   transition: 0.5s;
@@ -179,82 +183,94 @@ transition: 0.5s;
   padding-right: 5px;
 }
 
-.mainButton:hover{
+.mainButton:hover {
   transform: scale(105%);
   background-color: #ffffff63;
   transition: 0.1s;
 
 }
-.mainButton:active{
+
+.mainButton:active {
   transform: scale(90%);
   background-color: #ffffff08;
   transition: 0.1s;
-  color:#ffffff3d
+  color: #ffffff3d
 }
-.trashButton{
+
+.trashButton {
   background-color: #ff353532;
   color: #ffbfbf;
 }
-.trashButton:hover{
+
+.trashButton:hover {
   background-color: rgba(255, 46, 64, 0.392);
   color: #ffdbdb;
 
-}.trashButton:active{
+}
+
+.trashButton:active {
   background-color: rgba(255, 0, 60, 0.092);
   color: #ffbebe8d;
 
 }
 
-.warningButton{
+.warningButton {
   background-color: #ffb53532;
   color: #ffd8bf;
 }
-.warningButton:hover{
+
+.warningButton:hover {
   background-color: rgba(255, 164, 46, 0.392);
   color: #ffecdb;
 
-}.warningButton:active{
+}
+
+.warningButton:active {
   background-color: rgba(255, 102, 0, 0.092);
   color: #ffd9be8d;
 
 }
 
-.secondaryButton{
+.secondaryButton {
   background-color: #ffffff27;
   color: #ffffffb8;
 }
-.secondaryButton:hover{
+
+.secondaryButton:hover {
   background-color: #ffffff2b;
   color: #ffffffe6;
 
-}.secondaryButton:active{
+}
+
+.secondaryButton:active {
   background-color: #ffffff19;
   color: #ffffff4e;
 
 }
 
-select{
+select {
   margin-bottom: 12px;
   margin-top: 6px;
   font-family: 'sfProDisplay';
 
-  background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
+  background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34, 34, 34, 1) 100%);
   border-color: #1d1d1d;
   border-width: 1px;
   color: var(--mainText);
-  box-shadow: inset 2px 2px 5px #1010104a,inset -2px -2px 5px #1010104a !important;
+  box-shadow: inset 2px 2px 5px #1010104a, inset -2px -2px 5px #1010104a !important;
   border-style: none;
   border-radius: var(--smallCornerSize);
   padding: var(--defaultPadding);
   min-width: 528px;
-  
+
 }
 
- select option {
+select option {
   margin: 40px;
   color: #000000;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0);
 }
+
 /*
 select option:checked{
   background:  linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34,34,34,1) 100%); 
@@ -265,18 +281,18 @@ select base{
 } */
 
 
-label{
+label {
   color: var(--secondaryText);
 }
 
-.divider{
+.divider {
   border-right-width: 1px;
   border-right-style: solid;
   border-color: var(--navBarColor);
   padding: 15px;
 }
 
-nav{
+nav {
   position: fixed;
   z-index: 9999;
   margin-top: -100px;
@@ -292,7 +308,7 @@ nav{
   display: flex;
 }
 
-.report{
+.report {
   flex-direction: column;
   filter: drop-shadow(0px 0px 5px #0000005a);
   background-color: var(--navBarColor);
@@ -317,7 +333,7 @@ nav{
   border-top-color: #ffc71e;
 } */
 
-.report:hover{
+.report:hover {
   filter: drop-shadow(0px 0px 10px #0000009d);
   transform: scale(102.5%);
   transition: 0.5s;
@@ -326,18 +342,19 @@ nav{
 }
 
 
- .expired{
+.expired {
   background-color: #291d1f;
   border-color: #ffa4ac44;
   border-top-color: #ff4f1e00;
 }
-.expired:hover{
+
+.expired:hover {
   background-color: #6f001336;
   border-color: #ffa4ac44;
   border-top-color: #ff4f1e00;
-}  
+}
 
-.reportTitle{
+.reportTitle {
   margin: -21px;
   margin-top: -9px;
   margin-bottom: 0px;
@@ -349,73 +366,83 @@ nav{
   border-bottom-right-radius: 0px;
 }
 
-.waga1{
+.waga1 {
   background-color: rgba(255, 0, 34, 0.166);
   border-color: #885151ab;
 }
-.waga2{
+
+.waga2 {
   background-color: rgba(255, 0, 132, 0.129);
   border-color: #88516e9f;
 }
-.waga3{
+
+.waga3 {
   background-color: rgba(144, 0, 255, 0.067);
   border-color: #6e5188ab;
-} 
+}
 
 
 
-.bottomButtons{
+.bottomButtons {
   float: right;
 }
-.bottomButtons button
-{
+
+.bottomButtons button {
   margin-left: var(--defaultPadding)
 }
 
 
-a{
+a {
   color: rgba(255, 255, 255, 0.806);
   text-decoration: none;
 }
-a:hover{
+
+a:hover {
   color: rgb(255, 201, 181);
-  
+
 }
 
-.clockExpired{
+.clockExpired {
   position: absolute;
   top: 38px;
   right: 20px;
   animation: shake 0.25s infinite;
 }
-.shake{
+
+.shake {
   animation: shake 0.25s infinite;
 }
-.spinner{
 
-margin-top: 120px;
-margin-bottom: 120px;  
+.spinner {
+
+  margin-top: 120px;
+  margin-bottom: 120px;
   width: 20px;
   height: 20px;
 }
 
-.logElement{
-background-color: #1D1D1D;
-height: 25px;
-display: flex;
+.logElement {
+  background-color: #1D1D1D;
+  height: 25px;
+  display: flex;
 }
+
 .logElement:nth-child(even) {
-background-color: #222222;
+  background-color: #222222;
 }
 
 
 
-.modalContainer{
-background-color: #ff000012;
+.modalContainer {
+  background-color: #ff000012;
   position: fixed;
-width: 100%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
-.modal{
+
+.modal {
   background-color: #1900ff12;
   width: 40%;
   margin: auto;
