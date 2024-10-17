@@ -407,3 +407,16 @@ display: flex;
 .logElement:nth-child(even) {
 background-color: #222222;
 }
+
+
+
+.modalContainer{
+background-color: #ff000012;
+  position: fixed;
+width: 100%;
+}
+.modal{
+  background-color: #1900ff12;
+  width: 40%;
+  margin: auto;
+}

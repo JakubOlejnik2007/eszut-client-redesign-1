@@ -1,7 +1,9 @@
 const ProblemModal = () => {
     return(
-        <div>
+        <div className="modalContainer">
+            <div className="modal">
             this is a full size modal
+            </div>
         </div>
     )
 }
