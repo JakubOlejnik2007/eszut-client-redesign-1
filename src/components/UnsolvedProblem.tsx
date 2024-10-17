@@ -5,9 +5,6 @@ import { ENotifType } from "../types/notification.interface";
 import { Notif } from "./notificationsWrapper";
 import ProblemModal from "./ProblemModal";
 
-
-import ReactDOM from "react-dom";
-
 const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail, isUnderRealization }: any, refreshQuery: () => void) => {
 
     const { user } = AuthData();
@@ -53,13 +50,6 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
             displayNotif({ message: "Aktualizacja problemu nie powiodła się", type: ENotifType.ERROR });
         }
     }
-
-
-    const Modal = ({ children }: { children: React.ReactNode }) => {
-        
-    }
-
-
 
     return (
         <>
