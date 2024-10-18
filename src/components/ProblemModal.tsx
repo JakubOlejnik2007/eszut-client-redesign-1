@@ -2,7 +2,10 @@ const ProblemModal = () => {
     return(
         <div className="modalContainer">
             <div className="modal">
-            this is a full size modal
+            <h2>problem title</h2>
+            time left: 69min<br/>
+            sala: 10<br/>
+            reporter<br/>
             </div>
         </div>
     )

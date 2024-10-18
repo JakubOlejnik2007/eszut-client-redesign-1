@@ -414,6 +414,7 @@ background-color: #222222;
 background-color: #ff000012;
   position: fixed;
 width: 100%;
+z-index: 1000;
 }
 .modal{
   background-color: #1900ff12;
