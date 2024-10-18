@@ -1,5 +1,7 @@
+import ReactDOM from "react-dom";
+
 const ProblemModal = () => {
-    return(
+    return ReactDOM.createPortal(
         <div className="modalContainer">
             <div className="modal">
             <h2>problem title</h2>
@@ -7,8 +9,9 @@ const ProblemModal = () => {
             sala: 10<br/>
             reporter<br/>
             </div>
-        </div>
+        </div>, document.body
     )
 }
-    
+
+
 export default ProblemModal
