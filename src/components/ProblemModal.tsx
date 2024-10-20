@@ -6,11 +6,10 @@ const ProblemModal = () => {
             
             <div className="modal">
             <div className="modalTitle">Zgłoszenie: title</div>
-            <div className="modalInfo">
-            time left: 69min<br/>
-            sala: 10<br/>
-            reporter<br/>
+            <div className="modalDescription">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit laudantium sunt at corporis similique nisi, placeat pariatur natus recusandae quod praesentium corrupti neque eligendi facere dolorem rerum explicabo velit suscipit.
             </div>
+            <div className="modalInfo"></div>
             <div className="closeButton"></div>
             </div>
         </div>, document.body
