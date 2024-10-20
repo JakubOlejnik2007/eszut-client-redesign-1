@@ -414,7 +414,6 @@ a:hover {
 }
 
 .spinner {
-
   margin-top: 120px;
   margin-bottom: 120px;
   width: 20px;
@@ -434,9 +433,10 @@ a:hover {
 
 
 .modalContainer {
-  background-color: #ff000012;
+  background-color: #00000017;
+  backdrop-filter: blur(50px);
   position: fixed;
-
+  padding-top: 80px;
   top: 0;
   left: 0;
   width: 100vw;
@@ -444,7 +444,13 @@ a:hover {
 }
 
 .modal {
-  background-color: #1900ff12;
-  width: 40%;
+  background-color: #1900ff32;
+  display: flex;
+  width: 50%;
   margin: auto;
+  backdrop-filter: blur(20px);
+}
+
+.closeButton{
+  
 }
