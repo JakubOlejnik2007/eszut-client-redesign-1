@@ -445,11 +445,9 @@ a:hover {
 
 .modal {
   display: flex;
-  width: 50%;
+  width: 800px;
   margin: auto;
   backdrop-filter: blur(20px);
-
-  
   background-color: #33333353;
   max-width: 1024px;
   margin-left: auto;
@@ -463,14 +461,29 @@ a:hover {
   border-style: solid;
 }
 
+.modalTitle {
+  margin-top: 5px;
+  text-align: center;
+  width: 800px;
+  background-color: rgba(255, 0, 0, 0);
+  height: 25px;
+  position: absolute;
+}
+.modalInfo{
+  margin-top: 45px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+
 .closeButton{
   background-color: #FF5757;
   background-image: url();
   background-size: 7px;
   background-position: center;
   background-repeat: no-repeat;
-  width: 15px;
-  height: 15px;
+  width: 13.5px;
+  height: 13.5px;
   margin-left: 10px;
   margin-top: 10px;
   position: absolute;

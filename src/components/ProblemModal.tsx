@@ -5,13 +5,13 @@ const ProblemModal = () => {
         <div className="modalContainer">
             
             <div className="modal">
-            <div className="closeButton"></div>
-            <div>problem title</div><br/>
-            
-
+            <div className="modalTitle">Zgłoszenie: title</div>
+            <div className="modalInfo">
             time left: 69min<br/>
             sala: 10<br/>
             reporter<br/>
+            </div>
+            <div className="closeButton"></div>
             </div>
         </div>, document.body
     )
