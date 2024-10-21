@@ -441,11 +441,12 @@ a:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
+  
 }
 
 .modal {
   display: flex;
-  width: 800px;
+  width: 600px;
   margin: auto;
   backdrop-filter: blur(20px);
   background-color: #33333353;
@@ -453,6 +454,7 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
+  padding-bottom: 50px;
   filter: drop-shadow(0px 0px 10px #0000005a);
   border-radius: var(--cornerSize);
   border-width: 1px;
@@ -465,17 +467,35 @@ a:hover {
   margin-top: 5px;
   padding-top: 2px;
   text-align: center;
-  width: 800px;
+  width: 600px;
   background-color: rgba(255, 0, 0, 0);
   height: 25px;
   position: absolute;
 }
 .modalInfo{
   margin-top: 45px;
+  margin-right: 30px;
   margin-left: 10px;
   margin-bottom: 10px;
+  background-color: #ff000013;
+  width: 230px;
 }
 
+.modalDescription{
+  margin-top: 45px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  background-color: #0040ff22;
+  width: 300px;
+}
+
+.bottomModalPart{
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  text-align: right;
+  width: 540px;
+} 
 
 .closeButton{
   background-color: #FF5757;
