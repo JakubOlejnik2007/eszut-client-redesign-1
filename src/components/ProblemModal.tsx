@@ -8,16 +8,22 @@ const ProblemModal = ({ handleClose }: IUnsolvedProblemModal) => {
             <div className="modal">
                 <div className="modalTitle">Zgłoszenie: title</div>
                 <div className="modalDescription">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit laudantium sunt at corporis similique nisi, placeat pariatur natus recusandae quod praesentium corrupti neque eligendi facere dolorem rerum explicabo velit suscipit.
+                    if only google implemented the Masonry layout and stop arguing like a little baby i wouldn't have to spend so much time writing this css. Even then older browsers wouldn't support it and a system like this requires backwards compatibility.
                 </div>
-                <div className="modalInfo">sdfsdfsdfsdfsdf</div>
-                <div className="closeButton"></div>
-                <div className="bottomModalPart"><button className="mainButton">test</button><button  className="mainButton">test</button><button  className="mainButton successButton">Ukończ</button></div>
+                <div className="modalInfo">
+                    <div className="progressBar">
+                    5 godzin pozostało
+                    </div>
+
+                    Zgłaszający: Agata 123
+
+
+                    
+                    </div>
                 <div className="closeButton" onClick={handleClose}></div>
                 <div className="bottomModalPart">
-                    <button className="mainButton">test</button>
-                    <button className="mainButton">test</button>
-                    <button className="mainButton successButton">Ukończ</button>
+                    <button className="mainButton marginLeft">Zrezygnuj</button>
+                    <button className="mainButton successButton marginLeft">Ukończ</button>
                 </div>
             </div>
         </div>, document.body
