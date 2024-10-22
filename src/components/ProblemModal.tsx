@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
+import IUnsolvedProblemModal from "../types/unsolvedProblemModal.interface";
 
-const ProblemModal = () => {
+const ProblemModal = ({ handleClose }: IUnsolvedProblemModal) => {
     return ReactDOM.createPortal(
         <div className="modalContainer">
 
@@ -12,6 +13,12 @@ const ProblemModal = () => {
                 <div className="modalInfo">sdfsdfsdfsdfsdf</div>
                 <div className="closeButton"></div>
                 <div className="bottomModalPart"><button className="mainButton">test</button><button  className="mainButton">test</button><button  className="mainButton successButton">Ukończ</button></div>
+                <div className="closeButton" onClick={handleClose}></div>
+                <div className="bottomModalPart">
+                    <button className="mainButton">test</button>
+                    <button className="mainButton">test</button>
+                    <button className="mainButton successButton">Ukończ</button>
+                </div>
             </div>
         </div>, document.body
     )

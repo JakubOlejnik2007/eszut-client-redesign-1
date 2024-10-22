@@ -4,8 +4,12 @@ import { putTakeOnProblem, putRejectProblem } from "../service/apiFetchFunctions
 import { ENotifType } from "../types/notification.interface";
 import { Notif } from "./notificationsWrapper";
 import ProblemModal from "./ProblemModal";
+import IUnsolvedProblem from "../types/unsolvedproblem.interface";
 
-const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail, isUnderRealization }: any, refreshQuery: () => void) => {
+const UnsolvedProblem = (props: IUnsolvedProblem, refreshQuery: () => {}) => {
+
+    const { _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail, isUnderRealization } = props;
+
 
     const { user } = AuthData();
     const { displayNotif } = Notif();
@@ -97,7 +101,7 @@ const UnsolvedProblem = ({ _id, categoryName, placeName, whoName, whoEmail, what
                     )}
                 </div>
             </div>
-            {showModal && <ProblemModal />}
+            {showModal && <ProblemModal {...props} handleClose={() => setShowModal(false)} />}
         </>
     );
 };
