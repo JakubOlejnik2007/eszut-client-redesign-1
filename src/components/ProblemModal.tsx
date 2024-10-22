@@ -11,7 +11,7 @@ const ProblemModal = () => {
                 </div>
                 <div className="modalInfo">sdfsdfsdfsdfsdf</div>
                 <div className="closeButton"></div>
-                <div className="bottomModalPart"><button className="mainButton">test</button><button  className="mainButton">test</button><button  className="mainButton">Ukończ</button></div>
+                <div className="bottomModalPart"><button className="mainButton">test</button><button  className="mainButton">test</button><button  className="mainButton successButton">Ukończ</button></div>
             </div>
         </div>, document.body
     )

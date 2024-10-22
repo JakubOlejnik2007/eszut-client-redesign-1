@@ -231,6 +231,21 @@ button {
 
 }
 
+.successButton{
+  background-color: #6bff3532;
+  color: #fffcbf;
+}
+
+.successButton:hover{
+  background-color: #6bff354f;
+  color: #fffddd;
+}
+
+.successButton:active{
+  background-color: #6bff351d;
+  color: #fffa9f;
+}
+
 .secondaryButton {
   background-color: #ffffff27;
   color: #ffffffb8;
