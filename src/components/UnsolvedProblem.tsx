@@ -7,6 +7,7 @@ import ProblemModal from "./ProblemModal";
 import IUnsolvedProblem from "../types/unsolvedproblem.interface";
 import dayToDeadline from "../utils/dayToDeadline";
 import DaysToDeadlineSpan from "./DaysToDeadlineSpan";
+import WhoReportedLink from "./WhoReportedLink";
 
 const UnsolvedProblem = (props: IUnsolvedProblem, refreshQuery: () => {}) => {
 
@@ -64,9 +65,7 @@ const UnsolvedProblem = (props: IUnsolvedProblem, refreshQuery: () => {}) => {
                 </h1>
                 <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>
                     Sala: {placeName} <br />
-                    <a href={`mailto:${whoEmail}?Subject=Zgłoszenie z dnia: ${reportDate.toLocaleDateString("pl")}&body=Dane zgłoszenia`}>
-                        {whoName} ✉
-                    </a>
+                    <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} />
                 </div>
                 <hr />
                 <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>{what}</div>
