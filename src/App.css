@@ -512,6 +512,7 @@ a:hover {
   background-color: #0040ff00;
   width: 290px;
   text-align: justify;
+  min-height: 80px;
 }
 
 .bottomModalPart{

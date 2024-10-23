@@ -79,7 +79,9 @@ height: 25px;
 width: 4%;
 background-position: center;
 background-repeat: no-repeat;
-background-size: 22px;
+background-size: 18px;
+margin-right: 5px;
+margin-left: 5px;
 }
 
 hr {
@@ -90,6 +92,14 @@ hr {
   margin: 10px 0;
   padding: 0;
 }
+
+.primary{
+  color:#B8B8B8;
+}
+.secondary{
+  color:#ffffff6f;
+}
+
 
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }

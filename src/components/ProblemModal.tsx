@@ -11,6 +11,7 @@ const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priorit
             <div className="modal">
                 <div className="modalTitle">Zgłoszenie: {_id}</div>
                 <div className="modalDescription">{what}</div>
+
                 <div className="modalInfo">
                     <div className="progressBar">
                         <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />

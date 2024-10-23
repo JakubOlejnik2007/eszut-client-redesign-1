@@ -30,12 +30,12 @@ export const LogElement = () => {
             <div className="logElement"> 
 
             <div className="logError logIcon"></div>
-            <div style={{backgroundColor: '', width: '72%', height: '25px', transform: 'translateY(2.5px)'}}>Aziur nie działa</div> 
+            <div style={{backgroundColor: '', width: '72%', height: '25px', transform: 'translateY(2.5px)'}}> user token expired</div> 
 
             <div style={{borderColor: '#191919', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid'}}></div>
             <div style={{borderColor: '', width: '0.5%', height: '25px'}}></div>
 
-            <div style={{backgroundColor: '', width: '25%', height: '25px', transform: 'translateY(2.5px)'}}>10:25 10.25.2025</div>
+            <div style={{backgroundColor: '', width: '19%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'right', marginRight: '2%'}} className="secondary">10:25, 10.25.2025</div>
 
 
             </div>
