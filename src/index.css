@@ -63,6 +63,25 @@
 }
 
 
+.logError{
+background-image: url(assets/log/logError.png);
+}
+.logWarning{
+background-image: url(assets/log/logWarning.png);
+}
+.logInfo{
+background-image: url(assets/log/logInfo.png);
+}
+
+.logIcon{
+background-color: rgba(255, 0, 0, 0);
+height: 25px;
+width: 4%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: 22px;
+}
+
 hr {
   display: block;
   height: 1px;
