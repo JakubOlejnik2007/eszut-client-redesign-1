@@ -1,25 +1,25 @@
 import ReactDOM from "react-dom";
 import IUnsolvedProblemModal from "../types/unsolvedProblemModal.interface";
+import DaysToDeadlineSpan from "./DaysToDeadlineSpan";
 
-const ProblemModal = ({ handleClose }: IUnsolvedProblemModal) => {
+const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priority }: IUnsolvedProblemModal) => {
+    const reportDate = new Date(when);
     return ReactDOM.createPortal(
         <div className="modalContainer">
 
             <div className="modal">
-                <div className="modalTitle">Zgłoszenie: title</div>
-                <div className="modalDescription">
-                    if only google implemented the Masonry layout and stop arguing like a little baby i wouldn't have to spend so much time writing this css. Even then older browsers wouldn't support it and a system like this requires backwards compatibility.
-                </div>
+                <div className="modalTitle">Zgłoszenie: {_id}</div>
+                <div className="modalDescription">{what}</div>
                 <div className="modalInfo">
                     <div className="progressBar">
-                    5 godzin pozostało
+                        <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />
                     </div>
 
                     Zgłaszający: Agata 123
 
 
-                    
-                    </div>
+
+                </div>
                 <div className="closeButton" onClick={handleClose}></div>
                 <div className="bottomModalPart">
                     <button className="mainButton marginLeft">Zrezygnuj</button>

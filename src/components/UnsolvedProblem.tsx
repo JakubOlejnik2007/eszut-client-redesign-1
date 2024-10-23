@@ -5,6 +5,8 @@ import { ENotifType } from "../types/notification.interface";
 import { Notif } from "./notificationsWrapper";
 import ProblemModal from "./ProblemModal";
 import IUnsolvedProblem from "../types/unsolvedproblem.interface";
+import dayToDeadline from "../utils/dayToDeadline";
+import DaysToDeadlineSpan from "./DaysToDeadlineSpan";
 
 const UnsolvedProblem = (props: IUnsolvedProblem, refreshQuery: () => {}) => {
 
@@ -16,10 +18,6 @@ const UnsolvedProblem = (props: IUnsolvedProblem, refreshQuery: () => {}) => {
     const reportDate = new Date(when);
 
     const [showModal, setShowModal] = useState(false);
-
-    const dayToDeadline = (reportDate: Date, priority: number) => {
-        return parseFloat((((reportDate.getTime() + 43200000 * 2 ** (priority - 1)) - (new Date(Date.now()).getTime())) / (1000 * 60 * 60 * 24)).toFixed(1));
-    }
 
     const daysLeft = dayToDeadline(reportDate, priority);
 
@@ -62,9 +60,7 @@ const UnsolvedProblem = (props: IUnsolvedProblem, refreshQuery: () => {}) => {
                 {daysLeft <= 0 ? <div className="clockExpired"><img src="src/assets/alarm.png" height="18px" /></div> : ""}
                 <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
                     <br />
-                    <span style={{ fontSize: "15px", color: "var(--secondaryText)" }}>
-                        {daysLeft > 0 ? `Czas na rozwiązanie: ${daysLeft} dni` : `Zaległe przez: ${-daysLeft} dni`}
-                    </span>
+                    <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />
                 </h1>
                 <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>
                     Sala: {placeName} <br />
