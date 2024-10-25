@@ -22,10 +22,12 @@ const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priorit
                     Rozwiązywane przez: Ciebie<br/><br/>
                     Data zgłoszenia: {reportDate.toLocaleDateString("pl")}<br/>
                     Data rozwiązania: nie rozwiązane
+                    <br/><br/>waga: {priority}
 
                 </div>
                 <div className="closeButton" onClick={handleClose}></div>
                 <div className="bottomModalPart">
+                    <button className="mainButton edit">g</button>
                     <button className="mainButton marginLeft">Zrezygnuj</button>
                     <button className="mainButton successButton marginLeft">Ukończ</button>
                 </div>

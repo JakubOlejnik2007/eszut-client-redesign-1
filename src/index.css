@@ -100,7 +100,18 @@ hr {
   color:#ffffff6f;
 }
 
-
+.edit{
+  color: rgba(0, 0, 0, 0);
+  background-image: url(assets/edit-placeholder.png);
+  background-position: center;
+  background-size: 35%;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0px;
+}
+.edit:active{
+  color: rgba(0, 0, 0, 0);
+}
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
   10% { transform: translate(-1px, -2px) rotate(-1deg); }
