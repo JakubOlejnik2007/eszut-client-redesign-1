@@ -6,7 +6,7 @@ interface IWhoReportedLink {
 
 const WhoReportedLink = ({ whoEmail, whoName, reportDate }: IWhoReportedLink) => {
     return (
-        <a href={`mailto:${whoEmail}?Subject=Zgłoszenie z dnia: ${reportDate.toLocaleDateString("pl")}&body=Dane zgłoszenia`}>
+        <a href={`mailto:${whoEmail}?Subject=Zgłoszenie z dnia: ${reportDate.toLocaleDateString("pl")}&body=Dane zgłoszenia`} onClick={(e) => e.stopPropagation()}>
             {whoName} ✉
         </a>
     )
