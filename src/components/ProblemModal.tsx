@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 import IUnsolvedProblemModal from "../types/unsolvedProblemModal.interface";
 import DaysToDeadlineSpan from "./DaysToDeadlineSpan";
 import WhoReportedLink from "./WhoReportedLink";
+import TimeChart from "./timeChart";
 
 const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priority, categoryName }: IUnsolvedProblemModal) => {
     const reportDate = new Date(when);
@@ -15,14 +16,15 @@ const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priorit
                 <div className="modalInfo">
                     <div className="progressBar" >
                         <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />
+                        <TimeChart procent={70} />
                     </div>
 
                     <br></br>
                     Zgłaszający: <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} />
-                    Rozwiązywane przez: Ciebie<br/><br/>
-                    Data zgłoszenia: {reportDate.toLocaleDateString("pl")}<br/>
+                    Rozwiązywane przez: Ciebie<br /><br />
+                    Data zgłoszenia: {reportDate.toLocaleDateString("pl")}<br />
                     Data rozwiązania: nie rozwiązane
-                    <br/><br/>waga: {priority}
+                    <br /><br />waga: {priority}
 
                 </div>
                 <div className="closeButton" onClick={handleClose}></div>
