@@ -4,7 +4,7 @@ import DaysToDeadlineSpan from "./DaysToDeadlineSpan";
 import WhoReportedLink from "./WhoReportedLink";
 import TimeChart from "./timeChart";
 
-const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priority, categoryName }: IUnsolvedProblemModal) => {
+const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priority, categoryName, placeName, whoDealsEmail, whoDealsName, isUnderRealization }: IUnsolvedProblemModal) => {
     const reportDate = new Date(when);
     return ReactDOM.createPortal(
         <div className="modalContainer fade-in">
@@ -20,7 +20,7 @@ const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priorit
                     </div>
 
                     <br></br>
-                    Zgłaszający: <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} />
+                    Zgłaszający: <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />
                     Rozwiązywane przez: Ciebie<br /><br />
                     Data zgłoszenia: {reportDate.toLocaleDateString("pl")}<br />
                     Data rozwiązania: nie rozwiązane

@@ -65,7 +65,7 @@ const UnsolvedProblem = (props: IUnsolvedProblem, refreshQuery: () => {}) => {
                 </h1>
                 <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>
                     Sala: {placeName} <br />
-                    <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} />
+                    <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} what={what} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} priority={priority} placeName={placeName} categoryName={categoryName} isUnderRealization={isUnderRealization} />
                 </div>
                 <hr />
                 <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>{what}</div>
