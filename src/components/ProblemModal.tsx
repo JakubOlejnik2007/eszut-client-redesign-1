@@ -3,9 +3,13 @@ import IUnsolvedProblemModal from "../types/unsolvedProblemModal.interface";
 import DaysToDeadlineSpan from "./DaysToDeadlineSpan";
 import WhoReportedLink from "./WhoReportedLink";
 import TimeChart from "./timeChart";
+import timeSpentPercentage from "../utils/timeSpentPercentage";
 
 const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priority, categoryName, placeName, whoDealsEmail, whoDealsName, isUnderRealization }: IUnsolvedProblemModal) => {
     const reportDate = new Date(when);
+
+    console.log(timeSpentPercentage(reportDate, priority), _id)
+
     return ReactDOM.createPortal(
         <div className="modalContainer fade-in">
 
@@ -16,7 +20,7 @@ const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priorit
                 <div className="modalInfo">
                     <div className="progressBar" >
                         <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />
-                        <TimeChart procent={70} />
+                        <TimeChart procent={timeSpentPercentage(reportDate, priority)} />
                     </div>
 
                     <br></br>
