@@ -9,9 +9,13 @@ import dayToDeadline from "../utils/dayToDeadline";
 import DaysToDeadlineSpan from "./DaysToDeadlineSpan";
 import WhoReportedLink from "./WhoReportedLink";
 
-const UnsolvedProblem = (props: IUnsolvedProblem, refreshQuery: () => {}) => {
+interface IUnsolvedProblemProps extends IUnsolvedProblem {
+    refreshQuery: () => {}
+}
 
-    const { _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail, isUnderRealization } = props;
+const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
+
+    const { _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail, isUnderRealization, refreshQuery } = props;
 
 
     const { user } = AuthData();
