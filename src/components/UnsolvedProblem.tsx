@@ -62,10 +62,12 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
         e.preventDefault();
         e.stopPropagation();
 
+        setShowModal(false);
+
         try {
             const response = await putMarkAsSolved(user?.AuthRole.accessToken as string, _id)
             console.log(response)
-            if (response!== "OK") throw new Error();
+            if (response !== "OK") throw new Error();
             displayNotif({ message: "Zakończono rozwiązywanie problemu", type: ENotifType.SUCCESS });
             refreshQuery();
         } catch (e) {
