@@ -11,9 +11,9 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
     console.log(timeSpentPercentage(reportDate, priority), _id)
 
     return ReactDOM.createPortal(
-        <div className="modalContainer fade-in">
+        <div className="modalContainer fade-in" onClick={handleClose}>
 
-            <div className="modal">
+            <div className="modal" onClick={e => e.stopPropagation()}>
                 <div className="modalTitle">Zgłoszenie: {categoryName}</div>
                 <div className="modalDescription">{what}</div>
 
