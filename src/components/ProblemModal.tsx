@@ -5,7 +5,7 @@ import WhoReportedLink from "./WhoReportedLink";
 import TimeChart from "./TimeChart";
 import timeSpentPercentage from "../utils/timeSpentPercentage";
 
-const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priority, categoryName, placeName, whoDealsEmail, whoDealsName, isUnderRealization }: IUnsolvedProblemModal) => {
+const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoName, whoEmail, what, when, priority, categoryName, placeName, whoDealsEmail, whoDealsName, isUnderRealization }: IUnsolvedProblemModal) => {
     const reportDate = new Date(when);
 
     console.log(timeSpentPercentage(reportDate, priority), _id)
@@ -34,8 +34,8 @@ const ProblemModal = ({ handleClose, _id, whoName, whoEmail, what, when, priorit
                 <div className="closeButton" onClick={handleClose}></div>
                 <div className="bottomModalPart">
                     <button className="mainButton edit">g</button>
-                    <button className="mainButton marginLeft">Zrezygnuj</button>
-                    <button className="mainButton successButton marginLeft">Ukończ</button>
+                    <button className="mainButton marginLeft" onClick={handleReject}>Zrezygnuj</button>
+                    <button className="mainButton successButton marginLeft" onClick={handleMarkAsSolved}>Ukończ</button>
                 </div>
             </div>
         </div>, document.body

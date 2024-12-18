@@ -25,3 +25,11 @@ export const putTakeOnProblem = async (AuthToken: string, ProblemID: string) =>
 
 export const putRejectProblem = async (AuthToken: string, ProblemID: string) =>
     await createApiRequest("PUT", `${config.backend}${urls.backend.problem.rejectProblem}`, { ProblemID }, AuthToken);
+
+export const putMarkAsSolved = async (AuthToken: string, ProblemID: string) =>
+    await createApiRequest(
+        "PUT",
+        `${config.backend}${urls.backend.problem.markProblemAsSolved}`,
+        { ProblemID },
+        AuthToken
+    );

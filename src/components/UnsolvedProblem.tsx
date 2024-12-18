@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AuthData } from "../auth/AuthWrapper";
-import { putTakeOnProblem, putRejectProblem } from "../service/apiFetchFunctions";
+import { putTakeOnProblem, putRejectProblem, putMarkAsSolved } from "../service/apiFetchFunctions";
 import { ENotifType } from "../types/notification.interface";
 import { Notif } from "./notificationsWrapper";
 import ProblemModal from "./ProblemModal";
@@ -58,6 +58,22 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
         }
     }
 
+    const handleMarkAsSolved = async (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        try {
+            const response = await putMarkAsSolved(user?.AuthRole.accessToken as string, _id)
+            console.log(response)
+            if (response!== "OK") throw new Error();
+            displayNotif({ message: "Zakończono rozwiązywanie problemu", type: ENotifType.SUCCESS });
+            refreshQuery();
+        } catch (e) {
+            console.log(e);
+            displayNotif({ message: "Aktualizacja problemu nie powiodła się", type: ENotifType.ERROR });
+        }
+    }
+
     return (
         <>
             <div className={`report ${daysLeft <= 0 ? "expired" : ""}`} onClick={() => setShowModal(true)}>
@@ -100,7 +116,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                     )}
                 </div>
             </div>
-            {showModal && <ProblemModal {...props} handleClose={() => setShowModal(false)} />}
+            {showModal && <ProblemModal {...props} handleClose={() => setShowModal(false)} handleReject={handleRejectProblem} handleMarkAsSolved={handleMarkAsSolved} />}
         </>
     );
 };
