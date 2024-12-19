@@ -1,15 +1,5 @@
-interface IWhoReportedLink {
-    whoEmail: string;
-    whoName: string;
-    reportDate: Date;
-    priority: number;
-    placeName: string;
-    whoDealsEmail: string;
-    whoDealsName: string;
-    categoryName: string;
-    what: string;
-    isUnderRealization: boolean;
-}
+import IWhoReportedLink from "../types/whoReportedLink.interface";
+
 
 const WhoReportedLink = ({ whoEmail, whoName, reportDate, priority, placeName, whoDealsEmail, whoDealsName, categoryName, what, isUnderRealization }: IWhoReportedLink) => {
     return (
