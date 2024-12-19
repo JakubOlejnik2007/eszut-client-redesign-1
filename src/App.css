@@ -413,7 +413,8 @@ nav {
   position: absolute;
   bottom:13.4px;
   right: 20px;
-  text-align: center !important;
+  left: 20px;
+  text-align: center;
 
 }
 
