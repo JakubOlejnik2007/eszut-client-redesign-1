@@ -1,8 +1,8 @@
 import ReactDOM from "react-dom";
 import IUnsolvedProblemModal from "../types/unsolvedProblemModal.interface";
-import DaysToDeadlineSpan from "./DaysToDeadlineSpan";
+import DaysToDeadlineSpan from "./partials/DaysToDeadlineSpan";
 import WhoReportedLink from "./WhoReportedLink";
-import TimeChart from "./TimeChart";
+import TimeChart from "./partials/TimeChart";
 import timeSpentPercentage from "../utils/timeSpentPercentage";
 
 const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoName, whoEmail, what, when, priority, categoryName, placeName, whoDealsEmail, whoDealsName, isUnderRealization }: IUnsolvedProblemModal) => {

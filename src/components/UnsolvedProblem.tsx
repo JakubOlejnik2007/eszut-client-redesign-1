@@ -6,7 +6,7 @@ import { Notif } from "./notificationsWrapper";
 import ProblemModal from "./ProblemModal";
 import IUnsolvedProblem from "../types/unsolvedproblem.interface";
 import dayToDeadline from "../utils/dayToDeadline";
-import DaysToDeadlineSpan from "./DaysToDeadlineSpan";
+import DaysToDeadlineSpan from "./partials/DaysToDeadlineSpan";
 import WhoReportedLink from "./WhoReportedLink";
 
 interface IUnsolvedProblemProps extends IUnsolvedProblem {
