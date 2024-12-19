@@ -1,3 +1,5 @@
+import { SettingsScreen } from "../pages/settings";
+
 const urls = {
     client: {
         mainpage: "/",
@@ -7,7 +9,8 @@ const urls = {
         archive: "/archiwum",
         account: "/konto",
         manageapp: "/zarzadzanie-aplikacja",
-        displaylog: "/dziennik-log"
+        displaylog: "/dziennik-log",
+        settings: "/ustawienia"
     },
     backend: {
         auth: {
@@ -49,7 +52,7 @@ const urls = {
         },
         logs: {
             getLogData: "/get-logs"
-        }
+        },
     },
 } as const;
 
