@@ -1,4 +1,4 @@
-import dayToDeadline from "../utils/dayToDeadline"
+import dayToDeadline from "../../utils/dayToDeadline"
 
 interface IDaysToDeadlineSpan {
     reportDate: Date;

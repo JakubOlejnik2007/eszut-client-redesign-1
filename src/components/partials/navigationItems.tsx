@@ -1,11 +1,12 @@
-import { LogInScreen } from "../pages/logIn";
-import { ReportIssueScreen } from "../pages/reportIssue";
-import { AboutScreen } from "../pages/about";
-import TNavigationItem from "../types/navigationItem.type";
-import EUserRole from "../types/userroles.enum";
-import urls from "./urls";
-import { DziennikLog } from "../pages/dziennikLog";
-import { ReportsScreen } from "../pages/reports";
+import { AboutScreen } from "../../pages/about";
+import { DziennikLog } from "../../pages/dziennikLog";
+import { LogInScreen } from "../../pages/logIn";
+import { ReportIssueScreen } from "../../pages/reportIssue";
+import { ReportsScreen } from "../../pages/reports";
+import TNavigationItem from "../../types/navigationItem.type";
+import EUserRole from "../../types/userroles.enum";
+import urls from "../../utils/urls";
+
 
 const Placeholder = () => <div style={{padding: "var(--defaultPadding)"}}>Placeholder</div>;
 
