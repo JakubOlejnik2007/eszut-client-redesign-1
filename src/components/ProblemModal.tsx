@@ -25,13 +25,13 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
 
                     <br></br>
                     Zgłaszający: <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />
-                    Rozwiązywane przez: Ciebie<br /><br />
+                    Rozwiązywane przez: Ciebie<br/><br/>
                     Data zgłoszenia: {reportDate.toLocaleDateString("pl")}<br/>
                     Data rozwiązania: nie rozwiązane
                     <br /><br />waga: {priority}
 
                 </div>
-                
+
                 <div className="closeButton" onClick={handleClose}></div>
                 <div className="bottomModalPart">
                     <button className="mainButton edit">g</button>

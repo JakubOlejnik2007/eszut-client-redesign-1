@@ -43,6 +43,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
     }
 
     const handleRejectProblem = async (e: React.MouseEvent<HTMLElement>) => {
+        setShowModal(false);
         e.preventDefault();
         e.stopPropagation();
 
@@ -90,7 +91,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                     <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} what={what} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} priority={priority} placeName={placeName} categoryName={categoryName} isUnderRealization={isUnderRealization} />
                 </div>
                 <hr />
-                <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>{what}</div>
+                <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left", maxHeight:'128px'}} className="overflowfix">{what}</div>
                 <hr />
                 {isUnderRealization && (
                     <>

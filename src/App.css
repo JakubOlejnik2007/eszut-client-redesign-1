@@ -344,6 +344,7 @@ nav {
   margin: 15px;
   padding: 20px;
   padding-top: 8px;
+  padding-bottom: 44px;
   transition: 0.5s;
   min-width: 269px;
   max-width: 269px;
@@ -409,10 +410,15 @@ nav {
 
 .bottomButtons {
   float: right;
+  position: absolute;
+  bottom:13.4px;
+  right: 20px;
+  text-align: center !important;
+
 }
 
 .bottomButtons button {
-  margin-left: var(--defaultPadding)
+  margin-left: var(--defaultPadding);
 }
 
 
@@ -515,6 +521,8 @@ a:hover {
   width: 290px;
   text-align: justify;
   min-height: 80px;
+  max-height: 413px;
+  overflow:scroll;
 }
 
 .bottomModalPart {
