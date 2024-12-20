@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { AuthData } from "../auth/AuthWrapper";
-import { putTakeOnProblem, putRejectProblem, putMarkAsSolved } from "../service/apiFetchFunctions";
-import { ENotifType } from "../types/notification.interface";
-import { Notif } from "./notificationsWrapper";
-import ProblemModal from "./ProblemModal";
-import IUnsolvedProblem from "../types/unsolvedproblem.interface";
-import dayToDeadline from "../utils/dayToDeadline";
-import DaysToDeadlineSpan from "./partials/DaysToDeadlineSpan";
-import WhoReportedLink from "./WhoReportedLink";
+import { AuthData } from "../../auth/AuthWrapper";
+import { putTakeOnProblem, putRejectProblem, putMarkAsSolved } from "../../service/apiFetchFunctions";
+import { ENotifType } from "../../types/notification.interface";
+import { Notif } from "../notificationsWrapper";
+import ProblemModal from "./UnsolvedProblemModal";
+import IUnsolvedProblem from "../../types/unsolvedproblem.interface";
+import dayToDeadline from "../../utils/dayToDeadline";
+import DaysToDeadlineSpan from "../partials/DaysToDeadlineSpan";
+import WhoReportedLink from "../mail/WhoReportedLink";
 
 interface IUnsolvedProblemProps extends IUnsolvedProblem {
     refreshQuery: () => {}
@@ -91,7 +91,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                     <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} what={what} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} priority={priority} placeName={placeName} categoryName={categoryName} isUnderRealization={isUnderRealization} />
                 </div>
                 <hr />
-                <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left", maxHeight:'128px'}} className="overflowfix">{what}</div>
+                <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left", maxHeight: '128px' }} className="overflowfix">{what}</div>
                 <hr />
                 {isUnderRealization && (
                     <>

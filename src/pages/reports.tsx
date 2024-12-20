@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { getUnsolvedProblems } from "../service/apiFetchFunctions";
 import { AuthData } from "../auth/AuthWrapper";
 import { useEffect, useState } from "react";
-import UnsolvedProblem from "../components/UnsolvedProblem";
+import UnsolvedProblem from "../components/unsolved-problem/UnsolvedProblem";
 
 
 export const ReportsScreen = () => {

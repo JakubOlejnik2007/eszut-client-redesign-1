@@ -1,4 +1,4 @@
-import IWhoReportedLink from "../types/whoReportedLink.interface";
+import IWhoReportedLink from "../../types/whoReportedLink.interface";
 
 
 const WhoDealsLink = ({ whoEmail, whoName, reportDate, priority, placeName, whoDealsEmail, whoDealsName, categoryName, what, isUnderRealization }: IWhoReportedLink) => {

@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { AuthData } from "../auth/AuthWrapper";
-import EUserRole from "../types/userroles.enum"
-import NAVIGATION_ITEMS from "./partials/navigationItems"
+import { AuthData } from "../../auth/AuthWrapper";
+import EUserRole from "../../types/userroles.enum"
+import NAVIGATION_ITEMS from "../partials/navigationItems"
 import NavItem from "./navItem"
-import urls from "../utils/urls";
+import urls from "../../utils/urls";
 
 const Navbar = (props: any) => {
 
