@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { AuthData } from "../../auth/AuthWrapper";
-import { putTakeOnProblem, putRejectProblem, putMarkAsSolved } from "../../service/apiFetchFunctions";
-import { ENotifType } from "../../types/notification.interface";
-import { Notif } from "../notificationsWrapper";
+import { AuthData } from "../../../auth/AuthWrapper";
+import { putTakeOnProblem, putRejectProblem, putMarkAsSolved } from "../../../service/apiFetchFunctions";
+import { ENotifType } from "../../../types/notification.interface";
+import IUnsolvedProblem from "../../../types/unsolvedproblem.interface";
+import dayToDeadline from "../../../utils/dayToDeadline";
+import WhoReportedLink from "../../mail/WhoReportedLink";
+import { Notif } from "../../notificationsWrapper";
+import DaysToDeadlineSpan from "../../partials/DaysToDeadlineSpan";
 import ProblemModal from "./UnsolvedProblemModal";
-import IUnsolvedProblem from "../../types/unsolvedproblem.interface";
-import dayToDeadline from "../../utils/dayToDeadline";
-import DaysToDeadlineSpan from "../partials/DaysToDeadlineSpan";
-import WhoReportedLink from "../mail/WhoReportedLink";
+
 
 interface IUnsolvedProblemProps extends IUnsolvedProblem {
     refreshQuery: () => {}

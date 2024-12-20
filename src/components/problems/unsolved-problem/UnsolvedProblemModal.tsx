@@ -1,13 +1,13 @@
 import ReactDOM from "react-dom";
-import IUnsolvedProblemModal from "../../types/unsolvedProblemModal.interface";
-import DaysToDeadlineSpan from "../partials/DaysToDeadlineSpan";
-import WhoReportedLink from "../mail/WhoReportedLink";
-import TimeChart from "../partials/TimeChart";
-import timeSpentPercentage from "../../utils/timeSpentPercentage";
-import MapPriorityToWords from "../partials/MapPriorityToWords";
-import getDeadlineDate from "../../utils/getDeadlineDate";
-import { AuthData } from "../../auth/AuthWrapper";
-import WhoDealsLink from "../mail/WhoDealsLink";
+import { AuthData } from "../../../auth/AuthWrapper";
+import IUnsolvedProblemModal from "../../../types/unsolvedProblemModal.interface";
+import getDeadlineDate from "../../../utils/getDeadlineDate";
+import timeSpentPercentage from "../../../utils/timeSpentPercentage";
+import WhoDealsLink from "../../mail/WhoDealsLink";
+import WhoReportedLink from "../../mail/WhoReportedLink";
+import DaysToDeadlineSpan from "../../partials/DaysToDeadlineSpan";
+import MapPriorityToWords from "../../partials/MapPriorityToWords";
+import TimeChart from "../../partials/TimeChart";
 
 const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoName, whoEmail, what, when, priority, categoryName, placeName, whoDealsEmail, whoDealsName, isUnderRealization }: IUnsolvedProblemModal) => {
 
