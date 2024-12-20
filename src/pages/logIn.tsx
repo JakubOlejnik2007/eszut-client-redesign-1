@@ -1,6 +1,6 @@
 import { AuthData } from "../auth/AuthWrapper"
 
-export const LogInScreen = () => {
+const LogInScreen = () => {
 
     const { login } = AuthData()
 
@@ -17,3 +17,5 @@ export const LogInScreen = () => {
         </>
     )
 }
+
+export default LogInScreen;

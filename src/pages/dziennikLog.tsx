@@ -1,4 +1,4 @@
-export const DziennikLog = () => {
+const DziennikLog = () => {
     return(
         <>
         <div style={{backgroundColor: '', width: '100%', margin: '-15px'}}className="content-padding text-justify">
@@ -21,6 +21,7 @@ export const DziennikLog = () => {
     )
 }
 
+export default DziennikLog
 
 export const LogElement = () => {
     return(

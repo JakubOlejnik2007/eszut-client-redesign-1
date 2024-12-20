@@ -1,4 +1,4 @@
-export const AboutScreen = () => {
+const AboutScreen = () => {
     return (
         <>
             <center>
@@ -31,4 +31,4 @@ export const AboutScreen = () => {
     )
 }
 
-
+export default AboutScreen;

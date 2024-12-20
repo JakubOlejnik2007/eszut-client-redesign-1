@@ -1,4 +1,4 @@
-export const SettingsScreen = () => {
+const SettingsScreen = () => {
     return (
         <>
                 <div style={{ backgroundColor: '', width: '100%' }} className="content-padding text-justify">
@@ -12,4 +12,4 @@ export const SettingsScreen = () => {
     )
 }
 
-
+export default SettingsScreen;

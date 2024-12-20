@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import UnsolvedProblem from "../components/problems/unsolved-problem/UnsolvedProblem";
 
 
-export const ReportsScreen = () => {
+const ReportsScreen = () => {
 
     const { user } = AuthData();
 
@@ -82,6 +82,4 @@ export const ReportsScreen = () => {
     )
 }
 
-
-
-
+export default ReportsScreen;
