@@ -322,6 +322,11 @@ input:checked + .slider:before {
 
 }
 
+.singlebuttonoffset{
+  bottom: 0px;
+}
+
+
 /*---------------------------==========================UNCATEGORISED==========================---------------------------*/
 
 .marginLeft {
