@@ -5,7 +5,7 @@
   --defaultPadding: 8px;
   --pageBackBG: #c6c6c6;
   --pageForeBG: #e0e0e0;
-  --navBarColor: #ececec68;
+  --navBarColor: #ffffffa2;
   --mainText: #1b1b1bbf;
   --secondaryText: #1d1d1d94;
   --buttonText: #ffffffa0;
@@ -18,6 +18,11 @@
     border-bottom-width: 1px;
     border-bottom-style: outset;
     display: flex;
+  }
+
+  a{
+    color: var(--secondaryText);
+    text-decoration: underline;
   }
 
   .titleBar {
@@ -82,8 +87,18 @@
 
   .bottomButtons{
     .mainButton{
-      background: linear-gradient(180deg, #c6c6c69a 0%, rgba(145, 145, 145, 0.564) 100%);
-      color: var(--mainText)
+      background: rgba(255, 255, 255, 0.811);
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgba(0, 0, 0, 0.35);
+      color: var(--mainText);
+    
+    &:hover{
+      background-color: white;
+    }
+    &:active{
+      background-color: white;
+    }
     }
   }
 
@@ -117,14 +132,12 @@
 
 
   .expired {
-    background-color: #ffa9b72e;
-
+    background-color: #ff9faf5f;
+    &:hover{
+      background-color: #ff9faf5f;
+    }
   }
 
-  .expired:hover {
-    background-color: #ff71892e;
-
-  }
 
   .reportTitle {
     margin: -21px;
@@ -139,17 +152,17 @@
   }
 
   .waga1 {
-    background-color: rgba(255, 0, 34, 0.166);
+    background-color: rgba(255, 0, 34, 0.5);
     border-color: #885151ab;
   }
 
   .waga2 {
-    background-color: rgba(255, 0, 132, 0.129);
+    background-color: rgba(255, 0, 132, 0.5);
     border-color: #88516e9f;
   }
 
   .waga3 {
-    background-color: rgba(144, 0, 255, 0.067);
+    background-color: rgba(144, 0, 255, 0.5);
     border-color: #6e5188ab;
   }
 
@@ -179,10 +192,9 @@
 
   .modal {
     backdrop-filter: blur(20px);
-    background-color: #33333353;
-    filter: drop-shadow(0px 0px 10px #0000005a);
-    border-color: rgba(255, 255, 255, 0.120);
-    border-top-color: rgba(255, 255, 255, 0.205);
+    background-color: #ffffff4e;
+    filter: drop-shadow(0px 0px 10px #00000000);
+    border-color: rgb(255, 255, 255);
   }
 
   .modalTitle {
@@ -199,7 +211,7 @@
 
 
   .progressBar {
-    background-color: rgba(0, 0, 0, 0.379);
+    background-color: rgba(0, 0, 0, 0);
   }
 
   .progressBarText {
