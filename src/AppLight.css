@@ -4,7 +4,7 @@
     --defaultPadding: 8px;
     --pageBackBG: #c6c6c6;
     --pageForeBG: #e0e0e0;
-    --navBarColor: #1b1a1b9d;
+    --navBarColor: #cbcbcb9d;
     --mainText: #1b1b1bbf;
     --secondaryText: #1d1d1d94;
     --buttonText: #ffffffa0;
@@ -63,5 +63,119 @@ hr {
 .trashButton, .trashButton:hover, .trashButton:active, .warningButton, .warningButton:hover, .warningButton:active, .successButton, .successButton:active, .successButton:active, .secondaryButton, .secondaryButton:active, .secondaryButton:hover {
     background-color: #ffffff00;
     color: #ffffff;
+}
+
+
+
+/* REPORTS */
+
+.report {
+    filter: drop-shadow(0px 0px 5px #0000005a);
+    background-color: var(--navBarColor);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #38383869;
+    border-top-color: #ffffff2f;
+    border-radius: var(--smallCornerSize);
   }
   
+  .report:hover {
+    filter: drop-shadow(0px 0px 10px #0000009d);
+    transform: scale(102.5%);
+    transition: 0.5s;
+    background-color: #2d2d2d9d;
+  
+  }
+  
+  
+  .expired {
+    background-color: #291d1f;
+    border-color: #ffa4ac44;
+    border-top-color: #ff4f1e00;
+  }
+  
+  .expired:hover {
+    background-color: #6f001336;
+    border-color: #ffa4ac44;
+    border-top-color: #ff4f1e00;
+  }
+  
+  .reportTitle {
+    margin: -21px;
+    margin-top: -9px;
+    margin-bottom: 0px;
+    border-radius: var(--smallCornerSize);
+    border-style: solid;
+    border-width: 1px;
+    height: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  
+  .waga1 {
+    background-color: rgba(255, 0, 34, 0.166);
+    border-color: #885151ab;
+  }
+  
+  .waga2 {
+    background-color: rgba(255, 0, 132, 0.129);
+    border-color: #88516e9f;
+  }
+  
+  .waga3 {
+    background-color: rgba(144, 0, 255, 0.067);
+    border-color: #6e5188ab;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MODALS */
+
+.modalContainer {
+  background-color: #0000006e;
+}
+
+.modal {
+  backdrop-filter: blur(20px);
+  background-color: #33333353;
+  filter: drop-shadow(0px 0px 10px #0000005a);
+  border-color: rgba(255, 255, 255, 0.120);
+  border-top-color: rgba(255, 255, 255, 0.205);
+}
+
+.modalTitle {
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.modalInfo {
+  background-color: #ff000000;
+}
+
+.modalDescription {
+  background-color: #0040ff00;
+}
+
+
+.progressBar {
+  background-color: rgba(0, 0, 0, 0.379);
+}
+
+.progressBarText {
+  color: rgba(0, 0, 0, 0.379);
+}
