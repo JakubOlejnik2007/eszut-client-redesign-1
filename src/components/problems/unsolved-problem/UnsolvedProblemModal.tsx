@@ -43,7 +43,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
 
                 <div className="closeButton" onClick={handleClose}></div>
                 <div className="bottomModalPart">
-                    <button className="mainButton edit">g</button>
+                    <button className={`mainButton edit ${USER_EMAIL != whoDealsEmail ? "singlebuttonoffset" : ""}`}>g</button>
                     {
                         USER_EMAIL === whoDealsEmail ? <><button className="mainButton marginLeft" onClick={handleReject}>Zrezygnuj</button><button className="mainButton successButton marginLeft" onClick={handleMarkAsSolved}>Ukończ</button></> : null
                     }

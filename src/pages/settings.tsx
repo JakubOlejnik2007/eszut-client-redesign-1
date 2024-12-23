@@ -4,7 +4,12 @@ const SettingsScreen = () => {
                 <div style={{ backgroundColor: '', width: '100%' }} className="content-padding text-justify">
                     <h3 style={{ textAlign: "center" }}>Ustawienia</h3>
 
-                    wygląd: czarny
+                    wysoki kontrast
+
+                    <label className="switch">
+  <input type="checkbox"></input>
+  <span className="slider"></span>
+</label>
                     
 
                 </div>
