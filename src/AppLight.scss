@@ -1,10 +1,11 @@
 .light:root {
+
   --cornerSize: 8px;
   --smallCornerSize: 4px;
   --defaultPadding: 8px;
   --pageBackBG: #c6c6c6;
   --pageForeBG: #e0e0e0;
-  --navBarColor: #cbcbcb9d;
+  --navBarColor: #ececec68;
   --mainText: #1b1b1bbf;
   --secondaryText: #1d1d1d94;
   --buttonText: #ffffffa0;
@@ -41,7 +42,6 @@
     background: linear-gradient(90deg, #ba00006b 0%, rgba(219, 113, 0, 0.459) 100%);
     background-color: #ffffff00;
     filter: drop-shadow(0px 0px 5px #00000000);
-
   }
 
   .logo {
@@ -80,11 +80,25 @@
   }
 
 
+  .bottomButtons{
+    .mainButton{
+      background: linear-gradient(180deg, #c6c6c69a 0%, rgba(145, 145, 145, 0.564) 100%);
+      color: var(--mainText)
+    }
+  }
+
+
+  .slider{
+    background-color: #818181;
+  }
+  input:checked+.slider {
+    background-color: #e76759;
+  } 
 
   /* REPORTS */
 
   .report {
-    filter: drop-shadow(0px 0px 5px #0000005a);
+    filter: drop-shadow(0px 0px 0px #0000005a);
     background-color: var(--navBarColor);
     border-style: solid;
     border-width: 1px;
@@ -94,24 +108,22 @@
   }
 
   .report:hover {
-    filter: drop-shadow(0px 0px 10px #0000009d);
+    filter: drop-shadow(0px 0px 0px #0000009d);
     transform: scale(102.5%);
     transition: 0.5s;
-    background-color: #2d2d2d9d;
+    background-color: #eaeaea9d;
 
   }
 
 
   .expired {
-    background-color: #291d1f;
-    border-color: #ffa4ac44;
-    border-top-color: #ff4f1e00;
+    background-color: #ffa9b72e;
+
   }
 
   .expired:hover {
-    background-color: #6f001336;
-    border-color: #ffa4ac44;
-    border-top-color: #ff4f1e00;
+    background-color: #ff71892e;
+
   }
 
   .reportTitle {
