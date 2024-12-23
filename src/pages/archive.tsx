@@ -10,6 +10,7 @@ const Archive = () => {
     const { user } = AuthData();
 
     const [problems, setProblems] = useState<any[]>([]);
+    const [page, setPage] = useState<number>(1);
 
     const solvedProblemQuery = useQuery("solved-problems", () => getSolvedProblems(user?.AuthRole.accessToken as string, 1));
 
@@ -34,7 +35,7 @@ const Archive = () => {
 
     return (
         <div>
-            <h2>Realizowane przez innych administratorów</h2>
+            <h2>Ukończone </h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
                     problems.map((problem: any) => <SolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />

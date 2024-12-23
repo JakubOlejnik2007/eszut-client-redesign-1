@@ -8,6 +8,7 @@ import { Notif } from "../../notificationsWrapper";
 import DaysToDeadlineSpan from "../../partials/DaysToDeadlineSpan";
 import ProblemModal from "../unsolved-problem/UnsolvedProblemModal";
 import ISolvedProblem from "../../../types/solvedProblem.interface";
+import WhenSolved from "../../partials/WhenSolved";
 
 
 interface ISolvedProblemProps extends ISolvedProblem {
@@ -16,7 +17,7 @@ interface ISolvedProblemProps extends ISolvedProblem {
 
 const SolvedProblem = (props: ISolvedProblemProps) => {
 
-    const { _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoSolvedName, whoSolvedEmail, isSolved, refreshQuery } = props;
+    const { _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoSolvedName, whoSolvedEmail, dateOfSolved, refreshQuery } = props;
 
 
     const { user } = AuthData();
@@ -50,7 +51,7 @@ const SolvedProblem = (props: ISolvedProblemProps) => {
                 {daysLeft <= 0 ? <div className="clockExpired"><img src="src/assets/alarm.png" height="18px" /></div> : ""}
                 <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
                     <br />
-                    <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />
+                    <WhenSolved dateOfSolved={dateOfSolved} />
                 </h1>
                 <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>
                     Sala: {placeName} <br />
