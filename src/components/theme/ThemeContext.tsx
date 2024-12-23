@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import TThemes from '../../types/themes.type';
 
 
@@ -13,8 +13,17 @@ const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [theme, setTheme] = useState<TThemes>('dark');
 
+    useEffect(() => {
+        const localTheme = localStorage.getItem('theme') as TThemes;
+        if (localTheme) {
+            setTheme(localTheme);
+        }
+    })
+
     const toggleTheme = (newTheme: TThemes) => {
         setTheme((prev) => newTheme);
+        localStorage.setItem('theme', newTheme);
+
     };
 
     return (
