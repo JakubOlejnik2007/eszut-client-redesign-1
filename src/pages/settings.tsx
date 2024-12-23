@@ -1,17 +1,33 @@
 const SettingsScreen = () => {
     return (
         <>
+
                 <div style={{ backgroundColor: '', width: '100%' }} className="content-padding text-justify">
-                    <h3 style={{ textAlign: "center" }}>Ustawienia</h3>
+                    <center>
+                    <div style={{textAlign: "center", width: '50%'}}>
+                    <h3 style={{ textAlign: "left", marginBottom:'0px' }}>styl aplikacji:</h3>
+                    <br></br>
 
-                    wysoki kontrast
+                        <label className="radiotheme">
+                        <input type="radio" name="test" value="big"></input> 
+                        <img src="src/assets/settings/light.png" alt="Option 2"></img>
+                        </label>
+                        <label className="radiotheme">
+                        <input type="radio" name="test" value="big"></input> 
+                        <img src="src/assets/settings/dark.png" alt="Option 2"></img>
+                        </label>
+                    <br></br>
+                    <hr />
 
-                    <label className="switch">
-  <input type="checkbox"></input>
-  <span className="slider"></span>
-</label>
-                    
+                    <h3 style={{ textAlign: "left", marginBottom:'12px' }}>zachowanie aplikacji:</h3>
 
+                    wysyłaj powiadomienia<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br/>
+                    automatyczne wylogowanie<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br/>
+                    zły padding i marginesy<label className="switch"><input type="checkbox" checked></input><span className="slider"></span></label><br/>
+
+
+                    </div>
+                    </center>
                 </div>
         </>
     )
