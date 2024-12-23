@@ -329,6 +329,23 @@ input:checked + .slider:before {
   bottom: 0px;
 }
 
+/*---------------------------==========================RADIO=BUTTONS==========================---------------------------*/
+.radiotheme input[type="radio"]{
+  display: none;
+}
+.radiotheme img{
+  max-height: 80px;
+  filter: drop-shadow(0px 0px 2px #00000093);
+  transition: 0.1s;
+}
+.radiotheme img:active{
+  transform: scale(95%);
+}
+.radiotheme input[type="radio"]:checked+img{
+  transform: scale(100%);
+  filter: drop-shadow(0px 0px 2px var(--accentColor));
+
+}
 
 /*---------------------------==========================UNCATEGORISED==========================---------------------------*/
 
