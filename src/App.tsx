@@ -1,8 +1,8 @@
 import PWABadge from './PWABadge.tsx';
 import Navbar from './components/navigation/navbar.tsx';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
-import './AppLight.css';
+import './App.scss';
+import './AppLight.scss';
 import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
