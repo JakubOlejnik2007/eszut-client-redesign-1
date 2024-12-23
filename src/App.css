@@ -3,12 +3,13 @@
   --smallCornerSize: 4px;
   --defaultPadding: 8px;
   --pageBackBG: #333333;
-  --pageForeBG: #333333;
+  --pageForeBG: #2b2b2b;
   --navBarColor: #1b1a1b9d;
   --mainText: #B8B8B8;
   --secondaryText: #ffffff6f;
   --buttonText: #ffffffa0;
   --accentColor: #FF7060;
+  --borderColor: #1d1d1d;
 }
 
 
@@ -54,7 +55,7 @@ body {
 }
 
 .window {
-  background-color: #333333;
+  background-color: var(--pageBackBG);
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
@@ -74,7 +75,7 @@ body {
   border-top-right-radius: var(--cornerSize);
   background: linear-gradient(180deg, rgba(59, 59, 59, 1) 19%, rgba(51, 51, 51, 1) 100%, rgba(35, 35, 35, 1) 105%);
   border-width: 1px;
-  border-color: #1d1d1d;
+  border-color: var(--borderColor);
   border-bottom-style: solid;
   font-weight: bold;
 }
@@ -82,7 +83,7 @@ body {
 .windowContent {
 
   min-height: 64px;
-  background-color: #2b2b2b;
+  background-color: var(--pageForeBG);
   border-bottom-left-radius: var(--cornerSize);
   border-bottom-right-radius: var(--cornerSize);
   display: flex;
@@ -148,7 +149,7 @@ button {
   font-family: 'sfProDisplay';
 
   background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34, 34, 34, 1) 100%);
-  border-color: #1d1d1d;
+  border-color: var(--borderColor);
   border-width: 1px;
   color: var(--mainText);
   box-shadow: inset 2px 2px 5px #1010104a, inset -2px -2px 5px #1010104a !important;
@@ -178,7 +179,7 @@ button {
 }
 
 /* hides og checkbox */
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -212,15 +213,15 @@ button {
   border-radius: 18px;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #ff5340;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 2px var(--accentColor);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(20px);
   transform: translateX(20px);
@@ -240,9 +241,10 @@ input:checked + .slider:before {
   color: white;
   transform: scale(100%);
   filter: drop-shadow(0px 0px 5px #0000005a);
-  transition: 0.5s;
+  transition: 0.25s;
   padding-left: 5px;
   padding-right: 5px;
+
 }
 
 .mainButton:hover {
@@ -256,7 +258,8 @@ input:checked + .slider:before {
   transform: scale(90%);
   background-color: #ffffff08;
   transition: 0.1s;
-  color: #ffffff3d
+  color: #ffffff3d;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .trashButton {
@@ -325,23 +328,26 @@ input:checked + .slider:before {
 
 }
 
-.singlebuttonoffset{
+.singlebuttonoffset {
   bottom: 0px;
 }
 
 /*---------------------------==========================RADIO=BUTTONS==========================---------------------------*/
-.radiotheme input[type="radio"]{
+.radiotheme input[type="radio"] {
   display: none;
 }
-.radiotheme img{
+
+.radiotheme img {
   max-height: 80px;
   filter: drop-shadow(0px 0px 2px #00000093);
   transition: 0.1s;
 }
-.radiotheme img:active{
+
+.radiotheme img:active {
   transform: scale(95%);
 }
-.radiotheme input[type="radio"]:checked+img{
+
+.radiotheme input[type="radio"]:checked+img {
   transform: scale(100%);
   filter: drop-shadow(0px 0px 2px var(--accentColor));
 
@@ -363,7 +369,7 @@ select {
   font-family: 'sfProDisplay';
 
   background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34, 34, 34, 1) 100%);
-  border-color: #1d1d1d;
+  border-color: var(--borderColor);
   border-width: 1px;
   color: var(--mainText);
   box-shadow: inset 2px 2px 5px #1010104a, inset -2px -2px 5px #1010104a !important;
@@ -415,6 +421,7 @@ nav {
   border-bottom-width: 1px;
   border-bottom-style: outset;
   display: flex;
+  transition: 0.5s;
 }
 
 .report {
@@ -496,7 +503,7 @@ nav {
 .bottomButtons {
   float: right;
   position: absolute;
-  bottom:13.4px;
+  bottom: 13.4px;
   right: 20px;
   left: 20px;
   text-align: center;
@@ -608,7 +615,7 @@ a:hover {
   text-align: justify;
   min-height: 80px;
   max-height: 413px;
-  overflow:scroll;
+  overflow: scroll;
 }
 
 .bottomModalPart {
@@ -662,4 +669,3 @@ a:hover {
 .closeButton:active {
   background-color: #ff9292;
 }
-
