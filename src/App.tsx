@@ -1,21 +1,44 @@
-import PWABadge from './PWABadge.tsx'
-import Navbar from './components/navigation/navbar.tsx'
+import PWABadge from './PWABadge.tsx';
+import Navbar from './components/navigation/navbar.tsx';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css'
+import './App.css';
+import './AppLight.css';
 import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import NotificationsWrapper from './components/notificationsWrapper.tsx';
 import { useEffect } from 'react';
-
+import { ThemeProvider, useTheme } from './components/theme/ThemeContext.tsx';
 const queryClient = new QueryClient();
 
-function App() {
-
+function AppContent() {
+  const { theme } = useTheme();
   const { user } = AuthData();
-  console.log("User:", user);
-  const light = true;
-  useEffect(()=>{if (light) import('./AppLight.css');})
+  console.log('User:', user);
+
+  const clearClasses = (element: HTMLElement) => {
+    while (element.classList.length > 0) {
+      element.classList.remove(element.classList.item(0) as string);
+    }
+  }
+
+  useEffect(() => {
+    const root = document.querySelector(':root') as HTMLElement;
+    console.log('Root:', root);
+
+    clearClasses(root);
+
+    switch (theme) {
+      case 'light':
+        root.classList.add('light');
+        break;
+      case 'dark':
+        break;
+      default:
+        break;
+    }
+  }, [theme]);
+
   return (
     <>
       <main>
@@ -32,7 +55,15 @@ function App() {
       </main>
       <PWABadge />
     </>
-  )
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
 }
 
 export default App;
