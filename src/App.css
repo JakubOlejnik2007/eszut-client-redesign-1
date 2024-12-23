@@ -172,6 +172,9 @@ button {
   display: inline-block;
   width: 48px;
   height: 28px;
+  margin-top: 4px;
+  margin-left: 4px;
+  transform: translateY(-4px);
 }
 
 /* hides og checkbox */
