@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { AuthData } from "../../../auth/AuthWrapper";
-import { putTakeOnProblem, putRejectProblem, putMarkAsSolved } from "../../../service/apiFetchFunctions";
+import { putMarkProblemAsUnsolved, putTakeOnProblem } from "../../../service/apiFetchFunctions";
 import { ENotifType } from "../../../types/notification.interface";
 import dayToDeadline from "../../../utils/dayToDeadline";
 import WhoReportedLink from "../../mail/WhoReportedLink";
 import { Notif } from "../../notificationsWrapper";
-import DaysToDeadlineSpan from "../../partials/DaysToDeadlineSpan";
-import ProblemModal from "../unsolved-problem/UnsolvedProblemModal";
 import ISolvedProblem from "../../../types/solvedProblem.interface";
 import WhenSolved from "../../partials/WhenSolved";
 
@@ -33,7 +31,7 @@ const SolvedProblem = (props: ISolvedProblemProps) => {
         e.stopPropagation();
 
         try {
-            const response = await putTakeOnProblem(user?.AuthRole.accessToken as string, _id)
+            const response = await putMarkProblemAsUnsolved(user?.AuthRole.accessToken as string, _id)
             console.log(response)
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Przypisano problem", type: ENotifType.SUCCESS });

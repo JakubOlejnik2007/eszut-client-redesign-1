@@ -10,9 +10,9 @@ const Archive = () => {
     const { user } = AuthData();
 
     const [problems, setProblems] = useState<any[]>([]);
-    const [page, setPage] = useState<number>(1);
+    const [page, setPage] = useState<number>(2);
 
-    const solvedProblemQuery = useQuery("solved-problems", () => getSolvedProblems(user?.AuthRole.accessToken as string, 1));
+    const solvedProblemQuery = useQuery("solved-problems", () => getSolvedProblems(user?.AuthRole.accessToken as string, page));
 
     const refreshQueries = () => {
         solvedProblemQuery.refetch();
