@@ -6,13 +6,16 @@ import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import NotificationsWrapper from './components/notificationsWrapper.tsx';
+import { useEffect } from 'react';
 
 const queryClient = new QueryClient();
 
 function App() {
 
   const { user } = AuthData();
-  console.log("User:", user)
+  console.log("User:", user);
+  const light = true;
+  useEffect(()=>{if (light) import('./AppLight.css');})
   return (
     <>
       <main>

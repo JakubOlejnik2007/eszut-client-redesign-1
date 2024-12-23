@@ -15,7 +15,7 @@
 
 body {
   color: var(--mainText);
-  background-color: #333333;
+  background-color: var(--pageBackBG);
   margin: 0px;
   padding: 0px;
   font-family: 'sfProDisplay';

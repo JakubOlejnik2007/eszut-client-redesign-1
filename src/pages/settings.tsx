@@ -25,7 +25,7 @@ const SettingsScreen = () => {
                     automatyczne wylogowanie<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br/>
                     zły padding i marginesy<label className="switch"><input type="checkbox" checked></input><span className="slider"></span></label><br/>
 
-
+                    <button className="mainButton">Zastosuj zmiany</button>
                     </div>
                     </center>
                 </div>
