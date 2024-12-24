@@ -46,6 +46,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 });
 
                 const accounts = msalInstance.getAllAccounts();
+                console.log("Accounts during initialization:", accounts);
                 if (accounts.length > 0) {
                     msalInstance.setActiveAccount(accounts[0]);
                 }
@@ -91,7 +92,6 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                     }
                 }
 
-                // Pobranie roli użytkownika z serwera
                 const fetchUserRole = async (token: any) => {
                     try {
                         const response = await axios.get(`${config.backend}${urls.backend.auth.getUserRole}`, {
@@ -114,8 +114,8 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                         console.error("Błąd podczas pobierania roli użytkownika:", error);
                     }
                 };
+
                 console.log("parsedUser", parsedUserData);
-                // Wywołanie funkcji pobierającej rolę użytkownika
                 fetchUserRole(parsedUserData.AuthRole.accessToken);
             }
         } else {
@@ -145,7 +145,9 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
             console.log("Acquiring token...");
             const activeAccount = msalInstance.getActiveAccount();
             if (!activeAccount) {
-                throw new Error("Brak aktywnego konta użytkownika");
+                console.error("Brak aktywnego konta użytkownika. Użytkownik może być wylogowany.");
+                logout();
+                return null;
             }
 
             const tokenResponse = await msalInstance.acquireTokenSilent({
@@ -167,7 +169,6 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
             sessionStorage.setItem("AuthData", JSON.stringify(updatedUser));
 
             return tokenResponse.accessToken;
-
         } catch (error) {
             console.error('Błąd podczas odświeżania tokena', error);
             return null;
