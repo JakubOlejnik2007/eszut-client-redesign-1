@@ -63,22 +63,21 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
 
     useEffect(() => {
         const userDataFromSession = sessionStorage.getItem("AuthData");
+        console.log("UserData", userDataFromSession);
+
         if (userDataFromSession) {
             const parsedUserData = JSON.parse(userDataFromSession);
             const accounts = msalInstance.getAllAccounts();
 
             if (accounts.length > 0) {
-                // Ustaw aktywne konto w MSAL
                 msalInstance.setActiveAccount(accounts[0]);
 
-                // Sprawdź, czy token jest nadal ważny
                 const tokenExpiry = parsedUserData?.AuthRole?.expiresOn;
                 if (tokenExpiry) {
                     const tokenExpirationDate = new Date(tokenExpiry);
                     const currentTime = new Date();
 
                     if (currentTime > tokenExpirationDate) {
-                        // Token jest przeterminowany, trzeba go odświeżyć
                         acquireToken().then((newToken) => {
                             if (newToken) {
                                 console.log("Token został pomyślnie odświeżony.");
@@ -88,65 +87,71 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                             }
                         });
                     } else {
-                        // Token jest ważny, ustaw użytkownika
                         setUser(parsedUserData);
                     }
                 }
+
+                // Pobranie roli użytkownika z serwera
+                const fetchUserRole = async (token: any) => {
+                    try {
+                        const response = await axios.get(`${config.backend}${urls.backend.auth.getUserRole}`, {
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                            },
+                        });
+
+                        if (response.status === 200) {
+                            const userRoleFromServer = response.data.role;
+                            setUser((prevUser) => ({
+                                ...prevUser,
+                                role: userRoleFromServer,
+                                AuthRole: prevUser?.AuthRole as AuthenticationResult
+                            }));
+                        } else {
+                            console.error("Nie udało się pobrać roli użytkownika z serwera.");
+                        }
+                    } catch (error) {
+                        console.error("Błąd podczas pobierania roli użytkownika:", error);
+                    }
+                };
+                console.log("parsedUser", parsedUserData);
+                // Wywołanie funkcji pobierającej rolę użytkownika
+                fetchUserRole(parsedUserData.AuthRole.accessToken);
             }
         } else {
             setIsLoading(false);
         }
     }, [isInitialized]);
 
+    useEffect(() => {
+        if (isInitialized) {
+            const interval = setInterval(() => {
+                acquireToken().then((newToken) => {
+                    if (newToken) {
+                        console.log("Token został pomyślnie odświeżony.");
+                    } else {
+                        console.error("Nie udało się odświeżyć tokena.");
+                        logout();
+                    }
+                });
+            }, 300000);
+
+            return () => clearInterval(interval);
+        }
+    }, [isInitialized]);
 
     const acquireToken = async (): Promise<string | null> => {
         try {
+            console.log("Acquiring token...");
             const activeAccount = msalInstance.getActiveAccount();
             if (!activeAccount) {
                 throw new Error("Brak aktywnego konta użytkownika");
             }
 
-            // Sprawdzenie, czy token już istnieje
-            const currentUser = user;
-            const tokenExpiry = currentUser?.AuthRole?.expiresOn;
-            const currentTime = new Date();
-
-            // Jeśli token istnieje i jest przeterminowany, odśwież token
-            if (tokenExpiry) {
-                const tokenExpirationDate = new Date(tokenExpiry);
-                if (currentTime > tokenExpirationDate) {
-                    console.log('Token jest przeterminowany, odświeżanie...');
-                    // Próbujemy odświeżyć token
-                    const refreshedTokenResponse = await msalInstance.acquireTokenSilent({
-                        scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"],
-                        account: activeAccount
-                    });
-
-                    const updatedUser = {
-                        ...user,
-                        AuthRole: {
-                            ...user?.AuthRole,
-                            accessToken: refreshedTokenResponse.accessToken,
-                            expiresOn: refreshedTokenResponse.expiresOn
-                        }
-                    };
-
-                    setUser(updatedUser as IUser);
-                    sessionStorage.setItem("AuthData", JSON.stringify(updatedUser));
-
-                    return refreshedTokenResponse.accessToken;
-                }
-            }
-
-            // Jeśli token jeszcze jest ważny, zwróć istniejący
-            if (currentUser?.AuthRole?.accessToken) {
-                return currentUser.AuthRole.accessToken;
-            }
-
-            // Jeśli nie ma tokena lub token wygasł, spróbuj pozyskać nowy token
             const tokenResponse = await msalInstance.acquireTokenSilent({
                 scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"],
-                account: activeAccount
+                account: activeAccount,
+                forceRefresh: true
             });
 
             const updatedUser = {
@@ -168,8 +173,6 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
             return null;
         }
     };
-
-
 
     const login = async () => {
         if (!isInitialized) {
@@ -213,7 +216,6 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     const logout = async () => {
         sessionStorage.removeItem("AuthData");
         setUser(null);
-        await msalInstance.logoutPopup();
         navigate("/");
     };
 
