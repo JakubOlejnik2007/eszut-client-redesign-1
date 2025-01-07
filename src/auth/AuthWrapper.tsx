@@ -21,6 +21,14 @@ const AuthContext = createContext<{
     isLoading: true
 });
 
+const setActiveAccountIfNeeded = () => {
+    const accounts = msalInstance.getAllAccounts();
+    if (accounts.length > 0 && !msalInstance.getActiveAccount()) {
+        msalInstance.setActiveAccount(accounts[0]);
+    }
+};
+
+
 export const AuthData = () => useContext(AuthContext);
 
 const msalInstance = new PublicClientApplication(msalConfig);
@@ -131,7 +139,6 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                         console.log("Token został pomyślnie odświeżony.");
                     } else {
                         console.error("Nie udało się odświeżyć tokena.");
-                        logout();
                     }
                 });
             }, 300000);
@@ -141,12 +148,14 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     }, [isInitialized]);
 
     const acquireToken = async (): Promise<string | null> => {
+        console.log(user)
         try {
+            setActiveAccountIfNeeded();
             console.log("Acquiring token...");
             const activeAccount = msalInstance.getActiveAccount();
             if (!activeAccount) {
                 console.error("Brak aktywnego konta użytkownika. Użytkownik może być wylogowany.");
-                logout();
+
                 return null;
             }
 
@@ -156,10 +165,16 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 forceRefresh: true
             });
 
+
+            console.log(tokenResponse);
+
+            const prevUser = JSON.parse(sessionStorage.getItem("AuthData") as string);
+
+
             const updatedUser = {
-                ...user,
+                ...prevUser,
                 AuthRole: {
-                    ...user?.AuthRole,
+                    ...prevUser?.AuthRole,
                     accessToken: tokenResponse.accessToken,
                     expiresOn: tokenResponse.expiresOn
                 }
@@ -185,6 +200,9 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
             const loginResponse = await msalInstance.loginPopup({
                 scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"],
             });
+
+            msalInstance.setActiveAccount(loginResponse.account); // Ustaw aktywne konto
+
             setUser({
                 AuthRole: loginResponse,
                 role: EUserRole.GUEST
@@ -213,6 +231,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
             console.error('Błąd podczas logowania', error);
         }
     };
+
 
     const logout = async () => {
         sessionStorage.removeItem("AuthData");
