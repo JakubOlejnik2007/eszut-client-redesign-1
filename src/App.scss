@@ -66,7 +66,7 @@ body {
   border-color: rgba(255, 255, 255, 0.120);
   border-top-color: rgba(255, 255, 255, 0.205);
   border-style: solid;
-  
+
 }
 
 .titleBar {
@@ -82,12 +82,13 @@ body {
 }
 
 .windowContent {
-
+  width: 100%;
   min-height: 64px;
   background-color: var(--pageForeBG);
   border-bottom-left-radius: var(--cornerSize);
   border-bottom-right-radius: var(--cornerSize);
   display: flex;
+  justify-content: center;
 }
 
 #root {
