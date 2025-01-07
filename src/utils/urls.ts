@@ -1,5 +1,3 @@
-import { SettingsScreen } from "../pages/settings";
-
 const urls = {
     client: {
         mainpage: "/",
