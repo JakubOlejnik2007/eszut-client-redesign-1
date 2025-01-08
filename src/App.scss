@@ -418,6 +418,7 @@ nav {
   background-color: var(--navBarColor);
   filter: drop-shadow(0px 0px 5px #0000005a);
   padding: var(--defaultPadding);
+  -webkit-backdrop-filter: blur(20px); /*fixes blur for Safari*/
   backdrop-filter: blur(20px);
   border-bottom: #ffffff53;
   border-bottom-width: 1px;
@@ -573,6 +574,7 @@ a:hover {
   display: flex;
   width: 600px;
   margin: auto;
+  -webkit-backdrop-filter: blur(20px); /*it also fixes blur for Safari*/
   backdrop-filter: blur(20px);
   background-color: #33333353;
   max-width: 1024px;
