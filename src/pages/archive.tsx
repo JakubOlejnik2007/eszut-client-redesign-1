@@ -40,12 +40,12 @@ const Archive = () => {
         <div>
             <h2>Ukończone </h2>
             <div className="pagination">
-                <button onClick={() => setPage(1)}>&lt;&lt;</button>
-                <button onClick={() => setPage(page > 1 ? page - 1 : page)}>&lt;</button>
+                <button className="mainButton" onClick={() => setPage(1)}>&lt;&lt;</button>
+                <button className="mainButton" onClick={() => setPage(page > 1 ? page - 1 : page)}>&lt;</button>
+                <button className="mainButton" onClick={() => setPage(page < maxPage ? page + 1 : page)}>&gt;</button>
+                <button className="mainButton" onClick={() => setPage(maxPage)}>&gt;&gt;</button>
                 <p>{page} z {maxPage}</p>
-                <button onClick={() => setPage(page < maxPage ? page + 1 : page)}>&gt;</button>
 
-                <button onClick={() => setPage(maxPage)}>&gt;&gt;</button>
             </div>
             <div style={{ display: "flex", justifyContent: "center", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {

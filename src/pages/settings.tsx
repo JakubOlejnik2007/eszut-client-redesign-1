@@ -31,6 +31,18 @@ const SettingsScreen = () => {
         {
             name: "dark",
             img: "src/assets/settings/dark.png"
+        },
+        {
+            name: "tokyo",
+            img: "src/assets/settings/tokyo.png"
+        },
+        {
+            name: "desert",
+            img: "src/assets/settings/desert.png"
+        },
+        {
+            name: "highContrast",
+            img: "src/assets/settings/highContrast.png"
         }
     ]
 

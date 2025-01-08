@@ -10,6 +10,8 @@
   --buttonText: #ffffffa0;
   --accentColor: #FF7060;
   --borderColor: #1d1d1d;
+  --windowBorderColor: rgba(255, 255, 255, 0.120);
+  --windowTopBorderColor: rgba(255, 255, 255, 0.205);
 }
 
 
@@ -63,8 +65,8 @@ body {
   filter: drop-shadow(0px 0px 10px #0000005a);
   border-radius: var(--cornerSize);
   border-width: 1px;
-  border-color: rgba(255, 255, 255, 0.120);
-  border-top-color: rgba(255, 255, 255, 0.205);
+  border-color: var(--windowBorderColor);
+  border-top-color: var(--windowTopBorderColor);
   border-style: solid;
 
 }
@@ -334,6 +336,32 @@ input:checked+.slider:before {
   bottom: 0px;
 }
 
+/*-=pagination buttons=-*/
+.pagination{
+  button{
+
+    margin-left: 4px;
+    margin-right: 4px;
+
+    // margin-top: 24px;
+    // height: 30px;
+    // min-width: 30px;
+    // border-radius: var(--smallCornerSize);
+    // border-style: solid;
+    // border-width: 1px;
+    // border-color: #ffffff1d;
+    // border-top-color: #ffffff2f;
+    // background-color: #ffffff4b;
+    // color: white;
+    // transform: scale(100%);
+    // filter: drop-shadow(0px 0px 5px #0000005a);
+    // transition: 0.25s;
+    // padding-left: 5px;
+    // padding-right: 5px;
+  }
+}
+
+
 /*---------------------------==========================RADIO=BUTTONS==========================---------------------------*/
 .radiotheme input[type="radio"] {
   display: none;
@@ -352,7 +380,6 @@ input:checked+.slider:before {
 .radiotheme input[type="radio"]:checked+img {
   transform: scale(100%);
   filter: drop-shadow(0px 0px 2px var(--accentColor));
-
 }
 
 /*---------------------------==========================UNCATEGORISED==========================---------------------------*/
@@ -405,7 +432,7 @@ label {
 .divider {
   border-right-width: 1px;
   border-right-style: solid;
-  border-color: var(--navBarColor);
+  border-color: var(--borderColor);
   padding: 15px;
 }
 
