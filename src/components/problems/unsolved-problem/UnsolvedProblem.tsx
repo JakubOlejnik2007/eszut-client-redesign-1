@@ -120,7 +120,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                     )}
                 </div>
             </div>
-            {showModal && <ProblemModal {...props} handleClose={() => setShowModal(false)} handleReject={handleRejectProblem} handleMarkAsSolved={handleMarkAsSolved} />}
+            {showModal && <ProblemModal {...props} handleClose={() => { setShowModal(false); refreshQuery(); }} handleReject={handleRejectProblem} handleMarkAsSolved={handleMarkAsSolved} />}
         </>
     );
 };

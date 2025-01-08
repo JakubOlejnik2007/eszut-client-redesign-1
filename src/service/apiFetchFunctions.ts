@@ -42,10 +42,24 @@ export const putMarkAsSolved = async (AuthToken: string, ProblemID: string) =>
         AuthToken
     );
 
-    export const putMarkProblemAsUnsolved = async (AuthToken: string, ProblemID: string) =>
-        await createApiRequest(
-            "PUT",
-            `${config.backend}${urls.backend.problem.markProblemAsUnsolved}`,
-            { ProblemID },
-            AuthToken
-        );
+export const putMarkProblemAsUnsolved = async (AuthToken: string, ProblemID: string) =>
+    await createApiRequest(
+        "PUT",
+        `${config.backend}${urls.backend.problem.markProblemAsUnsolved}`,
+        { ProblemID },
+        AuthToken
+    );
+
+export const putUpdateUnsolvedProblem = async (
+    AuthToken: string,
+    priority: string,
+    PlaceID: string,
+    CategoryID: string,
+    ProblemID: string
+) =>
+    await createApiRequest(
+        "PUT",
+        `${config.backend}${urls.backend.problem.updateProblem}`,
+        { ProblemID, CategoryID, priority, PlaceID },
+        AuthToken
+    );

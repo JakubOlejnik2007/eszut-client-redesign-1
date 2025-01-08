@@ -47,7 +47,7 @@ const Archive = () => {
                 <p>{page} z {maxPage}</p>
 
             </div>
-            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
+            <div style={{ display: "flex", justifyContent: "center", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
                     problems.map((problem: any) => <SolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
                     )
