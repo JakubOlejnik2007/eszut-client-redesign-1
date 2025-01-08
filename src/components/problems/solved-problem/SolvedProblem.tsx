@@ -44,9 +44,8 @@ const SolvedProblem = (props: ISolvedProblemProps) => {
 
     return (
         <>
-            <div className={`report ${daysLeft <= 0 ? "expired" : ""}`} onClick={() => setShowModal(true)}>
+            <div className={`report`} onClick={() => setShowModal(true)}>
                 <div className={`waga${priority} reportTitle`}></div>
-                {daysLeft <= 0 ? <div className="clockExpired"><img src="src/assets/alarm.png" height="18px" /></div> : ""}
                 <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
                     <br />
                     <WhenSolved dateOfSolved={dateOfSolved} />
