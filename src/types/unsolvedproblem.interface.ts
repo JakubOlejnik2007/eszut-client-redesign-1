@@ -10,6 +10,8 @@ interface IUnsolvedProblem {
     whoDealsName: string;
     whoDealsEmail: string;
     isUnderRealization: boolean;
+    placeId: string;
+    categoryId: string;
 }
 
 export default IUnsolvedProblem;

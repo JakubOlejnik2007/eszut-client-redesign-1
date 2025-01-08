@@ -54,9 +54,9 @@ const ReportsScreen = () => {
 
 
     return (
-        <div>
+        <div style={{ width: "100%" }}>
             <h2>Realizowane przez ciebie</h2>
-            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }}>
                 {
                     underYou.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
                     )
@@ -64,7 +64,7 @@ const ReportsScreen = () => {
             </div>
             <hr></hr>
             <h2>Niepodjęte</h2>
-            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }}>
                 {
                     other.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
                     )
@@ -72,7 +72,7 @@ const ReportsScreen = () => {
             </div>
             <hr></hr>
             <h2>Realizowane przez innych administratorów</h2>
-            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }}>
                 {
                     underRealization.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
                     )
