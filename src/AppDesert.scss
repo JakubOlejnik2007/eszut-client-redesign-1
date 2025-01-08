@@ -1,49 +1,58 @@
-.tokyo:root {
+.desert:root {
 
   /*corners, etc.*/
-  --cornerSize: 0px;
-  --smallCornerSize: 0px;
+  --cornerSize: 8px;
+  --smallCornerSize: 2px;
   --defaultPadding: 8px;
 
   /*main page*/
-  --pageBackBG: #1a1b27;
-  --pageForeBG: #24263a;
+  --pageBackBG: #cbc4b6;
+  --pageForeBG: #F8F1E3;
   --navBarColor: #ffffffa2;
   --borderColor: #0b0221;
-  --windowBorderColor: #8f98ff;
-  --windowTopBorderColor: #8f98ff;
+  --windowBorderColor: #4F321C;
+  --windowTopBorderColor: #4F321C;
 
   /*page elements*/
-  --mainText: #e7f4ff;
-  --secondaryText: #e7f4ff;
+  --mainText: #4F321C;
+  --secondaryText: #825635;
   --buttonText: #ffffffa0;
-  --accentColor: #8f98ff;
-  --mainButtonColor: #8f98ff;
+  --accentColor: #4F321C;
+  --mainButtonColor: #4F321C;
 
   /*reports*/
-  --reportBG: #373a5e;
-  --reportBGH: #3d416e;
-  --reportBorderColor: #8f98ff;
+  --reportBG: #F8F1E3;
+  --reportBGH: #F8F1E3;
+  --reportBorderColor: #4F321C;
 
-  --reportExpiredBG: #5e375e;
-  --reportExpiredBGH: #714071;
-  --reportExpiredBorderColor: #ec8fff;
+  --reportExpiredBG: #fbe5ba;
+  --reportExpiredBGH: #fbe5ba;
+  --reportExpiredBorderColor: #4F321C;
 
 
   nav {
     // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
-    background-color: #24263a;
-    border-bottom: #8f98ff;
+    background-color: #F8F1E3;
+    border-bottom: #4F321C;
     border-bottom-width: 1px;
     border-bottom-style: outset;
     display: flex;
     filter: none;
   }
 
-  .navButton:active {
-    background-color: #ffffff28;
-    color: white;
+  .navButton {
+    background-color: none;
+    color: #4F321C;
   }
+  .navButton:hover {
+    background-color: #4f321c11;
+    color: #4F321C;
+  }
+  .navButton:active {
+    background-color: #4f321c34;
+    color: #4F321C;
+  }
+
 
   a{
     color: var(--secondaryText);
@@ -55,15 +64,17 @@
   }
 
   .titleBar {
-    background: #24263a
+    background: #F8F1E3
   }
 
   .textInput,
   select {
-    background: var(--pageBackBG);
+    background: var(--pageForeBG);
     border-width: 1px;
     border-style: solid;
     border-color: var(--accentColor);
+    box-shadow: none !important;
+
   }
 
   hr {
@@ -72,20 +83,21 @@
 
 
   .mainButton {
-    background-color: var(--pageBackBG);
+    background-color: #ece4d4;
+    color: var(--mainText);
     filter: drop-shadow(0px 0px 5px #00000000);
     border-color: var(--mainButtonColor);
     border-top-color: var(--mainButtonColor);
     &:hover{
-      background-color: #545dbc;
+      background-color: #fff6e5;
       border-color: var(--mainButtonColor);
       border-top-color: var(--mainButtonColor);
       transform: none;
-      transition: 0.5s;
+      transition: 0.15s;
       cursor: pointer;
     }
     &:active{
-      transform: none;
+      transform: scale(90%);
       background-color: var(--pageBackBG);
       transition: 0.1s;
       cursor:default;
@@ -127,26 +139,24 @@
   .secondaryButton,
   .secondaryButton:active,
   .secondaryButton:hover {
-    background-color: var(--pageBackBG);
-    filter: none;
+    background-color: #ece4d4;
+    color: var(--mainText);
+    filter: drop-shadow(0px 0px 5px #00000000);
     border-color: var(--mainButtonColor);
     border-top-color: var(--mainButtonColor);
-    color: var(--mainText);
     &:hover{
-      background-color: #545dbc;
+      background-color: #fff6e5;
       border-color: var(--mainButtonColor);
       border-top-color: var(--mainButtonColor);
       transform: none;
-      transition: 0.5s;
+      transition: 0.15s;
       cursor: pointer;
-      color: var(--mainText);
     }
     &:active{
-      transform: none;
+      transform: scale(90%);
       background-color: var(--pageBackBG);
       transition: 0.1s;
       cursor:default;
-      color: var(--mainText);
     }
   }
 
@@ -170,13 +180,14 @@
 
 
   .slider{
-    background-color: #1a1b27;
+    background-color: #cbc4b6;
   }
   input:checked+.slider {
     background-color: var(--mainButtonColor);
+    
   } 
   .slider:before {
-    background-color: var(--mainText);
+    background-color: var(--pageForeBG);
   }
 
   /* REPORTS */
@@ -223,17 +234,17 @@
 
   .waga1 {
     background-color: #ff8f8f;
-    border-color: #0dff0000;
+    border-color: #6c002b;
   }
 
   .waga2 {
     background-color: #d28fff;
-    border-color: #88516e00;
+    border-color: #66305e;
   }
 
   .waga3 {
     background-color: #8f98ff;
-    border-color: #6e518800;
+    border-color: #144f73;
   }
 
 
@@ -248,23 +259,31 @@
   }
 
   .closeButton{
-    border-radius: 0px;
-    background-color: #ff8f8f;
+    background-color: #83532e;
+  }
+  .closeButton:hover{
+    background-color: #83532e;
+    background-image: none;
+  }
+  .closeButton:active{
+    background-color: #4F321C;
   }
 
   .modal {
     backdrop-filter: none;
-    background-color: #24263a;
+    background-color: #F8F1E3;
     filter: drop-shadow(0px 0px 50px #8f98ff22);
-    border-color: #545dbc;
-    color: rgb(197, 197, 197);
-    a{color: white;}
+    border-color: #4F321C;
+    color: #4F321C;
+    a{color: #4F321C;}
 
     .daysLeftText{
-      color: rgb(197, 197, 197);
+      color: #4F321C;
     }
   }
-
+  .edit{
+    color: rgba(0, 0, 0, 0);
+  }
   .modalTitle {
     background-color: rgba(255, 0, 0, 0);
   }
@@ -285,17 +304,11 @@
     color: rgba(0, 0, 0, 0.379);
   }
 
-  .pagination{
-    button{
-      background-color: #3a3e6f;
-    }
-  }
-
   .logElement {
-    background-color: #202132;
+    background-color: #eee3cd;
   }
   
   .logElement:nth-child(even) {
-    background-color: #1a1b28;
+    background-color: #f4ebda;
   }
 }
