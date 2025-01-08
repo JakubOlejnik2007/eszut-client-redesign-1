@@ -94,10 +94,10 @@ hr {
 }
 
 .primary{
-  color:#B8B8B8;
+  color: var(--primaryText);
 }
 .secondary{
-  color:#ffffff6f;
+  color:var(--secondaryText);
 }
 
 .edit{

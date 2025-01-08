@@ -3,6 +3,7 @@ import Navbar from './components/navigation/navbar.tsx';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import './AppLight.scss';
+import './AppTokyo.scss';
 import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -32,6 +33,11 @@ function AppContent() {
       case 'light':
         root.classList.add('light');
         break;
+      case 'tokyo':
+        root.classList.add('tokyo');
+        break;
+
+
       case 'dark':
         break;
       default:
