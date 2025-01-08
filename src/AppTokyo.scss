@@ -69,10 +69,14 @@
       border-color: var(--mainButtonColor);
       border-top-color: var(--mainButtonColor);
       transform: none;
+      transition: 0.5s;
+      cursor: pointer;
     }
     &:active{
       transform: none;
       background-color: var(--pageBackBG);
+      transition: 0.1s;
+      cursor:default;
     }
   }
   
