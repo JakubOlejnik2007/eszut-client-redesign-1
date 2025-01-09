@@ -101,7 +101,7 @@
   }
 
   .logo:hover {
-    color: #ffcdcd;
+    color: var(--mainButtonColor);
   }
 
   ::-moz-selection {

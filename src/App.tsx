@@ -5,6 +5,7 @@ import './App.scss';
 import './AppLight.scss';
 import './AppTokyo.scss';
 import './AppDesert.scss';
+import './AppHighContrast.scss';
 import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -37,10 +38,12 @@ function AppContent() {
       case 'tokyo':
         root.classList.add('tokyo');
         break;
-        case 'desert':
-          root.classList.add('desert');
-          break;
-
+      case 'desert':
+        root.classList.add('desert');
+        break;
+      case 'highContrast':
+        root.classList.add('highContrast');
+        break;
       case 'dark':
         break;
       default:

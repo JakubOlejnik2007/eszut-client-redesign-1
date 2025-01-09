@@ -1,39 +1,39 @@
-.desert:root {
+.highContrast:root {
 
   /*corners, etc.*/
   --cornerSize: 8px;
-  --smallCornerSize: 2px;
+  --smallCornerSize: 4px;
   --defaultPadding: 8px;
 
   /*main page*/
-  --pageBackBG: #cbc4b6;
-  --pageForeBG: #F8F1E3;
-  --navBarColor: #ffffffa2;
-  --borderColor: #0b0221;
-  --windowBorderColor: #4F321C;
-  --windowTopBorderColor: #4F321C;
+  --pageBackBG: #000000;
+  --pageForeBG: #000000;
+  --navBarColor: #a42222a2;
+  --borderColor: #ffffff;
+  --windowBorderColor: #ffffff;
+  --windowTopBorderColor: #ffffff;
 
   /*page elements*/
-  --mainText: #4F321C;
-  --secondaryText: #825635;
-  --buttonText: #ffffffa0;
-  --accentColor: #4F321C;
-  --mainButtonColor: #4F321C;
+  --mainText: white;
+  --secondaryText: white;
+  --buttonText: white;
+  --accentColor: #ffffff;
+  --mainButtonColor: #ffffff;
 
   /*reports*/
-  --reportBG: #F8F1E3;
-  --reportBGH: #F8F1E3;
-  --reportBorderColor: #4F321C;
+  --reportBG: #000000;
+  --reportBGH: #000000;
+  --reportBorderColor: #ffffff;
 
-  --reportExpiredBG: #fbe5ba;
-  --reportExpiredBGH: #fbe5ba;
-  --reportExpiredBorderColor: #4F321C;
+  --reportExpiredBG: #000000;
+  --reportExpiredBGH: #000000;
+  --reportExpiredBorderColor: #ff6200;
 
 
   nav {
     // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
-    background-color: #F8F1E3;
-    border-bottom: #4F321C;
+    background-color: #000000;
+    border-bottom: #ffee00;
     border-bottom-width: 1px;
     border-bottom-style: outset;
     display: flex;
@@ -42,15 +42,15 @@
 
   .navButton {
     background-color: none;
-    color: #4F321C;
+    color: #ffee00;
   }
   .navButton:hover {
-    background-color: #4f321c11;
-    color: #4F321C;
+    background-color: #ffee0010;
+    color: #ffee00;
   }
   .navButton:active {
-    background-color: #4f321c34;
-    color: #4F321C;
+    background-color: #ffee0025;
+    color: #ffee00;
   }
 
 
@@ -59,8 +59,12 @@
     text-decoration: underline;
   }
 
+  .window{
+    filter: drop-shadow(0px 0px 50px #ffffff22);
+  }
+
   .titleBar {
-    background: #F8F1E3
+    background: #000000
   }
 
   .textInput,
@@ -74,27 +78,28 @@
   }
 
   hr {
-    border-top: 1px solid rgba(26, 26, 26, 0.489);
+    border-top: 1px solid #ffffff !important;
   }
 
 
   .mainButton {
-    background-color: #ece4d4;
-    color: var(--mainText);
-    filter: drop-shadow(0px 0px 5px #00000000);
-    border-color: var(--mainButtonColor);
-    border-top-color: var(--mainButtonColor);
+    background-color: #000000;
+    color: #ffee00;
+    border-color: #ffee00;
+    border-top-color: #ffee00;
     &:hover{
-      background-color: #fff6e5;
-      border-color: var(--mainButtonColor);
-      border-top-color: var(--mainButtonColor);
-      transform: none;
+      background-color: #000000;
+      color: #ffee00;
+      border-color: #ffee00;
+      border-top-color: #ffee00;
+      transform: 120%;
       transition: 0.15s;
       cursor: pointer;
     }
     &:active{
       transform: scale(90%);
-      background-color: var(--pageBackBG);
+      background-color: #ffee00;
+    color: #000000;
       transition: 0.1s;
       cursor:default;
     }
@@ -113,13 +118,13 @@
   }
 
   ::-moz-selection {
-    color: var(--accentColor);
-    background: #362929;
+    color: #ffee00;
+    background: #0000b9;
   }
 
   ::selection {
-    color: var(--accentColor);
-    background: #ff752534;
+    color: #ffee00;
+    background: #0000b9;
   }
 
 
@@ -135,22 +140,23 @@
   .secondaryButton,
   .secondaryButton:active,
   .secondaryButton:hover {
-    background-color: #ece4d4;
-    color: var(--mainText);
-    filter: drop-shadow(0px 0px 5px #00000000);
-    border-color: var(--mainButtonColor);
-    border-top-color: var(--mainButtonColor);
+    background-color: #000000;
+    color: #ffee00;
+    border-color: #ffee00;
+    border-top-color: #ffee00;
     &:hover{
-      background-color: #fff6e5;
-      border-color: var(--mainButtonColor);
-      border-top-color: var(--mainButtonColor);
-      transform: none;
+      background-color: #000000;
+      color: #ffee00;
+      border-color: #ffee00;
+      border-top-color: #ffee00;
+      transform: 120%;
       transition: 0.15s;
       cursor: pointer;
     }
     &:active{
       transform: scale(90%);
-      background-color: var(--pageBackBG);
+      background-color: #ffee00;
+    color: #000000;
       transition: 0.1s;
       cursor:default;
     }
@@ -196,14 +202,16 @@
     border-color: var(--accentColor);
     border-top-color: #ffffff2f;
     border-radius: var(--smallCornerSize);
+    transform: none;
+    hr{
+      border-top: 1px solid black !important;
+    }
   }
 
   .report:hover {
-    filter: drop-shadow(0px 0px 0px #0000009d);
-    transform: scale(102.5%);
+    transform: none;
     transition: 0.5s;
     background-color: var(--reportBGH)
-
   }
 
 
@@ -213,6 +221,7 @@
     &:hover{
       background-color: var(--reportExpiredBGH);
     }
+
   }
 
 
@@ -229,18 +238,18 @@
   }
 
   .waga1 {
-    background-color: #ff8f8f;
-    border-color: #6c002b;
+    background-color: #550000;
+    border-color: #ff0000;
   }
 
   .waga2 {
-    background-color: #d28fff;
-    border-color: #66305e;
+    background-color: #766900;
+    border-color: #fffb00;
   }
 
   .waga3 {
-    background-color: #8f98ff;
-    border-color: #144f73;
+    background-color: #005e06;
+    border-color: #00ff26;
   }
 
 
@@ -255,26 +264,38 @@
   }
 
   .closeButton{
-    background-color: #83532e;
+    background-color: #fffb00;
+    height: 8px;
+    width: 8px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fffb00;
   }
   .closeButton:hover{
-    background-color: #83532e;
+    background-color: #000000;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fffb00;
     background-image: none;
+    cursor: pointer;
   }
   .closeButton:active{
-    background-color: #4F321C;
+    background-color: #fffb00;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fffb00;
   }
 
   .modal {
     backdrop-filter: none;
-    background-color: #F8F1E3;
+    background-color: #000000;
     filter: drop-shadow(0px 0px 50px #8f98ff22);
-    border-color: #4F321C;
-    color: #4F321C;
-    a{color: #4F321C;}
+    border-color: #fffb00;
+    color: white;
+    a{color: #00ffe1;}
 
     .daysLeftText{
-      color: #4F321C;
+      color: white;
     }
   }
   .edit{
