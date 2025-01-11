@@ -53,18 +53,22 @@ function AppContent() {
 
   return (
     <>
-      <main>
-        <QueryClientProvider client={queryClient}>
-          <Router>
-            <AuthWrapper>
-              <NotificationsWrapper>
-                <Navbar />
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <AuthWrapper>
+            <NotificationsWrapper>
+              <header>
+                <nav>
+                  <Navbar />
+                </nav>
+              </header>
+              <main>
                 <RenderMenu />
-              </NotificationsWrapper>
-            </AuthWrapper>
-          </Router>
-        </QueryClientProvider>
-      </main>
+              </main>
+            </NotificationsWrapper>
+          </AuthWrapper>
+        </Router>
+      </QueryClientProvider>
       <PWABadge />
     </>
   );

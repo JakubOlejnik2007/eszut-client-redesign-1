@@ -82,7 +82,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
         <>
             <div className={`report ${daysLeft <= 0 ? "expired" : ""}`} onClick={() => setShowModal(true)}>
                 <div className={`waga${priority} reportTitle`}></div>
-                {daysLeft <= 0 ? <div className="clockExpired"><img src="src/assets/alarm.png" height="18px" /></div> : ""}
+                {daysLeft <= 0 ? <div className="clockExpired"><img src="src/assets/alarm.png" height="18px" alt="Ostrzeżenie o nierozwiązanym problemie" /></div> : ""}
                 <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
                     <br />
                     <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />
