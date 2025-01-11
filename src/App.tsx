@@ -58,10 +58,7 @@ function AppContent() {
           <AuthWrapper>
             <NotificationsWrapper>
               <header>
-                <nav>
-                  <Navbar />
-                </nav>
-              </header>
+                <Navbar /></header>
               <main>
                 <RenderMenu />
               </main>
