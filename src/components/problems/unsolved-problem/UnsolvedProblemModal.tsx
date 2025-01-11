@@ -84,7 +84,11 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
 
                     <br></br>
                     Zgłaszający: <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />
-                    Rozwiązywane przez: {whoDealsEmail === USER_EMAIL ? "Ciebie" : <WhoDealsLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />}<br /><br />
+
+                    {
+                        isUnderRealization && <>Rozwiązywane przez: {whoDealsEmail === USER_EMAIL ? "Ciebie" : <WhoDealsLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />}</>
+                    }
+                    <br /><br />
                     <br />
                     Zgłoszenie: {reportDate.toLocaleString("pl")}<br />
                     Termin: {(getDeadlineDate(reportDate, priority)).toLocaleString("pl")}<br />
