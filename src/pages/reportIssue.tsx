@@ -12,8 +12,6 @@ const ReportIssueScreen = () => {
     const [formData, setFormData] = useState<IInsertNewProblem>({
         PlaceID: '',
         CategoryID: '',
-        whoName: '',
-        whoEmail: '',
         what: '',
     })
 
@@ -36,8 +34,6 @@ const ReportIssueScreen = () => {
             setFormData({
                 PlaceID: places[0]._id,
                 CategoryID: categories[0]._id,
-                whoName: user?.AuthRole.account.name as string,
-                whoEmail: user?.AuthRole.account.username as string,
                 what: '',
             })
     }, [places, categories])
@@ -47,7 +43,7 @@ const ReportIssueScreen = () => {
         e.preventDefault();
         console.log(formData)
 
-        if (!formData.CategoryID || !formData.PlaceID || !formData.what || !formData.whoName || !formData.whoEmail) {
+        if (!formData.CategoryID || !formData.PlaceID || !formData.what) {
             console.error("Formularz jest nie wypełniony");
             return;
         }
