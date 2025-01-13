@@ -3,6 +3,7 @@ import { getSolvedProblems } from "../service/apiFetchFunctions";
 import { AuthData } from "../auth/AuthWrapper";
 import { useEffect, useState } from "react";
 import SolvedProblem from "../components/problems/solved-problem/SolvedProblem";
+import Pagination from "../components/Pagination";
 
 
 const Archive = () => {
@@ -39,14 +40,7 @@ const Archive = () => {
     return (
         <div>
             <h2>Ukończone </h2>
-            <div className="pagination">
-                <button className="mainButton" onClick={() => setPage(1)}>&lt;&lt;</button>
-                <button className="mainButton" onClick={() => setPage(page > 1 ? page - 1 : page)}>&lt;</button>
-                <button className="mainButton" onClick={() => setPage(page < maxPage ? page + 1 : page)}>&gt;</button>
-                <button className="mainButton" onClick={() => setPage(maxPage)}>&gt;&gt;</button>
-                <p>{page} z {maxPage}</p>
-
-            </div>
+            <Pagination setPage={setPage} page={page} maxPage={maxPage} />
             <div style={{ display: "flex", justifyContent: "center", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
                     problems.map((problem: any) => <SolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
