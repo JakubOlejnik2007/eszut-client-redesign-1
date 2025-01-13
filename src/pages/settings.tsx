@@ -33,12 +33,12 @@ const SettingsScreen = () => {
             img: "src/assets/settings/dark.png"
         },
         {
-            name: "tokyo",
-            img: "src/assets/settings/tokyo.png"
-        },
-        {
             name: "desert",
             img: "src/assets/settings/desert.png"
+        },
+        {
+            name: "tokyo",
+            img: "src/assets/settings/tokyo.png"
         },
         {
             name: "highContrast",
@@ -56,14 +56,20 @@ const SettingsScreen = () => {
                         <br></br>
 
                         {themes.map((theme) => <ThemeRadio key={theme.name} {...theme} />)}
-                        <br></br>
+                        <br/>
                         <hr />
-
                         <h3 style={{ textAlign: "left", marginBottom: '12px' }}>zachowanie aplikacji:</h3>
 
                         wysyłaj powiadomienia<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br />
                         automatyczne wylogowanie<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br />
                         zły padding i marginesy<label className="switch"><input type="checkbox" checked></input><span className="slider"></span></label><br />
+
+                        <br/>
+                        <hr />
+                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>więcej personalizacji:</h3>
+                        obecny styl: [dropdown]<br/>
+                        tworzenie styli... <br/>
+                        utwórz token...<br/>
 
                         <button className="mainButton">Zastosuj zmiany</button>
                     </div>
