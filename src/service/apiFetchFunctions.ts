@@ -63,3 +63,5 @@ export const putUpdateUnsolvedProblem = async (
         { ProblemID, CategoryID, priority, PlaceID },
         AuthToken
     );
+
+export const getLogData = async (AuthToken: string, page: number) => await createApiRequest("GET", `${config.backend}${urls.backend.logs.getLogData}?page=${page}`, {}, AuthToken)
