@@ -5,7 +5,7 @@ import NAVIGATION_ITEMS from "../partials/navigationItems"
 import NavItem from "./navItem"
 import urls from "../../utils/urls";
 
-const Navbar = (props: any) => {
+const Navbar = () => {
 
     const { user, logout } = AuthData();
 
@@ -17,7 +17,7 @@ const Navbar = (props: any) => {
 
         <nav className='navbar'>
 
-            <div className='logo'>ESZUT</div>
+            <div className='logo' onClick={() => user ? navigate(urls.client.reportProblem) : navigate(urls.client.mainpage)}>ESZUT</div>
             {
                 NAVIGATION_ITEMS.map((item, index) => <NavItem key={index} {...item} userRole={user !== null && user.role !== null ? user.role : EUserRole.GUEST} />)
             }
