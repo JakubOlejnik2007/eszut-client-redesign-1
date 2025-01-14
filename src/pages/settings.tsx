@@ -66,7 +66,7 @@ const SettingsScreen = () => {
 
                         <br/>
                         <hr />
-                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>więcej personalizacji:</h3>
+                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>więcej:</h3>
                         obecny styl: [dropdown]<br/>
                         tworzenie styli... <br/>
                         utwórz token...<br/>
