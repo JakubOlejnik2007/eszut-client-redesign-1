@@ -83,29 +83,29 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                     </div>
 
                     <br></br>
-                    Zgłaszający: <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />
+                    <label className="infoLabel">Zgłaszający:</label> <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />
 
                     {
                         isUnderRealization && <>Rozwiązywane przez: {whoDealsEmail === USER_EMAIL ? "Ciebie" : <WhoDealsLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />}</>
                     }
                     <br /><br />
                     <br />
-                    Zgłoszenie: {reportDate.toLocaleString("pl")}<br />
-                    Termin: {(getDeadlineDate(reportDate, priority)).toLocaleString("pl")}<br />
+                    <label className="infoLabel">Zgłoszenie:</label> {reportDate.toLocaleString("pl")}<br />
+                    <label className="infoLabel">Termin:</label> {(getDeadlineDate(reportDate, priority)).toLocaleString("pl")}<br />
 
                     <br /><br />
                     {
                         isEdit ?
                             <>
-                                Kategoria: <select value={editableData.categoryId} onChange={(e) => setEditableData({ ...editableData, categoryId: e.target.value, wasChanged: true })}>
+                                <label className="infoLabel">Kategoria:</label> <select value={editableData.categoryId} onChange={(e) => setEditableData({ ...editableData, categoryId: e.target.value, wasChanged: true })}>
                                     {categoriesQuery.data?.map((category: any) => <option key={category._id} value={category._id}>{category.name}</option>)}
                                 </select>
 
-                                Miejsce: <select value={editableData.placeId} onChange={(e) => setEditableData({ ...editableData, placeId: e.target.value, wasChanged: true })}>
+                                <label className="infoLabel">Miejsce:</label> <select value={editableData.placeId} onChange={(e) => setEditableData({ ...editableData, placeId: e.target.value, wasChanged: true })}>
                                     {placesQuery.data?.map((place: any) => <option key={place._id} value={place._id}>{place.name}</option>)}
                                 </select>
 
-                                Priorytet: <select value={editableData.priority} onChange={(e) => setEditableData({ ...editableData, priority: e.target.value, wasChanged: true })}>
+                                <label className="infoLabel">Priorytet:</label> <select value={editableData.priority} onChange={(e) => setEditableData({ ...editableData, priority: e.target.value, wasChanged: true })}>
                                     <option value="1">Wysoki</option>
                                     <option value="2">Średni</option>
                                     <option value="3">Niski</option>
@@ -113,9 +113,9 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                             </>
                             :
                             <>
-                                Kategoria: {categoriesQuery.data.find((item: any) => item._id == editableData.categoryId).name}<br />
-                                Miejsce: {placesQuery.data.find((item: any) => item._id == editableData.placeId).name}<br />
-                                Priorytet: <MapPriorityToWords priority={parseInt(editableData.priority)} /> <br />
+                                <label className="infoLabel">Kategoria:</label> {categoriesQuery.data.find((item: any) => item._id == editableData.categoryId).name}<br />
+                                <label className="infoLabel">Miejsce: </label>{placesQuery.data.find((item: any) => item._id == editableData.placeId).name}<br />
+                                <label className="infoLabel">Priorytet:</label> <MapPriorityToWords priority={parseInt(editableData.priority)} /> <br />
                             </>
                     }
 

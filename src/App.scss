@@ -739,3 +739,46 @@ a:hover {
 .closeButton:active {
   background-color: #ff9292;
 }
+/*---------------------------==========================MOBILE==========================---------------------------*/
+
+
+@media (max-width: 600px) {
+  .modal {
+
+    display: flex;
+    width: 300px;
+    margin: auto;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding-bottom: 50px;
+  }
+  .bottomModalPart {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    text-align: right;
+    width: 240px;
+  }
+  .modalTitle {
+    margin-top: 5px;
+    padding-top: 2px;
+    text-align: center;
+    width: 300px;
+    height: 25px;
+    position: absolute;
+  }
+  .progressBar{
+    display: none;
+  }
+  .infoLabel{
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end
+  }
+  .modalInfo{
+    text-align: right;
+  }
+}
