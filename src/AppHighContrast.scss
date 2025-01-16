@@ -322,10 +322,15 @@
   }
 
   .logElement {
-    background-color: #eee3cd;
+    background-color: #000000;
+    border-bottom: solid;
+    border-color: white;
+    border-width: 1px;
   }
   
-  .logElement:nth-child(even) {
-    background-color: #f4ebda;
+  .logElement:hover{
+    background-color: white;
+    color: black !important;
+    .secondary{color: black;}
   }
 }

@@ -39,8 +39,9 @@ const DziennikLog = () => {
         <>
             <div style={{ backgroundColor: '', width: '100%', margin: '-15px' }} className="content-padding text-justify">
 
+                <div style={{ textAlign: "center" }}>
                 <Pagination setPage={setPage} page={page} maxPage={maxPage} />
-
+                </div>
 
                 <h3 style={{ textAlign: "center" }}>Dzisiaj</h3>
 
