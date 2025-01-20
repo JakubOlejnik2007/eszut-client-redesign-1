@@ -40,7 +40,7 @@ const DziennikLog = () => {
             <div style={{ backgroundColor: '', width: '100%', margin: '-15px' }} className="content-padding text-justify">
 
                 <div style={{ textAlign: "center" }}>
-                <Pagination setPage={setPage} page={page} maxPage={maxPage} />
+                    <Pagination setPage={setPage} page={page} maxPage={maxPage} />
                 </div>
 
                 <h3 style={{ textAlign: "center" }}>Dzisiaj</h3>
@@ -85,7 +85,7 @@ export const LogElement = ({ date, content, userEmail }: ILogElementProps) => {
             <div style={{ borderColor: 'var(--borderColor)', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid' }}></div>
             <div style={{ borderColor: '', width: '0.5%', height: '25px' }}></div>
 
-            <div style={{ backgroundColor: '', width: '19%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'right', marginRight: '2%' }} className="secondary">{parsedDate.toLocaleString()}</div>
+            <div style={{ backgroundColor: '', width: '19%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'right', marginRight: '2%', fontFamily: "sfMono", fontSize: "0.9rem" }} className="secondary">{parsedDate.toLocaleString()}</div>
 
 
         </div>
