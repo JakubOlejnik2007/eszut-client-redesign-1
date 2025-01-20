@@ -86,7 +86,7 @@ const ReportIssueScreen = () => {
                     <div style={{ position: 'absolute', bottom: '25px' }} className="creditsText">Design / UI - Mateusz Stoch <br />Funkcjonalność aplikacji - Jakub Olejnik</div>
                 </div>
             </div>
-            <form style={{ backgroundColor: '', width: '65%', marginLeft: '48px', }} className="content-padding text-justify"
+            <form style={{ backgroundColor: '', width: '65%', marginLeft: '48px', }} className="content-padding text-justify reportIssueForm"
                 onSubmit={() => console.log(formData)}
             ><h3 style={{ textAlign: "center" }}>Zgłoś usterkę</h3>
 
