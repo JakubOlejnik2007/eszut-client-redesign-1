@@ -67,9 +67,9 @@ interface ILogElementProps {
     date: number;
     content: string;
     userEmail: string;
+    type: number;
 }
-
-export const LogElement = ({ date, content, userEmail }: ILogElementProps) => {
+export const LogElement = ({ date, content, userEmail, type }: ILogElementProps) => {
 
     const parsedDate = new Date(date);
 
@@ -79,7 +79,7 @@ export const LogElement = ({ date, content, userEmail }: ILogElementProps) => {
 
         <div className="logElement">
 
-            <div className="logInfo log logIcon"></div>
+            <div className={`${["logInfo", "logWarning", "logError"][type]} log logIcon`}></div>
             <div data-tooltip={userEmail} style={{ backgroundColor: '', width: '72%', height: '25px', transform: 'translateY(2.5px)' }}>{content}</div>
 
             <div style={{ borderColor: 'var(--borderColor)', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid' }}></div>
