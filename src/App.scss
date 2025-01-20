@@ -741,6 +741,33 @@ a:hover {
 }
 /*---------------------------==========================MOBILE==========================---------------------------*/
 
+@media (max-width: 915px) {
+  .creditsText{
+    display: none;
+  }  
+}
+@media (max-width: 810px) {
+  .divider{display: none;}  
+  .reportIssueForm{
+    margin-right: 0px !important;
+    width: 100% !important;
+    margin-left: 0px !important;
+    .mainButton{
+      margin-right: 0px !important;
+    }
+    .textInput{
+      width: 100% !important;
+      min-width: 25px !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+    select{
+      width: 100% !important;
+      min-width: 25px !important;
+      max-width: 100% !important;
+    }
+  }
+}
 
 @media (max-width: 600px) {
   .modal {
