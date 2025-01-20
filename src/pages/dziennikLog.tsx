@@ -22,7 +22,7 @@ const DziennikLog = () => {
         if (logEntriesQuery.isSuccess) {
             setEntries(logEntriesQuery.data.items);
             const totalEntries = logEntriesQuery.data.totalCount;
-            const pageSize = 15;
+            const pageSize = 50;
             setMaxPage(Math.ceil(totalEntries / pageSize));
         }
     }, [logEntriesQuery.isSuccess, logEntriesQuery.data])
@@ -79,7 +79,7 @@ export const LogElement = ({ date, content, userEmail }: ILogElementProps) => {
 
         <div className="logElement">
 
-            <div className="logInfo logIcon"></div>
+            <div className="logInfo log logIcon"></div>
             <div data-tooltip={userEmail} style={{ backgroundColor: '', width: '72%', height: '25px', transform: 'translateY(2.5px)' }}>{content}</div>
 
             <div style={{ borderColor: 'var(--borderColor)', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid' }}></div>
@@ -91,8 +91,3 @@ export const LogElement = ({ date, content, userEmail }: ILogElementProps) => {
         </div>
     )
 }
-
-
-// border-right-width: 1px;
-// border-right-style: solid;
-// border-color: var(--navBarColor);
