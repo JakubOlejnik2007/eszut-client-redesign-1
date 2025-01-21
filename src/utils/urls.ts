@@ -13,7 +13,9 @@ const urls = {
     backend: {
         auth: {
             login: "/login",
-            getUserRole: "/get-user-role"
+            getUserRole: "/get-user-role",
+            refreshToken: "/refresh-token",
+            setTokens: "/set-tokens",
         },
         problem: {
             getUnsolvedProblems: "/get-unsolved-problems",

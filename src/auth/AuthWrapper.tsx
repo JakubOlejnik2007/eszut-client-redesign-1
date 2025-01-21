@@ -1,6 +1,6 @@
 import { AuthenticationResult, EventType, PublicClientApplication } from "@azure/msal-browser";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom/dist";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import urls from "../utils/urls";
 import EUserRole from "../types/userroles.enum";
@@ -21,14 +21,6 @@ const AuthContext = createContext<{
     isLoading: true
 });
 
-const setActiveAccountIfNeeded = () => {
-    const accounts = msalInstance.getAllAccounts();
-    if (accounts.length > 0 && !msalInstance.getActiveAccount()) {
-        msalInstance.setActiveAccount(accounts[0]);
-    }
-};
-
-
 export const AuthData = () => useContext(AuthContext);
 
 const msalInstance = new PublicClientApplication(msalConfig);
@@ -37,21 +29,21 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<IUser | null>(null);
     const [isInitialized, setIsInitialized] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [refreshToken, setRefreshToken] = useState<string | null>(null);
     const navigate = useNavigate();
+
+    useEffect(() => {
+
+        if (user) {
+            navigate(urls.client.reportProblem);
+        }
+
+    }, [user])
 
     useEffect(() => {
         const initializeMsal = async () => {
             await msalInstance.initialize();
             try {
-                msalInstance.addEventCallback((event) => {
-                    if (event.eventType === EventType.LOGIN_SUCCESS && event.payload) {
-                        const authResult = event.payload as AuthenticationResult;
-                        setUser({
-                            AuthRole: authResult,
-                            role: EUserRole.GUEST
-                        });
-                    }
-                });
 
                 const accounts = msalInstance.getAllAccounts();
                 console.log("Accounts during initialization:", accounts);
@@ -70,129 +62,78 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
         initializeMsal();
     }, []);
 
-    useEffect(() => {
-        const userDataFromSession = sessionStorage.getItem("AuthData");
-        console.log("UserData", userDataFromSession);
-
-        if (userDataFromSession) {
-            const parsedUserData = JSON.parse(userDataFromSession);
-            const accounts = msalInstance.getAllAccounts();
-
-            if (accounts.length > 0) {
-                msalInstance.setActiveAccount(accounts[0]);
-
-                const tokenExpiry = parsedUserData?.AuthRole?.expiresOn;
-                if (tokenExpiry) {
-                    const tokenExpirationDate = new Date(tokenExpiry);
-                    const currentTime = new Date();
-
-                    if (currentTime > tokenExpirationDate) {
-                        acquireToken().then((newToken) => {
-                            if (newToken) {
-                                console.log("Token został pomyślnie odświeżony.");
-                            } else {
-                                console.error("Nie udało się odświeżyć tokena.");
-                                logout();
-                            }
-                        });
-                    } else {
-                        setUser(parsedUserData);
-                    }
-                }
-
-                const fetchUserRole = async (token: any) => {
-                    try {
-                        const response = await axios.get(`${config.backend}${urls.backend.auth.getUserRole}`, {
-                            headers: {
-                                Authorization: `Bearer ${token}`,
-                            },
-                        });
-
-                        if (response.status === 200) {
-                            const userRoleFromServer = response.data.role;
-                            setUser((prevUser) => ({
-                                ...prevUser,
-                                role: userRoleFromServer,
-                                AuthRole: prevUser?.AuthRole as AuthenticationResult
-                            }));
-                        } else {
-                            console.error("Nie udało się pobrać roli użytkownika z serwera.");
-                        }
-                    } catch (error) {
-                        console.error("Błąd podczas pobierania roli użytkownika:", error);
-                    }
-                };
-
-                console.log("parsedUser", parsedUserData);
-                fetchUserRole(parsedUserData.AuthRole.accessToken);
-            }
-        } else {
-            setIsLoading(false);
+    const setActiveAccountIfNeeded = () => {
+        const accounts = msalInstance.getAllAccounts();
+        if (accounts.length > 0 && !msalInstance.getActiveAccount()) {
+            msalInstance.setActiveAccount(accounts[0]);
         }
-    }, [isInitialized]);
-
-    useEffect(() => {
-        if (isInitialized) {
-            const interval = setInterval(() => {
-                acquireToken().then((newToken) => {
-                    if (newToken) {
-                        console.log("Token został pomyślnie odświeżony.");
-                    } else {
-                        console.error("Nie udało się odświeżyć tokena.");
-                    }
-                });
-            }, 300000);
-
-            return () => clearInterval(interval);
-        }
-    }, [isInitialized]);
+    };
 
     const acquireToken = async (): Promise<string | null> => {
-        console.log(user)
         try {
             setActiveAccountIfNeeded();
-            console.log("Acquiring token...");
             const activeAccount = msalInstance.getActiveAccount();
             if (!activeAccount) {
-                console.error("Brak aktywnego konta użytkownika. Użytkownik może być wylogowany.");
-
+                console.error("No active user account.");
                 return null;
             }
 
             const tokenResponse = await msalInstance.acquireTokenSilent({
                 scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"],
                 account: activeAccount,
-                forceRefresh: true
+                forceRefresh: true,
             });
 
+            const serverResponse = await axios.get(`${config.backend}${urls.backend.auth.setTokens}`, {
+                params: { MSAL_TOKEN: tokenResponse.accessToken },
+            });
 
-            console.log(tokenResponse);
+            setUser(serverResponse.data.user);
+            setRefreshToken(serverResponse.data.refreshToken);
 
-            const prevUser = JSON.parse(sessionStorage.getItem("AuthData") as string);
+            sessionStorage.setItem("AuthData", JSON.stringify({
+                user: serverResponse.data.user,
+                refreshToken: serverResponse.data.refreshToken,
+            }));
 
+            return serverResponse.data.accessToken;
+        } catch (error) {
+            console.error("Error acquiring token", error);
+            return null;
+        }
+    };
 
-            const updatedUser = {
+    const refreshAccessToken = async (): Promise<void> => {
+        if (!refreshToken) {
+            console.error("No refresh token available.");
+            return;
+        }
+
+        try {
+            const response = await axios.get(`${config.backend}${urls.backend.auth.refreshToken}`, {
+                params: { REFRESH_TOKEN: refreshToken },
+            });
+
+            setUser((prevUser) => ({
                 ...prevUser,
                 AuthRole: {
                     ...prevUser?.AuthRole,
-                    accessToken: tokenResponse.accessToken,
-                    expiresOn: tokenResponse.expiresOn
-                }
-            };
+                    accessToken: response.data.accessToken,
+                },
+            }) as IUser);
 
-            setUser(updatedUser as IUser);
-            sessionStorage.setItem("AuthData", JSON.stringify(updatedUser));
-
-            return tokenResponse.accessToken;
+            sessionStorage.setItem("AuthData", JSON.stringify({
+                user,
+                refreshToken,
+            }));
         } catch (error) {
-            console.error('Błąd podczas odświeżania tokena', error);
-            return null;
+            console.error("Error refreshing access token", error);
         }
     };
 
     const login = async () => {
         if (!isInitialized) {
-            console.error('MSAL nie jest jeszcze zainicjalizowany');
+            console.error("MSAL is not initialized yet. Please wait.");
             return;
         }
 
@@ -201,43 +142,63 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 scopes: ["api://e4c482a1-9923-4462-bf05-b70d64942c19/App"],
             });
 
-            msalInstance.setActiveAccount(loginResponse.account); // Ustaw aktywne konto
+            msalInstance.setActiveAccount(loginResponse.account);
 
-            setUser({
-                AuthRole: loginResponse,
-                role: EUserRole.GUEST
+            const serverResponse = await axios.get(`${config.backend}${urls.backend.auth.setTokens}`, {
+                params: { MSAL_TOKEN: loginResponse.accessToken },
             });
 
-            const token = loginResponse.accessToken;
-            const response = await axios.get(`${config.backend}${urls.backend.auth.getUserRole}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-
-            setUser((prevState) => ({
-                ...prevState,
-                role: response.data.role as EUserRole,
-                AuthRole: prevState?.AuthRole ?? undefined,
-            }) as IUser);
+            setUser({ ...serverResponse.data.user, accessToken: serverResponse.data.accessToken });
+            setRefreshToken(serverResponse.data.refreshToken);
 
             sessionStorage.setItem("AuthData", JSON.stringify({
-                AuthRole: loginResponse,
-                role: response.data.role as EUserRole
+                user: serverResponse.data.user,
+                refreshToken: serverResponse.data.refreshToken,
+                accessToken: serverResponse.data.accessToken,
             }));
-
-            navigate(urls.client.reportProblem);
         } catch (error) {
-            console.error('Błąd podczas logowania', error);
+            console.error("Login error", error);
         }
     };
 
 
-    const logout = async () => {
+    const logout = () => {
         sessionStorage.removeItem("AuthData");
         setUser(null);
+        setRefreshToken(null);
+        msalInstance.logoutPopup();
         navigate("/");
     };
+
+    useEffect(() => {
+        const initializeAuth = async () => {
+            try {
+                const sessionData = sessionStorage.getItem("AuthData");
+                if (sessionData) {
+                    const parsedData = JSON.parse(sessionData);
+                    setUser(parsedData.user);
+                    setRefreshToken(parsedData.refreshToken);
+                }
+
+                setIsInitialized(true);
+                setIsLoading(false);
+            } catch (error) {
+                console.error("Initialization error", error);
+                setIsLoading(false);
+            }
+        };
+
+        initializeAuth();
+    }, []);
+
+    useEffect(() => {
+        if (isInitialized) {
+            const interval = setInterval(() => {
+                refreshAccessToken();
+            }, 300000); // Refresh every 5 minutes
+            return () => clearInterval(interval);
+        }
+    }, [isInitialized, refreshToken]);
 
     if (isLoading) {
         return <div>Loading...</div>;

@@ -11,7 +11,7 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
-    console.log("navbar")
+    console.log("navbar", user)
 
     return (
 
@@ -24,7 +24,7 @@ const Navbar = () => {
 
 
             {
-                user !== null && user.AuthRole !== null ? <button className='navButton' onClick={() => {
+                user !== null && user !== null ? <button className='navButton' onClick={() => {
                     logout();
                     navigate(urls.client.mainpage);
                 }}>Wyloguj się</button> : <button className='navButton' onClick={() => navigate(urls.client.mainpage)}>Zaloguj się</button>
