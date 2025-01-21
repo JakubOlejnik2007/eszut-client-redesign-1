@@ -31,7 +31,7 @@ const SolvedProblem = (props: ISolvedProblemProps) => {
         e.stopPropagation();
 
         try {
-            const response = await putMarkProblemAsUnsolved(user?.AuthRole.accessToken as string, _id)
+            const response = await putMarkProblemAsUnsolved(user?.accessToken as string, _id)
             console.log(response)
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Przypisano problem", type: ENotifType.SUCCESS });

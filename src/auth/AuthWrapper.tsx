@@ -116,10 +116,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
 
             setUser((prevUser) => ({
                 ...prevUser,
-                AuthRole: {
-                    ...prevUser?.AuthRole,
-                    accessToken: response.data.accessToken,
-                },
+                accessToken: response.data.accessToken,
             }) as IUser);
 
             sessionStorage.setItem("AuthData", JSON.stringify({
@@ -195,7 +192,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
         if (isInitialized) {
             const interval = setInterval(() => {
                 refreshAccessToken();
-            }, 300000); // Refresh every 5 minutes
+            }, 300000);
             return () => clearInterval(interval);
         }
     }, [isInitialized, refreshToken]);

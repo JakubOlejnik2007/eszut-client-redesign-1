@@ -45,7 +45,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
     const { user } = AuthData();
     const { displayNotif } = Notif();
 
-    const USER_EMAIL = user?.AuthRole.account.username;
+    const USER_EMAIL = user?.username;
 
     const reportDate = new Date(when);
 
@@ -55,7 +55,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
     const toggleEditable = () => {
         if (isEdit)
             try {
-                putUpdateUnsolvedProblem(user?.AuthRole.accessToken as string, editableData.priority, editableData.placeId, editableData.categoryId, _id);
+                putUpdateUnsolvedProblem(user?.accessToken as string, editableData.priority, editableData.placeId, editableData.categoryId, _id);
                 setIsEdit(!isEdit);
                 if (editableData.wasChanged) displayNotif({ message: "Problem został zaktualizowany", type: ENotifType.SUCCESS });
             } catch (e) {

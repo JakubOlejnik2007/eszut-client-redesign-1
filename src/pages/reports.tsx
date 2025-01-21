@@ -13,7 +13,7 @@ const ReportsScreen = () => {
     const [underRealization, setUnderRealization] = useState<any[]>([]);
     const [other, setOther] = useState<any[]>([]);
 
-    const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(user?.AuthRole.accessToken as string));
+    const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(user?.accessToken as string));
 
     const refreshQueries = () => {
         unsolvedProblemsQuery.refetch();
@@ -25,7 +25,7 @@ const ReportsScreen = () => {
             const underRealizationProblems: any[] = [];
             const otherProblems: any[] = [];
             unsolvedProblemsQuery.data.forEach((element: any) => {
-                if (element.isUnderRealization && element.whoDealsEmail && user?.AuthRole.account.username === element.whoDealsEmail) {
+                if (element.isUnderRealization && element.whoDealsEmail && user?.email === element.whoDealsEmail) {
                     underYouProblems.push(element);
                 } else if (element.isUnderRealization) {
                     underRealizationProblems.push(element);

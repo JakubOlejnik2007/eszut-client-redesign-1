@@ -32,7 +32,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
         e.stopPropagation();
 
         try {
-            const response = await putTakeOnProblem(user?.AuthRole.accessToken as string, _id)
+            const response = await putTakeOnProblem(user?.accessToken as string, _id)
             console.log(response)
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Przypisano problem", type: ENotifType.SUCCESS });
@@ -49,7 +49,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
         e.stopPropagation();
 
         try {
-            const response = await putRejectProblem(user?.AuthRole.accessToken as string, _id)
+            const response = await putRejectProblem(user?.accessToken as string, _id)
             console.log(response)
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Zrezygnowano z problemu", type: ENotifType.SUCCESS });
@@ -67,7 +67,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
         setShowModal(false);
 
         try {
-            const response = await putMarkAsSolved(user?.AuthRole.accessToken as string, _id)
+            const response = await putMarkAsSolved(user?.accessToken as string, _id)
             console.log(response)
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Zakończono rozwiązywanie problemu", type: ENotifType.SUCCESS });
@@ -108,7 +108,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                 <div className="bottomButtons">
                     <button className="mainButton secondaryButton" type="reset">Dodaj adnotację</button>
                     {isUnderRealization ? (
-                        whoDealsEmail === user?.AuthRole.account.username && (
+                        whoDealsEmail === user?.username && (
                             <button className="mainButton" type="submit" onClick={handleRejectProblem}>
                                 Zrezygnuj
                             </button>

@@ -48,7 +48,7 @@ const ReportIssueScreen = () => {
             return;
         }
 
-        const response = await insertNewProblem(formData, user?.AuthRole.accessToken as string)
+        const response = await insertNewProblem(formData, user?.accessToken as string)
         console.log(response)
         if (response === "OK") {
             console.log("Problem registered");
