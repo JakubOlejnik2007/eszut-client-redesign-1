@@ -1,0 +1,301 @@
+.tokyo:root {
+
+  /*corners, etc.*/
+  --cornerSize: 0px;
+  --smallCornerSize: 0px;
+  --defaultPadding: 8px;
+
+  /*main page*/
+  --pageBackBG: #1a1b27;
+  --pageForeBG: #24263a;
+  --navBarColor: #ffffffa2;
+  --borderColor: #0b0221;
+  --windowBorderColor: #8f98ff;
+  --windowTopBorderColor: #8f98ff;
+
+  /*page elements*/
+  --mainText: #e7f4ff;
+  --secondaryText: #e7f4ff;
+  --buttonText: #ffffffa0;
+  --accentColor: #8f98ff;
+  --mainButtonColor: #8f98ff;
+
+  /*reports*/
+  --reportBG: #373a5e;
+  --reportBGH: #3d416e;
+  --reportBorderColor: #8f98ff;
+
+  --reportExpiredBG: #5e375e;
+  --reportExpiredBGH: #714071;
+  --reportExpiredBorderColor: #ec8fff;
+
+
+  nav {
+    // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
+    background-color: #24263a;
+    border-bottom: #8f98ff;
+    border-bottom-width: 1px;
+    border-bottom-style: outset;
+    display: flex;
+    filter: none;
+  }
+
+  .navButton:active {
+    background-color: #ffffff28;
+    color: white;
+  }
+
+  a{
+    color: var(--secondaryText);
+    text-decoration: underline;
+  }
+
+  .window{
+    filter: drop-shadow(0px 0px 50px #8f98ff22);
+  }
+
+  .titleBar {
+    background: #24263a
+  }
+
+  .textInput,
+  select {
+    background: var(--pageBackBG);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--accentColor);
+  }
+
+  hr {
+    border-top: 1px solid rgba(26, 26, 26, 0.489);
+  }
+
+
+  .mainButton {
+    background-color: var(--pageBackBG);
+    filter: drop-shadow(0px 0px 5px #00000000);
+    border-color: var(--mainButtonColor);
+    border-top-color: var(--mainButtonColor);
+    &:hover{
+      background-color: #545dbc;
+      border-color: var(--mainButtonColor);
+      border-top-color: var(--mainButtonColor);
+      transform: none;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+    &:active{
+      transform: none;
+      background-color: var(--pageBackBG);
+      transition: 0.1s;
+      cursor:default;
+    }
+  }
+  
+  hr {
+    border-top: 1px solid var(--borderColor);
+  }
+
+  .logo {
+    color: var(--mainText)
+  }
+
+  .logo:hover {
+    color: var(--mainButtonColor);
+  }
+
+  ::-moz-selection {
+    color: var(--accentColor);
+    background: #362929;
+  }
+
+  ::selection {
+    color: var(--accentColor);
+    background: #ff752534;
+  }
+
+
+  .trashButton,
+  .trashButton:hover,
+  .trashButton:active,
+  .warningButton,
+  .warningButton:hover,
+  .warningButton:active,
+  .successButton,
+  .successButton:active,
+  .successButton:active,
+  .secondaryButton,
+  .secondaryButton:active,
+  .secondaryButton:hover {
+    background-color: var(--pageBackBG);
+    filter: none;
+    border-color: var(--mainButtonColor);
+    border-top-color: var(--mainButtonColor);
+    color: var(--mainText);
+    &:hover{
+      background-color: #545dbc;
+      border-color: var(--mainButtonColor);
+      border-top-color: var(--mainButtonColor);
+      transform: none;
+      transition: 0.5s;
+      cursor: pointer;
+      color: var(--mainText);
+    }
+    &:active{
+      transform: none;
+      background-color: var(--pageBackBG);
+      transition: 0.1s;
+      cursor:default;
+      color: var(--mainText);
+    }
+  }
+
+
+  // .bottomButtons{
+  //   .mainButton{
+  //     background-color: rgba(255, 255, 255, 0.811);
+  //     border-width: 1px;
+  //     border-style: solid;
+  //     border-color: rgba(0, 0, 0, 0.35);
+  //     color: var(--mainText);
+    
+  //   &:hover{
+  //     background-color: white;
+  //   }
+  //   &:active{
+  //     background-color: white;
+  //   }
+  //   }
+  // }
+
+
+  .slider{
+    background-color: #1a1b27;
+  }
+  input:checked+.slider {
+    background-color: var(--mainButtonColor);
+  } 
+  .slider:before {
+    background-color: var(--mainText);
+  }
+
+  /* REPORTS */
+
+  .report {
+    filter: drop-shadow(0px 0px 0px #0000005a);
+    background-color: var(--reportBG);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--accentColor);
+    border-top-color: #ffffff2f;
+    border-radius: var(--smallCornerSize);
+  }
+
+  .report:hover {
+    filter: drop-shadow(0px 0px 0px #0000009d);
+    transform: scale(102.5%);
+    transition: 0.5s;
+    background-color: var(--reportBGH)
+
+  }
+
+
+  .expired {
+    background-color: var(--reportExpiredBG);
+    border-color: var(--reportExpiredBorderColor);
+    &:hover{
+      background-color: var(--reportExpiredBGH);
+    }
+  }
+
+
+  .reportTitle {
+    margin: -21px;
+    margin-top: -9px;
+    margin-bottom: 0px;
+    border-radius: var(--smallCornerSize);
+    border-style: solid;
+    border-width: 1px;
+    height: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .waga1 {
+    background-color: #ff8f8f;
+    border-color: #0dff0000;
+  }
+
+  .waga2 {
+    background-color: #d28fff;
+    border-color: #88516e00;
+  }
+
+  .waga3 {
+    background-color: #8f98ff;
+    border-color: #6e518800;
+  }
+
+
+
+
+
+
+  /* MODALS */
+
+  .modalContainer {
+    background-color: #0000006e;
+  }
+
+  .closeButton{
+    border-radius: 0px;
+    background-color: #ff8f8f;
+  }
+
+  .modal {
+    backdrop-filter: none;
+    background-color: #24263a;
+    filter: drop-shadow(0px 0px 50px #8f98ff22);
+    border-color: #545dbc;
+    color: rgb(197, 197, 197);
+    a{color: white;}
+
+    .daysLeftText{
+      color: rgb(197, 197, 197);
+    }
+  }
+
+  .modalTitle {
+    background-color: rgba(255, 0, 0, 0);
+  }
+
+  .modalInfo {
+    background-color: #ff000000;
+  }
+
+  .modalDescription {
+    background-color: #0040ff00;
+  }
+
+  .progressBar {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .progressBarText {
+    color: rgba(0, 0, 0, 0.379);
+  }
+
+  .pagination{
+    button{
+      background-color: #3a3e6f;
+    }
+  }
+
+  .logElement {
+    background-color: #202132;
+  }
+  
+  .logElement:nth-child(even) {
+    background-color: #1a1b28;
+  }
+}

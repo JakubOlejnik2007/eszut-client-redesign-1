@@ -15,6 +15,14 @@ export const insertNewProblem = async (newProblem: IInsertNewProblem, AuthToken:
 export const getUnsolvedProblems = async (AuthToken: string) =>
     await createApiRequest("GET", `${config.backend}${urls.backend.problem.getUnsolvedProblems}`, {}, AuthToken);
 
+export const getSolvedProblems = async (AuthToken: string, page: number) =>
+    await createApiRequest(
+        "GET",
+        `${config.backend}${urls.backend.problem.getSolvedProblems}?page=${page}`,
+        {},
+        AuthToken
+    );
+
 export const putTakeOnProblem = async (AuthToken: string, ProblemID: string) =>
     await createApiRequest(
         "PUT",
@@ -25,3 +33,35 @@ export const putTakeOnProblem = async (AuthToken: string, ProblemID: string) =>
 
 export const putRejectProblem = async (AuthToken: string, ProblemID: string) =>
     await createApiRequest("PUT", `${config.backend}${urls.backend.problem.rejectProblem}`, { ProblemID }, AuthToken);
+
+export const putMarkAsSolved = async (AuthToken: string, ProblemID: string) =>
+    await createApiRequest(
+        "PUT",
+        `${config.backend}${urls.backend.problem.markProblemAsSolved}`,
+        { ProblemID },
+        AuthToken
+    );
+
+export const putMarkProblemAsUnsolved = async (AuthToken: string, ProblemID: string) =>
+    await createApiRequest(
+        "PUT",
+        `${config.backend}${urls.backend.problem.markProblemAsUnsolved}`,
+        { ProblemID },
+        AuthToken
+    );
+
+export const putUpdateUnsolvedProblem = async (
+    AuthToken: string,
+    priority: string,
+    PlaceID: string,
+    CategoryID: string,
+    ProblemID: string
+) =>
+    await createApiRequest(
+        "PUT",
+        `${config.backend}${urls.backend.problem.updateProblem}`,
+        { ProblemID, CategoryID, priority, PlaceID },
+        AuthToken
+    );
+
+export const getLogData = async (AuthToken: string, page: number) => await createApiRequest("GET", `${config.backend}${urls.backend.logs.getLogData}?page=${page}`, {}, AuthToken)

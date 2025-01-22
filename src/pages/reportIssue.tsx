@@ -7,13 +7,11 @@ import { IPlace, ICategory } from "../types/formPartials.interface";
 import { Notif } from "../components/notificationsWrapper";
 import { ENotifType } from "../types/notification.interface";
 
-export const ReportIssueScreen = () => {
+const ReportIssueScreen = () => {
 
     const [formData, setFormData] = useState<IInsertNewProblem>({
         PlaceID: '',
         CategoryID: '',
-        whoName: '',
-        whoEmail: '',
         what: '',
     })
 
@@ -36,8 +34,6 @@ export const ReportIssueScreen = () => {
             setFormData({
                 PlaceID: places[0]._id,
                 CategoryID: categories[0]._id,
-                whoName: user?.AuthRole.account.name as string,
-                whoEmail: user?.AuthRole.account.username as string,
                 what: '',
             })
     }, [places, categories])
@@ -47,12 +43,12 @@ export const ReportIssueScreen = () => {
         e.preventDefault();
         console.log(formData)
 
-        if (!formData.CategoryID || !formData.PlaceID || !formData.what || !formData.whoName || !formData.whoEmail) {
+        if (!formData.CategoryID || !formData.PlaceID || !formData.what) {
             console.error("Formularz jest nie wypełniony");
             return;
         }
 
-        const response = await insertNewProblem(formData, user?.AuthRole.accessToken as string)
+        const response = await insertNewProblem(formData, user?.accessToken as string)
         console.log(response)
         if (response === "OK") {
             console.log("Problem registered");
@@ -72,7 +68,7 @@ export const ReportIssueScreen = () => {
         <div>Error</div>
     )
     if (categoriesQuery.isLoading || placesQuery.isLoading) return (
-            <img src="src/assets/loading.gif" className="spinner"></img>
+        <img src="src/assets/loading.gif" className="spinner"></img>
 
     );
 
@@ -83,14 +79,14 @@ export const ReportIssueScreen = () => {
 
             <div style={{ backgroundColor: '', width: '35%', minHeight: '512px' }} className="divider text-justify"><h3 style={{ textAlign: "center" }}>Instrukcja</h3>
                 {/* {" 📄 Formularz 📄 znajdujący się 🔍 na tej stronie 🌐 umożliwia ✨ zgłoszenie 📥 wystąpienia 🚨 usterki 🔧 związanej z komputerem 💻, dziennikiem 📓, rzutnikiem 📽, itp. ℹ️ W tym celu ➡️ należy 📝 wypełnić formularz 📄, podając 🖊️ dane 🆔 na temat osoby 🧑‍💻, która zgłasza 📣 wystąpienie problemu ❗, wskazać 👉 lokalizację 📍 usterki 🔧 (numer sali 🏫) 📍, a także 🤝 pozostawić ✍️ zwięzły opis 📝 tego, co się stało 💥, oraz 🛠️ wybrać ✔️ jedną z dostępnych kategorii 📑 zgłoszenia 📥. Do zgłoszenia 📨 jest przypisywany 🔄 domyślny priorytet 🚦, który wynika 🧾 z kategorii ⚠️. "} */}
-                <div style={{ color: '#8F8F8F', marginRight: '24px', marginLeft: '24px' }}>Formularz znajdujący się na tej stronie umożliwia zgłoszenie wystąpienia usterki związanej z komputerem, dziennikiem, rzutnikiem itp.
+                <div style={{ color: 'var(--secondaryText)', marginRight: '24px', marginLeft: '24px' }}>Formularz znajdujący się na tej stronie umożliwia zgłoszenie wystąpienia usterki związanej z komputerem, dziennikiem, rzutnikiem itp.
                     W tym celu należy wypełnić formularz, podając dane na temat osoby, która zgłasza wystąpeinie problemu, wskazać lokalizację usterki (numer sali),
                     a także pozostawić zwięzły opis tego co się stało oraz wybrać jedną z dostępnych kategorii zgłoszenia. Do zgłoszenia jest przypisywany domyślny priorytet, który wynika z kategorii.
-                
-                    <div style={{position: 'absolute', bottom: '25px'}} className="creditsText">Design / UI - Mateusz Stoch <br/>Funkcjonalność aplikacji - Jakub Olejnik</div>
+
+                    <div style={{ position: 'absolute', bottom: '25px' }} className="creditsText">Design / UI - Mateusz Stoch <br />Funkcjonalność aplikacji - Jakub Olejnik</div>
                 </div>
             </div>
-            <form style={{ backgroundColor: '', width: '65%', marginLeft: '48px', }} className="content-padding text-justify"
+            <form style={{ backgroundColor: '', width: '65%', marginLeft: '48px', }} className="content-padding text-justify reportIssueForm"
                 onSubmit={() => console.log(formData)}
             ><h3 style={{ textAlign: "center" }}>Zgłoś usterkę</h3>
 
@@ -141,7 +137,7 @@ export const ReportIssueScreen = () => {
                 <br />
 
 
-                <button className="mainButton trashButton" type="reset" onClick={handleReset}>Wyczyść</button>        <button className="mainButton" style={{float: "right", marginRight: "67px"}} type="submit" onClick={handleSubmitClick}>Wyślij</button>
+                <button className="mainButton trashButton" type="reset" onClick={handleReset}>Wyczyść</button>        <button className="mainButton" style={{ float: "right", marginRight: "67px" }} type="submit" onClick={handleSubmitClick}>Wyślij</button>
 
             </form>
 
@@ -149,3 +145,5 @@ export const ReportIssueScreen = () => {
         </>
     )
 }
+
+export default ReportIssueScreen;

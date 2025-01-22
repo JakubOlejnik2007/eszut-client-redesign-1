@@ -1,0 +1,310 @@
+.desert:root {
+
+  /*corners, etc.*/
+  --cornerSize: 8px;
+  --smallCornerSize: 2px;
+  --defaultPadding: 8px;
+
+  /*main page*/
+  --pageBackBG: #cbc4b6;
+  --pageForeBG: #F8F1E3;
+  --navBarColor: #ffffffa2;
+  --borderColor: #0b0221;
+  --windowBorderColor: #4F321C;
+  --windowTopBorderColor: #4F321C;
+
+  /*page elements*/
+  --mainText: #4F321C;
+  --secondaryText: #825635;
+  --buttonText: #ffffffa0;
+  --accentColor: #4F321C;
+  --mainButtonColor: #4F321C;
+
+  /*reports*/
+  --reportBG: #F8F1E3;
+  --reportBGH: #F8F1E3;
+  --reportBorderColor: #4F321C;
+
+  --reportExpiredBG: #fbe5ba;
+  --reportExpiredBGH: #fbe5ba;
+  --reportExpiredBorderColor: #4F321C;
+
+
+  nav {
+    // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
+    background-color: #F8F1E3;
+    border-bottom: #4F321C;
+    border-bottom-width: 1px;
+    border-bottom-style: outset;
+    display: flex;
+    filter: none;
+  }
+
+  .navButton {
+    background-color: none;
+    color: #4F321C;
+  }
+  .navButton:hover {
+    background-color: #4f321c11;
+    color: #4F321C;
+  }
+  .navButton:active {
+    background-color: #4f321c34;
+    color: #4F321C;
+  }
+
+
+  a{
+    color: var(--secondaryText);
+    text-decoration: underline;
+  }
+
+  .titleBar {
+    background: #F8F1E3
+  }
+
+  .textInput,
+  select {
+    background: var(--pageForeBG);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--accentColor);
+    box-shadow: none !important;
+
+  }
+
+  hr {
+    border-top: 1px solid rgba(26, 26, 26, 0.489);
+  }
+
+
+  .mainButton {
+    background-color: #ece4d4;
+    color: var(--mainText);
+    filter: drop-shadow(0px 0px 5px #00000000);
+    border-color: var(--mainButtonColor);
+    border-top-color: var(--mainButtonColor);
+    &:hover{
+      background-color: #fff6e5;
+      border-color: var(--mainButtonColor);
+      border-top-color: var(--mainButtonColor);
+      transform: none;
+      transition: 0.15s;
+      cursor: pointer;
+    }
+    &:active{
+      transform: scale(90%);
+      background-color: var(--pageBackBG);
+      transition: 0.1s;
+      cursor:default;
+    }
+  }
+  
+  hr {
+    border-top: 1px solid var(--borderColor);
+  }
+
+  .logo {
+    color: var(--mainText)
+  }
+
+  .logo:hover {
+    color: #ae764a;
+  }
+
+  ::-moz-selection {
+    color: var(--accentColor);
+    background: #362929;
+  }
+
+  ::selection {
+    color: var(--accentColor);
+    background: #ff752534;
+  }
+
+
+  .trashButton,
+  .trashButton:hover,
+  .trashButton:active,
+  .warningButton,
+  .warningButton:hover,
+  .warningButton:active,
+  .successButton,
+  .successButton:active,
+  .successButton:active,
+  .secondaryButton,
+  .secondaryButton:active,
+  .secondaryButton:hover {
+    background-color: #ece4d4;
+    color: var(--mainText);
+    filter: drop-shadow(0px 0px 5px #00000000);
+    border-color: var(--mainButtonColor);
+    border-top-color: var(--mainButtonColor);
+    &:hover{
+      background-color: #fff6e5;
+      border-color: var(--mainButtonColor);
+      border-top-color: var(--mainButtonColor);
+      transform: none;
+      transition: 0.15s;
+      cursor: pointer;
+    }
+    &:active{
+      transform: scale(90%);
+      background-color: var(--pageBackBG);
+      transition: 0.1s;
+      cursor:default;
+    }
+  }
+
+
+  // .bottomButtons{
+  //   .mainButton{
+  //     background-color: rgba(255, 255, 255, 0.811);
+  //     border-width: 1px;
+  //     border-style: solid;
+  //     border-color: rgba(0, 0, 0, 0.35);
+  //     color: var(--mainText);
+    
+  //   &:hover{
+  //     background-color: white;
+  //   }
+  //   &:active{
+  //     background-color: white;
+  //   }
+  //   }
+  // }
+
+
+  .slider{
+    background-color: #cbc4b6;
+  }
+  input:checked+.slider {
+    background-color: var(--mainButtonColor);
+    
+  } 
+  .slider:before {
+    background-color: var(--pageForeBG);
+  }
+
+  /* REPORTS */
+
+  .report {
+    filter: drop-shadow(0px 0px 0px #0000005a);
+    background-color: var(--reportBG);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--accentColor);
+    border-top-color: #ffffff2f;
+    border-radius: var(--smallCornerSize);
+  }
+
+  .report:hover {
+    filter: drop-shadow(0px 0px 0px #0000009d);
+    transform: scale(102.5%);
+    transition: 0.5s;
+    background-color: var(--reportBGH)
+
+  }
+
+
+  .expired {
+    background-color: var(--reportExpiredBG);
+    border-color: var(--reportExpiredBorderColor);
+    &:hover{
+      background-color: var(--reportExpiredBGH);
+    }
+  }
+
+
+  .reportTitle {
+    margin: -21px;
+    margin-top: -9px;
+    margin-bottom: 0px;
+    border-radius: var(--smallCornerSize);
+    border-style: solid;
+    border-width: 1px;
+    height: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .waga1 {
+    background-color: #ff8f8f;
+    border-color: #6c002b;
+  }
+
+  .waga2 {
+    background-color: #d28fff;
+    border-color: #66305e;
+  }
+
+  .waga3 {
+    background-color: #8f98ff;
+    border-color: #144f73;
+  }
+
+
+
+
+
+
+  /* MODALS */
+
+  .modalContainer {
+    background-color: #0000006e;
+  }
+
+  .closeButton{
+    background-color: #83532e;
+  }
+  .closeButton:hover{
+    background-color: #83532e;
+    background-image: none;
+  }
+  .closeButton:active{
+    background-color: #4F321C;
+  }
+
+  .modal {
+    backdrop-filter: none;
+    background-color: #F8F1E3;
+    filter: drop-shadow(0px 0px 50px #8f98ff22);
+    border-color: #4F321C;
+    color: #4F321C;
+    a{color: #4F321C;}
+
+    .daysLeftText{
+      color: #4F321C;
+    }
+  }
+  .edit{
+    color: rgba(0, 0, 0, 0);
+  }
+  .modalTitle {
+    background-color: rgba(255, 0, 0, 0);
+  }
+
+  .modalInfo {
+    background-color: #ff000000;
+  }
+
+  .modalDescription {
+    background-color: #0040ff00;
+  }
+
+  .progressBar {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .progressBarText {
+    color: rgba(0, 0, 0, 0.379);
+  }
+
+  .logElement {
+    background-color: #eee3cd;
+  }
+  
+  .logElement:nth-child(even) {
+    background-color: #f4ebda;
+  }
+}

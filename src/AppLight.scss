@@ -1,0 +1,263 @@
+.light:root {
+
+  /*corners, etc.*/
+  --cornerSize: 8px;
+  --smallCornerSize: 4px;
+  --defaultPadding: 8px;
+
+  /*main page*/
+  --pageBackBG: #c6c6c6;
+  --pageForeBG: #e0e0e0;
+  --navBarColor: #ffffffa2;
+  --borderColor: #9d9d9d;
+
+  /*page elements*/
+  --mainText: #1b1b1bbf;
+  --secondaryText: #1d1d1d94;
+  --buttonText: #ffffffa0;
+  --accentColor: #f33924;
+  --mainButtonColor: #ddad79;
+
+
+  nav {
+        // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
+
+    background: linear-gradient(90deg, #ba00006b 0%, rgba(219, 113, 0, 0.459) 100%);
+    border-bottom: #3333334e;
+    border-bottom-width: 1px;
+    border-bottom-style: outset;
+    display: flex;
+  }
+
+  .navButton:active {
+    background-color: #ffffff28;
+    color: white;
+  }
+
+  a{
+    color: var(--secondaryText);
+    text-decoration: underline;
+  }
+
+  .titleBar {
+    background: linear-gradient(180deg, rgb(230, 230, 230) 19%, rgb(188, 188, 188) 100%, rgba(35, 35, 35, 1) 105%);
+  }
+
+  .textInput,
+  select {
+    background: linear-gradient(0deg, rgb(219, 219, 219) 0%, rgb(218, 218, 218) 100%);
+    box-shadow: inset 2px 2px 5px #10101000, inset -2px -2px 5px #10101000 !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--borderColor);
+  }
+
+  hr {
+    border-top: 1px solid rgba(26, 26, 26, 0.489);
+  }
+
+
+  .mainButton {
+    background-color: var(--mainButtonColor);
+    filter: drop-shadow(0px 0px 5px #00000000);
+    border-color: #0d0d0d1d;
+    border-top-color: #4848482f;
+  }
+  
+  .logo {
+    color: var(--pageForeBG)
+  }
+
+  .logo:hover {
+    color: #ffcdcd;
+  }
+
+  ::-moz-selection {
+    color: var(--accentColor);
+    background: #362929;
+  }
+
+  ::selection {
+    color: var(--accentColor);
+    background: #ff752534;
+  }
+
+
+  .trashButton,
+  .trashButton:hover,
+  .trashButton:active,
+  .warningButton,
+  .warningButton:hover,
+  .warningButton:active,
+  .successButton,
+  .successButton:active,
+  .successButton:active,
+  .secondaryButton,
+  .secondaryButton:active,
+  .secondaryButton:hover {
+    background-color: #0000002a;
+    color: #ffffff;
+  }
+
+
+  .bottomButtons{
+    .mainButton{
+      background-color: rgba(255, 255, 255, 0.811);
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgba(0, 0, 0, 0.35);
+      color: var(--mainText);
+    
+    &:hover{
+      background-color: white;
+    }
+    &:active{
+      background-color: white;
+    }
+    }
+  }
+
+
+  .slider{
+    background-color: #818181;
+  }
+  input:checked+.slider {
+    background-color: var(--mainButtonColor);
+  } 
+
+  /* REPORTS */
+
+  .report {
+    filter: drop-shadow(0px 0px 0px #0000005a);
+    background-color: var(--navBarColor);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #38383869;
+    border-top-color: #ffffff2f;
+    border-radius: var(--smallCornerSize);
+  }
+
+  .report:hover {
+    filter: drop-shadow(0px 0px 0px #0000009d);
+    transform: scale(102.5%);
+    transition: 0.5s;
+    background-color: #eaeaea9d;
+
+  }
+
+
+  .expired {
+    background-color: #ff9faf5f;
+    &:hover{
+      background-color: #ff9faf5f;
+    }
+  }
+
+
+  .reportTitle {
+    margin: -21px;
+    margin-top: -9px;
+    margin-bottom: 0px;
+    border-radius: var(--smallCornerSize);
+    border-style: solid;
+    border-width: 1px;
+    height: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .waga1 {
+    background-color: rgba(255, 0, 34, 0.5);
+    border-color: #885151ab;
+  }
+
+  .waga2 {
+    background-color: rgba(255, 0, 132, 0.5);
+    border-color: #88516e9f;
+  }
+
+  .waga3 {
+    background-color: rgba(144, 0, 255, 0.5);
+    border-color: #6e5188ab;
+  }
+
+
+
+
+
+
+  /* MODALS */
+
+  .modalContainer {
+    background-color: #0000006e;
+  }
+
+
+
+  .modal {
+    backdrop-filter: blur(20px);
+    background-color: #16161678;
+    filter: drop-shadow(0px 0px 10px #00000000);
+    border-color: rgb(44, 44, 44);
+    color: rgb(197, 197, 197);
+    a{color: white;}
+    label{color: rgb(197, 197, 197)}
+    .mainButton{
+      background-color: #ffffff4e;
+    }
+    .successButton{
+      background-color: #76ff5e4e;
+      &:hover{
+        background-color: #76ff5e4e;
+      }
+      &:active{
+        background-color: #00aa4a4e;
+      }
+    }
+    .daysLeftText{
+      color: rgb(197, 197, 197);
+    }
+  }
+
+  .modalTitle {
+    background-color: rgba(255, 0, 0, 0);
+  }
+
+  .modalInfo {
+    background-color: #ff000000;
+  }
+
+  .modalDescription {
+    background-color: #0040ff00;
+  }
+
+
+  .progressBar {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .progressBarText {
+    color: rgba(0, 0, 0, 0.379);
+  }
+
+  .pagination{
+    button{
+      background-color: #ffffff9e;
+      color:black;
+      &:hover{
+        color:rgb(255, 0, 81)
+      }
+      &:active{
+        color: rgb(150, 0, 130);
+      }
+    }
+  }
+
+  .logElement {
+    background-color: #c6c6c6;
+  }
+  
+  .logElement:nth-child(even) {
+    background-color: #dadada;
+  }
+}

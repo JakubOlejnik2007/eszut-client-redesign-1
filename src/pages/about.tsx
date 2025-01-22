@@ -1,4 +1,4 @@
-export const AboutScreen = () => {
+const AboutScreen = () => {
     return (
         <>
             <center>
@@ -21,7 +21,7 @@ export const AboutScreen = () => {
                     Aplikacja ESZUT jest stworzona przez:<br />
                     <ul>
                         <li>Jakub Olejnik (programowanie)</li>
-                        <li>Mateusz Stoch (design)</li>
+                        <li>Mateusz Stoch (design i programowanie)</li>
                     </ul>
                     <br />            <br />
 
@@ -31,4 +31,4 @@ export const AboutScreen = () => {
     )
 }
 
-
+export default AboutScreen;

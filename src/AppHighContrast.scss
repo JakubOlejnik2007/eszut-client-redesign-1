@@ -1,0 +1,336 @@
+.highContrast:root {
+
+  /*corners, etc.*/
+  --cornerSize: 8px;
+  --smallCornerSize: 4px;
+  --defaultPadding: 8px;
+
+  /*main page*/
+  --pageBackBG: #000000;
+  --pageForeBG: #000000;
+  --navBarColor: #a42222a2;
+  --borderColor: #ffffff;
+  --windowBorderColor: #ffffff;
+  --windowTopBorderColor: #ffffff;
+
+  /*page elements*/
+  --mainText: white;
+  --secondaryText: white;
+  --buttonText: white;
+  --accentColor: #ffffff;
+  --mainButtonColor: #ffffff;
+
+  /*reports*/
+  --reportBG: #000000;
+  --reportBGH: #000000;
+  --reportBorderColor: #ffffff;
+
+  --reportExpiredBG: #000000;
+  --reportExpiredBGH: #000000;
+  --reportExpiredBorderColor: #ff6200;
+
+
+  nav {
+    // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
+    background-color: #000000;
+    border-bottom: #ffee00;
+    border-bottom-width: 1px;
+    border-bottom-style: outset;
+    display: flex;
+    filter: none;
+  }
+
+  .navButton {
+    background-color: none;
+    color: #ffee00;
+  }
+  .navButton:hover {
+    background-color: #ffee0010;
+    color: #ffee00;
+  }
+  .navButton:active {
+    background-color: #ffee0025;
+    color: #ffee00;
+  }
+
+
+  a{
+    color: var(--secondaryText);
+    text-decoration: underline;
+  }
+
+  .window{
+    filter: drop-shadow(0px 0px 50px #ffffff22);
+  }
+
+  .titleBar {
+    background: #000000
+  }
+
+  .textInput,
+  select {
+    background: var(--pageForeBG);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--accentColor);
+    box-shadow: none !important;
+
+  }
+
+  hr {
+    border-top: 1px solid #ffffff !important;
+  }
+
+
+  .mainButton {
+    background-color: #000000;
+    color: #ffee00;
+    border-color: #ffee00;
+    border-top-color: #ffee00;
+    &:hover{
+      background-color: #000000;
+      color: #ffee00;
+      border-color: #ffee00;
+      border-top-color: #ffee00;
+      transform: 120%;
+      transition: 0.15s;
+      cursor: pointer;
+    }
+    &:active{
+      transform: scale(90%);
+      background-color: #ffee00;
+    color: #000000;
+      transition: 0.1s;
+      cursor:default;
+    }
+  }
+  
+  hr {
+    border-top: 1px solid var(--borderColor);
+  }
+
+  .logo {
+    color: var(--mainText)
+  }
+
+  .logo:hover {
+    color: #ae764a;
+  }
+
+  ::-moz-selection {
+    color: #ffee00;
+    background: #0000b9;
+  }
+
+  ::selection {
+    color: #ffee00;
+    background: #0000b9;
+  }
+
+
+  .trashButton,
+  .trashButton:hover,
+  .trashButton:active,
+  .warningButton,
+  .warningButton:hover,
+  .warningButton:active,
+  .successButton,
+  .successButton:active,
+  .successButton:active,
+  .secondaryButton,
+  .secondaryButton:active,
+  .secondaryButton:hover {
+    background-color: #000000;
+    color: #ffee00;
+    border-color: #ffee00;
+    border-top-color: #ffee00;
+    &:hover{
+      background-color: #000000;
+      color: #ffee00;
+      border-color: #ffee00;
+      border-top-color: #ffee00;
+      transform: 120%;
+      transition: 0.15s;
+      cursor: pointer;
+    }
+    &:active{
+      transform: scale(90%);
+      background-color: #ffee00;
+    color: #000000;
+      transition: 0.1s;
+      cursor:default;
+    }
+  }
+
+
+  // .bottomButtons{
+  //   .mainButton{
+  //     background-color: rgba(255, 255, 255, 0.811);
+  //     border-width: 1px;
+  //     border-style: solid;
+  //     border-color: rgba(0, 0, 0, 0.35);
+  //     color: var(--mainText);
+    
+  //   &:hover{
+  //     background-color: white;
+  //   }
+  //   &:active{
+  //     background-color: white;
+  //   }
+  //   }
+  // }
+
+
+  .slider{
+    background-color: #ffffff;
+  }
+  input:checked+.slider {
+    background-color: #ffee00;
+    
+  } 
+  .slider:before {
+    background-color: var(--pageForeBG);
+  }
+
+  /* REPORTS */
+
+  .report {
+    filter: drop-shadow(0px 0px 0px #0000005a);
+    background-color: var(--reportBG);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--accentColor);
+    border-top-color: #ffffff2f;
+    border-radius: var(--smallCornerSize);
+    transform: none;
+    hr{
+      border-top: 1px solid black !important;
+    }
+  }
+
+  .report:hover {
+    transform: none;
+    transition: 0.5s;
+    background-color: var(--reportBGH)
+  }
+
+
+  .expired {
+    background-color: var(--reportExpiredBG);
+    border-color: var(--reportExpiredBorderColor);
+    &:hover{
+      background-color: var(--reportExpiredBGH);
+    }
+
+  }
+
+
+  .reportTitle {
+    margin: -21px;
+    margin-top: -9px;
+    margin-bottom: 0px;
+    border-radius: var(--smallCornerSize);
+    border-style: solid;
+    border-width: 1px;
+    height: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .waga1 {
+    background-color: #550000;
+    border-color: #ff0000;
+  }
+
+  .waga2 {
+    background-color: #766900;
+    border-color: #fffb00;
+  }
+
+  .waga3 {
+    background-color: #005e06;
+    border-color: #00ff26;
+  }
+
+
+
+
+
+
+  /* MODALS */
+
+  .modalContainer {
+    background-color: #0000006e;
+  }
+
+  .closeButton{
+    background-color: #fffb00;
+    height: 8px;
+    width: 8px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fffb00;
+  }
+  .closeButton:hover{
+    background-color: #000000;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fffb00;
+    background-image: none;
+    cursor: pointer;
+  }
+  .closeButton:active{
+    background-color: #fffb00;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fffb00;
+  }
+
+  .modal {
+    backdrop-filter: none;
+    background-color: #000000;
+    filter: drop-shadow(0px 0px 50px #8f98ff22);
+    border-color: #fffb00;
+    color: white;
+    a{color: #00ffe1;}
+
+    .daysLeftText{
+      color: white;
+    }
+  }
+  .edit{
+    color: rgba(0, 0, 0, 0);
+  }
+  .modalTitle {
+    background-color: rgba(255, 0, 0, 0);
+  }
+
+  .modalInfo {
+    background-color: #ff000000;
+  }
+
+  .modalDescription {
+    background-color: #0040ff00;
+  }
+
+  .progressBar {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .progressBarText {
+    color: rgba(0, 0, 0, 0.379);
+  }
+
+  .logElement {
+    background-color: #000000;
+    border-bottom: solid;
+    border-color: white;
+    border-width: 1px;
+  }
+  
+  .logElement:hover{
+    background-color: white;
+    color: black !important;
+    .secondary{color: black;}
+  }
+}

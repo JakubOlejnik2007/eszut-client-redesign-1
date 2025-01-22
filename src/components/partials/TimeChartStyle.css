@@ -1,0 +1,12 @@
+.slice {
+    transform: scaleX(-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(#3498db 0% 40%,
+            transparent 40%);
+    mask: radial-gradient(farthest-side, transparent 70%, black 71%);
+}

@@ -7,12 +7,15 @@ const urls = {
         archive: "/archiwum",
         account: "/konto",
         manageapp: "/zarzadzanie-aplikacja",
-        displaylog: "/dziennik-log"
+        displaylog: "/dziennik-log",
+        settings: "/ustawienia"
     },
     backend: {
         auth: {
             login: "/login",
-            getUserRole: "/get-user-role"
+            getUserRole: "/get-user-role",
+            refreshToken: "/refresh-token",
+            setTokens: "/set-tokens",
         },
         problem: {
             getUnsolvedProblems: "/get-unsolved-problems",
@@ -49,7 +52,7 @@ const urls = {
         },
         logs: {
             getLogData: "/get-logs"
-        }
+        },
     },
 } as const;
 

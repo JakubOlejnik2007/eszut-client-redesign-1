@@ -25,6 +25,28 @@
   src: url("assets/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype");
 }
 
+@font-face {
+  font-family: sfMono;
+  font-weight:bold;
+  src: url("assets/fonts/SFPRODISPLAYBOLD.OTF") format("opentype");
+}
+
+@font-face {
+  font-family: sfMono;
+  font-weight:medium;
+  src: url("assets/fonts/SFPRODISPLAYMEDIUM.OTF") format("opentype");
+}
+@font-face {
+  font-family: sfMono;
+  font-weight:bolder;
+  src: url("assets/fonts/SFPRODISPLAYBLACKITALIC.OTF") format("opentype");
+}
+@font-face {
+  font-family: sfMono;
+  font-weight:normal;
+  src: url("assets/fonts/SFMONO/SFMONOREGULAR.otf") format("opentype");
+}
+
 ::-moz-selection {
   color: var(--accentColor);
   background: #362929;
@@ -63,6 +85,27 @@
 }
 
 
+.logError{
+background-image: url(assets/log/logError.png);
+}
+.logWarning{
+background-image: url(assets/log/logWarning.png);
+}
+.logInfo{
+background-image: url(assets/log/logInfo.png);
+}
+
+.logIcon{
+background-color: rgba(255, 0, 0, 0);
+height: 25px;
+width: 4%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: 18px;
+margin-right: 5px;
+margin-left: 5px;
+}
+
 hr {
   display: block;
   height: 1px;
@@ -70,6 +113,30 @@ hr {
   border-top: 1px solid rgba(255, 255, 255, 0.120);
   margin: 10px 0;
   padding: 0;
+}
+
+.primary{
+  color: var(--primaryText);
+}
+.secondary{
+  color:var(--secondaryText);
+}
+
+.edit{
+  color: rgba(0, 0, 0, 0);
+  background-image: url(assets/edit-placeholder.png);
+  background-position: center;
+  background-size: 35%;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0px;
+}
+.edit:active{
+  color: rgba(0, 0, 0, 0);
+}
+
+.overflowfix{
+  overflow: scroll;
 }
 
 @keyframes shake {
@@ -86,22 +153,15 @@ hr {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-
-.logIcon{
-  width: 3%;
-height: 100%;
-background-size: 75% 75% !important;
-background-position: center !important;
-background-repeat: no-repeat !important;
-
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.517);
+  }
 }
 
-.logError{
-background: transparent url("src/assets/log/logError.png");
-}
-.logWarning{
-  background: transparent url("src/assets/log/logWarning.png");
-}
-.Info{
-  background: transparent url("src/assets/log/logInfo.png");
+.fade-in{
+  animation: fadeIn .25s forwards;
 }
