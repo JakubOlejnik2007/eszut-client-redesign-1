@@ -33,17 +33,12 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (user?.accessToken) {
-            const decodedToken: any = JSON.parse(atob(user.accessToken.split('.')[1]));
-            const currentTime = Math.floor(Date.now() / 1000);
 
-            if (decodedToken.exp < currentTime) {
-                refreshAccessToken();
-            } else {
-                navigate(urls.client.reportProblem);
-            }
+        if (user) {
+            navigate(urls.client.reportProblem);
         }
-    }, [user]);
+
+    }, [user])
 
     useEffect(() => {
         const initializeMsal = async () => {

@@ -45,7 +45,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
     const { user } = AuthData();
     const { displayNotif } = Notif();
 
-    const USER_EMAIL = user?.username;
+    const USER_EMAIL = user?.email;
 
     const reportDate = new Date(when);
 
