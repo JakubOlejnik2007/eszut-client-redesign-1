@@ -7,7 +7,7 @@ import UnsolvedProblem from "../components/problems/unsolved-problem/UnsolvedPro
 
 const ReportsScreen = () => {
 
-    const { user } = AuthData();
+    const { user, accessToken } = AuthData();
 
     const [underYou, setUnderYou] = useState<any[]>([]);
     const [underRealization, setUnderRealization] = useState<any[]>([]);
@@ -15,7 +15,7 @@ const ReportsScreen = () => {
 
     console.log(user)
 
-    const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(user?.accessToken as string));
+    const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(accessToken as string));
 
     const refreshQueries = () => {
         unsolvedProblemsQuery.refetch();
