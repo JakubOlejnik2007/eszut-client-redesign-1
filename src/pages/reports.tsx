@@ -13,6 +13,8 @@ const ReportsScreen = () => {
     const [underRealization, setUnderRealization] = useState<any[]>([]);
     const [other, setOther] = useState<any[]>([]);
 
+    console.log(user)
+
     const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(user?.accessToken as string));
 
     const refreshQueries = () => {
