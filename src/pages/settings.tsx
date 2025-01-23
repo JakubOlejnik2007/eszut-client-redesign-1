@@ -67,8 +67,7 @@ const SettingsScreen = () => {
                         <br/>
                         <hr />
                         <h3 style={{ textAlign: "left", marginBottom: '12px' }}>tokeny:</h3>
-                        twoje tokeny:
-                        <br/><br/>
+                        
 
                         {/* table title */}
                         <div className="logElement tableTitle" style={{fontFamily: "sfMono", fontSize: "0.9rem"}}>
@@ -114,7 +113,7 @@ export const TokenElement = ({ expiryDate, token, userEmail, type }: TokenElemen
 
         <div className="logElement" style={{fontFamily: "sfMono", fontSize: "0.9rem"}}>
 
-            <div data-tooltip={userEmail} style={{ backgroundColor: '', width: '68%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'left', marginLeft: '2%' }}>{token}</div>
+            <div data-tooltip={userEmail} style={{ backgroundColor: '', width: '68%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'left', marginLeft: '2%', borderColor: '--var()' }}>{token}</div>
 
             <div style={{borderColor: 'var(--tableAccent)', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid' }}></div>
             <div style={{borderColor: '', width: '0.5%', height: '25px' }}></div>
