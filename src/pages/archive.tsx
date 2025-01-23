@@ -8,12 +8,12 @@ import Pagination from "../components/Pagination";
 
 const Archive = () => {
 
-    const { user } = AuthData();
+    const { user, accessToken } = AuthData();
 
     const [problems, setProblems] = useState<any[]>([]);
     const [page, setPage] = useState<number>(1);
     const [maxPage, setMaxPage] = useState<number>(1);
-    const solvedProblemQuery = useQuery(["solved-problems", page], () => getSolvedProblems(user?.accessToken as string, page));
+    const solvedProblemQuery = useQuery(["solved-problems", page], () => getSolvedProblems(accessToken as string, page));
 
     const refreshQueries = () => {
         solvedProblemQuery.refetch();

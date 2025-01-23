@@ -9,12 +9,14 @@ import IUser from "../types/user.interface";
 
 const AuthContext = createContext<{
     user: IUser | null,
+    accessToken: string | null,
     login: () => void,
     logout: () => void,
     acquireToken: () => Promise<string | null>,
     isLoading: boolean
 }>({
     user: null,
+    accessToken: null,
     login: () => { },
     logout: () => { },
     acquireToken: async () => null,
@@ -27,18 +29,23 @@ const msalInstance = new PublicClientApplication(msalConfig);
 
 export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<IUser | null>(null);
+    const [accessToken, setAccessToken] = useState<string | null>(null);
     const [isInitialized, setIsInitialized] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [refreshToken, setRefreshToken] = useState<string | null>(null);
     const navigate = useNavigate();
 
+
     useEffect(() => {
+        if (accessToken) {
+            const decodedToken: any = JSON.parse(atob(accessToken.split('.')[1]));
+            const currentTime = Math.floor(Date.now() / 1000);
 
-        if (user) {
-            navigate(urls.client.reportProblem);
+            if (decodedToken.exp < currentTime) {
+                refreshAccessToken();
+            }
         }
-
-    }, [user])
+    });
 
     useEffect(() => {
         const initializeMsal = async () => {
@@ -114,10 +121,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 params: { REFRESH_TOKEN: refreshToken },
             });
 
-            setUser((prevUser) => ({
-                ...prevUser,
-                accessToken: response.data.accessToken,
-            }) as IUser);
+            setAccessToken(response.data.accessToken);
 
             sessionStorage.setItem("AuthData", JSON.stringify({
                 user,
@@ -145,7 +149,8 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 params: { MSAL_TOKEN: loginResponse.accessToken },
             });
 
-            setUser({ ...serverResponse.data.user, accessToken: serverResponse.data.accessToken });
+            setUser({ ...serverResponse.data.user });
+            setAccessToken(serverResponse.data.accessToken);
             setRefreshToken(serverResponse.data.refreshToken);
 
             sessionStorage.setItem("AuthData", JSON.stringify({
@@ -174,6 +179,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 if (sessionData) {
                     const parsedData = JSON.parse(sessionData);
                     setUser(parsedData.user);
+                    setAccessToken(parsedData.accessToken);
                     setRefreshToken(parsedData.refreshToken);
                 }
 
@@ -202,7 +208,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ user, login, logout, acquireToken, isLoading }}>
+        <AuthContext.Provider value={{ user, accessToken, login, logout, acquireToken, isLoading }}>
             {children}
         </AuthContext.Provider>
     );

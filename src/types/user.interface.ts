@@ -6,7 +6,6 @@ interface IUser {
     email: string;
     username: string;
     role: EUserRole;
-    accessToken: string;
 }
 
 export default IUser;
