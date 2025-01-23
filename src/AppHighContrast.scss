@@ -29,6 +29,10 @@
   --reportExpiredBGH: #000000;
   --reportExpiredBorderColor: #ff6200;
 
+  /* tables */
+  --tableAccent: #ffffff;
+
+
 
   nav {
     // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
@@ -332,5 +336,9 @@
     background-color: white;
     color: black !important;
     .secondary{color: black;}
+  }
+
+  .tableTitle{
+    color:#000000 !important;
   }
 }

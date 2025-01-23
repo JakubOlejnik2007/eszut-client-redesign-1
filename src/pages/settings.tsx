@@ -57,7 +57,7 @@ const SettingsScreen = () => {
 
                         {themes.map((theme) => <ThemeRadio key={theme.name} {...theme} />)}
                         <br/>
-                        <hr />
+                        <hr/>
                         <h3 style={{ textAlign: "left", marginBottom: '12px' }}>zachowanie aplikacji:</h3>
 
                         wysyłaj powiadomienia<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br />
@@ -66,12 +66,28 @@ const SettingsScreen = () => {
 
                         <br/>
                         <hr />
-                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>więcej:</h3>
-                        obecny styl: [dropdown]<br/>
-                        tworzenie styli... <br/>
-                        utwórz token...<br/>
+                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>tokeny:</h3>
+                        twoje tokeny:
+                        <br/><br/>
 
-                        <button className="mainButton">Zastosuj zmiany</button>
+                        {/* table title */}
+                        <div className="logElement tableTitle" style={{fontFamily: "sfMono", fontSize: "0.9rem"}}>
+                            <div style={{ backgroundColor: '', width: '68%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'left', marginLeft: '2%' }}>nazwa tokenu</div>
+                            <div style={{backgroundColor: '', width: '50%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'right', marginRight: '2%'}}>wygaśnięcie</div>
+
+                        </div>
+
+                        <TokenElement expiryDate={3} token="nazwa" userEmail="kliknij, by usunąć token" type={4} />  
+                        <TokenElement expiryDate={3} token="nazwa" userEmail="kliknij, by usunąć token" type={4} />  
+                        <TokenElement expiryDate={3} token="nazwa" userEmail="kliknij, by usunąć token" type={4} />  
+                        <TokenElement expiryDate={3} token="nazwa" userEmail="kliknij, by usunąć token" type={4} />  
+                        <TokenElement expiryDate={3} token="nazwa" userEmail="kliknij, by usunąć token" type={4} />  
+                        <TokenElement expiryDate={3} token="nazwa" userEmail="kliknij, by usunąć token" type={4} />  
+                        <TokenElement expiryDate={3} token="nazwa" userEmail="kliknij, by usunąć token" type={4} />  
+
+
+                        <br/>
+                        <button className="mainButton">utwórz token</button>
                     </div>
                 </center>
             </div>
@@ -80,3 +96,31 @@ const SettingsScreen = () => {
 }
 
 export default SettingsScreen;
+
+interface TokenElementProps {
+    expiryDate: number;
+    token: string;
+    userEmail: string;
+    type: number;
+}
+
+export const TokenElement = ({ expiryDate, token, userEmail, type }: TokenElementProps) => {
+
+    const parsedDate = new Date(expiryDate);
+
+    return (
+
+
+
+        <div className="logElement" style={{fontFamily: "sfMono", fontSize: "0.9rem"}}>
+
+            <div data-tooltip={userEmail} style={{ backgroundColor: '', width: '68%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'left', marginLeft: '2%' }}>{token}</div>
+
+            <div style={{borderColor: 'var(--tableAccent)', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid' }}></div>
+            <div style={{borderColor: '', width: '0.5%', height: '25px' }}></div>
+            <div style={{backgroundColor: '', width: '50%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'right', marginRight: '2%'}} className="secondary">{parsedDate.toLocaleString()}</div>
+
+
+        </div>
+    )
+}
