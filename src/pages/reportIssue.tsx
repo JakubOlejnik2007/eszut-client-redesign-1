@@ -15,7 +15,7 @@ const ReportIssueScreen = () => {
         what: '',
     })
 
-    const { user } = AuthData();
+    const { user, accessToken } = AuthData();
 
     const { displayNotif } = Notif();
 
@@ -48,7 +48,7 @@ const ReportIssueScreen = () => {
             return;
         }
 
-        const response = await insertNewProblem(formData, user?.accessToken as string)
+        const response = await insertNewProblem(formData, accessToken as string)
         console.log(response)
         if (response === "OK") {
             console.log("Problem registered");
