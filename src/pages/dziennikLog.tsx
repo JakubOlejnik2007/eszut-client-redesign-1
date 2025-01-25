@@ -54,8 +54,8 @@ const DziennikLog = () => {
                 }
 
 
-                <br />
-                <br />
+                <br/>
+                <br/>
 
 
             </div>
@@ -84,7 +84,7 @@ export const LogElement = ({ date, content, userEmail, type }: ILogElementProps)
             <div className={`${["logInfo", "logWarning", "logError"][type]} log logIcon`}></div>
             <div data-tooltip={userEmail} style={{ backgroundColor: '', width: '72%', height: '25px', transform: 'translateY(2.5px)' }}>{content}</div>
 
-            <div style={{ borderColor: 'var(--borderColor)', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid' }}></div>
+            <div style={{ borderColor: 'var(--tableAccent)', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid' }}></div>
             <div style={{ borderColor: '', width: '0.5%', height: '25px' }}></div>
 
             <div style={{ backgroundColor: '', width: '19%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'right', marginRight: '2%', fontFamily: "sfMono", fontSize: "0.9rem" }} className="secondary">{parsedDate.toLocaleString()}</div>

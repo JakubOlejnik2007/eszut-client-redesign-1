@@ -12,6 +12,7 @@
   --borderColor: #1d1d1d;
   --windowBorderColor: rgba(255, 255, 255, 0.120);
   --windowTopBorderColor: rgba(255, 255, 255, 0.205);
+  --tableAccent: #1d1d1d;
 }
 
 
@@ -568,17 +569,21 @@ a:hover {
 }
 
 .logElement {
-  background-color: #1D1D1D;
+  background-color: #222222;
   height: 25px;
   display: flex;
 }
 
 .logElement:nth-child(even) {
-  background-color: #222222;
+  background-color: #1c1c1c;
 }
 
 .logElement:hover{
   background-color: #262626;
+}
+
+.tableTitle{
+  background-color: var(--tableAccent) !important;
 }
 
 [data-tooltip]::before {
@@ -603,6 +608,7 @@ a:hover {
   filter: drop-shadow(0px 0px 10px #0000005a);
   margin-top: -40px;
   margin-left: 20px;
+  
 }
 
 [data-tooltip]:not([data-tooltip-persistent])::before {
