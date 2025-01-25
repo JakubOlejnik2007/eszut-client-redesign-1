@@ -88,6 +88,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                     <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />
                 </h1>
                 <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>
+                    ID: {_id} <br />
                     Sala: {placeName} <br />
                     <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} what={what} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} priority={priority} placeName={placeName} categoryName={categoryName} isUnderRealization={isUnderRealization} />
                 </div>
