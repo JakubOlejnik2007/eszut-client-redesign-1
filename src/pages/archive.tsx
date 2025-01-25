@@ -10,10 +10,14 @@ const Archive = () => {
 
     const { user, accessToken } = AuthData();
 
+    console.log("Archive: accessToken: ", accessToken);
+
     const [problems, setProblems] = useState<any[]>([]);
     const [page, setPage] = useState<number>(1);
     const [maxPage, setMaxPage] = useState<number>(1);
-    const solvedProblemQuery = useQuery(["solved-problems", page], () => getSolvedProblems(accessToken as string, page));
+    const solvedProblemQuery = useQuery(["solved-problems", page], () => getSolvedProblems(accessToken as string, page), {
+        enabled: !!accessToken
+    });
 
     const refreshQueries = () => {
         solvedProblemQuery.refetch();

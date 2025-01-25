@@ -12,7 +12,9 @@ const DziennikLog = () => {
     const [entries, setEntries] = useState<any[]>([]);
     const [page, setPage] = useState<number>(1);
     const [maxPage, setMaxPage] = useState<number>(1);
-    const logEntriesQuery = useQuery(["log-entries", page], () => getLogData(accessToken as string, page));
+    const logEntriesQuery = useQuery(["log-entries", page], () => getLogData(accessToken as string, page), {
+        enabled: !!accessToken
+    });
 
     const refreshQueries = () => {
         logEntriesQuery.refetch();

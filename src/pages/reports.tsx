@@ -15,7 +15,9 @@ const ReportsScreen = () => {
 
     console.log(user)
 
-    const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(accessToken as string));
+    const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(accessToken as string), {
+        enabled: !!accessToken
+    });
 
     const refreshQueries = () => {
         unsolvedProblemsQuery.refetch();
