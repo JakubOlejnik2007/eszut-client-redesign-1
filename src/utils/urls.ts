@@ -8,7 +8,8 @@ const urls = {
         account: "/konto",
         manageapp: "/zarzadzanie-aplikacja",
         displaylog: "/dziennik-log",
-        settings: "/ustawienia"
+        settings: "/ustawienia",
+        system: "/system"
     },
     backend: {
         auth: {
