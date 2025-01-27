@@ -65,3 +65,27 @@ export const putUpdateUnsolvedProblem = async (
     );
 
 export const getLogData = async (AuthToken: string, page: number) => await createApiRequest("GET", `${config.backend}${urls.backend.logs.getLogData}?page=${page}`, {}, AuthToken)
+
+
+export const createLongPeriodToken = async (
+    AuthToken: string,
+    daysToExpire: number,
+    name: string
+
+) =>
+    await createApiRequest(
+        "POST",
+        `${config.backend}${urls.backend.token.createToken}`,
+        { daysToExpire, name },
+        AuthToken
+    );
+
+export const getActiveTokens = async (
+    AuthToken: string,
+) =>
+    await createApiRequest(
+        "GET",
+        `${config.backend}${urls.backend.token.getTokens}`,
+        {},
+        AuthToken
+    );

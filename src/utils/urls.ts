@@ -53,6 +53,11 @@ const urls = {
         logs: {
             getLogData: "/get-logs"
         },
+        token: {
+            createToken: "/create-token",
+            getTokens: "/get-tokens",
+            deleteToken: "/delete-token",
+        }
     },
 } as const;
 
