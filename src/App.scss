@@ -593,7 +593,6 @@ a:hover {
   border-color: var(--windowBorderColor);
   border-width: 1px;
   border-style: solid;
-  padding-left: var(--defaultPadding);
 }
 .intTabElement{
   background-color: var(--pageForeBG);
@@ -626,9 +625,41 @@ a:hover {
   width: 90%;
   font-size: 15px;
   padding-left: 0px;
+  outline: none;
+
 }
-:active{
+.intTabButton{
+  float: right;
   border: none;
+  outline: none;
+  height: 26px;
+  width: 64px;
+  margin-right: 8px;
+  border-left-style: solid;
+  border-width: 1px;
+  border-color: var(--windowBorderColor);
+  color: var(--mainText);
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: 0.2s;
+  &:hover{
+    background-color: rgba(255, 255, 255, 0.195);
+    transition: 0s;
+  }
+  &:active{
+    background-color: rgba(0, 0, 0, 0.302);
+  }
+}
+.intSuccess{
+  background-color: rgba(153, 255, 0, 0.05);
+  color: #bfff357b;
+  &:hover{
+    background-color: rgba(66, 117, 0, 0.383);
+    color: #bfff357b; 
+  }
+  &:active{
+    background-color: rgba(0, 43, 11, 0.383);
+    color: #54d2007b;
+  }
 }
 
 [data-tooltip]::before {

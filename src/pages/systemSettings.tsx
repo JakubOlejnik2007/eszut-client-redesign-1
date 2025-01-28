@@ -10,7 +10,9 @@ const SystemSettings = () => {
                         <TabElement name={"problem z komputerem"} importance={2}></TabElement>
                         <TabElement name={"problem z komputerem"} importance={2}></TabElement>
                         <TabElement name={"problem z komputerem"} importance={2}></TabElement>
-                        <div className="intTabElement"><input type="text" className="intTabInput" placeholder="dodaj nową kategorię..."></input></div>
+                        {/* adding a new category */}
+                        <div className="intTabElement"><input type="text" className="intTabInput" placeholder="dodaj nową kategorię..."></input>
+                        <button className="intTabButton intSuccess">Dodaj</button></div>
                     </div>
 
 
@@ -32,9 +34,7 @@ export const TabElement = ({ name, importance }: TabElementProps) => {
     return (
 
         <div className="intTabElement">
-
-            {name}
-
+            {name}<button className="intTabButton">usuń</button>
         </div>
     )
 }
