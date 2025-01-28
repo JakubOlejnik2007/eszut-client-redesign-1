@@ -585,6 +585,51 @@ a:hover {
 .tableTitle{
   background-color: var(--tableAccent) !important;
 }
+.intTabContainer{
+  width: 75%;
+  margin: var(--defaultPadding) auto;
+  overflow: hidden;
+  border-radius: var(--smallCornerSize);
+  border-color: var(--windowBorderColor);
+  border-width: 1px;
+  border-style: solid;
+  padding-left: var(--defaultPadding);
+}
+.intTabElement{
+  background-color: var(--pageForeBG);
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  padding-left: var(--defaultPadding);
+  border-color: var(--windowBorderColor);
+  border-width: 0.5px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  transition: 0.2s;
+}
+.intTabElement:hover{
+  background-color: var(--windowBorderColor);
+  transition: 0s;
+}
+.intTabElement:first-child
+{
+  border-top-style: none;
+}
+.intTabElement:last-child
+{
+  border-bottom-style: none;
+}
+.intTabInput{
+  background: none;
+  border-style: none;
+  color: var(--mainText);
+  width: 90%;
+  font-size: 15px;
+  padding-left: 0px;
+}
+:active{
+  border: none;
+}
 
 [data-tooltip]::before {
   /* needed - do not touch */
