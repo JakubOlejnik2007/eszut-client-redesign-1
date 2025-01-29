@@ -309,4 +309,134 @@
   .logElement:nth-child(even) {
     background-color: #f4ebda;
   }
+
+
+  
+  // INTTAB STUFF
+
+  .intTabContainer{
+    width: 75%;
+    margin: var(--defaultPadding) auto;
+    overflow: hidden;
+    border-radius: var(--smallCornerSize);
+    border-color: var(--windowBorderColor);
+    border-width: 1px;
+    border-style: solid;
+  }
+  .intTabElement{
+    background-color: #eee3cd;
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    padding-left: var(--defaultPadding);
+    border-color: var(--windowBorderColor);
+    border-width: 0.5px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    transition: 0.2s;
+  }
+  .intTabElement:hover{
+    background-color: var(--pageForeBG);
+    transition: 0s;
+  }
+  .intTabElement:first-child
+  {
+    border-top-style: none;
+  }
+  .intTabElement:last-child
+  {
+    border-bottom-style: none;
+  }
+  .intTabInput{
+    background: none;
+    border-style: none;
+    color: var(--mainText);
+    width: 90%;
+    font-size: 15px;
+    padding-left: 0px;
+    outline: none;
+  }
+  .intLongInput{
+    background: none;
+    border-style: none;
+    color: var(--mainText);
+    width: 60%;
+    font-size: 15px;
+    padding-left: 0px;
+    outline: none;
+    float: left;
+    height: 24px;
+  }
+  .intSmallInput{
+    background: none;
+    border-style: none;
+    color: var(--mainText);
+    width: 25%;
+    padding-left: var(--defaultPadding);
+    font-size: 15px;
+    outline: none;
+    border-color: var(--windowBorderColor);
+    border-width: 1px;
+    border-left-style: solid;
+    width: 100px;
+    height: 24px;
+  }
+
+  .intTabButton{
+    float: right;
+    border: none;
+    outline: none;
+    height: 26px;
+    width: 64px;
+    margin-right: 8px;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: var(--windowBorderColor);
+    color: var(--mainText);
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: 0.2s;
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.195);
+      transition: 0s;
+    }
+    &:active{
+      background-color: rgba(0, 0, 0, 0.302);
+    }
+    &.dynamic{
+      transform: translateX(46px);
+      background-color: #DFCCB2;
+      color: rgba(0, 0, 0, 0);
+      &:hover{
+        transform: translateX(0px);
+        transition: 0.2s;
+        background-color: #DFCCB2;
+        color: rgb(69, 0, 35);
+
+      }
+    }
+  }
+  .intSuccess{
+    background-color: rgba(153, 255, 0, 0.192);
+    color: #006308;
+    &:hover{
+      background-color: rgba(153, 255, 0, 0.352);
+      color: #008f0c;
+    }
+    &:active{
+      background-color: rgba(153, 255, 0, 0.192);
+      color: #006308;
+    }
+
+    &.dynamic{
+      transform: translateX(46px);
+      background-color: rgba(153, 255, 0, 0.192);
+      color: #00630800;
+      &:hover{
+        transform: translateX(0px);
+        transition: 0.2s;
+        background-color: rgba(153, 255, 0, 0.192);
+        color: #006308;
+      }
+    }
+  }
 }
