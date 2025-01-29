@@ -6,27 +6,27 @@
   --defaultPadding: 8px;
 
   /*main page*/
-  --pageBackBG: #1a1b27;
-  --pageForeBG: #24263a;
+  --pageBackBG: #010312;
+  --pageForeBG: #05071e;
   --navBarColor: #ffffffa2;
-  --borderColor: #0b0221;
+  --borderColor: #8f98ff;
   --windowBorderColor: #8f98ff;
   --windowTopBorderColor: #8f98ff;
 
   /*page elements*/
   --mainText: #e7f4ff;
-  --secondaryText: #e7f4ff;
+  --secondaryText: #bcc4e3;
   --buttonText: #ffffffa0;
   --accentColor: #8f98ff;
   --mainButtonColor: #8f98ff;
 
   /*reports*/
-  --reportBG: #373a5e;
-  --reportBGH: #3d416e;
+  --reportBG: #101336;
+  --reportBGH: #171b4a;
   --reportBorderColor: #8f98ff;
 
-  --reportExpiredBG: #5e375e;
-  --reportExpiredBGH: #714071;
+  --reportExpiredBG: #241230;
+  --reportExpiredBGH: #35164a;
   --reportExpiredBorderColor: #ec8fff;
 
   /* tables */
@@ -38,16 +38,31 @@
 
   nav {
     // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
-    background-color: #24263a;
+    background-color: #05071e;
     border-bottom: #8f98ff;
     border-bottom-width: 1px;
     border-bottom-style: outset;
     display: flex;
     filter: none;
   }
-
+  .navButton {
+    color: white;
+    border-color: rgba(255, 50, 111, 0);
+    border-style: solid;
+    border-width: 1px;
+    background-color: transparent;
+  }
+  .navButton:hover{
+    color: rgb(255, 50, 111);
+    border-color: rgb(255, 50, 111);
+    border-style: solid;
+    border-width: 1px;
+    background-color: transparent;
+  }
   .navButton:active {
-    background-color: #ffffff28;
+    background-color: #ffffff00;
+    border-color: rgb(255, 255, 255);
+
     color: white;
   }
 
@@ -56,12 +71,16 @@
     text-decoration: underline;
   }
 
+  .creditsText{
+    color: var(--accentColor);
+  }
+
   .window{
     filter: drop-shadow(0px 0px 50px #8f98ff22);
   }
 
   .titleBar {
-    background: #24263a
+    background: #05071e;
   }
 
   .textInput,
@@ -77,26 +96,6 @@
   }
 
 
-  .mainButton {
-    background-color: var(--pageBackBG);
-    filter: drop-shadow(0px 0px 5px #00000000);
-    border-color: var(--mainButtonColor);
-    border-top-color: var(--mainButtonColor);
-    &:hover{
-      background-color: #545dbc;
-      border-color: var(--mainButtonColor);
-      border-top-color: var(--mainButtonColor);
-      transform: none;
-      transition: 0.5s;
-      cursor: pointer;
-    }
-    &:active{
-      transform: none;
-      background-color: var(--pageBackBG);
-      transition: 0.1s;
-      cursor:default;
-    }
-  }
   
   hr {
     border-top: 1px solid var(--borderColor);
@@ -107,20 +106,20 @@
   }
 
   .logo:hover {
-    color: var(--mainButtonColor);
+    color: rgb(255, 50, 111);
   }
 
   ::-moz-selection {
-    color: var(--accentColor);
-    background: #362929;
+    color: rgb(255, 50, 111);
+    background: var(--pageForeBG);
   }
 
   ::selection {
-    color: var(--accentColor);
-    background: #ff752534;
+    color: rgb(255, 50, 111);
+    background: rgb(35, 8, 16);
   }
 
-
+  .mainButton,
   .trashButton,
   .trashButton:hover,
   .trashButton:active,
@@ -132,14 +131,15 @@
   .successButton:active,
   .secondaryButton,
   .secondaryButton:active,
-  .secondaryButton:hover {
+  .secondaryButton:hover 
+  {
     background-color: var(--pageBackBG);
     filter: none;
     border-color: var(--mainButtonColor);
     border-top-color: var(--mainButtonColor);
-    color: var(--mainText);
+    color: #b3b8ff;
     &:hover{
-      background-color: #545dbc;
+      background-color: #131535;
       border-color: var(--mainButtonColor);
       border-top-color: var(--mainButtonColor);
       transform: none;
@@ -150,9 +150,39 @@
     &:active{
       transform: none;
       background-color: var(--pageBackBG);
-      transition: 0.1s;
+      transition: 0s;
       cursor:default;
-      color: var(--mainText);
+      color: rgb(255, 255, 255) !important;
+      border-color: rgb(255, 255, 255) !important;    }
+  }
+
+
+  .trashButton{
+    color: rgb(255, 50, 111);
+    border-color: rgb(255, 50, 111);
+    &:hover{
+      color: rgb(255, 50, 111) !important;
+      border-color: rgb(255, 50, 111) !important;
+      background-color: rgb(67, 4, 23) !important;
+    }
+    &:active{
+      color: rgb(255, 255, 255) !important;
+      border-color: rgb(255, 255, 255) !important;
+      background-color: var(--pageBackBG) !important;
+    }
+  }
+  .sendButton{
+    color: rgb(50, 255, 135);
+    border-color: rgb(50, 255, 135);
+    &:hover{
+      color: rgb(50, 255, 135);
+      border-color: rgb(50, 255, 135);
+      background-color: rgb(9, 70, 51);
+    }
+    &:active{
+      color: rgb(255, 255, 255) !important;
+      border-color: rgb(255, 255, 255) !important;
+      background-color: var(--pageBackBG) !important;
     }
   }
 
@@ -209,8 +239,17 @@
   .expired {
     background-color: var(--reportExpiredBG);
     border-color: var(--reportExpiredBorderColor);
+    
     &:hover{
       background-color: var(--reportExpiredBGH);
+    }
+    --borderColor: #ec8fffe7;
+    --secondaryText: #e3bcbc;
+    h1{
+      color: #fff0f0;
+    }
+    h2{
+      color: #fff0f0;
     }
   }
 
@@ -260,7 +299,7 @@
 
   .modal {
     backdrop-filter: none;
-    background-color: #24263a;
+    background-color: #101336;
     filter: drop-shadow(0px 0px 50px #8f98ff22);
     border-color: #545dbc;
     color: rgb(197, 197, 197);
@@ -298,10 +337,141 @@
   }
 
   .logElement {
-    background-color: #202132;
+    background-color: #010213;
   }
   
   .logElement:nth-child(even) {
-    background-color: #1a1b28;
+    background-color: #05071e;
   }
+
+
+    // INTTAB STUFF
+
+    .intTabContainer{
+      width: 75%;
+      margin: var(--defaultPadding) auto;
+      overflow: hidden;
+      border-radius: var(--smallCornerSize);
+      border-color: var(--windowBorderColor);
+      border-width: 1px;
+      border-style: solid;
+    }
+    .intTabElement{
+      background-color: #05071e;
+      width: 100%;
+      height: 26px;
+      line-height: 26px;
+      padding-left: var(--defaultPadding);
+      border-color: var(--windowBorderColor);
+      border-width: 0.5px;
+      border-top-style: solid;
+      border-bottom-style: solid;
+      transition: 0.2s;
+    }
+    .intTabElement:hover{
+      background-color: #0f0e40;
+      transition: 0s;
+    }
+    .intTabElement:first-child
+    {
+      border-top-style: none;
+    }
+    .intTabElement:last-child
+    {
+      border-bottom-style: none;
+    }
+    .intTabInput{
+      background: none;
+      border-style: none;
+      color: var(--mainText);
+      width: 90%;
+      font-size: 15px;
+      padding-left: 0px;
+      outline: none;
+    }
+    .intLongInput{
+      background: none;
+      border-style: none;
+      color: var(--mainText);
+      width: 60%;
+      font-size: 15px;
+      padding-left: 0px;
+      outline: none;
+      float: left;
+      height: 24px;
+    }
+    .intSmallInput{
+      background: none;
+      border-style: none;
+      color: var(--mainText);
+      width: 25%;
+      padding-left: var(--defaultPadding);
+      font-size: 15px;
+      outline: none;
+      border-color: var(--windowBorderColor);
+      border-width: 1px;
+      border-left-style: solid;
+      width: 100px;
+      height: 24px;
+    }
+  
+    .intTabButton{
+      float: right;
+      border: none;
+      outline: none;
+      height: 26px;
+      width: 64px;
+      margin-right: 8px;
+      border-left-style: solid;
+      border-width: 1px;
+      border-color: rgb(255, 50, 111);
+      color: rgb(255, 50, 111);
+      background-color: rgba(255, 0, 0, 0.05);
+      transition: 0.2s;
+      &:hover{
+        background-color: rgba(255, 0, 0, 0.171);
+        transition: 0s;
+      }
+      &:active{
+        background-color: rgba(0, 0, 0, 0.302);
+      }
+      &.dynamic{
+        transform: translateX(46px);
+        background-color: #12071C;
+        color: rgba(0, 0, 0, 0);
+        &:hover{
+          transform: translateX(0px);
+          transition: 0.2s;
+          background-color: #12071C;
+          color: rgb(255, 50, 111);
+  
+        }
+      }
+    }
+    .intSuccess{
+      border-color: rgb(50, 255, 135);
+
+      background-color: rgba(50, 255, 135, 0.128);
+      color: rgb(50, 255, 135);
+      &:hover{
+        background-color: rgba(50, 255, 135, 0.251);
+        color: rgb(50, 255, 135);
+      }
+      &:active{
+        background-color: rgba(0, 0, 0, 0.302);
+        color: rgb(50, 255, 135);
+      }
+  
+      &.dynamic{
+        transform: translateX(46px);
+        background-color: #0B2B2E;
+        color: rgba(50, 255, 135, 0);
+        &:hover{
+          transform: translateX(0px);
+          transition: 0.2s;
+          background-color: #0B2B2E;
+          color: rgb(50, 255, 135);
+        }
+      }
+    }
 }

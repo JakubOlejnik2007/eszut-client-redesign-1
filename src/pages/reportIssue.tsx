@@ -137,7 +137,7 @@ const ReportIssueScreen = () => {
                 <br />
 
 
-                <button className="mainButton trashButton" type="reset" onClick={handleReset}>Wyczyść</button>        <button className="mainButton" style={{ float: "right", marginRight: "67px" }} type="submit" onClick={handleSubmitClick}>Wyślij</button>
+                <button className="mainButton trashButton" type="reset" onClick={handleReset}>Wyczyść</button>        <button className="mainButton sendButton" style={{ float: "right", marginRight: "67px" }} type="submit" onClick={handleSubmitClick}>Wyślij</button>
 
             </form>
 
