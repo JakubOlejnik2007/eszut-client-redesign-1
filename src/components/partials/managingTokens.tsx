@@ -63,8 +63,9 @@ const ManagingTokens = () => {
                             <input type="text" className="intLongInput" placeholder="dodaj nową kategorię..." ></input>
                             <input type="text" className="intSmallInput small" placeholder="podaj priorytet kategorii 1-3"></input>
                         <button className="intTabButton intSuccess dynamic">Dodaj</button></div>
-            <br />
-            <br />
+
+                        </div>
+
             <input type="text" placeholder="nazwa"  />
             <select onChange={(e) => setTokenData({ ...tokenData, daysToExpire: parseInt(e.target.value) })}>
                 {
@@ -79,7 +80,6 @@ const ManagingTokens = () => {
                 e.preventDefault();
             }}>utwórz token</button>
 
-            </div>
         </>
     )
 }
