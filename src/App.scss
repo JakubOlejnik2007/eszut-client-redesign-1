@@ -626,8 +626,29 @@ a:hover {
   font-size: 15px;
   padding-left: 0px;
   outline: none;
-
 }
+.intLongInput{
+  background: none;
+  border-style: none;
+  color: var(--mainText);
+  width: 60%;
+  font-size: 15px;
+  padding-left: 0px;
+  outline: none;
+}
+.intSmallInput{
+  background: none;
+  border-style: none;
+  color: var(--mainText);
+  width: 25%;
+  padding-left: var(--defaultPadding);
+  font-size: 15px;
+  outline: none;
+  border-color: var(--windowBorderColor);
+  border-width: 1px;
+  border-left-style: solid;
+}
+
 .intTabButton{
   float: right;
   border: none;
