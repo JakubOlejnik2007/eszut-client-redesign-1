@@ -89,3 +89,14 @@ export const getActiveTokens = async (
         {},
         AuthToken
     );
+
+export const insertNewPlace = async (
+    AuthToken: string,
+    name: string,
+
+) => await createApiRequest("POST", `${config.backend}${urls.backend.forms.insertNewPlace}`, {name}, AuthToken);
+
+export const deletePlace = async (
+    AuthToken: string,
+    PlaceID: string,
+) => await createApiRequest("DELETE", `${config.backend}${urls.backend.forms.deletePlace}`, {PlaceID}, AuthToken);
