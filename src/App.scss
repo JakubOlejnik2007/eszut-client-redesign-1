@@ -408,6 +408,18 @@ select {
   padding: var(--defaultPadding);
   min-width: 528px;
 
+
+  &.intSmallInput{
+    min-width: 0px;
+    box-shadow: none !important;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    margin-left: -12px;
+    background: none;
+  }
+
+
 }
 
 select option {
