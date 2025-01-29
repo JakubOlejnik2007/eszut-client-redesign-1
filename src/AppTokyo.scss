@@ -6,10 +6,10 @@
   --defaultPadding: 8px;
 
   /*main page*/
-  --pageBackBG: #1a1b27;
-  --pageForeBG: #24263a;
+  --pageBackBG: #010312;
+  --pageForeBG: #05071e;
   --navBarColor: #ffffffa2;
-  --borderColor: #0b0221;
+  --borderColor: #8f98ff;
   --windowBorderColor: #8f98ff;
   --windowTopBorderColor: #8f98ff;
 
@@ -21,12 +21,12 @@
   --mainButtonColor: #8f98ff;
 
   /*reports*/
-  --reportBG: #373a5e;
-  --reportBGH: #3d416e;
+  --reportBG: #101336;
+  --reportBGH: #101336;
   --reportBorderColor: #8f98ff;
 
-  --reportExpiredBG: #5e375e;
-  --reportExpiredBGH: #714071;
+  --reportExpiredBG: #241230;
+  --reportExpiredBGH: #35164a;
   --reportExpiredBorderColor: #ec8fff;
 
   /* tables */
@@ -38,7 +38,7 @@
 
   nav {
     // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
-    background-color: #24263a;
+    background-color: #05071e;
     border-bottom: #8f98ff;
     border-bottom-width: 1px;
     border-bottom-style: outset;
@@ -61,7 +61,7 @@
   }
 
   .titleBar {
-    background: #24263a
+    background: #05071e;
   }
 
   .textInput,
@@ -111,13 +111,13 @@
   }
 
   ::-moz-selection {
-    color: var(--accentColor);
-    background: #362929;
+    color: rgb(255, 50, 111);
+    background: var(--pageForeBG);
   }
 
   ::selection {
-    color: var(--accentColor);
-    background: #ff752534;
+    color: rgb(255, 50, 111);
+    background: rgb(35, 8, 16);
   }
 
 
@@ -150,9 +150,37 @@
     &:active{
       transform: none;
       background-color: var(--pageBackBG);
-      transition: 0.1s;
+      transition: 0s;
       cursor:default;
-      color: var(--mainText);
+      color: rgb(255, 255, 255) !important;
+      border-color: rgb(255, 255, 255) !important;    }
+  }
+  .trashButton{
+    color: rgb(255, 50, 111);
+    border-color: rgb(255, 50, 111);
+    &:hover{
+      color: rgb(255, 50, 111) !important;
+      border-color: rgb(255, 50, 111) !important;
+      background-color: rgb(67, 4, 23) !important;
+    }
+    &:active{
+      color: rgb(255, 255, 255) !important;
+      border-color: rgb(255, 255, 255) !important;
+      background-color: var(--pageBackBG) !important;
+    }
+  }
+  .sendButton{
+    color: rgb(50, 255, 135);
+    border-color: rgb(50, 255, 135);
+    &:hover{
+      color: rgb(50, 255, 135);
+      border-color: rgb(50, 255, 135);
+      background-color: rgb(9, 70, 51);
+    }
+    &:active{
+      color: rgb(255, 255, 255) !important;
+      border-color: rgb(255, 255, 255) !important;
+      background-color: var(--pageBackBG) !important;
     }
   }
 
@@ -212,6 +240,8 @@
     &:hover{
       background-color: var(--reportExpiredBGH);
     }
+    --borderColor: #ec8fff;
+
   }
 
 
