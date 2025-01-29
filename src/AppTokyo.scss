@@ -22,7 +22,7 @@
 
   /*reports*/
   --reportBG: #101336;
-  --reportBGH: #101336;
+  --reportBGH: #171b4a;
   --reportBorderColor: #8f98ff;
 
   --reportExpiredBG: #241230;
@@ -45,15 +45,34 @@
     display: flex;
     filter: none;
   }
-
+  .navButton {
+    color: white;
+    border-color: rgba(255, 50, 111, 0);
+    border-style: solid;
+    border-width: 1px;
+    background-color: transparent;
+  }
+  .navButton:hover{
+    color: rgb(255, 50, 111);
+    border-color: rgb(255, 50, 111);
+    border-style: solid;
+    border-width: 1px;
+    background-color: transparent;
+  }
   .navButton:active {
-    background-color: #ffffff28;
+    background-color: #ffffff00;
+    border-color: rgb(255, 255, 255);
+
     color: white;
   }
 
   a{
     color: var(--secondaryText);
     text-decoration: underline;
+  }
+
+  .creditsText{
+    color: var(--accentColor);
   }
 
   .window{
@@ -107,7 +126,7 @@
   }
 
   .logo:hover {
-    color: var(--mainButtonColor);
+    color: rgb(255, 50, 111);
   }
 
   ::-moz-selection {
@@ -328,10 +347,10 @@
   }
 
   .logElement {
-    background-color: #202132;
+    background-color: #010213;
   }
   
   .logElement:nth-child(even) {
-    background-color: #1a1b28;
+    background-color: #05071e;
   }
 }
