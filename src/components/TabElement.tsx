@@ -1,27 +1,29 @@
-import { QueryObserverIdleResult, QueryObserverSuccessResult } from "react-query";
 import { ENotifType } from "../types/notification.interface";
 import { Notif } from "./notificationsWrapper";
-import { MouseEventHandler } from "react";
+import { AuthData } from "../auth/AuthWrapper";
+import { deleteCategory, deletePlace } from "../service/apiFetchFunctions";
 
 interface TabElementProps {
     ObjectID: string;
     name: string;
-    importance?: number;
+    priority?: string;
     queryToRefetch: any;
 }
-const TabElement = ({ name, importance, ObjectID, queryToRefetch }: TabElementProps) => {
+const TabElement = ({ name, priority, ObjectID, queryToRefetch }: TabElementProps) => {
     const { displayNotif } = Notif();
+    const { accessToken } = AuthData();
 
 
-    const handleRemovePlace = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const handleRemove = async (ObjectID: string, isPlace: boolean = true) => {
         try {
 
+            console.log(ObjectID);
 
-
+            await (isPlace ? deletePlace(accessToken as string, ObjectID) : deleteCategory(accessToken as string, ObjectID));
             displayNotif(
                 {
-                    type: ENotifType.ERROR,
-                    message: "Usunięto miejsce"
+                    type: ENotifType.SUCCESS,
+                    message: `Usunięto ${isPlace ? "miejsce" : "kategorię"}.`
                 }
             )
             queryToRefetch.refetch();
@@ -29,23 +31,23 @@ const TabElement = ({ name, importance, ObjectID, queryToRefetch }: TabElementPr
             displayNotif(
                 {
                     type: ENotifType.ERROR,
-                    message: "Nie udało się usunąć miejsca"
+                    message: `Nie udało się usunąć ${isPlace ? "miejsca" : "kategorii"}.`
                 }
             )
         }
     }
 
 
-    if (importance != null) {
+    if (priority != null) {
         return (
             <div className="intTabElement">
-                {name}, priorytet {importance}<button className="intTabButton" value={ObjectID} onClick={(e) => handleRemovePlace(e)}>usuń</button>
+                {name}, priorytet {priority}<button className="intTabButton" onClick={() => handleRemove(ObjectID)}>usuń</button>
             </div>
         )
     } else {
         return (
             <div className="intTabElement">
-                {name}<button className="intTabButton">usuń</button>
+                {name}<button className="intTabButton" onClick={() => handleRemove(ObjectID)}>usuń</button>
             </div>
         )
     }

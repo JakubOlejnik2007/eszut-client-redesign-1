@@ -94,9 +94,23 @@ export const insertNewPlace = async (
     AuthToken: string,
     name: string,
 
-) => await createApiRequest("POST", `${config.backend}${urls.backend.forms.insertNewPlace}`, {name}, AuthToken);
+) => await createApiRequest("POST", `${config.backend}${urls.backend.forms.insertNewPlace}`, { name }, AuthToken);
+
+export const insertNewCategory = async (
+    AuthToken: string,
+    name: string,
+    priority: number,
+
+
+) => await createApiRequest("POST", `${config.backend}${urls.backend.forms.insertNewCategory}`, { name, priority }, AuthToken);
+
 
 export const deletePlace = async (
     AuthToken: string,
     PlaceID: string,
-) => await createApiRequest("DELETE", `${config.backend}${urls.backend.forms.deletePlace}`, {PlaceID}, AuthToken);
+) => await createApiRequest("DELETE", `${config.backend}${urls.backend.forms.deletePlace}`, { PlaceID }, AuthToken);
+
+export const deleteCategory = async (
+    AuthToken: string,
+    CategoryID: string,
+) => await createApiRequest("DELETE", `${config.backend}${urls.backend.forms.deleteCategory}`, { CategoryID }, AuthToken);
