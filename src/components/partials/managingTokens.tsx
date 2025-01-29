@@ -60,26 +60,20 @@ const ManagingTokens = () => {
             }
 
             <div className="intTabElement">
-                            <input type="text" className="intLongInput" placeholder="dodaj nową kategorię..." ></input>
-                            <input type="text" className="intSmallInput small" placeholder="podaj priorytet kategorii 1-3"></input>
-                        <button className="intTabButton intSuccess dynamic">Dodaj</button></div>
+                            <input type="text" className="intLongInput" placeholder="nazwa tokenu..." ></input>
+                            <select className="intSmallInput small"onChange={(e) => setTokenData({ ...tokenData, daysToExpire: parseInt(e.target.value) })}>
+                                {
+                                    tokenDays.map(day => (
+                                        <option key={day}>{day} dni</option>
+                                    ))
 
+                                }
+                            </select>
+                            <button className="intTabButton intSuccess dynamic" onClick={(e) => {
+                                handleTokenCreate();
+                                e.preventDefault();
+                            }}>Dodaj</button></div>
                         </div>
-
-            <input type="text" placeholder="nazwa"  />
-            <select onChange={(e) => setTokenData({ ...tokenData, daysToExpire: parseInt(e.target.value) })}>
-                {
-                    tokenDays.map(day => (
-                        <option key={day}>{day} dni</option>
-                    ))
-
-                }
-            </select>
-            <button className="mainButton" onClick={(e) => {
-                handleTokenCreate();
-                e.preventDefault();
-            }}>utwórz token</button>
-
         </>
     )
 }

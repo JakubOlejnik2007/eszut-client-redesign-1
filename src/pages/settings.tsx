@@ -1,10 +1,5 @@
-import { NavLink } from "react-router-dom";
 import { useTheme } from "../components/theme/ThemeContext";
 import TThemes from "../types/themes.type";
-import { useEffect, useState } from "react";
-import { createLongPeriodToken, getActiveTokens } from "../service/apiFetchFunctions";
-import { AuthData } from "../auth/AuthWrapper";
-import { useQuery } from "react-query";
 import ManagingTokens from "../components/partials/managingTokens";
 
 type TThemeRadio = {
