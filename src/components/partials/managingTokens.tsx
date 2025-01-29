@@ -60,8 +60,8 @@ const ManagingTokens = () => {
             }
 
             <div className="intTabElement">
-                            <input type="text" className="intLongInput" placeholder="dodaj nową kategorię..." ></input>
-                            <input type="text" className="intSmallInput small" placeholder="podaj priorytet kategorii 1-3"></input>
+                            <input type="text" className="intLongInput" placeholder="nazwa tokenu..." ></input>
+                            <input type="text" className="intSmallInput small" placeholder="to jest select"></input>
                         <button className="intTabButton intSuccess dynamic">Dodaj</button></div>
 
                         </div>
