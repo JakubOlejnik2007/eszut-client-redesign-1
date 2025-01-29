@@ -46,11 +46,12 @@ const ManagingTokens = () => {
 
     return (
         <>
-            <div className="logElement tableTitle" style={{ fontFamily: "sfMono", fontSize: "0.9rem" }}>
+            <div className="intTabContainer" style={{width:"100%"}}>
+
+            {/* <div className="logElement tableTitle" style={{ fontFamily: "sfMono", fontSize: "0.9rem" }}>
                 <div style={{ backgroundColor: '', width: '68%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'left', marginLeft: '2%' }}>nazwa tokenu</div>
                 <div style={{ backgroundColor: '', width: '50%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'right', marginRight: '2%' }}>wygaśnięcie</div>
-
-            </div>
+            </div> */}
 
             {
                 tokens && tokens.map((token: any) => <TokenElement key={token._id} {
@@ -58,9 +59,13 @@ const ManagingTokens = () => {
                 } />)
             }
 
-
+            <div className="intTabElement">
+                            <input type="text" className="intLongInput" placeholder="dodaj nową kategorię..." ></input>
+                            <input type="text" className="intSmallInput small" placeholder="podaj priorytet kategorii 1-3"></input>
+                        <button className="intTabButton intSuccess dynamic">Dodaj</button></div>
             <br />
-            <input type="text" placeholder="nazwa" onChange={(e) => setTokenData({ ...tokenData, name: e.target.value })} />
+            <br />
+            <input type="text" placeholder="nazwa"  />
             <select onChange={(e) => setTokenData({ ...tokenData, daysToExpire: parseInt(e.target.value) })}>
                 {
                     tokenDays.map(day => (
@@ -73,6 +78,8 @@ const ManagingTokens = () => {
                 handleTokenCreate();
                 e.preventDefault();
             }}>utwórz token</button>
+
+            </div>
         </>
     )
 }

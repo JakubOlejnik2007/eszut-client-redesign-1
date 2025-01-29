@@ -8,19 +8,15 @@ export const TokenElement = ({ expiryDate, token, userEmail }: TokenElementProps
 
     const parsedDate = new Date(expiryDate);
 
+    const dateTimeString = parsedDate.toLocaleString();
+    const dateTimeStringToDisplay = dateTimeString.substring(0, dateTimeString.length - 3);
+
     return (
 
-
-
-        <div className="logElement" style={{ fontFamily: "sfMono", fontSize: "0.9rem" }}>
-
-            <div data-tooltip={userEmail} style={{ backgroundColor: '', width: '68%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'left', marginLeft: '2%', borderColor: '--var()' }}>{token}</div>
-
-            <div style={{ borderColor: 'var(--tableAccent)', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid' }}></div>
-            <div style={{ borderColor: '', width: '0.5%', height: '25px' }}></div>
-            <div style={{ backgroundColor: '', width: '50%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'right', marginRight: '2%' }} className="secondary">{parsedDate.toLocaleString()}</div>
-
-
+        <div className="intTabElement" style={{ fontFamily: "sfMono", fontSize: "0.9rem" }}>
+            <div style={{float:"left"}}>{token}</div>
+            <button className="intTabButton dynamic">usuń</button>
+            <div style={{float:"right", marginRight:"-32px"}}>{dateTimeStringToDisplay}</div>
         </div>
     )
 }

@@ -635,6 +635,8 @@ a:hover {
   font-size: 15px;
   padding-left: 0px;
   outline: none;
+  float: left;
+  height: 24px;
 }
 .intSmallInput{
   background: none;
@@ -647,6 +649,8 @@ a:hover {
   border-color: var(--windowBorderColor);
   border-width: 1px;
   border-left-style: solid;
+  width: 100px;
+  height: 24px;
 }
 
 .intTabButton{
@@ -669,6 +673,18 @@ a:hover {
   &:active{
     background-color: rgba(0, 0, 0, 0.302);
   }
+  &.dynamic{
+    transform: translateX(46px);
+    background-color: rgba(255, 0, 85, 0.064);
+    color: rgb(53, 38, 43);
+    &:hover{
+      transform: translateX(0px);
+      transition: 0.2s;
+      background-color: rgb(86, 52, 63);
+      color: rgb(255, 146, 182);
+
+    }
+  }
 }
 .intSuccess{
   background-color: rgba(153, 255, 0, 0.05);
@@ -680,6 +696,18 @@ a:hover {
   &:active{
     background-color: rgba(0, 43, 11, 0.383);
     color: #54d2007b;
+  }
+
+  &.dynamic{
+    transform: translateX(46px);
+    background-color: rgba(153, 255, 0, 0.05);
+    color: #bfff3500;
+    &:hover{
+      transform: translateX(0px);
+      transition: 0.2s;
+      background-color: rgba(66, 117, 0, 0.383);
+      color: #bfff357b; 
+    }
   }
 }
 
