@@ -154,6 +154,10 @@
       cursor:default;
       color: rgb(255, 255, 255) !important;
       border-color: rgb(255, 255, 255) !important;    }
+
+      &.edit{
+        color: #ffffff00 !important;
+      }
   }
 
 
@@ -296,6 +300,8 @@
     border-radius: 0px;
     background-color: #ff8f8f;
   }
+
+
 
   .modal {
     backdrop-filter: none;
