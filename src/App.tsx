@@ -6,6 +6,7 @@ import './AppLight.scss';
 import './AppTokyo.scss';
 import './AppDesert.scss';
 import './AppHighContrast.scss';
+import './AppRetro.scss';
 import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -43,6 +44,9 @@ function AppContent() {
         break;
       case 'highContrast':
         root.classList.add('highContrast');
+        break;
+      case 'retro':
+        root.classList.add('retro');
         break;
       case 'dark':
         break;

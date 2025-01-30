@@ -1,0 +1,478 @@
+.retro:root {
+
+  /*corners, etc.*/
+  --cornerSize: 0px;
+  --smallCornerSize: 0px;
+  --defaultPadding: 4px;
+
+  /*main page*/
+  --pageBackBG: #037F85;
+  --pageForeBG: #C0C2C0;
+  --navBarColor: #C0C2C0;
+  --borderColor: #404040;
+  --windowBorderColor: #404040;
+  --windowTopBorderColor: #404040;
+
+  /*page elements*/
+  --mainText: #000000;
+  --secondaryText: #000000;
+  --buttonText: #ffffffa0;
+  --accentColor: rgb(8,7,123);
+  --mainButtonColor: #4F321C;
+
+  /*reports*/
+  --reportBG: #F8F1E3;
+  --reportBGH: #F8F1E3;
+  --reportBorderColor: #4F321C;
+
+  --reportExpiredBG: #fbe5ba;
+  --reportExpiredBGH: #fbe5ba;
+  --reportExpiredBorderColor: #4F321C;
+
+  /* tables */
+  --tableAccent: #d1c3a8;
+
+  nav {
+    // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
+    background-color: #C0C2C0;
+    border: solid;
+    border-width: 3px;
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    display: flex;
+    filter: none;
+  }
+
+  .navButton {
+    background-color: none;
+    color: #000000;
+  }
+  .navButton:hover {
+    background-color: #4f321c11;
+    color: #000000;
+  }
+  .navButton:active {
+    background-color: #4f321c34;
+    color: #000000;
+  }
+
+
+  a{
+    color: var(--secondaryText);
+    text-decoration: underline;
+  }
+
+  .textInput,
+  select {
+    background: white;
+    border-width: 3px;
+    border-style: solid;
+    border-right-color: white;
+    border-bottom-color: white;
+    border-left-color: #404040;
+    border-top-color: #404040;
+    box-shadow: none !important;
+
+  }
+
+  hr {
+    border-top: 1px solid rgba(26, 26, 26, 0.489);
+  }
+
+
+  .mainButton {
+    background-color: #ece4d4;
+    color: var(--mainText);
+    filter: drop-shadow(0px 0px 5px #00000000);
+    border-color: var(--mainButtonColor);
+    border-top-color: var(--mainButtonColor);
+    &:hover{
+      background-color: #fff6e5;
+      border-color: var(--mainButtonColor);
+      border-top-color: var(--mainButtonColor);
+      transform: none;
+      transition: 0.15s;
+      cursor: pointer;
+    }
+    &:active{
+      transform: scale(90%);
+      background-color: var(--pageBackBG);
+      transition: 0.1s;
+      cursor:default;
+    }
+  }
+  
+  hr {
+    border-top: 1px solid var(--borderColor);
+  }
+
+  .logo {
+    color: var(--mainText)
+  }
+
+  .logo:hover {
+    color: #ae764a;
+  }
+
+  ::-moz-selection {
+    color: white;
+    background: rgb(8,7,123);
+  }
+
+  ::selection {
+    color: white;
+    background: rgb(8,7,123);
+  }
+
+  .titleBar{
+    background: rgb(8,7,123);
+    background: linear-gradient(90deg, rgba(8,7,123,1) 0%, rgba(11,124,196,1) 100%);
+    color: white;
+    text-align: left;
+  }
+  .window{
+    border: solid;
+    border-width: 3px;
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+  }
+
+  .trashButton,
+  .trashButton:hover,
+  .trashButton:active,
+  .warningButton,
+  .warningButton:hover,
+  .warningButton:active,
+  .successButton,
+  .successButton:active,
+  .successButton:active,
+  .secondaryButton,
+  .secondaryButton:active,
+  .secondaryButton:hover {
+    background-color: #ece4d4;
+    color: var(--mainText);
+    filter: drop-shadow(0px 0px 5px #00000000);
+    border-color: var(--mainButtonColor);
+    border-top-color: var(--mainButtonColor);
+    &:hover{
+      background-color: #fff6e5;
+      border-color: var(--mainButtonColor);
+      border-top-color: var(--mainButtonColor);
+      transform: none;
+      transition: 0.15s;
+      cursor: pointer;
+    }
+    &:active{
+      transform: scale(90%);
+      background-color: var(--pageBackBG);
+      transition: 0.1s;
+      cursor:default;
+    }
+  }
+
+
+  // .bottomButtons{
+  //   .mainButton{
+  //     background-color: rgba(255, 255, 255, 0.811);
+  //     border-width: 1px;
+  //     border-style: solid;
+  //     border-color: rgba(0, 0, 0, 0.35);
+  //     color: var(--mainText);
+    
+  //   &:hover{
+  //     background-color: white;
+  //   }
+  //   &:active{
+  //     background-color: white;
+  //   }
+  //   }
+  // }
+
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 1px;
+    height: 1px;
+    margin-top: 0%;
+    margin-left: 4px;
+    transform: translateY(0px);
+  }
+  
+  /* hides og checkbox */
+  .switch input {
+    opacity: 1;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+  }
+  /* slider */
+  .slider {
+    display: none;
+  }
+
+  /* REPORTS */
+
+  .report {
+    filter: drop-shadow(0px 0px 0px #0000005a);
+    background-color: var(--reportBG);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--accentColor);
+    border-top-color: #ffffff2f;
+    border-radius: var(--smallCornerSize);
+  }
+
+  .report:hover {
+    filter: drop-shadow(0px 0px 0px #0000009d);
+    transform: scale(102.5%);
+    transition: 0.5s;
+    background-color: var(--reportBGH)
+
+  }
+
+
+  .expired {
+    background-color: var(--reportExpiredBG);
+    border-color: var(--reportExpiredBorderColor);
+    &:hover{
+      background-color: var(--reportExpiredBGH);
+    }
+  }
+
+
+  .reportTitle {
+    margin: -21px;
+    margin-top: -9px;
+    margin-bottom: 0px;
+    border-radius: var(--smallCornerSize);
+    border-style: solid;
+    border-width: 1px;
+    height: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .waga1 {
+    background-color: #ff8f8f;
+    border-color: #6c002b;
+  }
+
+  .waga2 {
+    background-color: #d28fff;
+    border-color: #66305e;
+  }
+
+  .waga3 {
+    background-color: #8f98ff;
+    border-color: #144f73;
+  }
+
+  .creditsText{
+    color: #404040
+  }
+
+
+
+
+  /* MODALS */
+
+  .modalContainer {
+    background-color: #0000006e;
+  }
+
+  .code{
+    background-color: #ffffff;
+  }
+
+  .closeButton{
+    background-color: #83532e;
+  }
+  .closeButton:hover{
+    background-color: #83532e;
+    background-image: none;
+  }
+  .closeButton:active{
+    background-color: #4F321C;
+  }
+
+  .modal {
+    backdrop-filter: none;
+    background-color: #F8F1E3;
+    filter: drop-shadow(0px 0px 50px #8f98ff22);
+    border-color: #4F321C;
+    color: #4F321C;
+    a{color: #4F321C;}
+
+    .daysLeftText{
+      color: #4F321C;
+    }
+  }
+  .edit{
+    color: rgba(0, 0, 0, 0);
+  }
+  .modalTitle {
+    background-color: rgba(255, 0, 0, 0);
+  }
+
+  .modalInfo {
+    background-color: #ff000000;
+  }
+
+  .modalDescription {
+    background-color: #0040ff00;
+  }
+
+  .progressBar {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .progressBarText {
+    color: rgba(0, 0, 0, 0.379);
+  }
+
+  .logElement {
+    background-color: #eee3cd;
+  }
+  
+  .logElement:nth-child(even) {
+    background-color: #f4ebda;
+  }
+
+
+  
+  // INTTAB STUFF
+
+  .intTabContainer{
+    width: 75%;
+    margin: var(--defaultPadding) auto;
+    overflow: hidden;
+    border-radius: var(--smallCornerSize);
+    border-top-color: #404040;
+    border-bottom-color: white;
+    border-left-color: #404040;
+    border-right-color: white;
+    border-width: 2px;
+    border-style: solid;
+  }
+  .intTabElement{
+    background-color: white;
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    padding-left: var(--defaultPadding);
+    border-color: var(--windowBorderColor);
+    border-width: 0.5px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    transition: 0.2s;
+  }
+  .intTabElement:hover{
+    background-color: white;
+    transition: 0s;
+  }
+  .intTabElement:first-child
+  {
+    border-top-style: none;
+  }
+  .intTabElement:last-child
+  {
+    border-bottom-style: none;
+  }
+  .intTabInput{
+    background: none;
+    border-style: none;
+    color: var(--mainText);
+    width: 90%;
+    font-size: 15px;
+    padding-left: 0px;
+    outline: none;
+  }
+  .intLongInput{
+    background: none;
+    border-style: none;
+    color: var(--mainText);
+    width: 60%;
+    font-size: 15px;
+    padding-left: 0px;
+    outline: none;
+    float: left;
+    height: 24px;
+  }
+  .intSmallInput{
+    background: none;
+    border-style: none;
+    color: var(--mainText);
+    width: 25%;
+    padding-left: var(--defaultPadding);
+    font-size: 15px;
+    outline: none;
+    border-color: var(--windowBorderColor);
+    border-width: 1px;
+    border-left-style: solid;
+    width: 100px;
+    height: 24px;
+  }
+
+  .intTabButton{
+    float: right;
+    border: none;
+    outline: none;
+    height: 26px;
+    width: 64px;
+    margin-right: 8px;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: var(--windowBorderColor);
+    color: var(--mainText);
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: 0.2s;
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.195);
+      transition: 0s;
+    }
+    &:active{
+      background-color: rgba(0, 0, 0, 0.302);
+    }
+    &.dynamic{
+      transform: translateX(46px);
+      background-color: #DFCCB2;
+      color: rgba(0, 0, 0, 0);
+      &:hover{
+        transform: translateX(0px);
+        transition: 0.2s;
+        background-color: #DFCCB2;
+        color: rgb(69, 0, 35);
+
+      }
+    }
+  }
+  .intSuccess{
+    background-color: rgba(153, 255, 0, 0.192);
+    color: #006308;
+    &:hover{
+      background-color: rgba(153, 255, 0, 0.352);
+      color: #008f0c;
+    }
+    &:active{
+      background-color: rgba(153, 255, 0, 0.192);
+      color: #006308;
+    }
+
+    &.dynamic{
+      transform: translateX(46px);
+      background-color: rgba(153, 255, 0, 0.192);
+      color: #00630800;
+      &:hover{
+        transform: translateX(0px);
+        transition: 0.2s;
+        background-color: rgba(153, 255, 0, 0.192);
+        color: #006308;
+      }
+    }
+  }
+}
