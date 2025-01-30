@@ -61,6 +61,7 @@ function AppContent() {
                 <Navbar /></header>
               <main>
                 <RenderMenu />
+
               </main>
             </NotificationsWrapper>
           </AuthWrapper>

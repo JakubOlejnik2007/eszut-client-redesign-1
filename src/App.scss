@@ -15,7 +15,12 @@
   --tableAccent: #1d1d1d;
 }
 
-
+.code{
+  background-color: #0000004f;
+  padding: 4px;
+  border-radius: var(--smallCornerSize);
+  font-family: 'sfMono';
+}
 
 body {
   color: var(--mainText);
@@ -763,7 +768,6 @@ a:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
-
 }
 
 .modal {

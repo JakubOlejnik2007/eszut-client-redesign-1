@@ -296,12 +296,15 @@
     background-color: #0000006e;
   }
 
+  .code{
+    background-color: var(--pageBackBG);
+    color: rgb(255, 50, 111);
+  }
+
   .closeButton{
     border-radius: 0px;
     background-color: #ff8f8f;
   }
-
-
 
   .modal {
     backdrop-filter: none;
