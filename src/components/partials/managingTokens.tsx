@@ -15,11 +15,11 @@ const ManagingTokens = () => {
     })
 
     const [tokenData, setTokenData] = useState<{
-        name: string | null,
-        daysToExpire: number | null
+        name: string,
+        daysToExpire: number
     }>({
-        name: null,
-        daysToExpire: null
+        name: "",
+        daysToExpire: 30
     })
 
 
@@ -38,7 +38,7 @@ const ManagingTokens = () => {
     console.log("Tokens", tokens)
 
     const handleTokenCreate = async () => {
-        console.log(tokenData)
+        console.log("token data", tokenData)
 
         await createLongPeriodToken(accessToken as string, tokenData.daysToExpire as number, tokenData.name as string)
 
@@ -60,8 +60,8 @@ const ManagingTokens = () => {
             }
 
             <div className="intTabElement">
-                            <input type="text" className="intLongInput" placeholder="nazwa tokenu..." ></input>
-                            <select className="intSmallInput small"onChange={(e) => setTokenData({ ...tokenData, daysToExpire: parseInt(e.target.value) })}>
+                            <input type="text" className="intLongInput" placeholder="nazwa tokenu..." onChange={(e) => setTokenData({ ...tokenData, name: e.target.value })} />
+                            <select className="intSmallInput small" onChange={(e) => setTokenData({ ...tokenData, daysToExpire: parseInt(e.target.value) })}>
                                 {
                                     tokenDays.map(day => (
                                         <option key={day}>{day} dni</option>
