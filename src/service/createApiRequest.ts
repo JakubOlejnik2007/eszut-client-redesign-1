@@ -27,6 +27,7 @@ const createApiRequest = async (method: THTTPRequestMethods, url: string, data: 
         data,
     };
     const response = await axios(config);
+    console.log(response);
     return response.data;
 };
 

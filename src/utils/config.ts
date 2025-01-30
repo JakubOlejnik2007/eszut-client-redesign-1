@@ -1,5 +1,5 @@
 const config = {
-    backend: "http://localhost:5100"
+    backend: "https://eszut-api.tenco.waw.pl"
 }
 
 export const msalConfig = {

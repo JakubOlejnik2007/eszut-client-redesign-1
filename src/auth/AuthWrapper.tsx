@@ -35,6 +35,8 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     const [refreshToken, setRefreshToken] = useState<string | null>(null);
     const navigate = useNavigate();
 
+    console.log("access Token", accessToken);
+
 
     useEffect(() => {
         if (accessToken) {
@@ -45,6 +47,8 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 refreshAccessToken();
             }
         }
+
+        if (!accessToken && refreshToken) refreshAccessToken();
     });
 
     useEffect(() => {
@@ -68,6 +72,37 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
 
         initializeMsal();
     }, []);
+
+    useEffect(() => {
+        const initializeAuth = async () => {
+            try {
+                const sessionData = sessionStorage.getItem("AuthData");
+                if (sessionData) {
+                    const parsedData = JSON.parse(sessionData);
+                    setUser(parsedData.user);
+                    refreshAccessToken();
+                    setRefreshToken(parsedData.refreshToken);
+                }
+
+                setIsInitialized(true);
+                setIsLoading(false);
+            } catch (error) {
+                console.error("Initialization error", error);
+                setIsLoading(false);
+            }
+        };
+
+        initializeAuth();
+    }, []);
+
+    useEffect(() => {
+        if (isInitialized) {
+            const interval = setInterval(() => {
+                refreshAccessToken();
+            }, 300000);
+            return () => clearInterval(interval);
+        }
+    }, [isInitialized, refreshToken]);
 
     const setActiveAccountIfNeeded = () => {
         const accounts = msalInstance.getAllAccounts();
@@ -111,6 +146,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     };
 
     const refreshAccessToken = async (): Promise<void> => {
+        console.log("Refreshing access token")
         if (!refreshToken) {
             console.error("No refresh token available.");
             return;
@@ -172,36 +208,7 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
         navigate("/");
     };
 
-    useEffect(() => {
-        const initializeAuth = async () => {
-            try {
-                const sessionData = sessionStorage.getItem("AuthData");
-                if (sessionData) {
-                    const parsedData = JSON.parse(sessionData);
-                    setUser(parsedData.user);
-                    setAccessToken(parsedData.accessToken);
-                    setRefreshToken(parsedData.refreshToken);
-                }
 
-                setIsInitialized(true);
-                setIsLoading(false);
-            } catch (error) {
-                console.error("Initialization error", error);
-                setIsLoading(false);
-            }
-        };
-
-        initializeAuth();
-    }, []);
-
-    useEffect(() => {
-        if (isInitialized) {
-            const interval = setInterval(() => {
-                refreshAccessToken();
-            }, 300000);
-            return () => clearInterval(interval);
-        }
-    }, [isInitialized, refreshToken]);
 
     if (isLoading) {
         return <div>Loading...</div>;

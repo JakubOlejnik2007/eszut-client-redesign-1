@@ -1,16 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import { AuthData } from "../auth/AuthWrapper"
 import urls from "../utils/urls";
+import { useEffect } from "react";
 
 const LogInScreen = () => {
 
     const { login, user } = AuthData()
 
-    if (user) {
-        const navigate = useNavigate();
+    const navigate = useNavigate();
 
-        navigate(urls.client.reportProblem);
-    }
+    useEffect(() => {
+        if (user) {
+
+            navigate(urls.client.reportProblem);
+        }
+    }, [user])
+
+
 
     return (
         <>

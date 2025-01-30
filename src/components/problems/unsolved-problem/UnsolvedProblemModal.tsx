@@ -77,16 +77,18 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                 <div className="modalDescription">{what}</div>
 
                 <div className="modalInfo">
+                    <label className="infoLabel">ID:</label>{_id}
                     <div className="progressBar" >
                         <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />
                         <TimeChart procent={timeSpentPercentage(reportDate, parseInt(editableData.priority))} />
                     </div>
 
                     <br></br>
+
                     <label className="infoLabel">Zgłaszający:</label> <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />
 
                     {
-                        isUnderRealization && <>Rozwiązywane przez: {whoDealsEmail === USER_EMAIL ? "Ciebie" : <WhoDealsLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />}</>
+                        isUnderRealization && <label className="infoLabel">Rozwiązywane przez: {whoDealsEmail === USER_EMAIL ? "Ciebie" : <WhoDealsLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />}</label>
                     }
                     <br /><br />
                     <br />

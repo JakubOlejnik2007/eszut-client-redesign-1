@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
 import { useTheme } from "../components/theme/ThemeContext";
 import TThemes from "../types/themes.type";
+import ManagingTokens from "../components/partials/managingTokens";
 
 type TThemeRadio = {
     name: TThemes;
@@ -22,7 +22,6 @@ const ThemeRadio = ({ name, img }: TThemeRadio) => {
 
 
 const SettingsScreen = () => {
-
     const themes: TThemeRadio[] = [
         {
             name: "light",
@@ -56,7 +55,7 @@ const SettingsScreen = () => {
                         <br></br>
 
                         {themes.map((theme) => <ThemeRadio key={theme.name} {...theme} />)}
-                        <br/>
+                        <br />
                         <hr />
                         <h3 style={{ textAlign: "left", marginBottom: '12px' }}>zachowanie aplikacji:</h3>
 
@@ -64,14 +63,13 @@ const SettingsScreen = () => {
                         automatyczne wylogowanie<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br />
                         zły padding i marginesy<label className="switch"><input type="checkbox" checked></input><span className="slider"></span></label><br />
 
-                        <br/>
+                        <br />
                         <hr />
-                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>więcej:</h3>
-                        obecny styl: [dropdown]<br/>
-                        tworzenie styli... <br/>
-                        utwórz token...<br/>
+                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>tokeny:</h3>
 
-                        <button className="mainButton">Zastosuj zmiany</button>
+
+                        {/* table title */}
+                        <ManagingTokens />
                     </div>
                 </center>
             </div>
@@ -80,3 +78,4 @@ const SettingsScreen = () => {
 }
 
 export default SettingsScreen;
+

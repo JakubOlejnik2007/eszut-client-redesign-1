@@ -65,3 +65,52 @@ export const putUpdateUnsolvedProblem = async (
     );
 
 export const getLogData = async (AuthToken: string, page: number) => await createApiRequest("GET", `${config.backend}${urls.backend.logs.getLogData}?page=${page}`, {}, AuthToken)
+
+
+export const createLongPeriodToken = async (
+    AuthToken: string,
+    daysToExpire: number,
+    name: string
+
+) =>
+    await createApiRequest(
+        "POST",
+        `${config.backend}${urls.backend.token.createToken}`,
+        { daysToExpire, name },
+        AuthToken
+    );
+
+export const getActiveTokens = async (
+    AuthToken: string,
+) =>
+    await createApiRequest(
+        "GET",
+        `${config.backend}${urls.backend.token.getTokens}`,
+        {},
+        AuthToken
+    );
+
+export const insertNewPlace = async (
+    AuthToken: string,
+    name: string,
+
+) => await createApiRequest("POST", `${config.backend}${urls.backend.forms.insertNewPlace}`, { name }, AuthToken);
+
+export const insertNewCategory = async (
+    AuthToken: string,
+    name: string,
+    priority: number,
+
+
+) => await createApiRequest("POST", `${config.backend}${urls.backend.forms.insertNewCategory}`, { name, priority }, AuthToken);
+
+
+export const deletePlace = async (
+    AuthToken: string,
+    PlaceID: string,
+) => await createApiRequest("DELETE", `${config.backend}${urls.backend.forms.deletePlace}`, { PlaceID }, AuthToken);
+
+export const deleteCategory = async (
+    AuthToken: string,
+    CategoryID: string,
+) => await createApiRequest("DELETE", `${config.backend}${urls.backend.forms.deleteCategory}`, { CategoryID }, AuthToken);
