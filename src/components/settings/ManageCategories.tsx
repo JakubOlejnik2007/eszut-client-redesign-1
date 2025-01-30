@@ -48,7 +48,6 @@ const ManageCategories = () => {
                 type: ENotifType.ERROR,
                 message: "Nie udało się dodać nowego miejsca"
             })
-
         }
     }
 
@@ -57,18 +56,17 @@ const ManageCategories = () => {
     )
     if (categoriesQuery.isLoading) return (
         <img src="src/assets/loading.gif" className="spinner"></img>
-
     );
 
     return (
         <>
             <h3 style={{ textAlign: "center" }}>Zarządzaj kategoriami</h3>
             <div className="intTabContainer">
-
-                {/* adding a new category */}
-                    {
-                        categories.map((category, index) => <TabElement key={index} name={category.name} priority={category.priority} ObjectID={category._id} queryToRefetch={categoriesQuery} />)
-                    }
+            {/* inserting existing categories */}
+            {
+                categories.map((category, index) => <TabElement key={index} name={category.name} priority={category.priority} ObjectID={category._id} queryToRefetch={categoriesQuery} />)
+            }
+            {/* adding a new category */}
             <div className="intTabElement">
                     <input type="text" className="intLongInput" placeholder="Nazwa kategorii" onChange={(e) => setCategoryToAdd({ ...categoryToAdd, name: e.target.value })} value={categoryToAdd.name as string}></input>
 
