@@ -27,6 +27,7 @@ const ManagePlaces = () => {
         }
         try {
             await insertNewPlace(accessToken as string, placeToAdd);
+            
             displayNotif({
                 type: ENotifType.SUCCESS,
                 message: "Dodano nowe miejsce"

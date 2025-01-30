@@ -2,6 +2,7 @@ import { ENotifType } from "../types/notification.interface";
 import { Notif } from "./notificationsWrapper";
 import { AuthData } from "../auth/AuthWrapper";
 import { deleteCategory, deletePlace } from "../service/apiFetchFunctions";
+import { AxiosError } from "axios";
 
 interface TabElementProps {
     ObjectID: string;
@@ -19,7 +20,10 @@ const TabElement = ({ name, priority, ObjectID, queryToRefetch }: TabElementProp
 
             console.log(ObjectID);
 
-            await (isPlace ? deletePlace(accessToken as string, ObjectID) : deleteCategory(accessToken as string, ObjectID));
+            const response = await (isPlace ? deletePlace(accessToken as string, ObjectID) : deleteCategory(accessToken as string, ObjectID));
+
+            console.log(response)
+
             displayNotif(
                 {
                     type: ENotifType.SUCCESS,
@@ -28,10 +32,12 @@ const TabElement = ({ name, priority, ObjectID, queryToRefetch }: TabElementProp
             )
             queryToRefetch.refetch();
         } catch (e) {
+            const err = e as AxiosError;
+
             displayNotif(
                 {
                     type: ENotifType.ERROR,
-                    message: `Nie udało się usunąć ${isPlace ? "miejsca" : "kategorii"}.`
+                    message: `Nie udało się usunąć ${isPlace ? "miejsca" : "kategorii"}. ${err.status === 423 ? "Zasób jest używany w innych miejscach." : ""}`
                 }
             )
         }
