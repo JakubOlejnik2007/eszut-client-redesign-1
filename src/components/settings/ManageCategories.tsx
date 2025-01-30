@@ -66,10 +66,10 @@ const ManageCategories = () => {
             <div className="intTabContainer">
 
                 {/* adding a new category */}
-                <div className="intTabElement">
                     {
                         categories.map((category, index) => <TabElement key={index} name={category.name} priority={category.priority} ObjectID={category._id} queryToRefetch={categoriesQuery} />)
                     }
+            <div className="intTabElement">
                     <input type="text" className="intLongInput" placeholder="Nazwa kategorii" onChange={(e) => setCategoryToAdd({ ...categoryToAdd, name: e.target.value })} value={categoryToAdd.name as string}></input>
 
                     <select className="intSmallInput small" value={categoryToAdd.priority as number} onChange={(e) => setCategoryToAdd({ ...categoryToAdd, priority: parseInt(e.target.value) as 1 | 2 | 3 })}>
