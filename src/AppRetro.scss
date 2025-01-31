@@ -32,6 +32,16 @@
   /* tables */
   --tableAccent: #d1c3a8;
 
+  /*sizes*/
+  --15px: 8px;
+  --20px: 8px; 
+
+  body{
+    font-family: 'Eretro' !important;
+    font-size: 8px !important;
+  }
+
+
   nav {
     // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
     background-color: #C0C2C0;
@@ -44,6 +54,8 @@
   .navButton {
     background-color: none;
     color: #000000;
+    font-size: 8px;
+    font-family: 'Eretro';
   }
   .navButton:hover {
     background-color: #4f321c11;
@@ -74,6 +86,9 @@
 
   .mainButton {
     filter: none;
+    font-family: 'Eretro';
+    font-size: 8px;
+    height: 24px;
     border-style: none;
     box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;
     color: var(--mainText);
@@ -87,10 +102,6 @@
       background-color: var(--pageForeBG);
       transform: none;
     }
-    &:focus{
-      outline: 1px dotted #000000;
-  outline-offset: -4px;
-    }
   }
   
   hr {
@@ -98,11 +109,13 @@
   }
 
   .logo {
-    color: var(--mainText)
+    color: var(--mainText);
+    font-family: 'Eretro';
+    font-size: 16px;
   }
 
   .logo:hover {
-    color: #ae764a;
+    color: rgb(8,7,123);
   }
 
   ::-moz-selection {
@@ -155,6 +168,9 @@
   .secondaryButton:active,
   .secondaryButton:hover {
     filter: none;
+    font-family: 'Eretro';
+    font-size: 8px;
+    height: 24px;
     border-style: none;
     box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;
     color: var(--mainText);

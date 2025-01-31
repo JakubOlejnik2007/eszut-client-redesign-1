@@ -46,7 +46,10 @@
   font-weight:normal;
   src: url("assets/fonts/SFMONO/SFMONOREGULAR.otf") format("opentype");
 }
-
+@font-face {
+  font-family: Eretro;
+  src: url("assets/fonts/Eretro.ttf") format("truetype");
+}
 ::-moz-selection {
   color: var(--accentColor);
   background: #362929;

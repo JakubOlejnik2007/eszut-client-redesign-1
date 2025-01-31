@@ -83,23 +83,23 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
             <div className={`report ${daysLeft <= 0 ? "expired" : ""}`} onClick={() => setShowModal(true)}>
                 <div className={`waga${priority} reportTitle`}></div>
                 {daysLeft <= 0 ? <div className="clockExpired"><img src="src/assets/alarm.png" height="18px" alt="Ostrzeżenie o nierozwiązanym problemie" /></div> : ""}
-                <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
+                <h1 style={{ fontSize: "var(--20px)", textAlign: "left" }}>{categoryName}
                     <br />
                     <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />
                 </h1>
-                <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>
+                <div style={{ fontSize: "var(--15px)", color: "var(--secondaryText)", textAlign: "left" }}>
                     ID: {_id} <br />
                     Sala: {placeName} <br />
                     <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} what={what} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} priority={priority} placeName={placeName} categoryName={categoryName} isUnderRealization={isUnderRealization} />
                 </div>
                 <hr />
-                <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left", maxHeight: '128px' }} className="overflowfix">{what}</div>
+                <div style={{ fontSize: "var(--15px)", color: "var(--secondaryText)", textAlign: "left", maxHeight: '128px' }} className="overflowfix">{what}</div>
                 <hr />
                 {isUnderRealization && (
                     <>
                         <div>
-                            <h2 style={{ fontSize: "15px", textAlign: "left" }}>Rozwiązywany</h2>
-                            <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>
+                            <h2 style={{ fontSize: "var(--15px)", textAlign: "left" }}>Rozwiązywany</h2>
+                            <div style={{ fontSize: "var(--15px)", color: "var(--secondaryText)", textAlign: "left" }}>
                                 {whoDealsName} <br />({whoDealsEmail})
                             </div>
                         </div>

@@ -46,20 +46,20 @@ const SolvedProblem = (props: ISolvedProblemProps) => {
         <>
             <div className={`report`} onClick={() => setShowModal(true)}>
                 <div className={`waga${priority} reportTitle`}></div>
-                <h1 style={{ fontSize: "20px", textAlign: "left" }}>{categoryName}
+                <h1 style={{ fontSize: "var(--20px)", textAlign: "left" }}>{categoryName}
                     <br />
                     <WhenSolved dateOfSolved={dateOfSolved} />
                 </h1>
-                <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>
+                <div style={{ fontSize: "var(--15px)", color: "var(--secondaryText)", textAlign: "left" }}>
                     Sala: {placeName} <br />
                     <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} what={what} whoDealsEmail={whoSolvedEmail} whoDealsName={whoSolvedName} priority={priority} placeName={placeName} categoryName={categoryName} isUnderRealization={false} />
                 </div>
                 <hr />
-                <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left", maxHeight: '128px' }} className="overflowfix">{what}</div>
+                <div style={{ fontSize: "var(--15px)", color: "var(--secondaryText)", textAlign: "left", maxHeight: '128px' }} className="overflowfix">{what}</div>
                 <hr />
                 <div>
-                    <h2 style={{ fontSize: "15px", textAlign: "left" }}>Rozwizany:</h2>
-                    <div style={{ fontSize: "15px", color: "var(--secondaryText)", textAlign: "left" }}>
+                    <h2 style={{ fontSize: "var(--15px)", textAlign: "left" }}>Rozwizany:</h2>
+                    <div style={{ fontSize: "var(--15px)", color: "var(--secondaryText)", textAlign: "left" }}>
                         {whoSolvedName} <br />({whoSolvedEmail})
                     </div>
                 </div>

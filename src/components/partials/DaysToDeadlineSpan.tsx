@@ -10,7 +10,7 @@ const DaysToDeadlineSpan = ({ reportDate, priority }: IDaysToDeadlineSpan) => {
     const daysLeft = dayToDeadline(reportDate, priority)
 
     return (
-        <span style={{ fontSize: "15px"}} className="daysLeftText">
+        <span style={{ fontSize: "var(--15px)"}} className="daysLeftText">
             {daysLeft > 0 ? `Czas na rozwiązanie: ${daysLeft} dni` : `Zaległe przez: ${-daysLeft} dni`}
         </span>
     )
