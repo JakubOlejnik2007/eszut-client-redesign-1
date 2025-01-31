@@ -21,13 +21,13 @@
   --mainButtonColor: #4F321C;
 
   /*reports*/
-  --reportBG: #F8F1E3;
-  --reportBGH: #F8F1E3;
-  --reportBorderColor: #4F321C;
+  --reportBG: #C0C2C0;
+  --reportBGH: #C0C2C0;
+  --reportBorderColor: #C0C2C0;
 
-  --reportExpiredBG: #fbe5ba;
-  --reportExpiredBGH: #fbe5ba;
-  --reportExpiredBorderColor: #4F321C;
+  --reportExpiredBG: #C0C2C0;
+  --reportExpiredBGH: #C0C2C0;
+  --reportExpiredBorderColor: #C0C2C0;
 
   /* tables */
   --tableAccent: #d1c3a8;
@@ -36,7 +36,7 @@
     // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
     background-color: #C0C2C0;
     border: solid;
-    border-width: 3px;
+    border-width: 2px;
     border-top-color: white;
     border-left-color: white;
     border-right-color: #404040;
@@ -67,7 +67,7 @@
   .textInput,
   select {
     background: white;
-    border-width: 3px;
+    border-width: 2px;
     border-style: solid;
     border-right-color: white;
     border-bottom-color: white;
@@ -83,24 +83,25 @@
 
 
   .mainButton {
-    background-color: #ece4d4;
+    filter: none;
+    border-style: solid;
+    border-width: 2px;
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
     color: var(--mainText);
-    filter: drop-shadow(0px 0px 5px #00000000);
-    border-color: var(--mainButtonColor);
-    border-top-color: var(--mainButtonColor);
+    background-color: var(--pageForeBG);
+    transition: 0.0s;
     &:hover{
-      background-color: #fff6e5;
-      border-color: var(--mainButtonColor);
-      border-top-color: var(--mainButtonColor);
       transform: none;
-      transition: 0.15s;
-      cursor: pointer;
     }
     &:active{
-      transform: scale(90%);
-      background-color: var(--pageBackBG);
-      transition: 0.1s;
-      cursor:default;
+      border-right-color: white;
+      border-bottom-color: white;
+      border-top-color: #404040;
+      border-left-color: #404040;
+      background-color: var(--pageForeBG);
     }
   }
   
@@ -134,7 +135,7 @@
   }
   .window{
     border: solid;
-    border-width: 3px;
+    border-width: 2px;
     border-top-color: white;
     border-left-color: white;
     border-right-color: #404040;
@@ -153,24 +154,25 @@
   .secondaryButton,
   .secondaryButton:active,
   .secondaryButton:hover {
-    background-color: #ece4d4;
+    filter: none;
+    border-style: solid;
+    border-width: 2px;
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
     color: var(--mainText);
-    filter: drop-shadow(0px 0px 5px #00000000);
-    border-color: var(--mainButtonColor);
-    border-top-color: var(--mainButtonColor);
+    background-color: var(--pageForeBG);
+    transition: 0.0s;
     &:hover{
-      background-color: #fff6e5;
-      border-color: var(--mainButtonColor);
-      border-top-color: var(--mainButtonColor);
       transform: none;
-      transition: 0.15s;
-      cursor: pointer;
     }
     &:active{
-      transform: scale(90%);
-      background-color: var(--pageBackBG);
-      transition: 0.1s;
-      cursor:default;
+      border-right-color: white;
+      border-bottom-color: white;
+      border-top-color: #404040;
+      border-left-color: #404040;
+      background-color: var(--pageForeBG);
     }
   }
 
@@ -220,16 +222,18 @@
   .report {
     filter: drop-shadow(0px 0px 0px #0000005a);
     background-color: var(--reportBG);
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--accentColor);
-    border-top-color: #ffffff2f;
+    border: solid;
+    border-width: 2px;
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
     border-radius: var(--smallCornerSize);
   }
 
   .report:hover {
     filter: drop-shadow(0px 0px 0px #0000009d);
-    transform: scale(102.5%);
+    transform: none;
     transition: 0.5s;
     background-color: var(--reportBGH)
 
@@ -238,7 +242,6 @@
 
   .expired {
     background-color: var(--reportExpiredBG);
-    border-color: var(--reportExpiredBorderColor);
     &:hover{
       background-color: var(--reportExpiredBGH);
     }
@@ -246,29 +249,29 @@
 
 
   .reportTitle {
-    margin: -21px;
-    margin-top: -9px;
+    margin: -20px;
+    margin-top: -8px;
     margin-bottom: 0px;
     border-radius: var(--smallCornerSize);
     border-style: solid;
-    border-width: 1px;
+    border-width: 0px;
     height: 20px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
   }
 
   .waga1 {
-    background-color: #ff8f8f;
+    background-color: #ff0000;
     border-color: #6c002b;
   }
 
   .waga2 {
-    background-color: #d28fff;
+    background-color: #9900ff;
     border-color: #66305e;
   }
 
   .waga3 {
-    background-color: #8f98ff;
+    background-color: #0015ff;
     border-color: #144f73;
   }
 
@@ -418,60 +421,44 @@
     height: 24px;
   }
 
-  .intTabButton{
+  .intTabButton, .intSuccess{
     float: right;
     border: none;
     outline: none;
     height: 26px;
     width: 64px;
-    margin-right: 8px;
-    border-left-style: solid;
-    border-width: 1px;
-    border-color: var(--windowBorderColor);
+    margin-right: 4px;
+    border-style: solid;
+    border-width: 2px;
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
     color: var(--mainText);
-    background-color: rgba(255, 255, 255, 0.05);
-    transition: 0.2s;
+    background-color: var(--pageForeBG);
+    transition: 0.0s;
     &:hover{
-      background-color: rgba(255, 255, 255, 0.195);
+      background-color: var(--pageForeBG);
       transition: 0s;
     }
     &:active{
-      background-color: rgba(0, 0, 0, 0.302);
+      border-bottom-color: white;
+      border-right-color: white;
+      border-left-color: #404040;
+      border-top-color: #404040;
     }
     &.dynamic{
       transform: translateX(46px);
-      background-color: #DFCCB2;
       color: rgba(0, 0, 0, 0);
+      transition: 0s;
+      transition-timing-function: linear;
       &:hover{
         transform: translateX(0px);
-        transition: 0.2s;
-        background-color: #DFCCB2;
-        color: rgb(69, 0, 35);
-
+        transition: 0s;
+        transition-timing-function: linear;
       }
-    }
-  }
-  .intSuccess{
-    background-color: rgba(153, 255, 0, 0.192);
-    color: #006308;
-    &:hover{
-      background-color: rgba(153, 255, 0, 0.352);
-      color: #008f0c;
-    }
-    &:active{
-      background-color: rgba(153, 255, 0, 0.192);
-      color: #006308;
-    }
-
-    &.dynamic{
-      transform: translateX(46px);
-      background-color: rgba(153, 255, 0, 0.192);
-      color: #00630800;
-      &:hover{
-        transform: translateX(0px);
-        transition: 0.2s;
-        background-color: rgba(153, 255, 0, 0.192);
-        color: #006308;
+      &:active{
+        transition: 0s;
       }
     }
   }
