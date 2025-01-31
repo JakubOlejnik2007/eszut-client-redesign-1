@@ -60,7 +60,7 @@ const ReportsScreen = () => {
     return (
         <div style={{ width: "100%" }}>
             <h2>Realizowane przez ciebie</h2>
-            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }}>
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
                 {
                     underYou.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
                     )
@@ -68,7 +68,7 @@ const ReportsScreen = () => {
             </div>
             <hr></hr>
             <h2>Niepodjęte</h2>
-            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }}>
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }}className="reportContainer">
                 {
                     other.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
                     )
@@ -76,7 +76,7 @@ const ReportsScreen = () => {
             </div>
             <hr></hr>
             <h2>Realizowane przez innych administratorów</h2>
-            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }}>
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }}className="reportContainer">
                 {
                     underRealization.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
                     )
