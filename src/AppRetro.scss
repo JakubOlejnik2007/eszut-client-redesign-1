@@ -79,6 +79,7 @@
     box-shadow: inset -1px -1px #fff,inset 1px 1px grey,inset -2px -2px #dfdfdf,inset 2px 2px #0a0a0a !important;
   }
 
+
   hr {
     border-top: 1px solid rgba(26, 26, 26, 0.489);
   }
@@ -101,6 +102,10 @@
       box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
       background-color: var(--pageForeBG);
       transform: none;
+    }
+    &:focus{
+      outline: 1px dotted #000;
+      outline-offset: -4px;
     }
   }
   
@@ -143,10 +148,15 @@
     background: rgb(8,7,123);
     background: linear-gradient(90deg,navy,#1084d0);
     margin: 1px 2px;
-    width: 596px;
+    width: 592px;
     border:none;
     height: 20px;
     color: white;
+    font-weight: bold;
+    line-height: 20px;
+    font-size: 8px;
+    text-align: left;
+    padding-left: 4px;
   }
   .window{
     border: none;
@@ -361,14 +371,29 @@
   }
 
   .logElement {
-    background-color: #eee3cd;
+    background-color: #ffffff;
   }
   
   .logElement:nth-child(even) {
-    background-color: #f4ebda;
+    background-color: #ffffff;
   }
 
+  .logDate{
+    font-family: 'Eretro' !important;
+    font-size: 8px !important;
+  }
 
+  .logContainer{
+    background: white;
+    border-style: none;
+    box-shadow: inset -1px -1px #fff,inset 1px 1px grey,inset -2px -2px #dfdfdf,inset 2px 2px #0a0a0a !important;
+    padding: 2px !important;
+    margin: 4px;
+  }
+  .logIcon{
+    height: 8px;
+    background-size: 16px;
+  }
   
   // INTTAB STUFF
 

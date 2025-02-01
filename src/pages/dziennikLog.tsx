@@ -47,12 +47,11 @@ const DziennikLog = () => {
 
                 <h3 style={{ textAlign: "center" }}>Dzisiaj</h3>
 
-
+                <div className="logContainer">
                 {
-                    entries.map((entry: any) => <LogElement key={entry._id} {...entry} />
-                    )
+                    entries.map((entry: any) => <LogElement key={entry._id} {...entry} />)
                 }
-
+                </div>
 
                 <br/>
                 <br/>
@@ -87,7 +86,7 @@ export const LogElement = ({ date, content, userEmail, type }: ILogElementProps)
             <div style={{ borderColor: 'var(--tableAccent)', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid' }}></div>
             <div style={{ borderColor: '', width: '0.5%', height: '25px' }}></div>
 
-            <div style={{ backgroundColor: '', width: '19%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'right', marginRight: '2%', fontFamily: "sfMono", fontSize: "0.9rem" }} className="secondary">{parsedDate.toLocaleString()}</div>
+            <div style={{ backgroundColor: '', width: '19%', height: '25px', transform: 'translateY(2.5px)', textAlign: 'right', marginRight: '2%', fontFamily: "sfMono", fontSize: "0.9rem" }} className="secondary logDate">{parsedDate.toLocaleString()}</div>
 
 
         </div>
