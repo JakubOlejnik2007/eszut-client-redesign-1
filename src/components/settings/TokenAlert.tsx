@@ -13,22 +13,23 @@ const TokenAlert = ({
 
   return ReactDOM.createPortal(
     <div className="modalContainer fade-in">
-      <div className="modal" onClick={e => e.stopPropagation()}>
+      <div className="modal" onClick={e => e.stopPropagation()} >
         <div className='modalTitle'>Tworzenie tokenu</div>
-        <div className="modalDescription" style={{ width: "90%", overflow: "hidden" }}>Twój token został pomyślnie utworzony! zapisz go w bezpiecznym miejscu -<br /> gdy go zgubisz już go nie dostaniesz.<br></br><br></br><p className='code'>{token}</p>
-          <div style={
-            {
-              backgroundColor: "#FFF",
-              padding: 15,
-              width: "fit-content"
-            }
-          }>
-            <QRCode
+        <div className="modalDescription" style={{ width: "90%", overflow: "scroll"}}>Twój token został pomyślnie utworzony! zapisz go w bezpiecznym miejscu -<br /> gdy go zgubisz już go nie dostaniesz.<br></br><br></br>
+    
+        <div className="qrCode">
+        <QRCode
               size={256}
               style={{ height: "auto" }}
               value={token}
               viewBox={`0 0 256 256`}
-            /></div>
+              bgColor="var(--mainText)"
+              fgColor="var(--pageForeBG)"
+            />
+          </div><br/>
+        <div className='code'>{token}</div>
+          
+            
         </div>
         <div className="closeButton" onClick={closeModal}></div>
         <div className="bottomModalPart" style={{}}>
