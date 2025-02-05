@@ -114,3 +114,8 @@ export const deleteCategory = async (
     AuthToken: string,
     CategoryID: string,
 ) => await createApiRequest("DELETE", `${config.backend}${urls.backend.forms.deleteCategory}`, { CategoryID }, AuthToken);
+
+export const deleteToken = async (
+    AuthToken: string,
+    TokenID: string,
+) => await createApiRequest("DELETE", `${config.backend}${urls.backend.token.deleteToken}`, { TokenID }, AuthToken);

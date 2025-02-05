@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createLongPeriodToken, getActiveTokens } from "../../service/apiFetchFunctions";
+import { createLongPeriodToken, deleteToken, getActiveTokens } from "../../service/apiFetchFunctions";
 import { AuthData } from "../../auth/AuthWrapper";
 import { useQuery } from "react-query";
 import { TokenElement } from "./TokenElement";
@@ -68,6 +68,25 @@ const ManagingTokens = () => {
 
     }
 
+    const handleDeleteToken = async (tokenId: string) => {
+        try {
+            const response = await deleteToken(accessToken as string, tokenId);
+
+            setCreatedToken(response.longPeriodAccessToken);
+            displayNotif({
+                type: ENotifType.SUCCESS,
+                message: "Token został usunięty pomyślnie."
+            })
+            getActiveTokensQuery.refetch();
+        } catch (e) {
+            displayNotif({
+                type: ENotifType.ERROR,
+                message: "Token nie został usunięty."
+            })
+        }
+
+    }
+
     return (
         <>
             <div className="intTabContainer" style={{ width: "100%" }}>
@@ -81,7 +100,7 @@ const ManagingTokens = () => {
 
                 {
                     tokens && tokens.map((token: any) => <TokenElement key={token._id} {
-                        ...{ token: token.tokenName, expiryDate: token.expiresAt, userEmail: token.userEmail }
+                        ...{ token: token.tokenName, expiryDate: token.expiresAt, userEmail: token.userEmail, handleDelete: () => handleDeleteToken(token._id) }
                     } />)
                 }
 
