@@ -47,7 +47,7 @@ const TabElement = ({ name, priority, ObjectID, queryToRefetch }: TabElementProp
     if (priority != null) {
         return (
             <div className="intTabElement">
-                {name}, priorytet {priority}<button className="intTabButton" onClick={() => handleRemove(ObjectID)}>usuń</button>
+                {name}, priorytet {priority}<button className="intTabButton" onClick={() => handleRemove(ObjectID, false)}>usuń</button>
             </div>
         )
     } else {
