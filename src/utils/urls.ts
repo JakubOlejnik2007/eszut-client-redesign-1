@@ -20,6 +20,7 @@ const urls = {
         },
         problem: {
             getUnsolvedProblems: "/get-unsolved-problems",
+            getUnsolvedProblemsFromEmail: "/get-unsolved-problems-from-email",
             getSolvedProblems: "/get-solved-problems",
             insertProblem: "/report-problem",
             updateProblem: "/update-problem",
