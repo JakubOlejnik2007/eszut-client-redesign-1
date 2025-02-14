@@ -1,12 +1,12 @@
 import PWABadge from './PWABadge.tsx';
 import Navbar from './components/navigation/navbar.tsx';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './App.scss';
-import './AppLight.scss';
-import './AppTokyo.scss';
-import './AppDesert.scss';
-import './AppHighContrast.scss';
-import './AppRetro.scss';
+import './styles/App.scss';
+import './styles/AppLight.scss';
+import './styles/AppTokyo.scss';
+import './styles/AppDesert.scss';
+import './styles/AppHighContrast.scss';
+import './styles/AppRetro.scss';
 import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
