@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { AuthData } from "../../auth/AuthWrapper";
 import EUserRole from "../../types/userroles.enum"
-import NAVIGATION_ITEMS from "../partials/navigationItems"
+import NAVIGATION_ITEMS from "../../utils/navigationItems"
 import NavItem from "./navItem"
 import urls from "../../utils/urls";
 

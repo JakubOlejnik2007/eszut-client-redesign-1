@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import NAVIGATION_ITEMS from "./partials/navigationItems"
+import NAVIGATION_ITEMS from "../utils/navigationItems"
 import WindowWrapper from "./windowWrapper"
 import { AuthData } from "../auth/AuthWrapper";
 

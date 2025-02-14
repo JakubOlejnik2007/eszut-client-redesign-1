@@ -9,7 +9,8 @@ const urls = {
         manageapp: "/zarzadzanie-aplikacja",
         displaylog: "/dziennik-log",
         settings: "/ustawienia",
-        system: "/system"
+        system: "/system",
+        yourProblems: "/twoje-zgloszenia",
     },
     backend: {
         auth: {
