@@ -8,6 +8,7 @@ import WhoReportedLink from "../../mail/WhoReportedLink";
 import { Notif } from "../../notificationsWrapper";
 import DaysToDeadlineSpan from "../../partials/DaysToDeadlineSpan";
 import ProblemModal from "./UnsolvedProblemModal";
+import EUserRole from "../../../types/userroles.enum";
 
 
 interface IUnsolvedProblemProps extends IUnsolvedProblem {
@@ -108,20 +109,25 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                 )}
                 <div className="bottomButtons">
                     <button className="mainButton secondaryButton" type="reset">Dodaj adnotację</button>
-                    {isUnderRealization ? (
-                        whoDealsEmail === user?.username && (
-                            <button className="mainButton" type="submit" onClick={handleRejectProblem}>
-                                Zrezygnuj
-                            </button>
-                        )
-                    ) : (
-                        <button className="mainButton" type="submit" onClick={handleTakeOnProblem}>
-                            Podejmij problem
-                        </button>
-                    )}
+                    {user?.role === EUserRole.ADMIN ?
+                        <>
+                            {isUnderRealization ? (
+                                whoDealsEmail === user?.username && (
+                                    <button className="mainButton" type="submit" onClick={handleRejectProblem}>
+                                        Zrezygnuj
+                                    </button>
+                                )
+                            ) : (
+                                <button className="mainButton" type="submit" onClick={handleTakeOnProblem}>
+                                    Podejmij problem
+                                </button>
+                            )}</> : ""
+
+                    }
                 </div>
-            </div>
-            {showModal && <ProblemModal {...props} handleClose={() => { setShowModal(false); refreshQuery(); }} handleReject={handleRejectProblem} handleMarkAsSolved={handleMarkAsSolved} />}
+            </div >
+            {showModal && <ProblemModal {...props} handleClose={() => { setShowModal(false); refreshQuery(); }} handleReject={handleRejectProblem} handleMarkAsSolved={handleMarkAsSolved} />
+            }
         </>
     );
 };

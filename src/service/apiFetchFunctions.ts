@@ -15,6 +15,10 @@ export const insertNewProblem = async (newProblem: IInsertNewProblem, AuthToken:
 export const getUnsolvedProblems = async (AuthToken: string) =>
     await createApiRequest("GET", `${config.backend}${urls.backend.problem.getUnsolvedProblems}`, {}, AuthToken);
 
+export const getUnsolvedProblemsFromEmail = async (AuthToken: string) =>
+    await createApiRequest("GET", `${config.backend}${urls.backend.problem.getUnsolvedProblemsFromEmail}`, {}, AuthToken);
+
+
 export const getSolvedProblems = async (AuthToken: string, page: number) =>
     await createApiRequest(
         "GET",
