@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getUnsolvedProblems } from "../service/apiFetchFunctions";
+import { getCategories, getPlaces, getUnsolvedProblems } from "../service/apiFetchFunctions";
 import { AuthData } from "../auth/AuthWrapper";
 import { useEffect, useState } from "react";
 import UnsolvedProblem from "../components/problems/unsolved-problem/UnsolvedProblem";
@@ -7,11 +7,19 @@ import UnsolvedProblem from "../components/problems/unsolved-problem/UnsolvedPro
 
 const ReportsScreen = () => {
 
+    const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
+    const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
+
     const { user, accessToken } = AuthData();
 
     const [underYou, setUnderYou] = useState<any[]>([]);
     const [underRealization, setUnderRealization] = useState<any[]>([]);
     const [other, setOther] = useState<any[]>([]);
+
+    const handleChangeFilterSelects = (e: React.SyntheticEvent<HTMLSelectElement, Event>) => {
+        console.log(Array.from((e.target as HTMLSelectElement).selectedOptions).map(option => option.value))
+    }
+
 
     console.log(user)
 
@@ -44,12 +52,12 @@ const ReportsScreen = () => {
         }
     }, [unsolvedProblemsQuery.isSuccess, unsolvedProblemsQuery.data])
 
-    if (unsolvedProblemsQuery.isError) {
+    if (unsolvedProblemsQuery.isError || categoriesQuery.isError || placesQuery.isError) {
         console.log(unsolvedProblemsQuery.error)
         return <>Error</>
     }
 
-    if (unsolvedProblemsQuery.isLoading) {
+    if (unsolvedProblemsQuery.isLoading || categoriesQuery.isLoading || placesQuery.isLoading) {
         return <img src="src/assets/loading.gif" className="spinner"></img>
     }
 
@@ -59,6 +67,24 @@ const ReportsScreen = () => {
 
     return (
         <div style={{ width: "100%" }}>
+
+            <div>
+                <h2>Opcje filtrowania</h2>
+                <select multiple onChange={(e) => handleChangeFilterSelects(e)}>
+                    {
+                        categoriesQuery.isSuccess && categoriesQuery.data.map((category: any) => <option key={category._id} value={category._id}>{category.name}</option>)
+                    }
+
+                </select>
+                <select multiple onChange={handleChangeFilterSelects}>
+                    {
+                        placesQuery.isSuccess && placesQuery.data.map((category: any) => <option key={category._id} value={category._id}>{category.name}</option>)
+                    }
+
+                </select>
+                <input />
+            </div>
+
             <button className="TitleBarButton">🔍</button>
             <h2>Realizowane przez ciebie</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
@@ -69,7 +95,7 @@ const ReportsScreen = () => {
             </div>
             <hr></hr>
             <h2>Niepodjęte</h2>
-            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }}className="reportContainer">
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
                 {
                     other.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
                     )
@@ -77,7 +103,7 @@ const ReportsScreen = () => {
             </div>
             <hr></hr>
             <h2>Realizowane przez innych administratorów</h2>
-            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }}className="reportContainer">
+            <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
                 {
                     underRealization.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
                     )
