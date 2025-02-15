@@ -13,7 +13,6 @@ import { useQuery } from "react-query";
 import { getCategories, getPlaces, putUpdateUnsolvedProblem } from "../../../service/apiFetchFunctions";
 import { ENotifType } from "../../../types/notification.interface";
 import NotificationsWrapper, { Notif } from "../../notificationsWrapper";
-import EUserRole from "../../../types/userroles.enum";
 
 interface IToggleEditableButtonProps {
     isSingle: boolean;
@@ -89,7 +88,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                     <label className="infoLabel">Zgłaszający:</label> <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />
 
                     {
-                        isUnderRealization && <label className="infoLabel">Rozwiązywane: {whoDealsEmail === USER_EMAIL ? "Ciebie" : <WhoDealsLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />}</label>
+                        isUnderRealization && <label className="infoLabel">Rozwiązywane przez: {whoDealsEmail === USER_EMAIL ? "Ciebie" : <WhoDealsLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} categoryName={categoryName} placeName={placeName} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} isUnderRealization={isUnderRealization} priority={priority} what={what} />}</label>
                     }
                     <br /><br />
                     <br />
@@ -108,11 +107,11 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                                     {placesQuery.data?.map((place: any) => <option key={place._id} value={place._id}>{place.name}</option>)}
                                 </select>
 
-                                {user?.role === EUserRole.ADMIN ? <><label className="infoLabel">Priorytet:</label> <select value={editableData.priority} onChange={(e) => setEditableData({ ...editableData, priority: e.target.value, wasChanged: true })}>
+                                <label className="infoLabel">Priorytet:</label> <select value={editableData.priority} onChange={(e) => setEditableData({ ...editableData, priority: e.target.value, wasChanged: true })}>
                                     <option value="1">Wysoki</option>
                                     <option value="2">Średni</option>
                                     <option value="3">Niski</option>
-                                </select></> : <><label className="infoLabel">Priorytet:</label> <MapPriorityToWords priority={parseInt(editableData.priority)} /> <br /></>}
+                                </select>
                             </>
                             :
                             <>
