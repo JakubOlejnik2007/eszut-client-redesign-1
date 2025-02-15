@@ -6,49 +6,49 @@
 @font-face {
   font-family: sfProDisplay;
   font-weight:bold;
-  src: url("assets/fonts/SFPRODISPLAYBOLD.OTF") format("opentype");
+  src: url("../assets/fonts/SFPRODISPLAYBOLD.OTF") format("opentype");
 }
 
 @font-face {
   font-family: sfProDisplay;
   font-weight:medium;
-  src: url("assets/fonts/SFPRODISPLAYMEDIUM.OTF") format("opentype");
+  src: url("../assets/fonts/SFPRODISPLAYMEDIUM.OTF") format("opentype");
 }
 @font-face {
   font-family: sfProDisplay;
   font-weight:bolder;
-  src: url("assets/fonts/SFPRODISPLAYBLACKITALIC.OTF") format("opentype");
+  src: url("../assets/fonts/SFPRODISPLAYBLACKITALIC.OTF") format("opentype");
 }
 @font-face {
   font-family: sfProDisplay;
   font-weight:normal;
-  src: url("assets/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype");
+  src: url("../assets/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype");
 }
 
 @font-face {
   font-family: sfMono;
   font-weight:bold;
-  src: url("assets/fonts/SFPRODISPLAYBOLD.OTF") format("opentype");
+  src: url("../assets/fonts/SFPRODISPLAYBOLD.OTF") format("opentype");
 }
 
 @font-face {
   font-family: sfMono;
   font-weight:medium;
-  src: url("assets/fonts/SFPRODISPLAYMEDIUM.OTF") format("opentype");
+  src: url("../assets/fonts/SFPRODISPLAYMEDIUM.OTF") format("opentype");
 }
 @font-face {
   font-family: sfMono;
   font-weight:bolder;
-  src: url("assets/fonts/SFPRODISPLAYBLACKITALIC.OTF") format("opentype");
+  src: url("../assets/fonts/SFPRODISPLAYBLACKITALIC.OTF") format("opentype");
 }
 @font-face {
   font-family: sfMono;
   font-weight:normal;
-  src: url("assets/fonts/SFMONO/SFMONOREGULAR.otf") format("opentype");
+  src: url("../assets/fonts/SFMONO/SFMONOREGULAR.otf") format("opentype");
 }
 @font-face {
   font-family: Eretro;
-  src: url("assets/fonts/Eretro.ttf") format("truetype");
+  src: url("../assets/fonts/Eretro.ttf") format("truetype");
 }
 ::-moz-selection {
   color: var(--accentColor);
@@ -89,13 +89,13 @@
 
 
 .logError{
-background-image: url(assets/log/logError.png);
+background-image: url(../assets/log/logError.png);
 }
 .logWarning{
-background-image: url(assets/log/logWarning.png);
+background-image: url(../assets/log/logWarning.png);
 }
 .logInfo{
-background-image: url(assets/log/logInfo.png);
+background-image: url(../assets/log/logInfo.png);
 }
 
 .logIcon{
@@ -127,7 +127,7 @@ hr {
 
 .edit{
   color: rgba(0, 0, 0, 0);
-  background-image: url(assets/edit-placeholder.png);
+  background-image: url(../assets/edit-placeholder.png);
   background-position: center;
   background-size: 35%;
   background-repeat: no-repeat;

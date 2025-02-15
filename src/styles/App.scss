@@ -100,7 +100,14 @@ body {
   border-color: var(--borderColor);
   border-bottom-style: solid;
   font-weight: bold;
+  // height: 19px;
 }
+
+.titleBarButton{
+  margin-top: -19px;
+}
+
+
 
 .windowContent {
   width: 100%;
@@ -156,7 +163,7 @@ button {
 }
 
 .microsoftLoginButton span.micLogo {
-  background: url(assets/microsoft.svg) no-repeat;
+  background: url(../assets/microsoft.svg) no-repeat;
   background-size: 15px;
   float: left;
   width: 15px;
@@ -891,7 +898,7 @@ a:hover {
 
 .closeButton:hover {
   background-color: #FF5757;
-  background-image: url(assets/x.png);
+  background-image: url(../assets/x.png);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -931,9 +938,9 @@ a:hover {
 
 @media (max-width: 600px) {
   .modal {
-
     display: flex;
-    width: 300px;
+    // width: 300px;
+    width: 100vw;
     margin: auto;
     max-width: 1024px;
     margin-left: auto;
