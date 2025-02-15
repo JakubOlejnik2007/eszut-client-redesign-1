@@ -144,6 +144,28 @@
     height: 14px;
   }
 
+  .titleBarButton{
+    margin-top: -21px;
+    margin-left: 474px;
+    filter: none;
+    font-family: 'Eretro';
+    font-size: 8px;
+    height: 18px;
+    border-style: none;
+    box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;
+    color: var(--mainText);
+    background-color: var(--pageForeBG);
+    transition: 0.0s;
+    &:hover{
+      transform: none;
+    }
+    &:active{
+      box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+      background-color: var(--pageForeBG);
+      transform: none;
+    }
+  }
+  
   .modalTitle{
     background: rgb(8,7,123);
     background: linear-gradient(90deg,navy,#1084d0);

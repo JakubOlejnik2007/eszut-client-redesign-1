@@ -13,11 +13,8 @@
   --windowBorderColor: rgba(255, 255, 255, 0.120);
   --windowTopBorderColor: rgba(255, 255, 255, 0.205);
   --tableAccent: #1d1d1d;
-
   --20px: 20px;
   --15px: 15px;
-
-
 }
 
 .code{
@@ -104,7 +101,19 @@ body {
 }
 
 .titleBarButton{
-  margin-top: -19px;
+  margin-top: -29px;
+  margin-left: 470px;
+  position: absolute;
+  background-color: rgb(82, 82, 82);
+  border-width: 1px;
+  border-color: rgb(79, 79, 79);
+  border-top-color: rgb(112, 112, 112);
+  height: 20px;
+  width: 34px;
+  border-radius: var(--smallCornerSize);
+  &:active{
+    background-color: rgb(96, 96, 96);
+  }
 }
 
 

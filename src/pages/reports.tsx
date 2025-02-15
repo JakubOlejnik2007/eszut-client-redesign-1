@@ -59,7 +59,7 @@ const ReportsScreen = () => {
 
     return (
         <div style={{ width: "100%" }}>
-            <button className="TitleBarButton">🔍</button>
+            <button className="titleBarButton"></button>
             <h2>Realizowane przez ciebie</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
                 {
