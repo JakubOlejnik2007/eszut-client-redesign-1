@@ -82,7 +82,19 @@
   .titleBar {
     background: #05071e;
   }
-
+  .titleBarButton{
+    background-color: var(--pageForeBG);
+    border-color: var(--windowBorderColor);
+    border-top-color: var(--windowBorderColor);
+    &:hover{
+      border-color: rgb(255, 50, 111);
+      color: rgb(255, 50, 111);
+    }
+    &:active{
+      border-color: white;
+      color: white;
+    }
+  }
   .textInput,
   select {
     background: var(--pageBackBG);

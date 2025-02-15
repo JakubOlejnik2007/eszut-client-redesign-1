@@ -70,7 +70,19 @@
   .titleBar {
     background: #000000
   }
-
+  .titleBarButton{
+    background-color: var(--pageForeBG);
+    border-color: #ffee00;
+    border-top-color: #ffee00;
+    transition: 0.05s;
+    &:hover{
+      transform: scale(105%);
+    }
+    &:active{
+      background-color: #ffee00;
+      transform: scale(90%);
+    }
+  }
   .textInput,
   select {
     background: var(--pageForeBG);
