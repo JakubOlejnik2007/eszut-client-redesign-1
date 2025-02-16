@@ -13,7 +13,7 @@ const Filter = ({ categoriesQuery, placesQuery, showFilter }: IFilterProps) => {
     }
 
     return (<>
-        <div className={`filterContainer ${showFilter ? "showFilterContainer" : "hideFilterContainer"}`}>
+        <div className={`filterContainer hideFilterContainer ${showFilter ? "showFilterContainer" : "hideFilterContainer"}`}>
             <h3 className="filterTitle">Opcje filtrowania</h3>
             <input className="filterInput" placeholder="wyszukaj po słowach..." />
 
