@@ -31,9 +31,9 @@ const Filter = ({ categoriesQuery, placesQuery, isVisible, filterState, setFilte
     return shouldRender ? (
         <div className={`filterContainer ${isVisible ? "showFilterContainer" : "hideFilterContainer"}`}>
             <h3 className="filterTitle">Opcje filtrowania</h3>
-            <input className="filterInput" placeholder="wyszukaj po słowach..." onChange={(e) => handleChangeFilter(e, "textToSearch")} />
+            <input className="filterInput" placeholder="wyszukaj po słowach..." onChange={(e) => handleChangeFilter(e, "textToSearch")} value={filterState.textToSearch} />
 
-            <select onChange={(e) => handleChangeFilter(e, "CategoryID")} className="filterSelect">
+            <select onChange={(e) => handleChangeFilter(e, "CategoryID")} className="filterSelect" value={filterState.CategoryID}>
                 <option value={""}>
                     Dowolna kategoria
                 </option>
@@ -45,7 +45,7 @@ const Filter = ({ categoriesQuery, placesQuery, isVisible, filterState, setFilte
                     ))}
             </select>
 
-            <select onChange={(e) => handleChangeFilter(e, "PlaceID")} className="filterSelect">
+            <select onChange={(e) => handleChangeFilter(e, "PlaceID")} className="filterSelect" value={filterState.PlaceID}>
                 <option value={""}>
                     Dowolne miejsce
                 </option>

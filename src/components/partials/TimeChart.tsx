@@ -6,8 +6,8 @@ const TimeChart = ({ procent }: { procent: number }) => <div className="slice" s
 
 
 } : {
-    background: `conic-gradient(#ff353532 0% ${0}%,
-    transparent ${0}%)`
+    background: `conic-gradient(#6f0013 0% 100%,
+    #0000002a 100%)`,
 }
 }></div>
 
