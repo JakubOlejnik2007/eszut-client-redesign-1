@@ -67,25 +67,24 @@ const ReportsScreen = () => {
 
     return (
         <div style={{ width: "100%" }}>
+            <button className="titleBarButton">🔍</button>
+            <div className="filterContainer">
+                <h3 className="filterTitle">Opcje filtrowania</h3>
+                <input className="filterInput" placeholder="wyszukaj po słowach..." />
 
-            <div>
-                <h2>Opcje filtrowania</h2>
-                <select multiple onChange={(e) => handleChangeFilterSelects(e)}>
+                <select  onChange={(e) => handleChangeFilterSelects(e)} className="filterSelect">
                     {
                         categoriesQuery.isSuccess && categoriesQuery.data.map((category: any) => <option key={category._id} value={category._id}>{category.name}</option>)
                     }
 
                 </select>
-                <select multiple onChange={handleChangeFilterSelects}>
+                <select  onChange={handleChangeFilterSelects} className="filterSelect">
                     {
                         placesQuery.isSuccess && placesQuery.data.map((category: any) => <option key={category._id} value={category._id}>{category.name}</option>)
                     }
-
                 </select>
-                <input />
             </div>
 
-            <button className="TitleBarButton">🔍</button>
             <h2>Realizowane przez ciebie</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
                 {

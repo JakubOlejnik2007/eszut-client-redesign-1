@@ -118,6 +118,49 @@ body {
 
 
 
+.filterContainer{
+  background-color: #1f1f1f;
+  text-align: left;
+  padding-left: var(--15px);
+}
+.filterTitle{
+  margin-top: 0px;
+  padding-top: var(--defaultPadding);
+  margin-bottom: calc(var(--defaultPadding) / 12);;
+}
+.filterSelect{
+  width: 22% !important;
+  min-width: auto !important;
+  max-width: auto !important;
+  background: #1c1c1c;
+  box-shadow: none !important;
+  border-radius: var(--smallCornerSize);
+  border-width: 1px;
+  border-color: #000000;
+  border-style: solid;
+  padding: calc(var(--defaultPadding) / 2);
+  &::placeholder{
+    color: var(--secondaryText);
+  }
+  margin-top: 4px;
+  margin-left: 15px;
+}
+.filterInput{
+  width: 50%;
+  background-color: #1c1c1c;
+  border-radius: var(--smallCornerSize);
+  border-width: 1px;
+  border-color: #000000;
+  border-style: solid;
+  padding: calc(var(--defaultPadding) / 2);
+  color: var(--mainText);
+  &::placeholder{
+    color: var(--secondaryText);
+  }
+}
+
+
+
 .windowContent {
   width: 100%;
   min-height: 64px;
