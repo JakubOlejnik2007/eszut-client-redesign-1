@@ -3,6 +3,7 @@ import { getCategories, getPlaces, getUnsolvedProblems } from "../service/apiFet
 import { AuthData } from "../auth/AuthWrapper";
 import { useEffect, useState } from "react";
 import UnsolvedProblem from "../components/problems/unsolved-problem/UnsolvedProblem";
+import Filter from "../components/Filter";
 
 
 const ReportsScreen = () => {
@@ -11,6 +12,9 @@ const ReportsScreen = () => {
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
 
     const { user, accessToken } = AuthData();
+
+
+    const [showFilter, setShowFilter] = useState(false);
 
     const [underYou, setUnderYou] = useState<any[]>([]);
     const [underRealization, setUnderRealization] = useState<any[]>([]);
@@ -67,23 +71,11 @@ const ReportsScreen = () => {
 
     return (
         <div style={{ width: "100%" }}>
-            <button className="titleBarButton">🔍</button>
-            <div className="filterContainer">
-                <h3 className="filterTitle">Opcje filtrowania</h3>
-                <input className="filterInput" placeholder="wyszukaj po słowach..." />
-
-                <select  onChange={(e) => handleChangeFilterSelects(e)} className="filterSelect">
-                    {
-                        categoriesQuery.isSuccess && categoriesQuery.data.map((category: any) => <option key={category._id} value={category._id}>{category.name}</option>)
-                    }
-
-                </select>
-                <select  onChange={handleChangeFilterSelects} className="filterSelect">
-                    {
-                        placesQuery.isSuccess && placesQuery.data.map((category: any) => <option key={category._id} value={category._id}>{category.name}</option>)
-                    }
-                </select>
-            </div>
+            <button className="titleBarButton" onClick={() => setShowFilter(!showFilter)}>🔍</button>
+            
+            {
+                showFilter && <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} />
+            }
 
             <h2>Realizowane przez ciebie</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
