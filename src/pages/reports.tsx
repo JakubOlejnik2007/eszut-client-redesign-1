@@ -74,7 +74,7 @@ const ReportsScreen = () => {
             <button className="titleBarButton" onClick={() => setShowFilter(!showFilter)}>🔍</button>
             
             {
-                showFilter && <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} />
+                <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} showFilter={showFilter} />
             }
 
             <h2>Realizowane przez ciebie</h2>

@@ -3,17 +3,17 @@ import { UseQueryResult } from "react-query";
 interface IFilterProps {
     categoriesQuery: UseQueryResult<any, unknown>;
     placesQuery: UseQueryResult<any, unknown>;
-
+    showFilter: boolean;
 }
 
-const Filter = ({categoriesQuery, placesQuery}: IFilterProps) => {
+const Filter = ({ categoriesQuery, placesQuery, showFilter }: IFilterProps) => {
 
     const handleChangeFilterSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
         console.log(e.target.value)
     }
 
     return (<>
-        <div className="filterContainer">
+        <div className={`filterContainer ${showFilter ? "showFilterContainer" : "hideFilterContainer"}`}>
             <h3 className="filterTitle">Opcje filtrowania</h3>
             <input className="filterInput" placeholder="wyszukaj po słowach..." />
 
