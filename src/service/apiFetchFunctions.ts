@@ -123,3 +123,14 @@ export const deleteToken = async (
     AuthToken: string,
     TokenID: string,
 ) => await createApiRequest("DELETE", `${config.backend}${urls.backend.token.deleteToken}`, { TokenID }, AuthToken);
+
+export const getComments = async (
+    AuthToken: string,
+    ProblemID: string,
+) => await createApiRequest("GET", `${config.backend}${urls.backend.comment.getComments}`, { ProblemID }, AuthToken);
+
+export const insertComment = async (
+    AuthToken: string,
+    ProblemID: string,
+    content: string
+) => await createApiRequest("POST", `${config.backend}${urls.backend.comment.insertComment}`, { ProblemID, content }, AuthToken);
