@@ -935,6 +935,8 @@ a:hover {
   &.comments{
     margin-left: -512px;
     width: 600px;
+    font-size: 16px;
+    padding-bottom: var(--defaultPadding) !important;
   }
 }
 .newComment{
@@ -986,6 +988,27 @@ a:hover {
   }
 }
 
+.comment{
+  margin-left: var(--defaultPadding);
+  border-left-style: solid;
+  border-color: rgba(255, 255, 255, 0.120);
+  border-width: 1px;
+  padding-left: var(--defaultPadding);
+  margin-bottom: 8px;
+}
+.commentName{
+  color: var(--mainText);
+  font-size: 14px;
+}
+.commentTime{
+  color: var(--secondaryText);
+  font-size: 11px;
+  margin-left: 4px;
+}
+.commentContent{
+  display: block;
+  padding-right: 16px;
+}
 .modalTitle {
   margin-top: 5px;
   padding-top: 2px;
