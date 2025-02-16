@@ -10,7 +10,7 @@ import MapPriorityToWords from "../../partials/MapPriorityToWords";
 import TimeChart from "../../partials/TimeChart";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { getCategories, getPlaces, putUpdateUnsolvedProblem } from "../../../service/apiFetchFunctions";
+import { getCategories, getPlaces, insertComment, putUpdateUnsolvedProblem } from "../../../service/apiFetchFunctions";
 import { ENotifType } from "../../../types/notification.interface";
 import NotificationsWrapper, { Notif } from "../../notificationsWrapper";
 
@@ -38,6 +38,8 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
     const [isDragging, setIsDragging] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [offset, setOffset] = useState({ x: 0, y: 0 });
+
+    const [commentContent, setCommentContent] = useState("");
 
     const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
         setIsDragging(true);
@@ -70,6 +72,18 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
     }, [isDragging]);
 
 
+    const handleInsertComment = async () => {
+        console.log(commentContent);
+        try {
+            const response = await insertComment(accessToken as string, _id, commentContent);
+            console.log(response)
+            if (response !== "OK") throw new Error();
+            displayNotif({ message: "Komentarz dodany", type: ENotifType.SUCCESS })
+        } catch {
+            console.log("error")
+        }
+
+    }
 
 
 
@@ -180,7 +194,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                 onMouseDown={handleMouseDown}
                 style={{
                     position: "absolute",
-                    left: `${position.x}px`,
+                    left: `${position.x * 2}px`,
                     top: `${position.y}px`,
                     cursor: "grab",
                 }}
