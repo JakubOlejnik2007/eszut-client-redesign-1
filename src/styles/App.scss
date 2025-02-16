@@ -932,19 +932,22 @@ a:hover {
   border-color: rgba(255, 255, 255, 0.120);
   border-top-color: rgba(255, 255, 255, 0.205);
   border-style: solid;
-  &.comments{
-    margin-left: -512px;
+
+  &.comments {
+    right: -150px;
     width: 600px;
     font-size: 16px;
     padding-bottom: var(--defaultPadding) !important;
   }
 }
-.newComment{
+
+.newComment {
   margin-top: 45px;
   background-color: rgba(255, 0, 0, 0);
   width: 100%;
 }
-.CommentInput{
+
+.CommentInput {
   margin-left: 0px;
   padding: 0px;
   padding-left: 8px;
@@ -957,15 +960,18 @@ a:hover {
   border-width: 1px;
   color: rgb(197, 197, 197);
   transition: 0.1s;
-  &::placeholder{
+
+  &::placeholder {
     color: rgb(150, 150, 150);
-    }
-  &:focus{
+  }
+
+  &:focus {
     outline: none;
     border-bottom-color: rgba(255, 255, 255, 0.45)
   }
 }
-.CommentSend{
+
+.CommentSend {
   width: 18px;
   height: 18px;
   border-radius: var(--smallCornerSize);
@@ -980,10 +986,12 @@ a:hover {
   right: 6px;
   margin-top: 6px;
   color: transparent;
-  &:hover{
+
+  &:hover {
     background-color: rgb(153, 153, 153);
   }
-  &:active{
+
+  &:active {
     background-color: rgb(75, 75, 75);
   }
 }
