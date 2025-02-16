@@ -30,7 +30,6 @@ const DziennikLog = () => {
     }, [logEntriesQuery.isSuccess, logEntriesQuery.data])
 
     if (logEntriesQuery.isError) {
-        console.log(logEntriesQuery.error)
         return <>Error</>
     }
 

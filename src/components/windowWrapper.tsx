@@ -8,9 +8,7 @@ const WindowWrapper = ({ title, element, minUserRole, userRole }: { title: strin
 
 
     useEffect(() => {
-        console.log(minUserRole, userRole)
         if (minUserRole > userRole) {
-            console.log("redirect");
 
             navigate("/");
         }

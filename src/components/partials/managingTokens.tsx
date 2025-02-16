@@ -33,7 +33,6 @@ const ManagingTokens = () => {
 
 
     useEffect(() => {
-        console.log(getActiveTokensQuery.data)
 
         if (getActiveTokensQuery.isSuccess) {
             setTokens(getActiveTokensQuery.data);
@@ -43,11 +42,8 @@ const ManagingTokens = () => {
     if (getActiveTokensQuery.isLoading) {
         return <img src="src/assets/loading.gif" className="spinner"></img>
     }
-
-    console.log("Tokens", tokens)
-
+    
     const handleTokenCreate = async () => {
-        console.log("token data", tokenData)
         try {
 
             const response = await createLongPeriodToken(accessToken as string, tokenData.daysToExpire as number, tokenData.name as string)

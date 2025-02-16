@@ -26,8 +26,6 @@ const ReportsScreen = () => {
     const [underRealization, setUnderRealization] = useState<any[]>([]);
     const [other, setOther] = useState<any[]>([]);
 
-    console.log(user)
-
     const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(accessToken as string), {
         enabled: !!accessToken
     });
@@ -37,7 +35,6 @@ const ReportsScreen = () => {
     }
 
     const splitProblems = () => {
-        console.log(filterState)
         let problems = unsolvedProblemsQuery.data
 
         problems = problems.filter((problem: any) => filterState.CategoryID === "" || problem.categoryId === filterState.CategoryID);
@@ -78,7 +75,6 @@ const ReportsScreen = () => {
     }, [unsolvedProblemsQuery.isSuccess, unsolvedProblemsQuery.data, filterState.CategoryID, filterState.PlaceID, filterState.textToSearch]);
 
     if (unsolvedProblemsQuery.isError || categoriesQuery.isError || placesQuery.isError) {
-        console.log(unsolvedProblemsQuery.error)
         return <>Error</>
     }
 

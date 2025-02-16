@@ -33,12 +33,10 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
 
         try {
             const response = await putTakeOnProblem(accessToken as string, _id)
-            console.log(response)
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Przypisano problem", type: ENotifType.SUCCESS });
             refreshQuery();
         } catch (e) {
-            console.log(e);
             displayNotif({ message: "Aktualizacja problemu nie powiodła się", type: ENotifType.ERROR });
         }
     }
@@ -50,12 +48,10 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
 
         try {
             const response = await putRejectProblem(accessToken as string, _id)
-            console.log(response)
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Zrezygnowano z problemu", type: ENotifType.SUCCESS });
             refreshQuery();
         } catch (e) {
-            console.log(e);
             displayNotif({ message: "Aktualizacja problemu nie powiodła się", type: ENotifType.ERROR });
         }
     }
@@ -68,12 +64,10 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
 
         try {
             const response = await putMarkAsSolved(accessToken as string, _id)
-            console.log(response)
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Zakończono rozwiązywanie problemu", type: ENotifType.SUCCESS });
             refreshQuery();
         } catch (e) {
-            console.log(e);
             displayNotif({ message: "Aktualizacja problemu nie powiodła się", type: ENotifType.ERROR });
         }
     }

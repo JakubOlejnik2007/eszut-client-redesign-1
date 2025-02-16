@@ -18,7 +18,6 @@ const queryClient = new QueryClient();
 function AppContent() {
   const { theme } = useTheme();
   const { user } = AuthData();
-  console.log('User:', user);
 
   const clearClasses = (element: HTMLElement) => {
     while (element.classList.length > 0) {
@@ -28,7 +27,6 @@ function AppContent() {
 
   useEffect(() => {
     const root = document.querySelector(':root') as HTMLElement;
-    console.log('Root:', root);
 
     clearClasses(root);
 

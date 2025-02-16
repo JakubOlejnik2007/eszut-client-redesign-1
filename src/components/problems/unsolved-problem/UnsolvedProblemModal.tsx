@@ -73,15 +73,12 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
 
 
     const handleInsertComment = async () => {
-        console.log(commentContent);
         try {
             const response = await insertComment(accessToken as string, _id, commentContent);
-            console.log(response)
             if (response !== "Created") throw new Error();
             setCommentContent("");
             displayNotif({ message: "Komentarz dodany", type: ENotifType.SUCCESS })
         } catch {
-            console.log("error")
         }
 
     }
@@ -91,8 +88,6 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
     const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
     const commentsQuery = useQuery("comments", async () => await getComments(accessToken as string, _id));
-
-    console.log(categoriesQuery.data, placesQuery.data)
 
     const [isEdit, setIsEdit] = useState<boolean>(false);
     const [editableData, setEditableData] = useState<IEditableData>({ categoryId: categoryId, placeId: placeId, priority: priority.toString(), wasChanged: false });
@@ -104,8 +99,6 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
 
     const reportDate = new Date(when);
 
-    console.log(timeSpentPercentage(reportDate, priority), _id)
-
 
     const toggleEditable = () => {
         if (isEdit)
@@ -114,7 +107,6 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                 setIsEdit(!isEdit);
                 if (editableData.wasChanged) displayNotif({ message: "Problem został zaktualizowany", type: ENotifType.SUCCESS });
             } catch (e) {
-                console.log(e)
                 displayNotif({ message: "Wystąpił błąd", type: ENotifType.ERROR });
             }
         else setIsEdit(!isEdit);
@@ -244,8 +236,6 @@ const CommentElement = ({ content, date, authorName }: IComment) => {
                 timeDiffInSeconds < 604800 ? `${Math.floor(timeDiffInSeconds / 86400)} dni temu` :
                     `${createDate.toLocaleDateString()}`;
 
-
-    console.log(timeDiffInSeconds)
 
     return (<>
         <div className="comment">

@@ -10,8 +10,6 @@ const Archive = () => {
 
     const { user, accessToken } = AuthData();
 
-    console.log("Archive: accessToken: ", accessToken);
-
     const [problems, setProblems] = useState<any[]>([]);
     const [page, setPage] = useState<number>(1);
     const [maxPage, setMaxPage] = useState<number>(1);
@@ -33,7 +31,6 @@ const Archive = () => {
     }, [solvedProblemQuery.isSuccess, solvedProblemQuery.data])
 
     if (solvedProblemQuery.isError) {
-        console.log(solvedProblemQuery.error)
         return <>Error</>
     }
 

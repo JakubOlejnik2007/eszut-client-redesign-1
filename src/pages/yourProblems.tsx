@@ -11,7 +11,6 @@ const YourProblems = () => {
     });
 
     if (unsolvedProblemsQuery.isError) {
-        console.log(unsolvedProblemsQuery.error)
         return <>Error</>
     }
 

@@ -35,8 +35,6 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     const [refreshToken, setRefreshToken] = useState<string | null>(null);
     const navigate = useNavigate();
 
-    console.log("access Token", accessToken);
-
 
     useEffect(() => {
         if (accessToken) {
@@ -57,7 +55,6 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
             try {
 
                 const accounts = msalInstance.getAllAccounts();
-                console.log("Accounts during initialization:", accounts);
                 if (accounts.length > 0) {
                     msalInstance.setActiveAccount(accounts[0]);
                 }
@@ -65,7 +62,6 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
                 setIsInitialized(true);
                 setIsLoading(false);
             } catch (error) {
-                console.error('Błąd podczas inicjalizacji MSAL', error);
                 setIsLoading(false);
             }
         };
@@ -146,7 +142,6 @@ export const AuthWrapper = ({ children }: { children: ReactNode }) => {
     };
 
     const refreshAccessToken = async (): Promise<void> => {
-        console.log("Refreshing access token")
         if (!refreshToken) {
             console.error("No refresh token available.");
             return;

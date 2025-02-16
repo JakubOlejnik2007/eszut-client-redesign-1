@@ -32,12 +32,10 @@ const SolvedProblem = (props: ISolvedProblemProps) => {
 
         try {
             const response = await putMarkProblemAsUnsolved(accessToken as string, _id)
-            console.log(response)
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Przypisano problem", type: ENotifType.SUCCESS });
             refreshQuery();
         } catch (e) {
-            console.log(e);
             displayNotif({ message: "Aktualizacja problemu nie powiodła się", type: ENotifType.ERROR });
         }
     }

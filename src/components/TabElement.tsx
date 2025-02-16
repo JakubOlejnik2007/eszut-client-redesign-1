@@ -18,11 +18,7 @@ const TabElement = ({ name, priority, ObjectID, queryToRefetch }: TabElementProp
     const handleRemove = async (ObjectID: string, isPlace: boolean = true) => {
         try {
 
-            console.log(ObjectID);
-
             const response = await (isPlace ? deletePlace(accessToken as string, ObjectID) : deleteCategory(accessToken as string, ObjectID));
-
-            console.log(response)
 
             displayNotif(
                 {

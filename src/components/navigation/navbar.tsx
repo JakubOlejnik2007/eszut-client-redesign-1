@@ -11,8 +11,6 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
-    console.log("navbar", user)
-
     return (
 
         <nav className='navbar'>

@@ -19,10 +19,6 @@ const ReportIssueScreen = () => {
 
     const { displayNotif } = Notif();
 
-    console.log("Report problem", user);
-
-
-
     const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
 
@@ -41,7 +37,6 @@ const ReportIssueScreen = () => {
 
     const handleSubmitClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-        console.log(formData)
 
         if (!formData.CategoryID || !formData.PlaceID || !formData.what) {
             console.error("Formularz jest nie wypełniony");
@@ -49,9 +44,7 @@ const ReportIssueScreen = () => {
         }
 
         const response = await insertNewProblem(formData, accessToken as string)
-        console.log(response)
         if (response === "OK") {
-            console.log("Problem registered");
             displayNotif({ message: "Problem został zarejestrowany", type: ENotifType.SUCCESS });
             handleReset(e)
         }
@@ -71,9 +64,6 @@ const ReportIssueScreen = () => {
         <img src="src/assets/loading.gif" className="spinner"></img>
 
     );
-
-
-    console.log(placesQuery.data, placesQuery.data)
     return (
         <>
 
@@ -87,7 +77,6 @@ const ReportIssueScreen = () => {
                 </div>
             </div>
             <form style={{ backgroundColor: '', width: '65%', marginLeft: '48px', }} className="content-padding text-justify reportIssueForm"
-                onSubmit={() => console.log(formData)}
             ><h3 style={{ textAlign: "center" }}>Zgłoś usterkę</h3>
 
 
