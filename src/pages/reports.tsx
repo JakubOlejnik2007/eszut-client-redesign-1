@@ -92,7 +92,7 @@ const ReportsScreen = () => {
 
     return (
         <div style={{ width: "100%" }}>
-            <button className="titleBarButton" onClick={() => setShowFilter(!showFilter)}>🔍</button>
+            <button className="titleBarButton search" onClick={() => setShowFilter(!showFilter)}>🔍</button>
 
             {
                 <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} isVisible={showFilter} setFilterState={setFilterState} filterState={filterState} />

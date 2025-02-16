@@ -118,7 +118,13 @@ body {
     background-color: rgb(96, 96, 96);
   }
 }
-
+.search{
+  color: transparent;
+  background-image: url(../assets/glass.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+}
 .filterContainer {
   background-color: #1f1f1f;
   text-align: left;
