@@ -117,7 +117,14 @@ body {
 }
 
 
-
+@keyframes expandFilters {
+  from {
+      height: 0px;
+  }
+  to {
+      height: 74px;
+  }
+}
 .filterContainer{
   background-color: #1f1f1f;
   text-align: left;
@@ -125,7 +132,9 @@ body {
   border-bottom-color: rgba(255, 255, 255, 0.120);
   border-bottom-style: solid;
   border-width: 1px;
-  
+  height: 74px;
+  overflow: hidden; /* Prevent content from overflowing */
+  animation: expandDiv 0.5s ease-out forwards;
 }
 .filterTitle{
   margin-top: 0px;
