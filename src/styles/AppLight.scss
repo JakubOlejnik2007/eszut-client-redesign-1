@@ -65,6 +65,18 @@
     border-top: 1px solid rgba(26, 26, 26, 0.489);
   }
 
+  .filterContainer{
+    background-color: #bababa;
+    border-bottom-color: rgba(255, 255, 255, 0.120);
+  }
+  .filterSelect{
+    background: var(--pageForeBG);
+    border-color: var(--borderColor);
+  }
+  .filterInput{
+    background: var(--pageForeBG);
+    border-color: var(--borderColor);
+  }
 
   .mainButton {
     background-color: var(--mainButtonColor);

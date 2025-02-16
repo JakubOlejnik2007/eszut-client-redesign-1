@@ -82,6 +82,7 @@
       background-color: #ffee00;
       transform: scale(90%);
     }
+    
   }
   .textInput,
   select {
@@ -97,7 +98,19 @@
     border-top: 1px solid #ffffff !important;
   }
 
-
+  .filterContainer{
+    background-color: var(--pageForeBG);
+    border-bottom-color: var(--borderColor);
+  }
+  .filterSelect{
+    background: var(--pageForeBG);
+    border-color: var(--borderColor);
+  }
+  .filterInput{
+    background: var(--pageForeBG);
+    border-color: var(--borderColor);
+  }
+  
   .mainButton {
     background-color: #000000;
     color: #ffee00;
