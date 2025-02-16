@@ -8,7 +8,7 @@ import WhoReportedLink from "../../mail/WhoReportedLink";
 import DaysToDeadlineSpan from "../../partials/DaysToDeadlineSpan";
 import MapPriorityToWords from "../../partials/MapPriorityToWords";
 import TimeChart from "../../partials/TimeChart";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getCategories, getPlaces, putUpdateUnsolvedProblem } from "../../../service/apiFetchFunctions";
 import { ENotifType } from "../../../types/notification.interface";
@@ -33,6 +33,45 @@ const ToggleEditableButton = ({ isSingle, toggle }: IToggleEditableButtonProps) 
 }
 
 const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoName, whoEmail, what, when, priority, categoryName, placeName, whoDealsEmail, whoDealsName, isUnderRealization, placeId, categoryId }: IUnsolvedProblemModal) => {
+
+
+    const [isDragging, setIsDragging] = useState(false);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [offset, setOffset] = useState({ x: 0, y: 0 });
+
+    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        setIsDragging(true);
+        setOffset({
+            x: e.clientX - position.x,
+            y: e.clientY - position.y
+        });
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+        if (!isDragging) return;
+        setPosition({
+            x: e.clientX - offset.x,
+            y: e.clientY - offset.y
+        });
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+    };
+
+
+    useEffect(() => {
+        document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mouseup", handleMouseUp);
+        return () => {
+            document.removeEventListener("mousemove", handleMouseMove);
+            document.removeEventListener("mouseup", handleMouseUp);
+        };
+    }, [isDragging]);
+
+
+
+
 
     const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
@@ -135,14 +174,23 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                     }
                 </div>
             </div>
-            <div className="modal comments" onClick={e => e.stopPropagation()}>
-            <div className="modalTitle">Komentarze</div>
-            <div className="newComment">
-                <input className="CommentInput" placeholder="co chcesz napisać?"></input>
-                <input className="CommentSend" type="submit" value="📨"></input>
-            </div>
-            <div className="closeButton" onClick={handleClose}></div>
-
+            <div
+                className="modal comments"
+                onClick={(e) => e.stopPropagation()}
+                onMouseDown={handleMouseDown}
+                style={{
+                    position: "absolute",
+                    left: `${position.x}px`,
+                    top: `${position.y}px`,
+                    cursor: "grab",
+                }}
+            >
+                <div className="modalTitle">Komentarze</div>
+                <div className="newComment">
+                    <input className="CommentInput" placeholder="co chcesz napisać?" />
+                    <input className="CommentSend" type="submit" value="📨" />
+                </div>
+                <div className="closeButton" onClick={handleClose}></div>
             </div>
         </div>, document.body
     )
