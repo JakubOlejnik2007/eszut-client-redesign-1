@@ -127,7 +127,7 @@ export const deleteToken = async (
 export const getComments = async (
     AuthToken: string,
     ProblemID: string,
-) => await createApiRequest("GET", `${config.backend}${urls.backend.comment.getComments}`, { ProblemID }, AuthToken);
+) => await createApiRequest("GET", `${config.backend}${urls.backend.comment.getComments}?ProblemID=${ProblemID}`, {  }, AuthToken);
 
 export const insertComment = async (
     AuthToken: string,

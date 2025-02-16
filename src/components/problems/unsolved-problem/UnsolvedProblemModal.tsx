@@ -10,7 +10,7 @@ import MapPriorityToWords from "../../partials/MapPriorityToWords";
 import TimeChart from "../../partials/TimeChart";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { getCategories, getPlaces, insertComment, putUpdateUnsolvedProblem } from "../../../service/apiFetchFunctions";
+import { getCategories, getComments, getPlaces, insertComment, putUpdateUnsolvedProblem } from "../../../service/apiFetchFunctions";
 import { ENotifType } from "../../../types/notification.interface";
 import NotificationsWrapper, { Notif } from "../../notificationsWrapper";
 
@@ -77,7 +77,8 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
         try {
             const response = await insertComment(accessToken as string, _id, commentContent);
             console.log(response)
-            if (response !== "OK") throw new Error();
+            if (response !== "Created") throw new Error();
+            setCommentContent("");
             displayNotif({ message: "Komentarz dodany", type: ENotifType.SUCCESS })
         } catch {
             console.log("error")
@@ -89,6 +90,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
 
     const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
+    const commentsQuery = useQuery("comments", async () => await getComments(accessToken as string, _id));
 
     console.log(categoriesQuery.data, placesQuery.data)
 
@@ -118,7 +120,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
         else setIsEdit(!isEdit);
     }
 
-    if (placesQuery.isLoading || categoriesQuery.isLoading) {
+    if (placesQuery.isLoading || categoriesQuery.isLoading || commentsQuery.isLoading) {
         return <img src="src/assets/loading.gif" className="spinner"></img>
     }
 
@@ -202,37 +204,54 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
             >
                 <div className="modalTitle">Komentarze</div>
                 <div className="newComment">
-                    <input className="CommentInput" placeholder="co chcesz napisać?" />
-                    <input className="CommentSend" type="submit" value="📨" />
+                    <input className="CommentInput" placeholder="co chcesz napisać?" onChange={e => setCommentContent(e.target.value)} />
+                    <input className="CommentSend" type="submit" value="📨" onClick={handleInsertComment} />
                     <div className="commentContainer">
-                <div className="comment">
-                    <span className="commentName">Stoch mateusz</span>
-                    <span className="commentTime">0 sekund temu</span>
-                    <span className="commentContent">no u</span>
-                </div>  
-                <div className="comment">
-                    <span className="commentName">Stoch mateusz</span>
-                    <span className="commentTime">30 sekund temu</span>
-                    <span className="commentContent">schizophrenia.</span>
-                </div>
-                <div className="comment">
-                    <span className="commentName">Stoch mateusz</span>
-                    <span className="commentTime">1 dzień temu</span>
-                    <span className="commentContent">kys</span>
-                </div>
-                <div className="comment">
-                    <span className="commentName">Stoch mateusz</span>
-                    <span className="commentTime">2 dni temu</span>
-                    <span className="commentContent">przerąbane z tymi stylami. gdybym wiedział ile to pracy, pewnie bym nie zrobił tych różnych szat graficznych. tylko css, css, css, css edytuj edutuj edtytjddbsfjskdfn dfjsdf</span>
-                </div>
-                </div>
+                        {
+                            commentsQuery.isSuccess && commentsQuery.data.map((comment: IComment) => <CommentElement key={comment._id} {...comment} />)
+                        }
+
+                    </div>
                 </div>
                 <div className="closeButton" onClick={handleClose}></div>
             </div>
-            
+
         </div>, document.body
     )
 }
 
 
 export default ProblemModal;
+
+
+interface IComment {
+    _id: string;
+    content: string;
+    date: number;
+    authorEmail: string;
+    authorName: string;
+}
+
+const CommentElement = ({ content, date, authorName }: IComment) => {
+    const createDate = new Date(date);
+    const timeDiff = Date.now() - date;
+    const timeDiffInSeconds = Math.floor(timeDiff / 1000);
+
+
+    const timeToDisplay = timeDiffInSeconds < 60 ? `${timeDiffInSeconds} sekund temu` :
+        timeDiffInSeconds < 3600 ? `${Math.floor(timeDiffInSeconds / 60)} minut temu` :
+            timeDiffInSeconds < 86400 ? `${Math.floor(timeDiffInSeconds / 3600)} godzin temu` :
+                timeDiffInSeconds < 604800 ? `${Math.floor(timeDiffInSeconds / 86400)} dni temu` :
+                    `${createDate.toLocaleDateString()}`;
+
+
+    console.log(timeDiffInSeconds)
+
+    return (<>
+        <div className="comment">
+            <span className="commentName">{authorName}</span>
+            <span className="commentTime">{timeToDisplay}</span>
+            <span className="commentContent">{content}</span>
+        </div>
+    </>)
+}
