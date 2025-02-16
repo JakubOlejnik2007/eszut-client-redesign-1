@@ -4,6 +4,10 @@ import { AuthData } from "../auth/AuthWrapper";
 import { useEffect, useState } from "react";
 import UnsolvedProblem from "../components/problems/unsolved-problem/UnsolvedProblem";
 import Filter from "../components/Filter";
+import Fuse from "fuse.js";
+import IFilterState from "../types/filterState.interface";
+
+
 
 
 const ReportsScreen = () => {
@@ -14,16 +18,13 @@ const ReportsScreen = () => {
     const { user, accessToken } = AuthData();
 
 
-    const [showFilter, setShowFilter] = useState(false);
+    const [showFilter, setShowFilter] = useState(true);
+    const [filterState, setFilterState] = useState<IFilterState>({ CategoryID: "", PlaceID: "", textToSearch: "" });
+
 
     const [underYou, setUnderYou] = useState<any[]>([]);
     const [underRealization, setUnderRealization] = useState<any[]>([]);
     const [other, setOther] = useState<any[]>([]);
-
-    const handleChangeFilterSelects = (e: React.SyntheticEvent<HTMLSelectElement, Event>) => {
-        console.log(Array.from((e.target as HTMLSelectElement).selectedOptions).map(option => option.value))
-    }
-
 
     console.log(user)
 
@@ -35,26 +36,46 @@ const ReportsScreen = () => {
         unsolvedProblemsQuery.refetch();
     }
 
+    const splitProblems = () => {
+        console.log(filterState)
+        let problems = unsolvedProblemsQuery.data
+
+        problems = problems.filter((problem: any) => filterState.CategoryID === "" || problem.categoryId === filterState.CategoryID);
+        problems = problems.filter((problem: any) => filterState.PlaceID === "" || problem.placeId === filterState.PlaceID);
+        const options = {
+            keys: ["whoEmail", "whoName", "what"],
+            threshold: 0.3,
+        };
+
+        const fuse = new Fuse(problems, options);
+        problems = filterState.textToSearch
+            ? fuse.search(filterState.textToSearch).map(result => result.item)
+            : problems;
+
+
+        const underYouProblems: any[] = [];
+        const underRealizationProblems: any[] = [];
+        const otherProblems: any[] = [];
+        problems.forEach((element: any) => {
+            if (element.isUnderRealization && element.whoDealsEmail && user?.email === element.whoDealsEmail) {
+                underYouProblems.push(element);
+            } else if (element.isUnderRealization) {
+                underRealizationProblems.push(element);
+            } else {
+                otherProblems.push(element);
+            }
+        });
+
+        setUnderYou(underYouProblems);
+        setUnderRealization(underRealizationProblems);
+        setOther(otherProblems);
+    }
+
     useEffect(() => {
         if (unsolvedProblemsQuery.isSuccess) {
-            const underYouProblems: any[] = [];
-            const underRealizationProblems: any[] = [];
-            const otherProblems: any[] = [];
-            unsolvedProblemsQuery.data.forEach((element: any) => {
-                if (element.isUnderRealization && element.whoDealsEmail && user?.email === element.whoDealsEmail) {
-                    underYouProblems.push(element);
-                } else if (element.isUnderRealization) {
-                    underRealizationProblems.push(element);
-                } else {
-                    otherProblems.push(element);
-                }
-            });
-
-            setUnderYou(underYouProblems);
-            setUnderRealization(underRealizationProblems);
-            setOther(otherProblems);
+            splitProblems();
         }
-    }, [unsolvedProblemsQuery.isSuccess, unsolvedProblemsQuery.data])
+    }, [unsolvedProblemsQuery.isSuccess, unsolvedProblemsQuery.data, filterState.CategoryID, filterState.PlaceID, filterState.textToSearch]);
 
     if (unsolvedProblemsQuery.isError || categoriesQuery.isError || placesQuery.isError) {
         console.log(unsolvedProblemsQuery.error)
@@ -74,7 +95,7 @@ const ReportsScreen = () => {
             <button className="titleBarButton" onClick={() => setShowFilter(!showFilter)}>🔍</button>
 
             {
-                <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} isVisible={showFilter} />
+                <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} isVisible={showFilter} setFilterState={setFilterState} filterState={filterState} />
             }
 
             <h2>Realizowane przez ciebie</h2>
