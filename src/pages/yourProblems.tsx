@@ -1,7 +1,6 @@
 import { useQuery } from "react-query";
 import { AuthData } from "../auth/AuthWrapper";
 import { getUnsolvedProblemsFromEmail } from "../service/apiFetchFunctions";
-import UnsolvedProblem from "../components/problems/unsolved-problem/UnsolvedProblem";
 import UnsolvedProblemForUsers from "../components/problems/unsolved-problem/UnsolvedProblemForUsers";
 
 const YourProblems = () => {
