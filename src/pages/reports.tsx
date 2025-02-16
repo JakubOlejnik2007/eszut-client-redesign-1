@@ -104,8 +104,7 @@ const ReportsScreen = () => {
             <h2>Realizowane przez innych administratorów</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
                 {
-                    underRealization.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
-                    )
+                    underRealization.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />)
                 }
             </div>
         </div>
