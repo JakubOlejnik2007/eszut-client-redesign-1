@@ -135,6 +135,15 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                     }
                 </div>
             </div>
+            <div className="modal comments" onClick={e => e.stopPropagation()}>
+            <div className="modalTitle">Komentarze</div>
+            <div className="newComment">
+                <input className="CommentInput" placeholder="co chcesz napisać?"></input>
+                <input className="CommentSend" type="submit" value="📨"></input>
+            </div>
+            <div className="closeButton" onClick={handleClose}></div>
+
+            </div>
         </div>, document.body
     )
 }

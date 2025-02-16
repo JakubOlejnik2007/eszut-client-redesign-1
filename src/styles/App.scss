@@ -910,6 +910,7 @@ a:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
+  display: flex;
 }
 
 .modal {
@@ -931,6 +932,58 @@ a:hover {
   border-color: rgba(255, 255, 255, 0.120);
   border-top-color: rgba(255, 255, 255, 0.205);
   border-style: solid;
+  &.comments{
+    margin-left: -512px;
+    width: 600px;
+  }
+}
+.newComment{
+  margin-top: 45px;
+  background-color: rgba(255, 0, 0, 0);
+  width: 100%;
+}
+.CommentInput{
+  margin-left: 0px;
+  padding: 0px;
+  padding-left: 8px;
+  width: calc(100% - 8px);
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: rgba(255, 255, 255, 0.120);
+  border-style: none;
+  border-bottom-style: solid;
+  border-width: 1px;
+  color: rgb(197, 197, 197);
+  transition: 0.1s;
+  &::placeholder{
+    color: rgb(150, 150, 150);
+    }
+  &:focus{
+    outline: none;
+    border-bottom-color: rgba(255, 255, 255, 0.45)
+  }
+}
+.CommentSend{
+  width: 18px;
+  height: 18px;
+  border-radius: var(--smallCornerSize);
+  background-color: rgb(118, 118, 118);
+  background-image: url(../assets/arrow-down.png);
+  background-position: center;
+  background-size: 10px;
+  background-repeat: no-repeat;
+  border-bottom: white;
+  border-style: none;
+  position: absolute;
+  right: 6px;
+  margin-top: 6px;
+  color: transparent;
+  &:hover{
+    background-color: rgb(153, 153, 153);
+  }
+  &:active{
+    background-color: rgb(75, 75, 75);
+  }
 }
 
 .modalTitle {
