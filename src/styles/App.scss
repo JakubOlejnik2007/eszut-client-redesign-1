@@ -134,7 +134,7 @@ body {
   border-width: 1px;
   height: 74px;
   overflow: hidden; /* Prevent content from overflowing */
-  animation: expandDiv 0.5s ease-out forwards;
+  animation: expandFilters 0.1s linear forwards;
 }
 .filterTitle{
   margin-top: 0px;
