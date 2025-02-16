@@ -84,6 +84,20 @@
     border-top: 1px solid rgba(26, 26, 26, 0.489);
   }
 
+  .filterContainer{
+    background-color: var(--pageForeBG);
+    border-bottom-color: var(--borderColor);
+  }
+  .filterSelect{
+    background: var(--pageForeBG);
+    border-color: var(--borderColor);
+  }
+  .filterInput{
+    background: var(--pageForeBG);
+    border-color: transparent;
+    box-shadow: inset -1px -1px #fff,inset 1px 1px grey,inset -2px -2px #dfdfdf,inset 2px 2px #0a0a0a !important;
+
+  }
 
   .mainButton {
     filter: none;
