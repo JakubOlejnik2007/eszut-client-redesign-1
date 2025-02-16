@@ -188,6 +188,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                     }
                 </div>
             </div>
+
             <div
                 className="modal comments"
                 onClick={(e) => e.stopPropagation()}
@@ -203,9 +204,32 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                 <div className="newComment">
                     <input className="CommentInput" placeholder="co chcesz napisać?" />
                     <input className="CommentSend" type="submit" value="📨" />
+                    <div className="commentContainer">
+                <div className="comment">
+                    <span className="commentName">Stoch mateusz</span>
+                    <span className="commentTime">0 sekund temu</span>
+                    <span className="commentContent">no u</span>
+                </div>  
+                <div className="comment">
+                    <span className="commentName">Stoch mateusz</span>
+                    <span className="commentTime">30 sekund temu</span>
+                    <span className="commentContent">schizophrenia.</span>
+                </div>
+                <div className="comment">
+                    <span className="commentName">Stoch mateusz</span>
+                    <span className="commentTime">1 dzień temu</span>
+                    <span className="commentContent">kys</span>
+                </div>
+                <div className="comment">
+                    <span className="commentName">Stoch mateusz</span>
+                    <span className="commentTime">2 dni temu</span>
+                    <span className="commentContent">przerąbane z tymi stylami. gdybym wiedział ile to pracy, pewnie bym nie zrobił tych różnych szat graficznych. tylko css, css, css, css edytuj edutuj edtytjddbsfjskdfn dfjsdf</span>
+                </div>
+                </div>
                 </div>
                 <div className="closeButton" onClick={handleClose}></div>
             </div>
+            
         </div>, document.body
     )
 }
