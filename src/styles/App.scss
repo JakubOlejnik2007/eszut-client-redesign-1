@@ -17,14 +17,15 @@
   --15px: 15px;
 }
 
-.code{
+.code {
   background-color: #0000004f;
   padding: 4px;
   border-radius: var(--smallCornerSize);
   font-family: 'sfMono';
   overflow-wrap: break-word;
 }
-.qrCode{
+
+.qrCode {
   background-color: var(--mainText);
   padding: 12px;
   padding-bottom: 10px;
@@ -32,6 +33,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 body {
   color: var(--mainText);
   background-color: var(--pageBackBG);
@@ -100,7 +102,7 @@ body {
   // height: 19px;
 }
 
-.titleBarButton{
+.titleBarButton {
   margin-top: -29px;
   margin-left: 470px;
   position: absolute;
@@ -111,51 +113,73 @@ body {
   height: 20px;
   width: 34px;
   border-radius: var(--smallCornerSize);
-  &:active{
+
+  &:active {
     background-color: rgb(96, 96, 96);
   }
 }
 
+.filterContainer {
+  background-color: #1f1f1f;
+  text-align: left;
+  padding-left: var(--15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.120);
+  overflow: hidden;
+  max-height: 0px;
+  /* Domyślnie pełny rozmiar, dopóki nie zostanie zainicjalizowany */
+  opacity: 1;
+  /* Unikamy efektu "migania" */
+  transition: none;
+  /* Wyłączamy animację przy pierwszym renderze */
+}
+
+.showFilterContainer {
+  animation: expandFilters 0.3s ease-out forwards;
+}
+
+.hideFilterContainer {
+  animation: collapseFilters 0.3s ease-out forwards;
+}
 
 @keyframes expandFilters {
   from {
-      height: 0px;
+    max-height: 0;
   }
+
   to {
-      height: 74px;
+    max-height: 74px;
   }
 }
 
 @keyframes collapseFilters {
   from {
-      height: 74px;
+    max-height: 74px;
   }
+
   to {
-      height: 0px;
+    max-height: 0;
   }
 }
-.filterContainer{
-  background-color: #1f1f1f;
-  text-align: left;
-  padding-left: var(--15px);
-  border-bottom-color: rgba(255, 255, 255, 0.120);
-  border-bottom-style: solid;
-  border-width: 1px;
-  height: 74px;
-  overflow: hidden;
-}
-.showFilterContainer{
+
+
+
+
+.showFilterContainer {
   animation: expandFilters 0.1s linear forwards;
 }
-.hideFilterContainer{
+
+.hideFilterContainer {
   animation: collapseFilters 0.1s linear forwards;
 }
-.filterTitle{
+
+.filterTitle {
   margin-top: 0px;
   padding-top: var(--defaultPadding);
-  margin-bottom: calc(var(--defaultPadding) / 12);;
+  margin-bottom: calc(var(--defaultPadding) / 12);
+  ;
 }
-.filterSelect{
+
+.filterSelect {
   width: 22% !important;
   min-width: auto !important;
   max-width: auto !important;
@@ -166,13 +190,16 @@ body {
   border-color: #000000;
   border-style: solid;
   padding: calc(var(--defaultPadding) / 2);
-  &::placeholder{
+
+  &::placeholder {
     color: var(--secondaryText);
   }
+
   margin-top: 4px;
   margin-left: 15px;
 }
-.filterInput{
+
+.filterInput {
   width: 50%;
   background-color: #1c1c1c;
   border-radius: var(--smallCornerSize);
@@ -181,7 +208,8 @@ body {
   border-style: solid;
   padding: calc(var(--defaultPadding) / 2);
   color: var(--mainText);
-  &::placeholder{
+
+  &::placeholder {
     color: var(--secondaryText);
   }
 }
@@ -442,8 +470,8 @@ input:checked+.slider:before {
 }
 
 /*-=pagination buttons=-*/
-.pagination{
-  button{
+.pagination {
+  button {
 
     margin-left: 4px;
     margin-right: 4px;
@@ -513,7 +541,7 @@ select {
   min-width: 528px;
 
 
-  &.intSmallInput{
+  &.intSmallInput {
     min-width: 0px;
     box-shadow: none !important;
     border: none;
@@ -562,7 +590,8 @@ nav {
   background-color: var(--navBarColor);
   filter: drop-shadow(0px 0px 5px #0000005a);
   padding: var(--defaultPadding);
-  -webkit-backdrop-filter: blur(20px); /*fixes blur for Safari*/
+  -webkit-backdrop-filter: blur(20px);
+  /*fixes blur for Safari*/
   backdrop-filter: blur(20px);
   border-bottom: #ffffff53;
   border-bottom-width: 1px;
@@ -694,14 +723,15 @@ a:hover {
   background-color: #1c1c1c;
 }
 
-.logElement:hover{
+.logElement:hover {
   background-color: #262626;
 }
 
-.tableTitle{
+.tableTitle {
   background-color: var(--tableAccent) !important;
 }
-.intTabContainer{
+
+.intTabContainer {
   width: 75%;
   margin: var(--defaultPadding) auto;
   overflow: hidden;
@@ -710,7 +740,8 @@ a:hover {
   border-width: 1px;
   border-style: solid;
 }
-.intTabElement{
+
+.intTabElement {
   background-color: var(--pageForeBG);
   width: 100%;
   height: 26px;
@@ -722,19 +753,21 @@ a:hover {
   border-bottom-style: solid;
   transition: 0.2s;
 }
-.intTabElement:hover{
+
+.intTabElement:hover {
   background-color: var(--windowBorderColor);
   transition: 0s;
 }
-.intTabElement:first-child
-{
+
+.intTabElement:first-child {
   border-top-style: none;
 }
-.intTabElement:last-child
-{
+
+.intTabElement:last-child {
   border-bottom-style: none;
 }
-.intTabInput{
+
+.intTabInput {
   background: none;
   border-style: none;
   color: var(--mainText);
@@ -743,7 +776,8 @@ a:hover {
   padding-left: 0px;
   outline: none;
 }
-.intLongInput{
+
+.intLongInput {
   background: none;
   border-style: none;
   color: var(--mainText);
@@ -754,7 +788,8 @@ a:hover {
   float: left;
   height: 24px;
 }
-.intSmallInput{
+
+.intSmallInput {
   background: none;
   border-style: none;
   color: var(--mainText);
@@ -769,7 +804,7 @@ a:hover {
   height: 24px;
 }
 
-.intTabButton{
+.intTabButton {
   float: right;
   border: none;
   outline: none;
@@ -782,18 +817,22 @@ a:hover {
   color: var(--mainText);
   background-color: rgba(255, 255, 255, 0.05);
   transition: 0.2s;
-  &:hover{
+
+  &:hover {
     background-color: rgba(255, 255, 255, 0.195);
     transition: 0s;
   }
-  &:active{
+
+  &:active {
     background-color: rgba(0, 0, 0, 0.302);
   }
-  &.dynamic{
+
+  &.dynamic {
     transform: translateX(46px);
     background-color: rgba(255, 0, 85, 0.064);
     color: rgb(53, 38, 43);
-    &:hover{
+
+    &:hover {
       transform: translateX(0px);
       transition: 0.2s;
       background-color: rgb(86, 52, 63);
@@ -802,27 +841,31 @@ a:hover {
     }
   }
 }
-.intSuccess{
+
+.intSuccess {
   background-color: rgba(153, 255, 0, 0.05);
   color: #bfff357b;
-  &:hover{
+
+  &:hover {
     background-color: rgba(66, 117, 0, 0.383);
-    color: #bfff357b; 
+    color: #bfff357b;
   }
-  &:active{
+
+  &:active {
     background-color: rgba(0, 43, 11, 0.383);
     color: #54d2007b;
   }
 
-  &.dynamic{
+  &.dynamic {
     transform: translateX(46px);
     background-color: rgba(153, 255, 0, 0.05);
     color: #bfff3500;
-    &:hover{
+
+    &:hover {
       transform: translateX(0px);
       transition: 0.2s;
       background-color: rgba(66, 117, 0, 0.383);
-      color: #bfff357b; 
+      color: #bfff357b;
     }
   }
 }
@@ -849,7 +892,7 @@ a:hover {
   filter: drop-shadow(0px 0px 10px #0000005a);
   margin-top: -40px;
   margin-left: 20px;
-  
+
 }
 
 [data-tooltip]:not([data-tooltip-persistent])::before {
@@ -873,7 +916,8 @@ a:hover {
   display: flex;
   width: 600px;
   margin: auto;
-  -webkit-backdrop-filter: blur(20px); /*it also fixes blur for Safari*/
+  -webkit-backdrop-filter: blur(20px);
+  /*it also fixes blur for Safari*/
   backdrop-filter: blur(20px);
   background-color: #33333353;
   max-width: 1024px;
@@ -907,7 +951,7 @@ a:hover {
   background-color: #ff000000;
   width: 230px;
 
-  select{
+  select {
     max-width: 200px;
     width: 150px;
     min-width: none;
@@ -985,29 +1029,37 @@ a:hover {
 .closeButton:active {
   background-color: #ff9292;
 }
+
 /*---------------------------==========================MOBILE==========================---------------------------*/
 
 @media (max-width: 915px) {
-  .creditsText{
+  .creditsText {
     display: none;
-  }  
+  }
 }
+
 @media (max-width: 810px) {
-  .divider{display: none;}  
-  .reportIssueForm{
+  .divider {
+    display: none;
+  }
+
+  .reportIssueForm {
     margin-right: 0px !important;
     width: 100% !important;
     margin-left: 0px !important;
-    .mainButton{
+
+    .mainButton {
       margin-right: 0px !important;
     }
-    .textInput{
+
+    .textInput {
       width: 100% !important;
       min-width: 25px !important;
       max-width: 100% !important;
       box-sizing: border-box;
     }
-    select{
+
+    select {
       width: 100% !important;
       min-width: 25px !important;
       max-width: 100% !important;
@@ -1027,6 +1079,7 @@ a:hover {
     margin-top: 20px;
     padding-bottom: 50px;
   }
+
   .bottomModalPart {
     position: absolute;
     bottom: 20px;
@@ -1034,6 +1087,7 @@ a:hover {
     text-align: right;
     width: 240px;
   }
+
   .modalTitle {
     margin-top: 5px;
     padding-top: 2px;
@@ -1042,16 +1096,19 @@ a:hover {
     height: 25px;
     position: absolute;
   }
-  .progressBar{
+
+  .progressBar {
     display: none;
   }
-  .infoLabel{
+
+  .infoLabel {
     font-size: 14px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end
   }
-  .modalInfo{
+
+  .modalInfo {
     text-align: right;
   }
 }
