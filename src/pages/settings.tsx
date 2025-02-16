@@ -43,10 +43,10 @@ const SettingsScreen = () => {
             name: "highContrast",
             img: "src/assets/settings/highContrast.png"
         },
-        {
-            name: "retro",
-            img: "src/assets/settings/retro.png"
-        }
+        // {
+        //     name: "retro",
+        //     img: "src/assets/settings/retro.png"
+        // }
     ]
 
     return (
