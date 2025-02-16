@@ -877,7 +877,7 @@ a:hover {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.379);
   font-size: 12px;
-  border-radius: 26px;
+  border-radius: var(--smallCornerSize);
   text-align: center;
   padding: 0.5rem;
   display: flex;
