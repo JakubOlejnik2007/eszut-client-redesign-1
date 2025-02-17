@@ -18,7 +18,7 @@ const ReportsScreen = () => {
     const { user, accessToken } = AuthData();
 
 
-    const [showFilter, setShowFilter] = useState(true);
+    const [showFilter, setShowFilter] = useState(false);
     const [filterState, setFilterState] = useState<IFilterState>({ CategoryID: "", PlaceID: "", textToSearch: "" });
 
 
