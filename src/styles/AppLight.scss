@@ -215,8 +215,10 @@
     background-color: #0000006e;
   }
 
-
-
+  .commentName, .commentTime{
+    color: rgb(180, 180, 180);
+  }
+  
   .modal {
     backdrop-filter: blur(20px);
     background-color: #16161678;

@@ -77,7 +77,10 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
             const response = await insertComment(accessToken as string, _id, commentContent);
             if (response !== "Created") throw new Error();
             setCommentContent("");
+            (document.getElementById("commentInput") as HTMLInputElement).value = ""
             displayNotif({ message: "Komentarz dodany", type: ENotifType.SUCCESS })
+            commentsQuery.refetch();
+
         } catch {
         }
 
@@ -196,7 +199,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
             >
                 <div className="modalTitle">Komentarze</div>
                 <div className="newComment">
-                    <input className="CommentInput" placeholder="co chcesz napisać?" onChange={e => setCommentContent(e.target.value)} />
+                    <input className="CommentInput" placeholder="co chcesz napisać?" id="commentInput" onChange={e => setCommentContent(e.target.value)} />
                     <input className="CommentSend" type="submit" value="📨" onClick={handleInsertComment} />
                     <div className="commentContainer">
                         {
