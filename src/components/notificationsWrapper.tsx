@@ -38,11 +38,14 @@ const NotificationsWrapper = ({ children }: { children: ReactNode }) => {
 
         previousInterval = interval;
     };
-
+    const handleClick = () => {
+        setShow(false);
+    };
     return (
         <NotifContext.Provider value={{ displayNotif }}>
             {notifData && (
-                <div className={`notification ${show ? 'fade-in' : 'fade-out'}`} style={{ position: 'fixed', left: 10, bottom: 10, zIndex: 100 }}>
+                <div className={`notification ${show ? 'fade-in' : 'fade-out'}`} style={{ position: 'fixed', left: 10, bottom: 10, zIndex: 100 }} onClick={handleClick}>
+                    <div className="remove"></div>
                     <div className="notification-message">
                         {notifData.message}
                     </div>

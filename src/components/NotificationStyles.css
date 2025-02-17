@@ -16,6 +16,22 @@
     border-top-color: rgba(255, 255, 255, 0.205);
     border-style: solid;
 }
+.notification .remove{
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    background-image: url(../assets/xw.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    opacity: 0;
+    transition: 0.2s;
+}
+.notification:hover .remove{
+    opacity: 1;
+}
 
 .notification.fade-in {
     opacity: 1;
