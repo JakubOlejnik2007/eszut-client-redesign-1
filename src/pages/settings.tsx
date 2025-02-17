@@ -42,7 +42,6 @@ const SettingsScreen = () => {
     })
 
     useEffect(() => {
-        console.log(mappedEmailQuery.data)
         if (mappedEmailQuery.isSuccess) setNewEmail(mappedEmailQuery.data[0].mappedTo)
     }, [mappedEmailQuery.isSuccess, mappedEmailQuery.data])
 
