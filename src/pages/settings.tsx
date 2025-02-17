@@ -6,7 +6,6 @@ import DarkMode from "../assets/settings/dark.png";
 import DesertMode from "../assets/settings/desert.png";
 import TokyoMode from "../assets/settings/tokyo.png";
 import HighContrastMode from "../assets/settings/highContrast.png";
-import RetroMode from "../assets/settings/retro.png";
 import { AuthData } from "../auth/AuthWrapper";
 import EUserRole from "../types/userroles.enum";
 import { useEffect, useState } from "react";
@@ -57,7 +56,14 @@ const SettingsScreen = () => {
 
     const handleInsertEmail = async () => {
         try {
-            const response = await insertUserMail(accessToken as string, newEmail);
+            if (!validateEmail(newEmail)) {
+                displayNotif({
+                    type: ENotifType.ERROR,
+                    message: "Niepoprawny email"
+                })
+                return
+            }
+            await insertUserMail(accessToken as string, newEmail);
             displayNotif({
                 type: ENotifType.SUCCESS,
                 message: "Email został dodany pomyślnie."
