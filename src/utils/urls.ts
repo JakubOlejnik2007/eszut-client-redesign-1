@@ -19,6 +19,10 @@ const urls = {
             refreshToken: "/refresh-token",
             setTokens: "/set-tokens",
         },
+        mails: {
+            getUserMail: "/get-mail",
+            insertUserMail: "/insert-mail"
+        },
         problem: {
             getUnsolvedProblems: "/get-unsolved-problems",
             getUnsolvedProblemsFromEmail: "/get-unsolved-problems-from-email",

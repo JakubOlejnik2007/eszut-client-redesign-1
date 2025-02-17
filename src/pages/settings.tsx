@@ -7,6 +7,13 @@ import DesertMode from "../assets/settings/desert.png";
 import TokyoMode from "../assets/settings/tokyo.png";
 import HighContrastMode from "../assets/settings/highContrast.png";
 import RetroMode from "../assets/settings/retro.png";
+import { AuthData } from "../auth/AuthWrapper";
+import EUserRole from "../types/userroles.enum";
+import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { getUserMail, insertUserMail } from "../service/apiFetchFunctions";
+import { Notif } from "../components/notificationsWrapper";
+import { ENotifType } from "../types/notification.interface";
 
 type TThemeRadio = {
     name: TThemes;
@@ -28,6 +35,45 @@ const ThemeRadio = ({ name, img }: TThemeRadio) => {
 
 
 const SettingsScreen = () => {
+
+    const { accessToken, user } = AuthData();
+    const { displayNotif } = Notif();
+    const mappedEmailQuery = useQuery("email", async () => await getUserMail(accessToken as string), {
+        enabled: (!!accessToken && user && user.role === EUserRole.ADMIN) as boolean
+    })
+
+    useEffect(() => {
+        console.log(mappedEmailQuery.data)
+        if (mappedEmailQuery.isSuccess) setNewEmail(mappedEmailQuery.data[0].mappedTo)
+    }, [mappedEmailQuery.isSuccess, mappedEmailQuery.data])
+
+    const validateEmail = (email: string) => {
+        return email
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+
+    const handleInsertEmail = async () => {
+        try {
+            const response = await insertUserMail(accessToken as string, newEmail);
+            displayNotif({
+                type: ENotifType.SUCCESS,
+                message: "Email został dodany pomyślnie."
+            })
+            mappedEmailQuery.refetch();
+        } catch (e) {
+            displayNotif({
+                type: ENotifType.ERROR,
+                message: "Email nie został dodany."
+            })
+        }
+    }
+
+
+    const [newEmail, setNewEmail] = useState("");
+
     const themes: TThemeRadio[] = [
         {
             name: "light",
@@ -61,7 +107,7 @@ const SettingsScreen = () => {
             <div style={{ backgroundColor: '', width: '100%' }} className="content-padding text-justify">
                 <center>
                     <div style={{ textAlign: "center", width: '50%' }}>
-                        <h3 style={{ textAlign: "left", marginBottom: '0px' }}>styl aplikacji:</h3>
+                        <h3 style={{ textAlign: "left", marginBottom: '0px' }}>Styl aplikacji</h3>
                         <br></br>
 
                         {themes.map((theme) => <ThemeRadio key={theme.name} {...theme} />)}
@@ -73,13 +119,32 @@ const SettingsScreen = () => {
                         automatyczne wylogowanie<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br />
                        
                         <hr /> */}
-                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>mail:</h3>
 
-                        <input type="text" className="settingsTextInput" placeholder="example@mail.com"></input>
-                        <span className="secondary" style={{fontSize: "15px"}}>powiadomienia będą wysyłane na twoją pocztę outlook. jeżeli chcesz, możesz podać tutaj drugi adres email, na który powiadomienia będą wysyłane.</span><br/>
-                        <br />
-                        <hr />
-                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>tokeny:</h3>
+                        {
+                            user && user.role === EUserRole.ADMIN && <>
+                                <h3 style={{ textAlign: "left", marginBottom: '12px' }}>Dodatkowy adres email</h3>
+                                <div style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "10px",
+                                }}>
+                                    <input type="email" className="settingsTextInput" placeholder="example@mail.com" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
+                                    <button className="mainButton sendButton" type="submit" style={{
+                                        marginTop: "0px",
+                                        width: "100px",
+                                    }}
+                                        onClick={handleInsertEmail}
+                                    >Wyślij</button><br /></div>
+                                <span className="secondary" style={{ fontSize: "15px" }}>
+                                    Powiadomienia domyślnie i zawsze wysyłane pod adres mailowy w usłudzie Outlook. Dodanie innego adresu pozwala kierować wiadomości o zgłoszeniu także na prywatne adresy mailowe.
+                                </span><br />
+                                <br />
+                                <hr />
+                            </>
+
+                        }
+
+                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>Tokeny logowania</h3>
                         <ManagingTokens />
                     </div>
                 </center>

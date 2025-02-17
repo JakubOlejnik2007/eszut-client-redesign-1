@@ -127,10 +127,19 @@ export const deleteToken = async (
 export const getComments = async (
     AuthToken: string,
     ProblemID: string,
-) => await createApiRequest("GET", `${config.backend}${urls.backend.comment.getComments}?ProblemID=${ProblemID}`, {  }, AuthToken);
+) => await createApiRequest("GET", `${config.backend}${urls.backend.comment.getComments}?ProblemID=${ProblemID}`, {}, AuthToken);
 
 export const insertComment = async (
     AuthToken: string,
     ProblemID: string,
     content: string
 ) => await createApiRequest("POST", `${config.backend}${urls.backend.comment.insertComment}`, { ProblemID, content }, AuthToken);
+
+export const getUserMail = async (
+    AuthToken: string,
+) => await createApiRequest("GET", `${config.backend}${urls.backend.mails.getUserMail}`, {}, AuthToken);
+
+export const insertUserMail = async (
+    AuthToken: string,
+    newMail: string
+) => await createApiRequest("POST", `${config.backend}${urls.backend.mails.insertUserMail}`, { newMail }, AuthToken);
