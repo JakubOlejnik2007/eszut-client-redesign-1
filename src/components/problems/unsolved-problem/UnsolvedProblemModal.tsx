@@ -28,7 +28,7 @@ interface IEditableData {
 
 const ToggleEditableButton = ({ isSingle, toggle }: IToggleEditableButtonProps) => {
     return (
-        <button className={`mainButton edit ${isSingle ? "singlebuttonoffset" : ""}`} onClick={toggle}>g</button>
+        <button title="Edytuj zgłoszenie" className={`mainButton edit ${isSingle ? "singlebuttonoffset" : ""}`} onClick={toggle}>g</button>
     )
 }
 
