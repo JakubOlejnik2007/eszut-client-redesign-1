@@ -33,7 +33,7 @@ const ToggleEditableButton = ({ isSingle, toggle }: IToggleEditableButtonProps) 
 }
 
 const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoName, whoEmail, what, when, priority, categoryName, placeName, whoDealsEmail, whoDealsName, isUnderRealization, placeId, categoryId }: IUnsolvedProblemModal) => {
-    
+
     const [isDragging, setIsDragging] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -118,7 +118,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
         return <img src={Loading} className="spinner"></img>
     }
 
-    return ReactDOM.createPortal(
+    return ReactDOM.createPortal(<>
         <div className="modalContainer fade-in" onClick={handleClose}>
 
             <div className="modal" onClick={e => e.stopPropagation()}>
@@ -209,7 +209,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                 <div className="closeButton" onClick={handleClose}></div>
             </div>
 
-        </div>, document.body
+        </div></>, document.body
     )
 }
 
