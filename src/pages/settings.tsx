@@ -71,8 +71,12 @@ const SettingsScreen = () => {
 
                         wysyłaj powiadomienia<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br />
                         automatyczne wylogowanie<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br />
-                        zły padding i marginesy<label className="switch"><input type="checkbox" checked></input><span className="slider"></span></label><br />
+                       
+                        <hr />
+                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>mail:</h3>
 
+                        <input type="text"></input>
+                        powiadomienia będą wysyłane na twoją pocztę outlook. jeżeli chcesz, możesz podać tutaj drugi adres email, na który powiadomienia będą wysyłane.
                         <br />
                         <hr />
                         <h3 style={{ textAlign: "left", marginBottom: '12px' }}>tokeny:</h3>

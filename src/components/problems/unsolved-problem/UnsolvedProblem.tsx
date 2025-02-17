@@ -97,7 +97,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                                 {whoDealsName} <br />({whoDealsEmail})
                             </div>
                         </div>
-                        <hr />
+                        <hr className="hrBeforeButtons"/>
                     </>
                 )}
                 <div className="bottomButtons">

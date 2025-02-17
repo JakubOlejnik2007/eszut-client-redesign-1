@@ -194,7 +194,6 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                     position: "absolute",
                     left: `${position.x * 2}px`,
                     top: `${position.y}px`,
-                    cursor: "grab",
                 }}
             >
                 <div className="modalTitle">Komentarze</div>

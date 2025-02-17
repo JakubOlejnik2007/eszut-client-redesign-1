@@ -678,14 +678,19 @@ nav {
 
 .bottomButtons {
   float: right;
-  position: absolute;
-  bottom: 13.4px;
-  right: 20px;
-  left: 20px;
+  // position: absolute;
+  margin-bottom: -28px;
+  margin-top: auto;
+  // bottom: 13.4px;
+  // right: 20px;
+  // left: 20px;
   text-align: center;
 
 }
 
+.hrBeforeButtons{
+  margin-bottom: -10px;
+}
 .bottomButtons button {
   margin-left: var(--defaultPadding);
 }
