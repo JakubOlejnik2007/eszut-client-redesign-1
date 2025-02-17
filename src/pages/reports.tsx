@@ -6,7 +6,7 @@ import UnsolvedProblem from "../components/problems/unsolved-problem/UnsolvedPro
 import Filter from "../components/Filter";
 import Fuse from "fuse.js";
 import IFilterState from "../types/filterState.interface";
-
+import Loading from "../assets/loading.gif";
 
 
 
@@ -79,7 +79,7 @@ const ReportsScreen = () => {
     }
 
     if (unsolvedProblemsQuery.isLoading || categoriesQuery.isLoading || placesQuery.isLoading) {
-        return <img src="src/assets/loading.gif" className="spinner"></img>
+        return <img src={Loading} className="spinner"></img>
     }
 
 

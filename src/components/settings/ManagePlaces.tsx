@@ -6,6 +6,8 @@ import { useState } from "react";
 import { Notif } from "../notificationsWrapper";
 import { ENotifType } from "../../types/notification.interface";
 import { AuthData } from "../../auth/AuthWrapper";
+import Loading from "../../assets/loading.gif";
+
 
 const ManagePlaces = () => {
     const [placeToAdd, setPlaceToAdd] = useState<string>('');
@@ -50,7 +52,7 @@ const ManagePlaces = () => {
         <div>Error</div>
     )
     if (placesQuery.isLoading) return (
-        <img src="src/assets/loading.gif" className="spinner"></img>
+        <img src={Loading} className="spinner"></img>
 
     );
 

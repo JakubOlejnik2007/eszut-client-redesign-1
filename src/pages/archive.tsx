@@ -4,7 +4,7 @@ import { AuthData } from "../auth/AuthWrapper";
 import { useEffect, useState } from "react";
 import SolvedProblem from "../components/problems/solved-problem/SolvedProblem";
 import Pagination from "../components/Pagination";
-
+import Loading from "../assets/loading.gif";
 
 const Archive = () => {
 
@@ -35,7 +35,7 @@ const Archive = () => {
     }
 
     if (solvedProblemQuery.isLoading) {
-        return <img src="src/assets/loading.gif" className="spinner"></img>
+        return <img src={Loading} className="spinner"></img>
     }
 
     return (

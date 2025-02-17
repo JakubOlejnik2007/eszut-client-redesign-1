@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { AuthData } from "../auth/AuthWrapper";
 import Pagination from "../components/Pagination";
 import { getLogData } from "../service/apiFetchFunctions";
-
+import Loading from "../assets/loading.gif";
 const DziennikLog = () => {
 
 
@@ -34,7 +34,7 @@ const DziennikLog = () => {
     }
 
     if (logEntriesQuery.isLoading) {
-        return <img src="src/assets/loading.gif" className="spinner"></img>
+        return <img src={Loading} className="spinner"></img>
     }
     return (
         <>

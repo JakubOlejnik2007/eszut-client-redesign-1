@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AuthData } from "../../auth/AuthWrapper";
 import { ENotifType } from "../../types/notification.interface";
 import { Notif } from "../notificationsWrapper";
+import Loading from "../../assets/loading.gif";
 
 const ManageCategories = () => {
     const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
@@ -55,7 +56,7 @@ const ManageCategories = () => {
         <div>Error</div>
     )
     if (categoriesQuery.isLoading) return (
-        <img src="src/assets/loading.gif" className="spinner"></img>
+        <img src={Loading} className="spinner"></img>
     );
 
     return (
