@@ -122,7 +122,16 @@
       cursor:default;
     }
   }
-  
+  .sendButton{
+    background-color: #d7ffa6;
+    &:hover{
+      background-color: #f8ffbd;
+    }
+    &:active{
+      background-color: #87cf7d;
+    }
+  }
+
   hr {
     border-top: 1px solid var(--borderColor);
   }
@@ -178,7 +187,9 @@
       cursor:default;
     }
   }
-
+  .secondaryButton{
+    opacity: 0.8;
+  }
 
   // .bottomButtons{
   //   .mainButton{

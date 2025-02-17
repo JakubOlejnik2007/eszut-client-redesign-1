@@ -439,17 +439,17 @@ input:checked+.slider:before {
 
 }
 
-.successButton {
+.successButton, .sendButton {
   background-color: #6bff3532;
   color: #fffcbf;
 }
 
-.successButton:hover {
+.successButton:hover, .sendButton:hover {
   background-color: #6bff354f;
   color: #fffddd;
 }
 
-.successButton:active {
+.successButton:active, .sendButton:active {
   background-color: #6bff351d;
   color: #fffa9f;
 }
