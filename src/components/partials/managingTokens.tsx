@@ -6,6 +6,7 @@ import { TokenElement } from "./TokenElement";
 import { Notif } from "../notificationsWrapper";
 import { ENotifType } from "../../types/notification.interface";
 import TokenAlert from "../settings/TokenAlert";
+import Loading from "../../assets/loading.gif";
 
 const ManagingTokens = () => {
 
@@ -40,7 +41,7 @@ const ManagingTokens = () => {
     }, [getActiveTokensQuery.isSuccess, getActiveTokensQuery.data])
 
     if (getActiveTokensQuery.isLoading) {
-        return <img src="src/assets/loading.gif" className="spinner"></img>
+        return <img src={Loading} className="spinner"></img>
     }
     
     const handleTokenCreate = async () => {

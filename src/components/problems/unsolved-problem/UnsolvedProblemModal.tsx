@@ -13,7 +13,7 @@ import { useQuery } from "react-query";
 import { getCategories, getComments, getPlaces, insertComment, putUpdateUnsolvedProblem } from "../../../service/apiFetchFunctions";
 import { ENotifType } from "../../../types/notification.interface";
 import NotificationsWrapper, { Notif } from "../../notificationsWrapper";
-
+import Loading from "../../../assets/loading.gif";
 interface IToggleEditableButtonProps {
     isSingle: boolean;
     toggle: () => void;
@@ -116,7 +116,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
     }
 
     if (placesQuery.isLoading || categoriesQuery.isLoading || commentsQuery.isLoading) {
-        return <img src="src/assets/loading.gif" className="spinner"></img>
+        return <img src={Loading} className="spinner"></img>
     }
 
     return ReactDOM.createPortal(

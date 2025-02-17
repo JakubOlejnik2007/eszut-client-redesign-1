@@ -6,7 +6,7 @@ import { AuthData } from "../auth/AuthWrapper";
 import { IPlace, ICategory } from "../types/formPartials.interface";
 import { Notif } from "../components/notificationsWrapper";
 import { ENotifType } from "../types/notification.interface";
-
+import Loading from "../assets/loading.gif";
 const ReportIssueScreen = () => {
 
     const [formData, setFormData] = useState<IInsertNewProblem>({
@@ -61,7 +61,7 @@ const ReportIssueScreen = () => {
         <div>Error</div>
     )
     if (categoriesQuery.isLoading || placesQuery.isLoading) return (
-        <img src="src/assets/loading.gif" className="spinner"></img>
+        <img src={Loading} className="spinner"></img>
 
     );
     return (

@@ -1,6 +1,12 @@
 import { useTheme } from "../components/theme/ThemeContext";
 import TThemes from "../types/themes.type";
 import ManagingTokens from "../components/partials/managingTokens";
+import LightMode from "../assets/settings/light.png";
+import DarkMode from "../assets/settings/dark.png";
+import DesertMode from "../assets/settings/desert.png";
+import TokyoMode from "../assets/settings/tokyo.png";
+import HighContrastMode from "../assets/settings/highContrast.png";
+import RetroMode from "../assets/settings/retro.png";
 
 type TThemeRadio = {
     name: TThemes;
@@ -25,27 +31,27 @@ const SettingsScreen = () => {
     const themes: TThemeRadio[] = [
         {
             name: "light",
-            img: "src/assets/settings/light.png"
+            img: LightMode
         },
         {
             name: "dark",
-            img: "src/assets/settings/dark.png"
+            img: DarkMode
         },
         {
             name: "desert",
-            img: "src/assets/settings/desert.png"
+            img: DesertMode
         },
         {
             name: "tokyo",
-            img: "src/assets/settings/tokyo.png"
+            img: TokyoMode
         },
         {
             name: "highContrast",
-            img: "src/assets/settings/highContrast.png"
+            img: HighContrastMode
         },
         // {
         //     name: "retro",
-        //     img: "src/assets/settings/retro.png"
+        //     img: RetroMode
         // }
     ]
 

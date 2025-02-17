@@ -2,6 +2,8 @@ import { useQuery } from "react-query";
 import { AuthData } from "../auth/AuthWrapper";
 import { getUnsolvedProblemsFromEmail } from "../service/apiFetchFunctions";
 import UnsolvedProblemForUsers from "../components/problems/unsolved-problem/UnsolvedProblemForUsers";
+import Loading from "../assets/loading.gif"
+
 
 const YourProblems = () => {
     const { accessToken } = AuthData();
@@ -15,7 +17,7 @@ const YourProblems = () => {
     }
 
     if (unsolvedProblemsQuery.isLoading) {
-        return <img src="src/assets/loading.gif" className="spinner"></img>
+        return <img src={Loading} className="spinner"></img>
     }
 
     return (
