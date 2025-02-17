@@ -52,8 +52,10 @@ const ReportIssueScreen = () => {
 
     const handleReset = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-        setFormData(prevState => {
-            return { ...prevState, what: '' }
+        setFormData({
+            what: "",
+            CategoryID: categories[0]._id,
+            PlaceID: places[0]._id,
         })
     }
 
@@ -96,7 +98,9 @@ const ReportIssueScreen = () => {
 
                 <select onChange={(e) => {
                     setFormData({ ...formData, PlaceID: e.target.value })
-                }}>
+                }}
+                    value={formData.PlaceID}
+                >
                     {
                         places.map((place) => (
                             <option value={place._id}>{place.name}</option>
@@ -115,7 +119,8 @@ const ReportIssueScreen = () => {
                 <br />
                 <select onChange={(e) => {
                     setFormData({ ...formData, CategoryID: e.target.value })
-                }}>
+                }}
+                    value={formData.CategoryID}>
 
                     {
                         categories.map(place => (
@@ -126,7 +131,7 @@ const ReportIssueScreen = () => {
                 <br />
 
 
-        <button className="mainButton sendButton" style={{ float: "right", marginRight: "67px" }} type="submit" onClick={handleSubmitClick}>Wyślij</button>                 <button className="mainButton trashButton" type="reset" style={{float: "right", marginRight: "var(--defaultPadding)"}} onClick={handleReset}>Wyczyść</button>
+                <button className="mainButton sendButton" style={{ float: "right", marginRight: "67px" }} type="submit" onClick={handleSubmitClick}>Wyślij</button>                 <button className="mainButton trashButton" type="reset" style={{ float: "right", marginRight: "var(--defaultPadding)" }} onClick={handleReset}>Wyczyść</button>
 
             </form>
 
