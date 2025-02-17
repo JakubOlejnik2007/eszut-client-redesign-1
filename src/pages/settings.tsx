@@ -75,7 +75,7 @@ const SettingsScreen = () => {
                         <hr /> */}
                         <h3 style={{ textAlign: "left", marginBottom: '12px' }}>mail:</h3>
 
-                        <input type="text" className="settingsTextInput"></input>
+                        <input type="text" className="settingsTextInput" placeholder="example@mail.com"></input>
                         <span className="secondary" style={{fontSize: "15px"}}>powiadomienia będą wysyłane na twoją pocztę outlook. jeżeli chcesz, możesz podać tutaj drugi adres email, na który powiadomienia będą wysyłane.</span><br/>
                         <br />
                         <hr />
