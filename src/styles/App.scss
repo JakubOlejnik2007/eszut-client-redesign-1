@@ -685,7 +685,10 @@ nav {
   // right: 20px;
   // left: 20px;
   text-align: center;
-
+  .mainButton{
+    margin-left: calc(var(--defaultPadding) / 2);
+    margin-right: calc(var(--defaultPadding) / 2);
+  }
 }
 
 .hrBeforeButtons{
