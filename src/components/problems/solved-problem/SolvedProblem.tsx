@@ -56,7 +56,7 @@ const SolvedProblem = (props: ISolvedProblemProps) => {
                 <div style={{ fontSize: "var(--15px)", color: "var(--secondaryText)", textAlign: "left", maxHeight: '128px' }} className="overflowfix">{what}</div>
                 <hr />
                 <div>
-                    <h2 style={{ fontSize: "var(--15px)", textAlign: "left" }}>Rozwizany:</h2>
+                    <h2 style={{ fontSize: "var(--15px)", textAlign: "left" }}>Rozwiązany:</h2>
                     <div style={{ fontSize: "var(--15px)", color: "var(--secondaryText)", textAlign: "left" }}>
                         {whoSolvedName} <br />({whoSolvedEmail})
                     </div>
