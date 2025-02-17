@@ -288,7 +288,16 @@
 
 
 
-
+  .settingsTextInput{
+    border-color: rgb(196, 196, 196);
+    background-color: rgb(216, 216, 216);
+    &:hover{
+      background-color: var(--windowBorderColor);
+    }
+    &:focus{
+      background-color: var(--windowBorderColor);
+    }
+  }
 
   // INTTAB STUFF
 

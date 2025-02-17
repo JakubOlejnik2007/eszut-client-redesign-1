@@ -67,22 +67,19 @@ const SettingsScreen = () => {
                         {themes.map((theme) => <ThemeRadio key={theme.name} {...theme} />)}
                         <br />
                         <hr />
-                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>zachowanie aplikacji:</h3>
+                        {/* <h3 style={{ textAlign: "left", marginBottom: '12px' }}>zachowanie aplikacji:</h3>
 
                         wysyłaj powiadomienia<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br />
                         automatyczne wylogowanie<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br />
                        
-                        <hr />
+                        <hr /> */}
                         <h3 style={{ textAlign: "left", marginBottom: '12px' }}>mail:</h3>
 
-                        <input type="text"></input>
-                        powiadomienia będą wysyłane na twoją pocztę outlook. jeżeli chcesz, możesz podać tutaj drugi adres email, na który powiadomienia będą wysyłane.
+                        <input type="text" className="settingsTextInput"></input>
+                        <span className="secondary" style={{fontSize: "15px"}}>powiadomienia będą wysyłane na twoją pocztę outlook. jeżeli chcesz, możesz podać tutaj drugi adres email, na który powiadomienia będą wysyłane.</span><br/>
                         <br />
                         <hr />
                         <h3 style={{ textAlign: "left", marginBottom: '12px' }}>tokeny:</h3>
-
-
-                        {/* table title */}
                         <ManagingTokens />
                     </div>
                 </center>

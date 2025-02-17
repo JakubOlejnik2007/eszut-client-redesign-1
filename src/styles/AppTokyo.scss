@@ -396,6 +396,15 @@
     background-color: #05071e;
   }
 
+  .settingsTextInput{
+    background-color: #05071e;
+    &:hover{
+      background-color: #0f0e40;
+    }
+    &:focus{
+      background-color: #0f0e40;
+    }
+  }
 
     // INTTAB STUFF
 
