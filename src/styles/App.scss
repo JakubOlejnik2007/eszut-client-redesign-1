@@ -1212,7 +1212,7 @@ a:hover {
     height: 0px !important;
   }
   .navButton{
-    width: 100%;
+    width: calc(100% - 16px);
     margin-left: 0px;
     padding-left: 0px;
     height: 30px;
@@ -1223,6 +1223,7 @@ a:hover {
   }
   .hamburgerButton{
     display: block;
+    user-select: none;
     border-radius: var(--smallCornerSize);
     height: 24px;
     width: 24px;
