@@ -63,7 +63,6 @@ const SolvedProblem = (props: ISolvedProblemProps) => {
                 </div>
                 <hr />
                 <div className="bottomButtons">
-                    <button className="mainButton secondaryButton" type="reset">Dodaj adnotację</button>
                     <button className="mainButton" type="submit" onClick={handleRetakeProblem}>
                         Przywróć problem
                     </button>

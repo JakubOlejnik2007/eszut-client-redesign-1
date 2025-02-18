@@ -77,7 +77,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                 <div className={`waga${priority} reportTitle`}></div>
                 {daysLeft <= 0 ? <div className="clockExpired">
                     {/* <img src={Alarm} height="18px" alt="Ostrzeżenie o nierozwiązanym problemie" /> */}
-                    </div> : ""}
+                </div> : ""}
                 <h1 style={{ fontSize: "var(--20px)", textAlign: "left" }}>{categoryName}
                     <br />
                     <DaysToDeadlineSpan priority={priority} reportDate={reportDate} />
@@ -98,11 +98,10 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                                 {whoDealsName} <br />({whoDealsEmail})
                             </div>
                         </div>
-                        <hr className="hrBeforeButtons"/>
+                        <hr className="hrBeforeButtons" />
                     </>
                 )}
                 <div className="bottomButtons">
-                    <button className="mainButton secondaryButton" type="reset">Dodaj adnotację</button>
                     {isUnderRealization ? (
                         whoDealsEmail === user?.username && (
                             <button className="mainButton" type="submit" onClick={handleRejectProblem}>
