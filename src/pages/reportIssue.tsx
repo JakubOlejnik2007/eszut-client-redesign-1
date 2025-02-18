@@ -25,6 +25,7 @@ const ReportIssueScreen = () => {
     const places = placesQuery.data as IPlace[];
     const categories = categoriesQuery.data as ICategory[];
 
+
     useEffect(() => {
         if (places && categories)
             setFormData({

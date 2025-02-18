@@ -49,6 +49,10 @@ body {
   // background-size: cover;  
 }
 
+.hamburgerButton{
+  display: none;
+}
+
 .navButton {
   color: var(--buttonText);
   background-color: #ffffff00;
@@ -59,6 +63,7 @@ body {
   border-radius: var(--cornerSize);
   transition: 0.2s;
   border-style: none;
+  clear: both;
 }
 
 .navButton:hover {
@@ -612,6 +617,12 @@ nav {
   border-bottom-style: outset;
   display: flex;
   transition: 0.5s;
+}
+.navBarDynamic{
+
+  text-align: left;
+  display: flex;
+  width: 100%;
 }
 
 .report {
@@ -1187,6 +1198,49 @@ a:hover {
     display: none;
   }
 
+
+  .navbar{
+    display:list-item !important;
+  }
+  .navBarDynamic{
+    display:list-item !important;
+    overflow: hidden;
+    height: 315px;
+    transition: 0.5s;
+  }
+  .navBarHidden{
+    height: 0px !important;
+  }
+  .navButton{
+    width: 100%;
+    margin-left: 0px;
+    padding-left: 0px;
+    height: 30px;
+    border-style: solid;
+    margin-top: 5px;
+    border-width: 1px;
+    border-color: var(--windowBorderColor);
+  }
+  .hamburgerButton{
+    display: block;
+    border-radius: var(--smallCornerSize);
+    height: 24px;
+    width: 24px;
+    background-color: #ffffff00;
+    border-color: var(--windowBorderColor);
+    border-width: 1px;
+    border-style: solid;
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    text-align: center;
+    &:hover{
+      background-color: #ffffff0d;
+    }
+    &:active{
+      background-color: #ffffff22;
+    }
+  }
   .reportIssueForm {
     margin-right: 0px !important;
     width: 100% !important;
@@ -1244,7 +1298,7 @@ a:hover {
     height: 25px;
     position: absolute;
   }
-
+  
   .progressBar {
     display: none;
   }
