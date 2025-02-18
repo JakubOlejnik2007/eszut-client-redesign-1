@@ -11,7 +11,6 @@ const LogInScreen = () => {
 
     useEffect(() => {
         if (user) {
-
             navigate(urls.client.reportProblem);
         }
     }, [user])
