@@ -42,7 +42,7 @@ const SettingsScreen = () => {
     })
 
     useEffect(() => {
-        if (mappedEmailQuery.isSuccess) setNewEmail(mappedEmailQuery.data[0].mappedTo)
+        if (mappedEmailQuery.isSuccess && mappedEmailQuery.data.length > 0) setNewEmail(mappedEmailQuery.data[0].mappedTo)
     }, [mappedEmailQuery.isSuccess, mappedEmailQuery.data])
 
     const validateEmail = (email: string) => {
@@ -117,7 +117,6 @@ const SettingsScreen = () => {
 
                         {themes.map((theme) => <ThemeRadio key={theme.name} {...theme} />)}
                         <br />
-                        <hr />
                         {/* <h3 style={{ textAlign: "left", marginBottom: '12px' }}>zachowanie aplikacji:</h3>
 
                         wysyłaj powiadomienia<label className="switch"><input type="checkbox"></input><span className="slider"></span></label><br />
@@ -127,13 +126,14 @@ const SettingsScreen = () => {
 
                         {
                             user && user.role === EUserRole.ADMIN && <>
+                                <hr />
                                 <h3 style={{ textAlign: "left", marginBottom: '12px' }}>Dodatkowy adres email</h3>
                                 <div style={{
                                     display: "flex",
                                     alignItems: "center",
                                     gap: "10px",
                                 }}>
-                                    <input type="email" className="settingsTextInput" placeholder="example@mail.com" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
+                                    <input type="email" name="email" className="settingsTextInput" placeholder="example@mail.com" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
                                     <button className="mainButton sendButton" type="submit" style={{
                                         marginTop: "0px",
                                         width: "100px",
@@ -144,13 +144,16 @@ const SettingsScreen = () => {
                                     Powiadomienia domyślnie i zawsze wysyłane pod adres mailowy w usłudzie Outlook. Dodanie innego adresu pozwala kierować wiadomości o zgłoszeniu także na prywatne adresy mailowe.
                                 </span><br />
                                 <br />
-                                <hr />
                             </>
 
                         }
 
-                        <h3 style={{ textAlign: "left", marginBottom: '12px' }}>Tokeny logowania</h3>
-                        <ManagingTokens />
+
+                        {user && <>
+                            <hr />
+                            <h3 style={{ textAlign: "left", marginBottom: '12px' }}>Tokeny logowania</h3>
+                            <ManagingTokens />
+                        </>}
                     </div>
                 </center>
             </div>
