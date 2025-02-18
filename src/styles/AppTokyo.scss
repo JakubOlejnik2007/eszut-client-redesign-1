@@ -76,7 +76,7 @@
   }
 
   .window{
-    filter: drop-shadow(0px 0px 50px #8f98ff22);
+    filter: drop-shadow(0px 0px 4px #8f98ff22);
   }
 
   .titleBar {
@@ -88,12 +88,10 @@
     border-top-color: var(--windowBorderColor);
     &:hover{
       border-color: rgb(255, 50, 111);
-      color: rgb(255, 50, 111);
     }
     &:active{
       border-color: white;
-      color: white;
-    }
+  }
   }
   .textInput,
   select {
@@ -336,7 +334,7 @@
   /* MODALS */
 
   .modalContainer {
-    background-color: #0000006e;
+    background-color: #01000bc3 !important;
   }
 
   .code{
@@ -351,8 +349,8 @@
 
   .modal {
     backdrop-filter: none;
-    background-color: #101336;
-    filter: drop-shadow(0px 0px 50px #8f98ff22);
+    background-color: #01020e;
+    filter: drop-shadow(0px 0px 5px #8f98ff22);
     border-color: #545dbc;
     color: rgb(197, 197, 197);
     a{color: white;}
@@ -381,7 +379,24 @@
   .progressBarText {
     color: rgba(0, 0, 0, 0.379);
   }
-
+  .CommentInput{
+  border-bottom-color: #3a3e6f;
+  }
+  .CommentSend{
+    background-color: rgba(255, 50, 111, 0);
+    border-width: 1px;
+    border-color: rgb(255, 50, 111);
+    border-style: solid;
+    &:hover{
+      background-color: rgba(255, 50, 111, 0.107);
+    }
+    &:active{
+      border-color: rgb(255, 255, 255);
+    }
+  }
+  .comment {
+    border-color: #3a3e6f;
+  }
   .pagination{
     button{
       background-color: #3a3e6f;

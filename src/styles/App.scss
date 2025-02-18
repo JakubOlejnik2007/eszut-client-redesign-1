@@ -720,6 +720,11 @@ a:hover {
   position: absolute;
   top: 38px;
   right: 20px;
+  height: 18px;
+  width: 16px;
+  background-image: url(../assets/alarm.png);
+  background-repeat: no-repeat;
+  background-size: contain;
   animation: shake 0.25s infinite;
 }
 
