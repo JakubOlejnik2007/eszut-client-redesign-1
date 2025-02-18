@@ -80,7 +80,7 @@ export const LogElement = ({ date, content, userEmail, type }: ILogElementProps)
         <div className="logElement">
 
             <div className={`${["logInfo", "logWarning", "logError"][type]} log logIcon`}></div>
-            <div data-tooltip={userEmail} style={{ backgroundColor: '', width: '72%', height: '25px', transform: 'translateY(2.5px)' }}>{content}</div>
+            <div data-tooltip={userEmail} style={{ backgroundColor: '', width: '72%', height: 'max-content', paddingBottom: '4px', transform: 'translateY(2.5px)' }}>{content}</div>
 
             <div style={{ borderColor: 'var(--tableAccent)', width: '0.5%', height: '25px', borderRightWidth: '1px', borderRightStyle: 'solid' }}></div>
             <div style={{ borderColor: '', width: '0.5%', height: '25px' }}></div>
