@@ -18,7 +18,7 @@ const ReportsScreen = () => {
     const { user, accessToken } = AuthData();
 
 
-    const [showFilter, setShowFilter] = useState(false);
+    const [showFilter, setShowFilter] = useState(true);
     const [filterState, setFilterState] = useState<IFilterState>({ CategoryID: "", PlaceID: "", textToSearch: "" });
 
 
@@ -88,7 +88,6 @@ const ReportsScreen = () => {
 
     return (
         <div style={{ width: "100%" }}>
-            <button className="titleBarButton search" title="wyszukaj zgłoszenia" onClick={() => setShowFilter(!showFilter)}>🔍</button>
 
             {
                 <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} isVisible={showFilter} setFilterState={setFilterState} filterState={filterState} />
