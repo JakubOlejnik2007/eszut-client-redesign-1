@@ -231,7 +231,8 @@ const CommentElement = ({ content, date, authorName }: IComment) => {
     const timeDiffInSeconds = Math.floor(timeDiff / 1000);
 
 
-    const timeToDisplay = timeDiffInSeconds < 60 ? `${timeDiffInSeconds} sekund temu` :
+    const timeToDisplay = Math.abs(timeDiffInSeconds) < 60 ? `${Math.abs(timeDiffInSeconds)} sekund temu` :
+    //TODO: actually make this not count from -1 seconds ig
         timeDiffInSeconds < 3600 ? `${Math.floor(timeDiffInSeconds / 60)} minut temu` :
             timeDiffInSeconds < 86400 ? `${Math.floor(timeDiffInSeconds / 3600)} godzin temu` :
                 timeDiffInSeconds < 604800 ? `${Math.floor(timeDiffInSeconds / 86400)} dni temu` :

@@ -31,6 +31,10 @@
     display: flex;
   }
 
+  .hamburgerButton{
+    color: var(--buttonText);
+  }
+
   .navButton:active {
     background-color: #ffffff28;
     color: white;
