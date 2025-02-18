@@ -17,6 +17,10 @@
   --15px: 15px;
 }
 
+*{
+  scrollbar-color: var(--secondaryText) rgba(255, 255, 255, 0);
+}
+
 .code {
   background-color: #0000004f;
   padding: 4px;
