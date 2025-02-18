@@ -123,12 +123,14 @@
     }
   }
   .sendButton{
-    background-color: #d7ffa6;
+    background-color: #DDE8A6;
+    color: #006308;
+
     &:hover{
-      background-color: #f8ffbd;
+      background-color: #DDE8A6;
     }
     &:active{
-      background-color: #87cf7d;
+      background-color: #DDE8A6;
     }
   }
 
