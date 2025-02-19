@@ -195,7 +195,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                     top: `${position.y}px`,
                 }}
             >
-                <div className="modalTitle">Adnotacje</div>
+                <div className="modalTitle">Komentarze</div>
                 <div className="newComment">
                     <input className="CommentInput" placeholder="co chcesz napisać?" id="commentInput" onChange={e => setCommentContent(e.target.value)} />
                     <input className="CommentSend" type="submit" value="📨" onClick={handleInsertComment} />
