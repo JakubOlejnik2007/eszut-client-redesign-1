@@ -103,7 +103,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                 )}
                 <div className="bottomButtons">
                     {isUnderRealization ? (
-                        whoDealsEmail === user?.username && (
+                        whoDealsEmail === user?.email && (
                             <button className="mainButton" type="submit" onClick={handleRejectProblem}>
                                 Zrezygnuj
                             </button>
