@@ -8,7 +8,7 @@
   /*main page*/
   --pageBackBG: #c6c6c6;
   --pageForeBG: #e0e0e0;
-  --navBarColor: #ffffffa2;
+  --navBarColor: #eeeeee;
   --borderColor: #9d9d9d;
 
   /*page elements*/
@@ -168,15 +168,15 @@
     filter: drop-shadow(0px 0px 0px #0000009d);
     transform: scale(102.5%);
     transition: 0.5s;
-    background-color: #eaeaea9d;
+    background-color: #ffffff;
 
   }
 
 
   .expired {
-    background-color: #ff9faf5f;
+    background-color: #eecfd4;
     &:hover{
-      background-color: #ff9faf5f;
+      background-color: #f5d1d7;
     }
   }
 
