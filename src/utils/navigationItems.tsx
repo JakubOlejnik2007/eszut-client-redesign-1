@@ -31,13 +31,13 @@ const NAVIGATION_ITEMS: TNavigationItem[] = [
     isMenu: true,
     minUserRole: EUserRole.GUEST,
   },
-  { id: "6", path: urls.client.mainpage, name: "Zaloguj się", element: <LogInScreen />, isMenu: false, minUserRole: EUserRole.GUEST },
-  { id: "4.1", path: urls.client.problems, name: "Zgłoszenia", element: <ReportsScreen />, isMenu: true, minUserRole: EUserRole.ADMIN },
-  { id: "3", path: urls.client.yourProblems, name: "Twoje zgłoszenia", element: <YourProblems />, isMenu: true, minUserRole: EUserRole.USER },
-  { id: "4.2", path: urls.client.archive, name: "Archiwum", element: <Archive />, isMenu: true, minUserRole: EUserRole.ADMIN },
-  { id: "4.3", path: urls.client.displaylog, name: "Dziennik", element: <DziennikLog />, isMenu: true, minUserRole: EUserRole.ADMIN },
-  { id: "4.4", path: urls.client.system, name: "System", element: <SystemSettings />, isMenu: true, minUserRole: EUserRole.ADMIN },
-  { id: "5", path: urls.client.settings, name: "Preferencje", element: <SettingsScreen />, isMenu: true, minUserRole: EUserRole.GUEST }
+  { id: "3", path: urls.client.problems, name: "Zgłoszenia", element: <ReportsScreen />, isMenu: true, minUserRole: EUserRole.ADMIN },
+  { id: "8", path: urls.client.yourProblems, name: "Twoje zgłoszenia", element: <YourProblems />, isMenu: true, minUserRole: EUserRole.USER, maxUserRole: EUserRole.USER },
+  { id: "4", path: urls.client.archive, name: "Archiwum", element: <Archive />, isMenu: true, minUserRole: EUserRole.ADMIN },
+  { id: "5", path: urls.client.displaylog, name: "Dziennik", element: <DziennikLog />, isMenu: true, minUserRole: EUserRole.ADMIN },
+  { id: "6", path: urls.client.system, name: "System", element: <SystemSettings />, isMenu: true, minUserRole: EUserRole.ADMIN },
+  { id: "7", path: urls.client.settings, name: "Preferencje", element: <SettingsScreen />, isMenu: true, minUserRole: EUserRole.GUEST },
+  { id: "z", path: urls.client.mainpage, name: "Zaloguj się", element: <LogInScreen />, isMenu: false, minUserRole: EUserRole.GUEST }
 ];
 
 export default NAVIGATION_ITEMS;
