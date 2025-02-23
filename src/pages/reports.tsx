@@ -17,10 +17,8 @@ const ReportsScreen = () => {
 
     const { user, accessToken } = AuthData();
 
-
     const [showFilter, setShowFilter] = useState(true);
     const [filterState, setFilterState] = useState<IFilterState>({ CategoryID: "", PlaceID: "", textToSearch: "" });
-
 
     const [underYou, setUnderYou] = useState<any[]>([]);
     const [underRealization, setUnderRealization] = useState<any[]>([]);
@@ -87,7 +85,11 @@ const ReportsScreen = () => {
 
 
     return (
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "100%", position:"relative" }}>
+        {/* <button className="titleBarButton search"></button> przydało by się to wyszukiwanie.. */}
+        <button className="titleBarButton trash"></button>
+        <button className="titleBarButton takeOn"></button>
+        {/* JAK NIC NIE JEST ZAZNACZONE DAWAJ IM KLASĘ unavaible */}
 
             {
                 <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} isVisible={showFilter} setFilterState={setFilterState} filterState={filterState} />

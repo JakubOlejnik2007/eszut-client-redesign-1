@@ -1,8 +1,8 @@
 .desert:root {
 
   /*corners, etc.*/
-  --cornerSize: 8px;
-  --smallCornerSize: 2px;
+  --cornerSize: 4px;
+  --smallCornerSize: 4px;
   --defaultPadding: 8px;
 
   /*main page*/
@@ -25,17 +25,24 @@
   --reportBGH: #F8F1E3;
   --reportBorderColor: #4F321C;
 
-  --reportExpiredBG: #fbe5ba;
-  --reportExpiredBGH: #fbe5ba;
+  --reportExpiredBG: #ffdbbf;
+  --reportExpiredBGH: #ffdbbf;
   --reportExpiredBorderColor: #4F321C;
 
   /* tables */
   --tableAccent: #d1c3a8;
 
+  body{
+    background-image: url("../assets/desert/bgDesert.png");
+    background-size: 150px;
+  }
+
   nav {
     // background: linear-gradient(90deg, #3b00ba6b 0%, rgba(0, 99, 219, 0.459) 100%); looks cool
-    background-color: #F8F1E3;
-    border-bottom: #4F321C;
+    background: linear-gradient(180deg, rgba(89,89,89,1) 0%, rgba(62,62,62,1) 5%, rgba(65,65,65,1) 45%, rgba(62,62,62,1) 92%, rgba(32,32,32,1) 100%); 
+    box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 10px;
+    border-bottom: transparent;
+    color: var(--pageForeBG);
     border-bottom-width: 1px;
     border-bottom-style: outset;
     display: flex;
@@ -44,15 +51,23 @@
 
   .navButton {
     background-color: none;
-    color: #4F321C;
+    color: var(--pageForeBG);
   }
   .navButton:hover {
-    background-color: #4f321c11;
-    color: #4F321C;
+    background-color: #ffffff11;
+    color: var(--pageForeBG);
   }
   .navButton:active {
-    background-color: #4f321c34;
-    color: #4F321C;
+    background-color: #ffffff11;
+    color: var(--pageForeBG);
+  }
+
+  .logo {
+    color: var(--pageForeBG);
+  }
+
+  .logo:hover {
+    color: #ae764a;
   }
 
 
@@ -60,9 +75,15 @@
     color: var(--secondaryText);
     text-decoration: underline;
   }
-
+  .window{
+    background: linear-gradient(180deg, rgba(89,89,89,1) 0%, rgba(62,62,62,1) 5%, rgba(65,65,65,1) 45%, rgba(62,62,62,1) 92%, rgba(32,32,32,1) 100%); 
+    border-color: rgb(52, 52, 52);
+    filter: none;
+    box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 10px;
+  }
   .titleBar {
-    background: #F8F1E3
+    background: linear-gradient(180deg, rgba(89,89,89,1) 0%, rgba(62,62,62,1) 5%, rgba(65,65,65,1) 45%, rgba(62,62,62,1) 92%, rgba(32,32,32,1) 100%); 
+    color: rgb(205, 205, 205);
   }
   .titleBarButton{
     background-color: var(--pageForeBG);
@@ -136,14 +157,6 @@
 
   hr {
     border-top: 1px solid var(--borderColor);
-  }
-
-  .logo {
-    color: var(--mainText)
-  }
-
-  .logo:hover {
-    color: #ae764a;
   }
 
   ::-moz-selection {
@@ -232,6 +245,20 @@
     border-color: var(--accentColor);
     border-top-color: #ffffff2f;
     border-radius: var(--smallCornerSize);
+
+    &.selected{
+      .waga1, .waga2, .waga3{
+        background-color: #4F321C;
+        border-color: #4F321C;
+      }
+      border-color: #4F321C;
+      background-color: #ffbc89;
+      &:hover{
+        filter: none;
+        background-color: #ffbc89;
+      }
+      filter: none;
+    }
   }
 
   .report:hover {

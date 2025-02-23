@@ -126,14 +126,38 @@ body {
     background-color: rgb(96, 96, 96);
   }
 }
+.titleBarButton:nth-child(2){
+  right: 48px;
+}
+.titleBarButton:nth-child(3){
+  right: 90px;
+}
 
 .search {
   color: transparent;
-  background-image: url(../assets/glass.png);
+  background-image: url(../assets/toolbar/glass.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 12px;
 }
+.trash{
+  color: transparent;
+  background-image: url(../assets/toolbar/trash.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+}
+.takeOn{
+  color: transparent;
+  background-image: url(../assets/toolbar/bookmark.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 9px;
+}
+.unavaible{
+  opacity: 0.5;
+}
+
 
 .filterContainer {
   background-color: #1f1f1f;
@@ -644,6 +668,13 @@ nav {
   width: 269px;
   display: flex;
   position: relative;
+
+  &:active
+  {
+    transform: scale(95%) !important;
+    transition: 0.2s !important;
+  }
+
   &.selected{
     .waga1, .waga2, .waga3{
       background-color: rgba(0, 98, 255, 0.351);
