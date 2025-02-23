@@ -73,7 +73,16 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
 
     return (
         <>
-            <div className={`report ${daysLeft <= 0 ? "expired" : ""}`} onClick={() => setShowModal(true)}>
+            <div className={`report ${daysLeft <= 0 ? "expired" : ""}`} onClick={(e) => {
+                e.stopPropagation();
+                e.shiftKey ? () => { } :
+                    setShowModal(true);
+            }
+            }
+                style={{
+                    userSelect: "none"
+                }}
+            >
                 <div className={`waga${priority} reportTitle`}></div>
                 {daysLeft <= 0 ? <div className="clockExpired">
                     {/* <img src={Alarm} height="18px" alt="Ostrzeżenie o nierozwiązanym problemie" /> */}
