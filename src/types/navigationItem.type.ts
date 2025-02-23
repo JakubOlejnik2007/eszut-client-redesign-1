@@ -7,7 +7,8 @@ type TNavigationItem = {
     name: string,
     element: ReactNode,
     isMenu: boolean,
-    minUserRole: EUserRole
+    minUserRole: EUserRole;
+    maxUserRole?: EUserRole;
 }
 
 export default TNavigationItem;
