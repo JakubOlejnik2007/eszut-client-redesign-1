@@ -23,6 +23,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
     const reportDate = new Date(when);
 
     const [showModal, setShowModal] = useState(false);
+    const [selected, setSelected] = useState(false);
 
     const daysLeft = dayToDeadline(reportDate, priority);
 
@@ -73,9 +74,9 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
 
     return (
         <>
-            <div className={`report ${daysLeft <= 0 ? "expired" : ""}`} onClick={(e) => {
+            <div className={`report ${daysLeft <= 0 ? "expired" : ""} ${selected ? "selected" : ""}`} onClick={(e) => {
                 e.stopPropagation();
-                e.shiftKey ? () => { } :
+                e.shiftKey ? setSelected(!selected) :
                     setShowModal(true);
             }
             }
