@@ -7,7 +7,7 @@
 
   /*main page*/
   --pageBackBG: #cbc4b6;
-  --pageForeBG: #F8F1E3;
+  --pageForeBG: #d8d0be;
   --navBarColor: #ffffffa2;
   --borderColor: #0b0221;
   --windowBorderColor: #4F321C;
@@ -25,8 +25,8 @@
   --reportBGH: #F8F1E3;
   --reportBorderColor: #4F321C;
 
-  --reportExpiredBG: #ffdbbf;
-  --reportExpiredBGH: #ffdbbf;
+  --reportExpiredBG: #e6ca9f;
+  --reportExpiredBGH: #e6ca9f;
   --reportExpiredBorderColor: #4F321C;
 
   /* tables */
@@ -35,6 +35,7 @@
   body{
     background-image: url("../assets/desert/bgDesert.png");
     background-size: 150px;
+    background-attachment: fixed;
   }
 
   nav {
@@ -51,15 +52,24 @@
 
   .navButton {
     background-color: none;
+    border-width: 1px;
+    border-color: rgb(98, 98, 98);
+    border-top-color: rgb(112, 112, 112);
+    border-style: solid;
     color: var(--pageForeBG);
+    outline: 1px solid rgb(31, 31, 31);
   }
+
   .navButton:hover {
-    background-color: #ffffff11;
+    background-color: none;
     color: var(--pageForeBG);
   }
   .navButton:active {
     background-color: #ffffff11;
     color: var(--pageForeBG);
+    border-top-color: rgb(59, 59, 59);
+    border-bottom-color: rgb(112, 112, 112);
+
   }
 
   .logo {
@@ -67,7 +77,7 @@
   }
 
   .logo:hover {
-    color: #ae764a;
+    color: white;
   }
 
 
@@ -79,18 +89,30 @@
     background: linear-gradient(180deg, rgba(89,89,89,1) 0%, rgba(62,62,62,1) 5%, rgba(65,65,65,1) 45%, rgba(62,62,62,1) 92%, rgba(32,32,32,1) 100%); 
     border-color: rgb(52, 52, 52);
     filter: none;
-    box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 10px;
+    box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 20px;
+    border-radius: var(--cornerSize);
+    margin-bottom: 64px;
+  }
+  .windowContent{
+    background-image: url(../assets/desert/bgDesertFg.png);
+    background-size: 150px;
   }
   .titleBar {
     background: linear-gradient(180deg, rgba(89,89,89,1) 0%, rgba(62,62,62,1) 5%, rgba(65,65,65,1) 45%, rgba(62,62,62,1) 92%, rgba(32,32,32,1) 100%); 
     color: rgb(205, 205, 205);
+    box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 10px;
   }
   .titleBarButton{
-    background-color: var(--pageForeBG);
-    border-color: var(--windowBorderColor);
-    border-top-color: var(--windowBorderColor);
+    height: 26px;
+    top: -3px;
+    background-color: transparent;
+    border-color: transparent;
+    border-top-color: transparent;
+    &:hover{
+      background-color: rgb(81, 81, 81);
+    }
     &:active{
-      background-color: var(--pageBackBG);
+      background-color: rgb(122, 122, 122);
     }
   }
   .textInput,
@@ -160,13 +182,15 @@
   }
 
   ::-moz-selection {
-    color: var(--accentColor);
-    background: #362929;
+    color: white;
+    background: #0088ff9f;
+    
   }
 
   ::selection {
-    color: var(--accentColor);
-    background: #ff752534;
+    color: white;
+    background: #0088ff9f;
+
   }
 
 
