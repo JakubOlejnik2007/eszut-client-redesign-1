@@ -86,6 +86,9 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
     }
 
 
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") handleClose();
+    });
 
     const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
@@ -232,7 +235,7 @@ const CommentElement = ({ content, date, authorName }: IComment) => {
 
 
     const timeToDisplay = Math.abs(timeDiffInSeconds) < 60 ? `${Math.abs(timeDiffInSeconds)} sekund temu` :
-    //TODO: actually make this not count from -1 seconds ig
+        //TODO: actually make this not count from -1 seconds ig
         timeDiffInSeconds < 3600 ? `${Math.floor(timeDiffInSeconds / 60)} minut temu` :
             timeDiffInSeconds < 86400 ? `${Math.floor(timeDiffInSeconds / 3600)} godzin temu` :
                 timeDiffInSeconds < 604800 ? `${Math.floor(timeDiffInSeconds / 86400)} dni temu` :
