@@ -95,7 +95,8 @@
   }
   .windowContent{
     background-image: url(../assets/desert/bgDesertFg.png);
-    background-size: 150px;
+    background-size: 125px;
+    box-shadow: inset black 0px 0px 5px;
   }
   .titleBar {
     background: linear-gradient(180deg, rgba(89,89,89,1) 0%, rgba(62,62,62,1) 5%, rgba(65,65,65,1) 45%, rgba(62,62,62,1) 92%, rgba(32,32,32,1) 100%); 
@@ -132,16 +133,22 @@
     background-image: url(../assets/glassdark.png);
   }
   .filterContainer{
-    background-color: var(--pageForeBG);
-    border-bottom-color: var(--borderColor);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom-color: rgba(0, 0, 0, 0.466);
+    color: rgb(205, 205, 205);
   }
   .filterSelect{
-    background: var(--pageForeBG);
+    background: rgba(0, 0, 0, 0.5);
     border-color: var(--borderColor);
+    color: rgb(205, 205, 205);
+  }
+  .filterInput::placeholder{
+    color: rgb(205, 205, 205);
   }
   .filterInput{
-    background: var(--pageForeBG);
+    background: rgba(0, 0, 0, 0.5);
     border-color: var(--borderColor);
+    color: rgb(205, 205, 205);
   }
 
   .mainButton {
