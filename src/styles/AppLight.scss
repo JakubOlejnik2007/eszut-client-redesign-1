@@ -162,6 +162,21 @@
     border-color: #38383869;
     border-top-color: #ffffff2f;
     border-radius: var(--smallCornerSize);
+
+    &.selected{
+      .waga1, .waga2, .waga3{
+        background-color: rgba(0, 98, 255, 0.351);
+        border-color: rgba(0, 110, 255, 0.793);
+      }
+      border-color: rgba(0, 38, 88, 0.406);
+      background-color: rgb(222, 229, 240);
+      &:hover{
+        filter: none;
+        background-color: rgb(229, 234, 248);  
+      }
+      filter: none;
+    }
+
   }
 
   .report:hover {
@@ -293,8 +308,6 @@
   .logElement:nth-child(even) {
     background-color: #dadada;
   }
-
-
 
   .settingsTextInput{
     border-color: rgb(196, 196, 196);
