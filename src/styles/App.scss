@@ -644,6 +644,21 @@ nav {
   width: 269px;
   display: flex;
   position: relative;
+  &.selected{
+    .waga1, .waga2, .waga3{
+      background-color: rgba(0, 98, 255, 0.351);
+      border-color: rgba(0, 110, 255, 0.793);
+    }
+    border-color: rgba(119, 178, 255, 0.381);
+    background-color: rgba(23, 29, 39, 0.764);
+    &:hover{
+      filter: drop-shadow(0px 0px 10px rgba(0, 110, 255, 0.162));
+      background-color: rgba(23, 29, 39, 0.605);
+      border-color: rgba(78, 154, 255, 0.611);
+
+    }
+    filter: drop-shadow(0px 0px 5px rgba(0, 110, 255, 0.162));
+  }
 }
 
 .report:hover {
