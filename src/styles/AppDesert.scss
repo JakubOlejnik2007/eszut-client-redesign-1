@@ -369,7 +369,8 @@
   /* MODALS */
 
   .modalContainer {
-    background-color: #0000006e;
+   background-color: #000000d6 !important;
+   animation: none;
   }
 
   .edit{
@@ -381,21 +382,44 @@
   }
 
   .closeButton{
-    background-color: #83532e;
+    background-color: #454545;
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: var(--smallCornerSize);
+    height: 20px;
+    width: 20px;
+    border-width: 1px;
+    border-color: rgb(98, 98, 98);
+    border-top-color: rgb(112, 112, 112);
+    border-style: solid;
+    color: var(--pageForeBG);
+    outline: 1px solid rgb(31, 31, 31);
+    background-image: url(../assets/xw.png);
+    background-size: 8px;
   }
   .closeButton:hover{
-    background-color: #83532e;
-    background-image: none;
+    background-color: #454545;
+    background-image: url(../assets/xw.png);
   }
   .closeButton:active{
-    background-color: #4F321C;
+    background-image: url(../assets/xw.png);
+    background-color: #ffffff11;
+    color: var(--pageForeBG);
+    border-top-color: rgb(59, 59, 59);
+    border-bottom-color: rgb(112, 112, 112);
   }
 
   .modal {
     backdrop-filter: none;
-    background-color: #F8F1E3;
-    filter: drop-shadow(0px 0px 50px #8f98ff22);
-    border-color: #4F321C;
+    background-color: #ffffff;
+    background-image: url(../assets/desert/wood.jpg);
+    background-size: 250px;
+    filter: drop-shadow(0px 0px 0px #00000000);
+    box-shadow: (rgba(0, 0, 0, 0.617) 0px 0px 20px, inset black 0px 0px 5px), inset rgba(0, 0, 0, 0.292) 0px 0px 100px;
+
+
+    overflow: hidden;
+    border-color: #2b2b2b;
     color: #4F321C;
     a{color: #4F321C;}
 
@@ -408,6 +432,14 @@
   }
   .modalTitle {
     background-color: rgba(255, 0, 0, 0);
+    background: linear-gradient(180deg, rgba(89,89,89,1) 0%, rgba(62,62,62,1) 5%, rgba(65,65,65,1) 45%, rgba(62,62,62,1) 92%, rgba(32,32,32,1) 100%); 
+    color: rgb(205, 205, 205);
+    line-height: 32px;
+    margin-top: 0px;
+    height: 32px;
+    padding-top: 0px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 5px;
+
   }
 
   .modalInfo {
