@@ -426,6 +426,41 @@
     .daysLeftText{
       color: #4F321C;
     }
+
+    button{
+      background-color: #454545;
+      color: var(--pageForeBG);
+
+      border-width: 1px;
+      border-color: rgb(98, 98, 98);
+      border-top-color: rgb(112, 112, 112);
+      border-style: solid;
+      outline: 1px solid rgb(31, 31, 31);
+      transition: 0s;
+      box-shadow: rgb(0, 0, 0) 0px 0px 5px;
+
+      &:hover{
+        background-color: #555555;
+        border-color: rgb(98, 98, 98);
+        border-top-color: rgb(112, 112, 112);
+      }
+      &:active{
+        background-color: #555555 !important;
+        color: var(--pageForeBG) !important;
+        border-color: rgb(98, 98, 98) !important;
+        border-top-color: rgb(59, 59, 59) !important;
+        border-bottom-color: rgb(112, 112, 112) !important;
+        transform: none !important;
+        transition: 0s;
+      }
+
+    }
+    .edit{
+      color: transparent !important;
+      background-image: url(../assets/edit.png);
+      &:active
+      {color: transparent !important;}
+    }
   }
   .edit{
     color: rgba(0, 0, 0, 0);
