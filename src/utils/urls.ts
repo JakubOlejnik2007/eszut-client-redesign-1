@@ -30,8 +30,10 @@ const urls = {
             insertProblem: "/report-problem",
             updateProblem: "/update-problem",
             takeOnProblem: "/take-on-problem",
+            takeOnProblemBulk: "/take-on-problem-bulk",
             rejectProblem: "/reject-problem",
             markProblemAsSolved: "/mark-problem-as-solved",
+            markProblemAsSolvedBulk: "/mark-problem-as-solved-bulk",
             markProblemAsUnsolved: "/mark-problem-as-unsolved",
             deleteProblems: "/delete-problems"
         },
