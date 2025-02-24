@@ -35,6 +35,14 @@ export const putTakeOnProblem = async (AuthToken: string, ProblemID: string) =>
         AuthToken
     );
 
+export const putTakeOnProblemBulk = async (AuthToken: string, problems: string[]) =>
+    await createApiRequest(
+        "PUT",
+        `${config.backend}${urls.backend.problem.takeOnProblemBulk}`,
+        { problems },
+        AuthToken
+    );
+
 export const putRejectProblem = async (AuthToken: string, ProblemID: string) =>
     await createApiRequest("PUT", `${config.backend}${urls.backend.problem.rejectProblem}`, { ProblemID }, AuthToken);
 
@@ -43,6 +51,13 @@ export const putMarkAsSolved = async (AuthToken: string, ProblemID: string) =>
         "PUT",
         `${config.backend}${urls.backend.problem.markProblemAsSolved}`,
         { ProblemID },
+        AuthToken
+    );
+export const putMarkAsSolvedBulk = async (AuthToken: string, problems: string[]) =>
+    await createApiRequest(
+        "PUT",
+        `${config.backend}${urls.backend.problem.markProblemAsSolvedBulk}`,
+        { problems },
         AuthToken
     );
 

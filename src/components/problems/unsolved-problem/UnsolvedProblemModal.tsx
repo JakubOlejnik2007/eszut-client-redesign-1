@@ -40,13 +40,47 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
 
     const [commentContent, setCommentContent] = useState("");
 
-    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleDragStart = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+        const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+        const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
+
         setIsDragging(true);
         setOffset({
-            x: e.clientX - position.x,
-            y: e.clientY - position.y
+            x: clientX - position.x,
+            y: clientY - position.y
         });
     };
+
+    const handleDragMove = (e: MouseEvent | TouchEvent) => {
+        if (!isDragging) return;
+
+        const clientX = "touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+        const clientY = "touches" in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
+
+        setPosition({
+            x: clientX - offset.x,
+            y: clientY - offset.y
+        });
+    };
+
+    const handleDragEnd = () => {
+        setIsDragging(false);
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousemove", handleDragMove);
+        document.addEventListener("mouseup", handleDragEnd);
+        document.addEventListener("touchmove", handleDragMove);
+        document.addEventListener("touchend", handleDragEnd);
+
+        return () => {
+            document.removeEventListener("mousemove", handleDragMove);
+            document.removeEventListener("mouseup", handleDragEnd);
+            document.removeEventListener("touchmove", handleDragMove);
+            document.removeEventListener("touchend", handleDragEnd);
+        };
+    }, [isDragging]);
+
 
     const handleMouseMove = (e: MouseEvent) => {
         if (!isDragging) return;
@@ -191,10 +225,11 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
             <div
                 className="modal comments"
                 onClick={(e) => e.stopPropagation()}
-                onMouseDown={handleMouseDown}
+                onMouseDown={handleDragStart}
+                onTouchStart={handleDragStart}
                 style={{
                     position: "absolute",
-                    left: `${position.x * 2}px`,
+                    left: `${position.x}px`,
                     top: `${position.y}px`,
                 }}
             >

@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getCategories, getPlaces, getUnsolvedProblems } from "../service/apiFetchFunctions";
+import { getCategories, getPlaces, getUnsolvedProblems, putMarkAsSolvedBulk, putTakeOnProblemBulk } from "../service/apiFetchFunctions";
 import { AuthData } from "../auth/AuthWrapper";
 import { useEffect, useState } from "react";
 import UnsolvedProblem from "../components/problems/unsolved-problem/UnsolvedProblem";
@@ -7,29 +7,44 @@ import Filter from "../components/Filter";
 import Fuse from "fuse.js";
 import IFilterState from "../types/filterState.interface";
 import Loading from "../assets/loading.gif";
+import { Notif } from "../components/notificationsWrapper";
+import { ENotifType } from "../types/notification.interface";
 
 
 
 const ReportsScreen = () => {
+    const { user, accessToken } = AuthData();
+    const { displayNotif } = Notif()
 
     const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
+    const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(accessToken as string), {
+        enabled: !!accessToken
+    });
 
-    const { user, accessToken } = AuthData();
 
-    const [showFilter, setShowFilter] = useState(true);
+
     const [filterState, setFilterState] = useState<IFilterState>({ CategoryID: "", PlaceID: "", textToSearch: "" });
+    const [selectedReports, setSelectedReports] = useState<Set<string>>(new Set())
 
     const [underYou, setUnderYou] = useState<any[]>([]);
     const [underRealization, setUnderRealization] = useState<any[]>([]);
     const [other, setOther] = useState<any[]>([]);
 
-    const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(accessToken as string), {
-        enabled: !!accessToken
-    });
-
     const refreshQueries = () => {
         unsolvedProblemsQuery.refetch();
+    }
+
+    const toggleItem = (item: string) => {
+        setSelectedReports(prev => {
+            const tempSet = new Set(prev)
+            if (tempSet.has(item)) {
+                tempSet.delete(item)
+            } else {
+                tempSet.add(item)
+            }
+            return tempSet;
+        })
     }
 
     const splitProblems = () => {
@@ -80,25 +95,45 @@ const ReportsScreen = () => {
         return <img src={Loading} className="spinner"></img>
     }
 
+    const handleBulkOperation = async (e: React.MouseEvent<HTMLElement>, func: (accessToken: string, problems: string[]) => any) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const reports = new Array(...selectedReports)
+        console.log(selectedReports)
 
+        if (reports.length === 0) {
+            displayNotif({ message: "Nie wybrano żadnego problemu", type: ENotifType.SUCCESS });
+            return;
+        }
 
+        try {
+            const response = await func(accessToken as string, reports)
+            if (response !== "OK") throw new Error();
+            displayNotif({ message: "Przypisano problem masowo", type: ENotifType.SUCCESS });
+            refreshQueries();
+        } catch (e) {
+            displayNotif({ message: "Aktualizacja problemów nie powiodła się", type: ENotifType.ERROR });
+        }
+    }
 
+    const handleMarkAsSolvedBulk = (e: React.MouseEvent<HTMLElement>) => handleBulkOperation(e, putMarkAsSolvedBulk)
+    const handleTakeOnBulk = (e: React.MouseEvent<HTMLElement>) => handleBulkOperation(e, putTakeOnProblemBulk)
 
     return (
-        <div style={{ width: "100%", position:"relative" }}>
-        {/* <button className="titleBarButton search"></button> przydało by się to wyszukiwanie.. */}
-        <button className="titleBarButton trash"></button>
-        <button className="titleBarButton takeOn"></button>
-        {/* JAK NIC NIE JEST ZAZNACZONE DAWAJ IM KLASĘ unavaible */}
+        <div style={{ width: "100%", position: "relative" }}>
+            {/* <button className="titleBarButton search"></button> przydało by się to wyszukiwanie.. */}
+            <button className="titleBarButton trash" onClick={handleMarkAsSolvedBulk}></button>
+            <button className="titleBarButton takeOn" onClick={handleTakeOnBulk}></button>
+            {/* JAK NIC NIE JEST ZAZNACZONE DAWAJ IM KLASĘ unavaible */}
 
             {
-                <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} isVisible={showFilter} setFilterState={setFilterState} filterState={filterState} />
+                <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} isVisible={true} setFilterState={setFilterState} filterState={filterState} />
             }
 
             <h2>Realizowane przez ciebie</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
                 {
-                    underYou.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
+                    underYou.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} toggleItem={toggleItem} selected={selectedReports.has(problem._id)} />
                     )
                 }
             </div>
@@ -106,7 +141,7 @@ const ReportsScreen = () => {
             <h2>Niepodjęte</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
                 {
-                    other.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />
+                    other.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} toggleItem={toggleItem} selected={selectedReports.has(problem._id)} />
                     )
                 }
             </div>
@@ -114,7 +149,7 @@ const ReportsScreen = () => {
             <h2>Realizowane przez innych administratorów</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
                 {
-                    underRealization.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} />)
+                    underRealization.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} toggleItem={toggleItem} selected={selectedReports.has(problem._id)} />)
                 }
             </div>
         </div>
