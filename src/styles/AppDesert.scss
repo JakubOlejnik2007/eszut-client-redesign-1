@@ -277,14 +277,21 @@
     }
   }
   .sendButton{
-    background-color: #DDE8A6;
-    color: #006308;
+    background: linear-gradient(180deg, rgba(227,255,125,1) 0%, rgba(166,214,44,1) 3%, rgba(95,186,47,1) 48%, rgba(67,135,36,1) 49%, rgba(4,73,17,1) 94%, rgba(1,55,45,1) 100%);
+    color: white;
+    font-weight: 500;
+
+    border-color: rgb(18, 94, 62) !important;
+    border-top-color: rgb(220, 255, 104) !important;
+    outline: 1px solid rgb(0, 45, 35);
 
     &:hover{
-      background-color: #DDE8A6;
+      background: linear-gradient(180deg, rgba(227,255,125,1) 0%, rgba(166,214,44,1) 3%, rgba(95,186,47,1) 48%, rgba(67,135,36,1) 49%, rgba(4,73,17,1) 94%, rgba(1,55,45,1) 100%);
+      transform: none;
     }
     &:active{
-      background-color: #DDE8A6;
+      background: linear-gradient(0deg, rgba(227,255,125,1) 0%, rgba(166,214,44,1) 3%, rgba(95,186,47,1) 48%, rgba(67,135,36,1) 49%, rgba(4,73,17,1) 94%, rgba(1,55,45,1) 100%);
+      transform: none;
     }
   }
 
@@ -688,22 +695,26 @@
   }
 
   .logElement {
-    background-color: #eee3cd;
+    background-color: #eee3cd00;
   }
   
   .logElement:nth-child(even) {
-    background-color: #f4ebda;
+    background-color: #ffffff00;
   }
 
 
   .settingsTextInput{
-    border-color: var(--windowBorderColor);
-    background-color: #eee3cd;
+    background: linear-gradient(180deg, rgba(166,166,166,0.6656863428965336) 0%, rgba(103,103,103,0.4051821412158614) 3%, rgba(73,73,73,0.21190483029149154) 48%, rgba(62,62,62,0.34635861180409666) 49%, rgba(62,62,62,0.5760504885547969) 94%, rgba(32,32,32,0.6600841020001751) 100%);
+    background-color: transparent;
+    color: white;
+    text-shadow: 0px 0px 2px black;
+    box-shadow: inset rgba(0, 0, 0, 0.583) 0px 0px 5px;
+
     &:hover{
-      background-color: var(--pageForeBG);
+      background-color: transparent;
     }
     &:focus{
-      background-color: var(--pageForeBG);
+      background-color: transparent;
     }
   }
   
@@ -717,21 +728,29 @@
     border-color: var(--windowBorderColor);
     border-width: 1px;
     border-style: solid;
+    background-color: #00000019;
+    box-shadow: inset black 0px 0px 5px;
+
   }
   .intTabElement{
-    background-color: #eee3cd;
+    // box-shadow: (inset rgba(255, 255, 255, 0.209) 0px -3px 3px,inset rgba(0, 0, 0, 0.289) 0px 3px 3px );
+    background: linear-gradient(180deg, rgba(166,166,166,0.6656863428965336) 0%, rgba(103,103,103,0.4051821412158614) 3%, rgba(73,73,73,0.21190483029149154) 48%, rgba(62,62,62,0.34635861180409666) 49%, rgba(62,62,62,0.5760504885547969) 94%, rgba(32,32,32,0.6600841020001751) 100%);
+    background-color: transparent;
+    color: white;
+    text-shadow: 0px 0px 2px black;
     width: 100%;
     height: 26px;
     line-height: 26px;
     padding-left: var(--defaultPadding);
     border-color: var(--windowBorderColor);
-    border-width: 0.5px;
+    border-width: 0px;
+    border-bottom-width: 1px;
     border-top-style: solid;
     border-bottom-style: solid;
     transition: 0.2s;
   }
   .intTabElement:hover{
-    background-color: var(--pageForeBG);
+    background-color:rgba(255, 244, 218, 0.572);
     transition: 0s;
   }
   .intTabElement:first-child
@@ -745,7 +764,8 @@
   .intTabInput{
     background: none;
     border-style: none;
-    color: var(--mainText);
+    color: white;
+    text-shadow: 0px 0px 2px black;
     width: 90%;
     font-size: 15px;
     padding-left: 0px;
@@ -754,7 +774,8 @@
   .intLongInput{
     background: none;
     border-style: none;
-    color: var(--mainText);
+    color: white;
+    text-shadow: 0px 0px 2px black;
     width: 60%;
     font-size: 15px;
     padding-left: 0px;
@@ -765,37 +786,39 @@
   .intSmallInput{
     background: none;
     border-style: none;
-    color: var(--mainText);
+    color: white;
+    text-shadow: 0px 0px 2px black;
     width: 25%;
     padding-left: var(--defaultPadding);
     font-size: 15px;
     outline: none;
     border-color: var(--windowBorderColor);
     border-width: 1px;
-    border-left-style: solid;
+    border-left-style: none;
     width: 100px;
     height: 24px;
   }
 
   .intTabButton{
-    float: right;
-    border: none;
-    outline: none;
-    height: 26px;
-    width: 64px;
-    margin-right: 8px;
-    border-left-style: solid;
+
     border-width: 1px;
     border-color: var(--windowBorderColor);
-    color: var(--mainText);
-    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--pageForeBG);
     transition: 0.2s;
+
+    border-width: 1px;
+    border-color: rgb(90, 90, 90) !important;
+    border-top-color: rgb(135, 135, 135) !important;
+    outline: 1px solid rgb(33, 33, 33);
+    background: linear-gradient(180deg, rgba(166,166,166,1) 0%, rgba(103,103,103,1) 3%, rgba(73,73,73,1) 48%, rgba(62,62,62,1) 48%, rgba(62,62,62,1) 94%, rgba(32,32,32,1) 100%); 
+    box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 5px;
+
     &:hover{
-      background-color: rgba(255, 255, 255, 0.195);
+      background: linear-gradient(180deg, rgb(205, 205, 205) 0%, rgb(145, 145, 145) 3%, rgb(107, 107, 107) 48%, rgba(62,62,62,1) 48%, rgba(62,62,62,1) 94%, rgba(32,32,32,1) 100%); 
       transition: 0s;
     }
     &:active{
-      background-color: rgba(0, 0, 0, 0.302);
+      background: linear-gradient(0deg, rgb(205, 205, 205) 0%, rgb(145, 145, 145) 3%, rgb(107, 107, 107) 48%, rgba(62,62,62,1) 48%, rgba(62,62,62,1) 94%, rgba(32,32,32,1) 100%); 
     }
     &.dynamic{
       transform: translateX(46px);
@@ -811,26 +834,32 @@
     }
   }
   .intSuccess{
-    background-color: rgba(153, 255, 0, 0.192);
-    color: #006308;
+    background: linear-gradient(180deg, rgba(227,255,125,1) 0%, rgba(166,214,44,1) 3%, rgba(95,186,47,1) 48%, rgba(67,135,36,1) 49%, rgba(4,73,17,1) 94%, rgba(1,55,45,1) 100%);
+    color: white;
+    font-weight: 500;
+
+    border-color: rgb(18, 94, 62) !important;
+    border-top-color: rgb(220, 255, 104) !important;
+    outline: 1px solid rgb(0, 45, 35);
+
     &:hover{
-      background-color: rgba(153, 255, 0, 0.352);
-      color: #008f0c;
+      background: linear-gradient(180deg, rgb(220, 255, 92) 0%, rgb(187, 255, 15) 3%, rgba(95,186,47,1) 48%, rgba(67,135,36,1) 49%, rgba(4,73,17,1) 94%, rgba(1,55,45,1) 100%);
+      color: white;
     }
     &:active{
-      background-color: rgba(153, 255, 0, 0.192);
-      color: #006308;
+      background: linear-gradient(0deg, rgb(220, 255, 92) 0%, rgb(187, 255, 15) 3%, rgba(95,186,47,1) 48%, rgba(67,135,36,1) 49%, rgba(4,73,17,1) 94%, rgba(1,55,45,1) 100%);
+      color: white;
     }
 
     &.dynamic{
       transform: translateX(46px);
       background-color: rgba(153, 255, 0, 0.192);
-      color: #00630800;
+      color: rgba(255, 255, 255, 0);
       &:hover{
         transform: translateX(0px);
         transition: 0.2s;
         background-color: rgba(153, 255, 0, 0.192);
-        color: #006308;
+        color: white;
       }
     }
   }
