@@ -662,7 +662,13 @@
       color: transparent !important;
       background-image: url(../assets/edit.png);
       &:active
-      {color: transparent !important;}
+      {color: transparent !important;} 
+    }
+    .message{
+      color: transparent !important;
+      &:active{
+        color: transparent !important;
+      }
     }
   }
   .edit{
@@ -703,7 +709,6 @@
   .logElement:nth-child(even) {
     background-color: #ffffff00;
   }
-
 
   .settingsTextInput{
     background: linear-gradient(180deg, rgba(166,166,166,0.6656863428965336) 0%, rgba(103,103,103,0.4051821412158614) 3%, rgba(73,73,73,0.21190483029149154) 48%, rgba(62,62,62,0.34635861180409666) 49%, rgba(62,62,62,0.5760504885547969) 94%, rgba(32,32,32,0.6600841020001751) 100%);
