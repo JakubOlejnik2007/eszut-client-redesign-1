@@ -114,7 +114,11 @@ const ReportsScreen = () => {
         try {
             const response = await func(accessToken as string, reports)
             if (response !== "OK") throw new Error();
-            displayNotif({ message: "Przypisano problem masowo", type: ENotifType.SUCCESS });
+            displayNotif({ message: (
+                func === putMarkAsSolvedBulk
+                    ? "Zaznaczone problemy zostały oznaczone jako rozwiązane"
+                    : "Zaznaczone problemy zostały przejęte"
+            ), type: ENotifType.SUCCESS });
             refreshQueries();
             clearSet();
         } catch (e) {
@@ -132,7 +136,6 @@ const ReportsScreen = () => {
             {/* <button className="titleBarButton search"></button> przydało by się to wyszukiwanie.. */}
             <button className={`titleBarButton trash ${bulkButtonsAvailable ? "" : "unavaible"}`} disabled={!bulkButtonsAvailable} onClick={handleMarkAsSolvedBulk}></button>
             <button className={`titleBarButton takeOn ${bulkButtonsAvailable ? "" : "unavaible"}`} disabled={!bulkButtonsAvailable} onClick={handleTakeOnBulk}></button>
-            {/* JAK NIC NIE JEST ZAZNACZONE DAWAJ IM KLASĘ unavaible */}
 
             {
                 <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} isVisible={true} setFilterState={setFilterState} filterState={filterState} />
