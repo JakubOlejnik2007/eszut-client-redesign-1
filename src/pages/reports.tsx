@@ -47,6 +47,11 @@ const ReportsScreen = () => {
         })
     }
 
+    const clearSet = () => {
+        setSelectedReports(new Set());
+
+    }
+
     const splitProblems = () => {
         let problems = unsolvedProblemsQuery.data
 
@@ -111,6 +116,7 @@ const ReportsScreen = () => {
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Przypisano problem masowo", type: ENotifType.SUCCESS });
             refreshQueries();
+            clearSet();
         } catch (e) {
             displayNotif({ message: "Aktualizacja problemów nie powiodła się", type: ENotifType.ERROR });
         }
@@ -149,7 +155,7 @@ const ReportsScreen = () => {
             <h2>Realizowane przez innych administratorów</h2>
             <div style={{ display: "flex", maxWidth: "100%", width: "100%", flexWrap: "wrap", justifyContent: "center" }} className="reportContainer">
                 {
-                    underRealization.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} toggleItem={toggleItem} selected={selectedReports.has(problem._id)} />)
+                    underRealization.map((problem: any) => <UnsolvedProblem key={problem._id} {...problem} refreshQuery={refreshQueries} toggleItem={() => { }} selected={selectedReports.has(problem._id)} />)
                 }
             </div>
         </div>
