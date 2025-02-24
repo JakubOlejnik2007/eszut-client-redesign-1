@@ -431,7 +431,7 @@
         transform: none !important;
         background-color: var(--pageBackBG);
         transition: 0.1s;
-        color: var(--pageForeBG);
+        color:rgb(70, 70, 70) ;
         background: linear-gradient(0deg, rgb(93, 93, 93) 0%, rgb(255, 255, 255) 1%, rgb(226, 226, 226) 48%, rgb(203, 203, 203) 48%, rgb(194, 194, 194) 94%, rgb(127, 127, 127) 100%); 
       }
     }
@@ -703,11 +703,11 @@
   }
 
   .logElement {
-    background-color: #eee3cd00;
+    background-color: #00000011;
   }
   
   .logElement:nth-child(even) {
-    background-color: #ffffff00;
+    background-color: #00000026;
   }
 
   .settingsTextInput{

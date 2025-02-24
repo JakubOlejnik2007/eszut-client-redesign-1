@@ -114,7 +114,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                 <div className="closeButton" onClick={handleClose}></div>
 
                 <div className="bottomModalPart">
-                    <button title="Otwórz komentarze" className="mainButton message" onClick={() => setShowCommentsModal(!showCommentsModal)}>g</button>
+                    <button title="Otwórz komentarze" className={`mainButton message ${!isUnderRealization ? "singlebuttonoffset" : ""}`} onClick={() => setShowCommentsModal(!showCommentsModal)}>g</button>
 
                     {
                         USER_EMAIL === whoDealsEmail || !isUnderRealization ? <ToggleEditableButton isSingle={!isUnderRealization} toggle={toggleEditable} /> : null
