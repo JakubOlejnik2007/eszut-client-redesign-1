@@ -211,7 +211,10 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                 </div>
 
                 <div className="closeButton" onClick={handleClose}></div>
+
                 <div className="bottomModalPart">
+                <button title="Edytuj zgłoszenie" className="mainButton message">g</button>
+
                     {
                         USER_EMAIL === whoDealsEmail || !isUnderRealization ? <ToggleEditableButton isSingle={!isUnderRealization} toggle={toggleEditable} /> : null
                     }
