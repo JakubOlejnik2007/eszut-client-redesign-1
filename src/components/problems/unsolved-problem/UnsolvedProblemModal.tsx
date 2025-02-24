@@ -120,7 +120,7 @@ const ProblemModal = ({ handleClose, handleReject, handleMarkAsSolved, _id, whoN
                         USER_EMAIL === whoDealsEmail || !isUnderRealization ? <ToggleEditableButton isSingle={!isUnderRealization} toggle={toggleEditable} /> : null
                     }
                     {
-                        USER_EMAIL === whoDealsEmail ? <><button className="mainButton marginLeft" onClick={handleReject}>Zrezygnuj</button>
+                        USER_EMAIL === whoDealsEmail && isUnderRealization ? <><button className="mainButton marginLeft" onClick={handleReject}>Zrezygnuj</button>
                             <button className="mainButton successButton marginLeft" onClick={handleMarkAsSolved}>Ukończ</button></> : null
                     }
                 </div>
