@@ -10,12 +10,14 @@ import DaysToDeadlineSpan from "../../partials/DaysToDeadlineSpan";
 import ProblemModal from "./UnsolvedProblemModal";
 
 interface IUnsolvedProblemProps extends IUnsolvedProblem {
-    refreshQuery: () => {}
+    refreshQuery: () => {},
+    toggleItem: (item: string) => boolean,
+    selected: boolean
 }
 
 const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
 
-    const { _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail, isUnderRealization, refreshQuery } = props;
+    const { _id, categoryName, placeName, whoName, whoEmail, what, priority, when, whoDealsName, whoDealsEmail, isUnderRealization, refreshQuery, toggleItem, selected } = props;
 
 
     const { user, accessToken } = AuthData();
@@ -23,7 +25,6 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
     const reportDate = new Date(when);
 
     const [showModal, setShowModal] = useState(false);
-    const [selected, setSelected] = useState(false);
 
     const daysLeft = dayToDeadline(reportDate, priority);
 
@@ -76,7 +77,7 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
         <>
             <div className={`report ${daysLeft <= 0 ? "expired" : ""} ${selected ? "selected" : ""}`} onClick={(e) => {
                 e.stopPropagation();
-                e.shiftKey ? setSelected(!selected) :
+                e.shiftKey ? toggleItem(_id) :
                     setShowModal(true);
             }
             }
