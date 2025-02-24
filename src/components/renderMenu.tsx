@@ -4,24 +4,13 @@ import NAVIGATION_ITEMS from "../utils/navigationItems";
 import WindowWrapper from "./windowWrapper";
 import { AuthData } from "../auth/AuthWrapper";
 import EUserRole from "../types/userroles.enum";
+import useKeyboardNavigation from "../utils/UseKeyboardNavigations";
 
 const RenderMenu = () => {
     const { user } = AuthData();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.altKey) {
-                const item = NAVIGATION_ITEMS.find(item => e.key === String(item.id));
-                if (item) {
-                    navigate(item.path);
-                }
-            }
-        };
-
-        document.addEventListener("keydown", handleKeyDown);
-        return () => document.removeEventListener("keydown", handleKeyDown);
-    }, [navigate]);
+    useKeyboardNavigation();
 
     return (
         <Routes>
