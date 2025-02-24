@@ -6,4 +6,17 @@ interface IUnsolvedProblemModal extends IUnsolvedProblem {
     handleMarkAsSolved: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
+export interface IToggleEditableButtonProps {
+    isSingle: boolean;
+    toggle: () => void;
+}
+
+export interface IEditableData {
+    categoryId: string;
+    placeId: string;
+    priority: string;
+    wasChanged: boolean;
+}
+
+
 export default IUnsolvedProblemModal;
