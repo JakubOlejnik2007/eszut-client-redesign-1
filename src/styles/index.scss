@@ -141,6 +141,22 @@ hr {
   background-repeat: no-repeat;
   position: absolute;
   left: 0px;
+  height: 30.45px;
+  width: 30.45px;
+}
+.message{
+  left: 38px;
+  position: absolute;
+  color: rgba(0, 0, 0, 0) !important;
+  background-image: url(../assets/message.png);
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  height: 30.45px;
+  width: 30.45px;
+  &:active{
+    color: transparent !important;
+  }
 }
 
 .edit:active {
