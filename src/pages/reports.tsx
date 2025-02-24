@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getCategories, getPlaces, getUnsolvedProblems, putTakeOnProblemBulk } from "../service/apiFetchFunctions";
+import { getCategories, getPlaces, getUnsolvedProblems, putMarkAsSolvedBulk, putTakeOnProblemBulk } from "../service/apiFetchFunctions";
 import { AuthData } from "../auth/AuthWrapper";
 import { useEffect, useState } from "react";
 import UnsolvedProblem from "../components/problems/unsolved-problem/UnsolvedProblem";
@@ -13,25 +13,23 @@ import { ENotifType } from "../types/notification.interface";
 
 
 const ReportsScreen = () => {
+    const { user, accessToken } = AuthData();
+    const { displayNotif } = Notif()
 
     const categoriesQuery = useQuery("categories", getCategories, { staleTime: 60000 });
     const placesQuery = useQuery("places", getPlaces, { staleTime: 60000 });
+    const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(accessToken as string), {
+        enabled: !!accessToken
+    });
 
-    const { user, accessToken } = AuthData();
 
-    const { displayNotif } = Notif()
 
-    const [showFilter, setShowFilter] = useState(true);
     const [filterState, setFilterState] = useState<IFilterState>({ CategoryID: "", PlaceID: "", textToSearch: "" });
     const [selectedReports, setSelectedReports] = useState<Set<string>>(new Set())
 
     const [underYou, setUnderYou] = useState<any[]>([]);
     const [underRealization, setUnderRealization] = useState<any[]>([]);
     const [other, setOther] = useState<any[]>([]);
-
-    const unsolvedProblemsQuery = useQuery("unsolved-problems", () => getUnsolvedProblems(accessToken as string), {
-        enabled: !!accessToken
-    });
 
     const refreshQueries = () => {
         unsolvedProblemsQuery.refetch();
@@ -97,8 +95,7 @@ const ReportsScreen = () => {
         return <img src={Loading} className="spinner"></img>
     }
 
-
-    const handleTakeOnBulk = async (e: React.MouseEvent<HTMLElement>) => {
+    const handleBulkOperation = async (e: React.MouseEvent<HTMLElement>, func: (accessToken: string, problems: string[]) => any) => {
         e.preventDefault();
         e.stopPropagation();
         const reports = new Array(...selectedReports)
@@ -110,7 +107,7 @@ const ReportsScreen = () => {
         }
 
         try {
-            const response = await putTakeOnProblemBulk(accessToken as string, reports)
+            const response = await func(accessToken as string, reports)
             if (response !== "OK") throw new Error();
             displayNotif({ message: "Przypisano problem masowo", type: ENotifType.SUCCESS });
             refreshQueries();
@@ -119,21 +116,18 @@ const ReportsScreen = () => {
         }
     }
 
-    const handleMarkAsSolvedBulk = async () => {
-
-    }
-
-
+    const handleMarkAsSolvedBulk = (e: React.MouseEvent<HTMLElement>) => handleBulkOperation(e, putMarkAsSolvedBulk)
+    const handleTakeOnBulk = (e: React.MouseEvent<HTMLElement>) => handleBulkOperation(e, putTakeOnProblemBulk)
 
     return (
         <div style={{ width: "100%", position: "relative" }}>
             {/* <button className="titleBarButton search"></button> przydało by się to wyszukiwanie.. */}
-            <button className="titleBarButton trash"></button>
+            <button className="titleBarButton trash" onClick={handleMarkAsSolvedBulk}></button>
             <button className="titleBarButton takeOn" onClick={handleTakeOnBulk}></button>
             {/* JAK NIC NIE JEST ZAZNACZONE DAWAJ IM KLASĘ unavaible */}
 
             {
-                <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} isVisible={showFilter} setFilterState={setFilterState} filterState={filterState} />
+                <Filter categoriesQuery={categoriesQuery} placesQuery={placesQuery} isVisible={true} setFilterState={setFilterState} filterState={filterState} />
             }
 
             <h2>Realizowane przez ciebie</h2>
