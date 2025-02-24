@@ -97,9 +97,9 @@ const UnsolvedProblem = (props: IUnsolvedProblemProps) => {
                     Sala: {placeName} <br />
                     <WhoReportedLink whoEmail={whoEmail} whoName={whoName} reportDate={reportDate} what={what} whoDealsEmail={whoDealsEmail} whoDealsName={whoDealsName} priority={priority} placeName={placeName} categoryName={categoryName} isUnderRealization={isUnderRealization} />
                 </div>
-                <hr />
-                <div style={{ fontSize: "var(--15px)", color: "var(--secondaryText)", textAlign: "left", maxHeight: '128px' }} className="overflowfix">{what}</div>
-                <hr />
+                <hr className="problemHr"/>
+                <div style={{ fontSize: "var(--15px)", color: "var(--secondaryText)", textAlign: "left", maxHeight: '128px' }} className="overflowfix problemDesc">{what}</div>
+                <hr className="problemHr"/>
                 {isUnderRealization && (
                     <>
                         <div>

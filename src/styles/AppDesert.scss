@@ -126,6 +126,110 @@
 
   }
 
+
+
+
+  .reportIssueForm{
+    border-radius: var(--cornerSize);
+  margin-left: 12px !important;
+  margin-right: 12px;
+  // background-image: url(../assets/desert/wood.jpg); the wooden background doesn't fit.
+
+  background-size: 150px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding-top: -12px;
+
+
+
+
+  .mainButton {
+    border-width: 1px;
+    border-color: rgb(90, 90, 90) !important;
+    border-top-color: rgb(135, 135, 135) !important;
+    outline: 1px solid rgb(33, 33, 33);
+    background: linear-gradient(180deg, rgba(166,166,166,1) 0%, rgba(103,103,103,1) 3%, rgba(73,73,73,1) 48%, rgba(62,62,62,1) 48%, rgba(62,62,62,1) 94%, rgba(32,32,32,1) 100%); 
+    box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 5px;
+
+    border-style: solid;
+    color: var(--pageForeBG);
+    filter: none;
+    &:hover{
+      background-color: #fff6e5;
+      transform: none;
+      transition: 0.15s;
+      color: var(--pageForeBG);
+    }
+    &:active{
+      transform: none !important;
+      background-color: var(--pageBackBG);
+      transition: 0.1s;
+      color: var(--pageForeBG);
+      background: linear-gradient(0deg, rgba(166,166,166,1) 0%, rgba(103,103,103,1) 3%, rgba(73,73,73,1) 48%, rgba(62,62,62,1) 48%, rgba(62,62,62,1) 94%, rgba(32,32,32,1) 100%); 
+    }
+  }
+  .sendButton{
+    background: linear-gradient(180deg, rgba(227,255,125,1) 0%, rgba(166,214,44,1) 3%, rgba(95,186,47,1) 48%, rgba(67,135,36,1) 49%, rgba(4,73,17,1) 94%, rgba(1,55,45,1) 100%);
+        color: white;
+        font-weight: 500;
+
+        border-color: rgb(18, 94, 62) !important;
+        border-top-color: rgb(220, 255, 104) !important;
+        outline: 1px solid rgb(0, 45, 35);
+
+    &:hover{
+      background-color: #DDE8A6;
+      color: white;
+
+    }
+    &:active{
+      color: white;
+
+      background-color: #DDE8A6;
+      background: linear-gradient(0deg, rgba(227,255,125,1) 0%, rgba(166,214,44,1) 3%, rgba(95,186,47,1) 48%, rgba(67,135,36,1) 49%, rgba(4,73,17,1) 94%, rgba(1,55,45,1) 100%);
+
+    }
+  }
+
+
+    //additional depth. now when i think about it i should make interactive stuff pop-out more, not the background.
+
+  // -webkit-backdrop-filter: blur(2px);
+  // backdrop-filter: blur(2px);
+  // background-color: rgba(24, 5, 5, 0.067);
+  // box-shadow: inset rgb(0, 0, 0) 0px 0px 10px;
+    
+    select{
+      width: calc(640 - (var(--defaultPadding)*2));
+      min-width: calc(640px - (var(--defaultPadding)*2));
+      max-width: calc(640px - (var(--defaultPadding)*2));
+    }
+    textarea{
+      width: calc(622.5px - (var(--defaultPadding)*2));
+      min-width: calc(622.5px - (var(--defaultPadding)*2));
+      max-width: calc(622.5px - (var(--defaultPadding)*2));
+    }
+
+    select, textarea{
+      box-shadow: inset rgba(0, 0, 0, 0.279) 0px 0px 10px !important;
+      background-color: rgba(255, 255, 255, 0);
+    }
+
+    .sendButton{
+      margin-right: 0px !important;
+    }
+
+    h3{
+      margin-top:6.72px
+    }
+}
+
+
+
+
+
+
+
   hr {
     border-top: 1px solid rgba(26, 26, 26, 0.489);
   }
@@ -154,7 +258,7 @@
   .mainButton {
     background-color: #ece4d4;
     color: var(--mainText);
-    filter: drop-shadow(0px 0px 5px #00000000);
+    filter: none;
     border-color: var(--mainButtonColor);
     border-top-color: var(--mainButtonColor);
     &:hover{
@@ -183,6 +287,8 @@
       background-color: #DDE8A6;
     }
   }
+
+  
 
   hr {
     border-top: 1px solid var(--borderColor);
@@ -215,7 +321,7 @@
   .secondaryButton:hover {
     background-color: #ece4d4;
     color: var(--mainText);
-    filter: drop-shadow(0px 0px 5px #00000000);
+    filter: none;
     border-color: var(--mainButtonColor);
     border-top-color: var(--mainButtonColor);
     &:hover{
@@ -269,13 +375,18 @@
   /* REPORTS */
 
   .report {
-    filter: drop-shadow(0px 0px 0px #0000005a);
+    filter: none;
+
+    color: rgb(70, 70, 70);
+    --secondaryText: black
+
     background-color: var(--reportBG);
     border-style: solid;
     border-width: 1px;
     border-color: var(--accentColor);
     border-top-color: #ffffff2f;
     border-radius: var(--smallCornerSize);
+    box-shadow: (rgba(0, 0, 0, 0.617) 0px 0px 5px, inset black 0px 0px 5px);
 
     &.selected{
       .waga1, .waga2, .waga3{
@@ -283,13 +394,41 @@
         border-color: #4F321C;
       }
       border-color: #4F321C;
-      background-color: #ffbc89;
+      background-color: #c0a581;
+      transform: scale(95%) !important;
       &:hover{
         filter: none;
-        background-color: #ffbc89;
+        background-color: #e0c096;
       }
       filter: none;
     }
+
+    .mainButton {
+      border-width: 1px;
+      border-color: rgb(90, 90, 90) !important;
+      border-top-color: rgb(135, 135, 135) !important;
+      outline: 1px solid rgb(33, 33, 33);
+      background: linear-gradient(180deg, rgba(166,166,166,1) 0%, rgba(103,103,103,1) 3%, rgba(73,73,73,1) 48%, rgba(62,62,62,1) 48%, rgba(62,62,62,1) 94%, rgba(32,32,32,1) 100%); 
+      box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 5px;
+  
+      border-style: solid;
+      color: var(--pageForeBG);
+      filter: none;
+      &:hover{
+        background-color: #fff6e5;
+        transform: none;
+        transition: 0.15s;
+        color: var(--pageForeBG);
+      }
+      &:active{
+        transform: none !important;
+        background-color: var(--pageBackBG);
+        transition: 0.1s;
+        color: var(--pageForeBG);
+        background: linear-gradient(0deg, rgba(166,166,166,1) 0%, rgba(103,103,103,1) 3%, rgba(73,73,73,1) 48%, rgba(62,62,62,1) 48%, rgba(62,62,62,1) 94%, rgba(32,32,32,1) 100%); 
+      }
+    }
+
   }
 
   .report:hover {
@@ -359,27 +498,27 @@
   .reportTitle {
     margin: -21px;
     margin-top: -9px;
-    margin-bottom: 0px;
+    margin-bottom: -6px;
     border-radius: var(--smallCornerSize);
     border-style: solid;
     border-width: 1px;
-    height: 20px;
+    height: 25px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
   }
 
   .waga1 {
-    background-color: #ff8f8f;
+    background-color: #ff00007f;
     border-color: #6c002b;
   }
 
   .waga2 {
-    background-color: #d28fff;
+    background-color: #9900ff80;
     border-color: #66305e;
   }
 
   .waga3 {
-    background-color: #8f98ff;
+    background-color: #4454ff93;
     border-color: #144f73;
   }
 
@@ -429,6 +568,22 @@
     color: var(--pageForeBG);
     border-top-color: rgb(59, 59, 59);
     border-bottom-color: rgb(112, 112, 112);
+  }
+
+  .problemHr{
+    display: none;
+  }
+  .hrBeforeButtons{
+    display: none;
+  }
+  .problemDesc{
+    background-color: rgba(0, 7, 70, 0.108);
+    padding: var(--defaultPadding);
+    margin-top: 12px;
+    margin-bottom: 8px;
+    border-radius: var(--cornerSize);
+    box-shadow: inset rgb(0, 0, 0) 0px 0px 5px;
+
   }
 
   .modal {
