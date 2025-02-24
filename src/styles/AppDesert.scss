@@ -300,12 +300,22 @@
 
   }
 
+  .newComment{
+    margin-top: 32px;
+  }
+
   .CommentInput{
     border-bottom-color: #4F321C;
+    // background-color: rgb(52, 52, 52);
+    -webkit-backdrop-filter: blur(3px);
+    
+    backdrop-filter: blur(3px);
+    background-image: none;
     color: var(--mainText);
+    box-shadow: rgba(0, 0, 0, 0.161) 0px 5px 5px;
 
     &::placeholder{
-      color: var(--secondaryText);
+      color: rgb(26, 4, 4)
     }
     }
     .CommentSend{
@@ -319,6 +329,18 @@
     }
     .comment {
       border-color: #4F321C;
+      border-style: solid;
+      margin-right: var(--defaultPadding);
+      margin-bottom: 4px;
+      margin-top: 6px;
+      background-color: rgba(0, 0, 0, 0.249);
+      color: #241409;
+      &Name{
+        color: #241409;
+      }
+      &Time{
+        color: #241409;
+      }
     }
 
 
@@ -372,7 +394,7 @@
    background-color: #000000d6 !important;
    animation: none;
   }
-
+  
   .edit{
     background-image: url(../assets/editdark.png);
   }
@@ -416,7 +438,7 @@
     background-size: 250px;
     filter: drop-shadow(0px 0px 0px #00000000);
     box-shadow: (rgba(0, 0, 0, 0.617) 0px 0px 20px, inset black 0px 0px 5px), inset rgba(0, 0, 0, 0.292) 0px 0px 100px;
-
+    --secondaryText: rgb(71, 46, 17);
 
     overflow: hidden;
     border-color: #2b2b2b;
@@ -425,6 +447,23 @@
 
     .daysLeftText{
       color: #4F321C;
+    }
+
+    .modalInfo{
+      border: black;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: var(--cornerSize);
+      margin-left: 0px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.249);
+      margin-right: 12px;
+      color: rgb(26, 15, 0);
+
+    }
+
+    .bottomModalPart{
+      width: 555px;
     }
 
     button{
