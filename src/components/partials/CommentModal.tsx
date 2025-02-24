@@ -6,19 +6,19 @@ import CommentElement from "./Comment";
 import { AuthData } from "../../auth/AuthWrapper";
 import { Notif } from "../notificationsWrapper";
 import { useQuery } from "react-query";
-import Loading from "../../../assets/loading.gif";
+import Loading from "../../assets/loading.gif";
 
 interface ICommentModal {
     _id: string;
     handleClose: () => void;
 }
 
-const CommentModal = ({_id, handleClose}: ICommentModal) => {
+const CommentModal = ({ _id, handleClose }: ICommentModal) => {
 
     const { accessToken } = AuthData();
     const { displayNotif } = Notif();
 
-    
+
     const commentsQuery = useQuery("comments", async () => await getComments(accessToken as string, _id));
 
     const [isDragging, setIsDragging] = useState(false);
