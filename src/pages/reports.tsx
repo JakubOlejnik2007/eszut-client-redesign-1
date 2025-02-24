@@ -125,11 +125,13 @@ const ReportsScreen = () => {
     const handleMarkAsSolvedBulk = (e: React.MouseEvent<HTMLElement>) => handleBulkOperation(e, putMarkAsSolvedBulk)
     const handleTakeOnBulk = (e: React.MouseEvent<HTMLElement>) => handleBulkOperation(e, putTakeOnProblemBulk)
 
+    const bulkButtonsAvailable: boolean = new Array(...selectedReports).length > 0;
+    console.log(bulkButtonsAvailable)
     return (
         <div style={{ width: "100%", position: "relative" }}>
             {/* <button className="titleBarButton search"></button> przydało by się to wyszukiwanie.. */}
-            <button className="titleBarButton trash" onClick={handleMarkAsSolvedBulk}></button>
-            <button className="titleBarButton takeOn" onClick={handleTakeOnBulk}></button>
+            <button className={`titleBarButton trash ${bulkButtonsAvailable ? "" : "unavaible"}`} disabled={!bulkButtonsAvailable} onClick={handleMarkAsSolvedBulk}></button>
+            <button className={`titleBarButton takeOn ${bulkButtonsAvailable ? "" : "unavaible"}`} disabled={!bulkButtonsAvailable} onClick={handleTakeOnBulk}></button>
             {/* JAK NIC NIE JEST ZAZNACZONE DAWAJ IM KLASĘ unavaible */}
 
             {
