@@ -40,7 +40,7 @@ const Archive = () => {
 
     return (
         <div>
-            <h2>Ukończone </h2>
+            {/* <h2>Ukończone </h2> */}
             <Pagination setPage={setPage} page={page} maxPage={maxPage} />
             <div style={{ display: "flex", justifyContent: "center", maxWidth: "100%", width: "100%", flexWrap: "wrap", }}>
                 {
