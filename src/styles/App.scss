@@ -1166,6 +1166,26 @@ a:hover {
   }
 
 }
+.modalInfo.wide{
+  width: 480px;
+  padding-top: 20px;
+}
+.updateLogo{
+  background-image: url("../assets/messages/download.png");
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  margin-top: 45px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 80px;
+  text-align: justify;
+  min-height: 80px;
+  max-height: 413px;
+  overflow: scroll;
+}
 
 .modalDescription {
   margin-top: 45px;
