@@ -7,6 +7,7 @@ import './styles/AppTokyo.scss';
 import './styles/AppDesert.scss';
 import './styles/AppHighContrast.scss';
 import './styles/AppRetro.scss';
+import './styles/AppAero.scss';
 import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -43,8 +44,11 @@ function AppContent() {
       case 'highContrast':
         root.classList.add('highContrast');
         break;
-      case 'retro':
-        root.classList.add('retro');
+        case 'retro':
+          root.classList.add('retro');
+          break;
+        case 'aero':
+          root.classList.add('aero');
         break;
       case 'dark':
         break;
