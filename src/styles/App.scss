@@ -97,6 +97,28 @@ body {
 
 }
 
+.window.alert {
+    transition: 0.2s;
+  border-color: rgb(255, 199, 0);
+  border-top-color: rgb(255, 240, 0);
+  box-shadow: rgb(255, 199, 0) 0px 0px 5px;
+  background-color: rgba(255, 199, 0, 0.05);
+  margin-top: calc(var(--defaultPadding) * 4);
+  margin-bottom: var(--defaultPadding);
+  min-height: 0px;
+  padding-bottom:var(--defaultPadding);
+  .titleBar{
+    background-color: transparent;
+    background:none;
+    border: none;
+  }
+  .windowContent{
+    background-color: transparent;
+    background:none;
+    min-height: 0px;
+  }
+}
+
 .titleBar {
   background-color: #333333;
   padding: var(--defaultPadding);

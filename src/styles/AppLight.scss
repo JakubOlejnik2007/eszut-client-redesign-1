@@ -48,6 +48,25 @@
   .titleBar {
     background: linear-gradient(180deg, rgb(230, 230, 230) 19%, rgb(188, 188, 188) 100%, rgba(35, 35, 35, 1) 105%);
   }
+
+  .window.alert {
+  border-color: rgba(51, 51, 51, 0.3058823529);
+  box-shadow: none;
+    color: rgb(197, 197, 197);
+  background-color: transparent;
+  background: linear-gradient(90deg, rgba(186, 0, 0, 0.4196078431) 0%, rgba(219, 113, 0, 0.459) 100%);
+  .titleBar{
+    background-color: transparent;
+    background:none;
+    color: rgb(197, 197, 197);
+  }
+  .windowContent{
+    background-color: transparent;
+    background:none;
+    color: rgb(197, 197, 197);
+  }
+}
+
   .titleBarButton{
     background-color: rgb(241, 241, 241);
     border-color: rgb(213, 213, 213);

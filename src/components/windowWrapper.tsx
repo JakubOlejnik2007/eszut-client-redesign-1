@@ -14,12 +14,20 @@ const WindowWrapper = ({ title, element, minUserRole, userRole }: { title: strin
         }
     })
     return (
+        <>
         <div className='window'>
             <div className='titleBar'>{title}</div>
             <div className='windowContent'>
                 {element}
             </div>
         </div>
+        <div className='window alert'>
+            <div className='titleBar'>UWAGA</div>
+            <div className='windowContent'>
+                Wiemy, że w szkole występuje problem z internetem. już nad tym pracujemy.
+            </div>
+        </div>
+        </>
     )
 }
 
