@@ -89,10 +89,26 @@
     background: linear-gradient(180deg, rgba(89,89,89,1) 0%, rgba(62,62,62,1) 5%, rgba(65,65,65,1) 45%, rgba(62,62,62,1) 92%, rgba(32,32,32,1) 100%); 
     border-color: rgb(52, 52, 52);
     filter: none;
-    box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 20px;
+    box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 20px , inset black 0px 0px 5px;
     border-radius: var(--cornerSize);
     margin-bottom: 64px;
   }
+  .window.alert {
+    padding: 0px;
+
+  .titleBar{
+    background: none;
+    box-shadow: none;
+  }
+  .windowContent{
+    box-shadow: none;
+    color: var(--buttonText);
+    background: none;
+    padding-top: var(--defaultPadding);
+    padding-bottom: var(--defaultPadding);
+
+  }
+}
   .windowContent{
     background-image: url(../assets/desert/bgDesertFg.png);
     background-size: 125px;
