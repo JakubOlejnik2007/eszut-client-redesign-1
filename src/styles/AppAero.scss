@@ -139,7 +139,7 @@
     border-style: solid;
     border-color: var(--accentColor);
     box-shadow: none !important;
-
+    background: linear-gradient(180deg, rgba(208,208,208,1) 0%, rgba(213,213,213,1) 50%, rgba(201,201,201,1) 51%, rgba(249,249,249,1) 100%);
   }
 
 
@@ -246,33 +246,51 @@
   .secondaryButton:active,
   .secondaryButton:hover {
     background-color: #fcfcfc;
-    // background: linear-gradient(180deg, rgba(249,249,249,1) 0%, rgba(213,213,213,1) 50%, rgba(201,201,201,1) 50%, rgba(208,208,208,1) 100%);
-    background: linear-gradient(180deg, rgb(221, 255, 240) 0%, rgb(163, 213, 190) 50%, rgb(133, 189, 181) 50%, rgb(117, 184, 174) 100%);
+    background: linear-gradient(180deg, rgba(249,249,249,1) 0%, rgba(213,213,213,1) 50%, rgba(201,201,201,1) 50%, rgba(208,208,208,1) 100%);
+    transition: 1s;
+    // background: linear-gradient(180deg, rgb(221, 255, 240) 0%, rgb(163, 213, 190) 50%, rgb(133, 189, 181) 50%, rgb(117, 184, 174) 100%);
     border-radius: var(--cornerSize);
     color: var(--mainText);
     filter: none;
-    border-color: rgba(131, 131, 131, 0.336);
-    border-top-color: rgba(255, 255, 255, 0.336);
-    border-bottom-color: rgba(255, 255, 255, 0.336);
-    outline: 1px solid rgba(0, 0, 0, 0.493);
-
+    border-color: rgb(196, 196, 196);
+    outline: 1px solid rgb(49, 49, 49);
+    z-index: 1;
     &:hover{
-      background-color: #fcfcfc;
-
-
-      transform: none;
-      transition: 0.15s;
+      outline: 1px solid rgb(44, 108, 127);
+     &:before {
+      opacity: 1;
+    }
+      transform: scale(100%);
+      transition: 0s;
       cursor: pointer;
     }
     &:active{
-      transform: scale(90%);
-      background-color: var(--pageBackBG);
-      transition: 0.1s;
+      transform: scale(100%);
+      background: linear-gradient(0deg, rgb(221, 255, 240) 0%, rgb(163, 213, 190) 50%, rgb(133, 189, 181) 50%, rgb(117, 184, 174) 100%);
       cursor:default;
+      transition: 0s;
+      &:before {
+        opacity: 0;
+        transition: 0s;
+      }
+    }
+    &::before{
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgb(221, 255, 240) 0%, rgb(163, 213, 190) 50%, rgb(133, 189, 181) 50%, rgb(117, 184, 174) 100%);
+      box-shadow: rgb(117, 255, 234) 0px 0px 5px;
+      content: '';    
+      display: block;
+      height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      opacity: 0;
+      width: 100%;
+      transition: opacity 0.45s;
     }
   }
   .secondaryButton{
-    opacity: 0.8;
+    opacity: 1;
   }
 
   // .bottomButtons{
@@ -446,7 +464,7 @@
   /* MODALS */
 
   .modalContainer {
-   background-color: #000000d6 !important;
+   background-color: #00000046 !important;
    animation: none;
   }
   
@@ -507,18 +525,22 @@
   }
 
   .modal {
-    backdrop-filter: none;
-    background-color: #ffffff;
-    background-image: url(../assets/desert/wood.jpg);
-    background-size: 250px;
-    filter: drop-shadow(0px 0px 0px #00000000);
-    box-shadow: (rgba(0, 0, 0, 0.617) 0px 0px 20px, inset black 0px 0px 5px), inset rgba(0, 0, 0, 0.292) 0px 0px 100px;
     --secondaryText: rgb(71, 46, 17);
+    outline: 1px solid rgba(0, 0, 0, 0.383);
+    border-color: rgba(255, 255, 255, 0.421);
+    padding: 8px;
+    filter: none;
+    box-shadow: rgba(0, 0, 0, 0.617) 0px 0px 20px;
+    border-radius: var(--cornerSize);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background: var(--glass);
+
+
 
     position: relative;
 
     overflow: hidden;
-    border-color: #2b2b2b;
     color: #4F321C;
     a{color: #4F321C;}
 
@@ -538,25 +560,15 @@
       color: rgb(26, 15, 0);
 
     }
-
     .bottomModalPart{
       width: 555px;
     }
-
-    
   }
   .edit{
     color: rgba(0, 0, 0, 0);
   }
   .modalTitle {
-    background-color: rgba(255, 0, 0, 0);
-    background: linear-gradient(180deg, rgba(89,89,89,1) 0%, rgba(62,62,62,1) 5%, rgba(65,65,65,1) 45%, rgba(62,62,62,1) 92%, rgba(32,32,32,1) 100%); 
-    color: rgb(205, 205, 205);
-    line-height: 32px;
-    margin-top: 0px;
-    height: 32px;
-    padding-top: 0px;
-    box-shadow: rgb(0, 0, 0) 0px 0px 5px;
+
 
   }
 
