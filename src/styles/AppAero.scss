@@ -106,7 +106,7 @@
   .windowContent{
     
     outline: 1px solid rgba(255, 255, 255, 0.421);
-    background-color: rgb(231, 231, 231);
+    background-color: rgb(223, 223, 223);
     background-size: 125px;
     border-color: rgba(0, 0, 0, 0.992);
     border-width: 1px;
@@ -193,9 +193,11 @@
     background-image: url(../assets/glassdark.png);
   }
   .filterContainer{
-    background-color: rgba(0, 0, 0, 0.5);
-    border-bottom-color: rgba(0, 0, 0, 0.466);
+    border-bottom-color: rgba(0, 0, 0, 0.404);
     color: rgb(205, 205, 205);
+    
+    background-image: url(../assets/aero/bgW.png);
+    background-size: cover;
   }
   .filterSelect{
     background: rgba(0, 0, 0, 0.5);
@@ -211,27 +213,7 @@
     color: rgb(205, 205, 205);
   }
 
-  .mainButton {
-    background-color: #ece4d4;
-    color: var(--mainText);
-    filter: none;
-    border-color: var(--mainButtonColor);
-    border-top-color: var(--mainButtonColor);
-    &:hover{
-      background-color: #fff6e5;
-      border-color: var(--mainButtonColor);
-      border-top-color: var(--mainButtonColor);
-      transform: none;
-      transition: 0.15s;
-      cursor: pointer;
-    }
-    &:active{
-      transform: scale(90%);
-      background-color: var(--pageBackBG);
-      transition: 0.1s;
-      cursor:default;
-    }
-  }
+
   
   hr {
     border-top: 1px solid var(--borderColor);
@@ -249,7 +231,8 @@
 
   }
 
-
+  .mainButton,
+  .mainButton:hover,
   .trashButton,
   .trashButton:hover,
   .trashButton:active,
@@ -262,15 +245,21 @@
   .secondaryButton,
   .secondaryButton:active,
   .secondaryButton:hover {
-    background-color: #ece4d4;
+    background-color: #fcfcfc;
+    // background: linear-gradient(180deg, rgba(249,249,249,1) 0%, rgba(213,213,213,1) 50%, rgba(201,201,201,1) 50%, rgba(208,208,208,1) 100%);
+    background: linear-gradient(180deg, rgb(221, 255, 240) 0%, rgb(163, 213, 190) 50%, rgb(133, 189, 181) 50%, rgb(117, 184, 174) 100%);
+    border-radius: var(--cornerSize);
     color: var(--mainText);
     filter: none;
-    border-color: var(--mainButtonColor);
-    border-top-color: var(--mainButtonColor);
+    border-color: rgba(131, 131, 131, 0.336);
+    border-top-color: rgba(255, 255, 255, 0.336);
+    border-bottom-color: rgba(255, 255, 255, 0.336);
+    outline: 1px solid rgba(0, 0, 0, 0.493);
+
     &:hover{
-      background-color: #fff6e5;
-      border-color: var(--mainButtonColor);
-      border-top-color: var(--mainButtonColor);
+      background-color: #fcfcfc;
+
+
       transform: none;
       transition: 0.15s;
       cursor: pointer;
@@ -330,7 +319,7 @@
     border-style: solid;
 
     background-color: rgb(231, 231, 231);
-    border-radius: 0px;
+    border-radius: 4px;
     &:hover{
       filter: none;
       transform: none !important;
@@ -354,9 +343,8 @@
 
   }
   .expired {
-    background-color: rgb(231, 231, 231);
     border-color: var(--accentColor);
-
+    overflow: hidden;
     outline: 1px solid rgba(0, 0, 0, 0.386);
 
     border-color: white;
@@ -364,7 +352,6 @@
     border-style: solid;
 
     background-color: rgb(231, 231, 231);
-    border-radius: 0px;
     &:hover{
       background-color: rgb(231, 231, 231);
     }
@@ -512,6 +499,11 @@
     margin-bottom: 8px;
     border-radius: 0px;
     box-shadow: inset rgba(0, 0, 0, 0.518) 1px 1px 2px !important;
+    outline: 1px solid rgb(255, 255, 255);
+    border-color: rgba(0, 0, 0, 0.367);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
   }
 
   .modal {
@@ -551,46 +543,7 @@
       width: 555px;
     }
 
-    button{
-      background-color: #454545;
-      color: var(--pageForeBG);
-
-      border-width: 1px;
-      border-color: rgb(98, 98, 98);
-      border-top-color: rgb(112, 112, 112);
-      border-style: solid;
-      outline: 1px solid rgb(31, 31, 31);
-      transition: 0s;
-      box-shadow: rgb(0, 0, 0) 0px 0px 5px;
-
-      &:hover{
-        background-color: #555555;
-        border-color: rgb(98, 98, 98);
-        border-top-color: rgb(112, 112, 112);
-      }
-      &:active{
-        background-color: #555555 !important;
-        color: var(--pageForeBG) !important;
-        border-color: rgb(98, 98, 98) !important;
-        border-top-color: rgb(59, 59, 59) !important;
-        border-bottom-color: rgb(112, 112, 112) !important;
-        transform: none !important;
-        transition: 0s;
-      }
-
-    }
-    .edit{
-      color: transparent !important;
-      background-image: url(../assets/edit.png);
-      &:active
-      {color: transparent !important;} 
-    }
-    .message{
-      color: transparent !important;
-      &:active{
-        color: transparent !important;
-      }
-    }
+    
   }
   .edit{
     color: rgba(0, 0, 0, 0);
