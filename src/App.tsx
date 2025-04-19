@@ -8,6 +8,7 @@ import './styles/AppDesert.scss';
 import './styles/AppHighContrast.scss';
 import './styles/AppRetro.scss';
 import './styles/AppAero.scss';
+import './styles/AppBasic.scss';
 import { AuthData, AuthWrapper } from './auth/AuthWrapper.tsx';
 import RenderMenu from './components/renderMenu.tsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -50,6 +51,9 @@ function AppContent() {
         case 'aero':
           root.classList.add('aero');
         break;
+        case 'basic':
+          root.classList.add('basic');
+          break;
       case 'dark':
         break;
       default:

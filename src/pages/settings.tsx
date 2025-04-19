@@ -5,6 +5,7 @@ import LightMode from "../assets/settings/light.png";
 import DarkMode from "../assets/settings/dark.png";
 import DesertMode from "../assets/settings/desert.png";
 import AeroMode from "../assets/settings/aero.png";
+import basicMode from "../assets/settings/basicDark.png";
 import TokyoMode from "../assets/settings/tokyo.png";
 import HighContrastMode from "../assets/settings/highContrast.png";
 import { AuthData } from "../auth/AuthWrapper";
@@ -104,6 +105,10 @@ const SettingsScreen = () => {
         {
             name: "aero",
             img: AeroMode
+        },        
+        {
+            name: "basic",
+            img: basicMode
         },
         // {
         //     name: "retro",
