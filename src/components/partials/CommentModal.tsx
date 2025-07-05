@@ -21,75 +21,38 @@ const CommentModal = ({ _id, handleClose }: ICommentModal) => {
 
     const commentsQuery = useQuery("comments", async () => await getComments(accessToken as string, _id));
 
-    const [isDragging, setIsDragging] = useState(false);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
-    const [offset, setOffset] = useState({ x: 0, y: 0 });
+    const [position, setPosition] = useState({ x: (window.innerWidth/2)-300, y: 775 });
 
     const [commentContent, setCommentContent] = useState("");
 
-    const handleDragStart = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-        const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-        const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
-
-        setIsDragging(true);
-        setOffset({
-            x: clientX - position.x,
-            y: clientY - position.y
-        });
-    };
-
-    const handleDragMove = (e: MouseEvent | TouchEvent) => {
-        if (!isDragging) return;
-
-        const clientX = "touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
-        const clientY = "touches" in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
-
-        setPosition({
-            x: clientX - offset.x,
-            y: clientY - offset.y
-        });
-    };
-
-    const handleDragEnd = () => {
-        setIsDragging(false);
-    };
-
-    useEffect(() => {
-        document.addEventListener("mousemove", handleDragMove);
-        document.addEventListener("mouseup", handleDragEnd);
-        document.addEventListener("touchmove", handleDragMove);
-        document.addEventListener("touchend", handleDragEnd);
-
-        return () => {
-            document.removeEventListener("mousemove", handleDragMove);
-            document.removeEventListener("mouseup", handleDragEnd);
-            document.removeEventListener("touchmove", handleDragMove);
-            document.removeEventListener("touchend", handleDragEnd);
-        };
-    }, [isDragging]);
-
-
-    const handleMouseMove = (e: MouseEvent) => {
-        if (!isDragging) return;
-        setPosition({
-            x: e.clientX - offset.x,
-            y: e.clientY - offset.y
-        });
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-
-    useEffect(() => {
-        document.addEventListener("mousemove", handleMouseMove);
-        document.addEventListener("mouseup", handleMouseUp);
-        return () => {
-            document.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mouseup", handleMouseUp);
-        };
-    }, [isDragging]);
+    let dragTarget: HTMLElement | null = null;
+    let offsetX = 0;
+    let offsetY = 0;
+    
+    document.addEventListener('mousedown', function (e: MouseEvent) {
+        const target = e.target as HTMLElement;
+        if (target.classList.contains('modalTitle')) {
+            const parent = target.parentElement as HTMLElement | null;
+            if (!parent) return;
+    
+            dragTarget = parent;
+            offsetX = e.clientX - dragTarget.offsetLeft;
+            offsetY = e.clientY - dragTarget.offsetTop;
+            document.body.style.userSelect = 'none';
+        }
+    });
+    
+    document.addEventListener('mousemove', function (e: MouseEvent) {
+        if (!dragTarget) return;
+        dragTarget.style.left = `${e.clientX - offsetX}px`;
+        dragTarget.style.top = `${e.clientY - offsetY}px`;
+    });
+    
+    document.addEventListener('mouseup', function () {
+        dragTarget = null;
+        document.body.style.userSelect = '';
+    });
+    
 
     const handleInsertComment = async () => {
         try {
@@ -113,8 +76,6 @@ const CommentModal = ({ _id, handleClose }: ICommentModal) => {
         <div
             className="modal comments"
             onClick={(e) => e.stopPropagation()}
-            onMouseDown={handleDragStart}
-            onTouchStart={handleDragStart}
             style={{
                 position: "absolute",
                 left: `${position.x}px`,

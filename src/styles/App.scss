@@ -1069,7 +1069,10 @@ a:hover {
   border-style: solid;
 
   &.comments {
-    margin-top: 775px;
+    // margin-top: 775px;
+    top: 775px;
+    margin: 0 !important;
+    margin-top: 0px;
     right: 0px;
     width: 600px;
     font-size: 16px;
