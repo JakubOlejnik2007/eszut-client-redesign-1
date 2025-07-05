@@ -322,7 +322,7 @@ button {
   background-color: #111111;
   transform: scale(90%);
   transition: 0.1s;
-  filter: drop-shadow(0px 0px 2px #00000093);
+  filter: none;
 
 }
 
@@ -342,11 +342,13 @@ button {
   margin-top: 6px;
   font-family: 'sfProDisplay';
 
-  background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34, 34, 34, 1) 100%);
+  background: none !important;
+  box-shadow:none !important;
+  background: var(--pageBackBG) !important;
+
   border-color: var(--borderColor);
   border-width: 1px;
   color: var(--mainText);
-  box-shadow: inset 2px 2px 5px #1010104a, inset -2px -2px 5px #1010104a !important;
   border-style: none;
   border-radius: var(--smallCornerSize);
   padding: var(--defaultPadding);
@@ -589,12 +591,12 @@ select {
   margin-bottom: 12px;
   margin-top: 6px;
   font-family: 'sfProDisplay';
-
-  background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34, 34, 34, 1) 100%);
+  background: none !important;
+  box-shadow:none !important;
+  background: var(--pageBackBG) !important;
   border-color: var(--borderColor);
   border-width: 1px;
   color: var(--mainText);
-  box-shadow: inset 2px 2px 5px #1010104a, inset -2px -2px 5px #1010104a !important;
   border-style: none;
   border-radius: var(--smallCornerSize);
   padding: var(--defaultPadding);
@@ -610,8 +612,6 @@ select {
     margin-left: -12px;
     background: none;
   }
-
-
 }
 
 select option {

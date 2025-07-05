@@ -94,22 +94,22 @@ const SettingsScreen = () => {
             name: "desert",
             img: DesertMode
         },
-        {
-            name: "tokyo",
-            img: TokyoMode
-        },
-        {
-            name: "highContrast",
-            img: HighContrastMode
-        },
-        {
-            name: "aero",
-            img: AeroMode
-        },        
-        {
-            name: "basic",
-            img: basicMode
-        },
+        // {
+        //     name: "tokyo",
+        //     img: TokyoMode
+        // },
+        // {
+        //     name: "highContrast",
+        //     img: HighContrastMode
+        // },
+        // {
+        //     name: "aero",
+        //     img: AeroMode
+        // },        
+        // {
+        //     name: "basic",
+        //     img: basicMode
+        // },
         // {
         //     name: "retro",
         //     img: RetroMode
