@@ -451,6 +451,9 @@
         background: linear-gradient(0deg, rgb(93, 93, 93) 0%, rgb(255, 255, 255) 1%, rgb(226, 226, 226) 48%, rgb(203, 203, 203) 48%, rgb(194, 194, 194) 94%, rgb(127, 127, 127) 100%); 
       }
     }
+    & h2{
+      margin-top: 12.45px !important;
+    }
 
   }
 
@@ -602,8 +605,8 @@
   .problemDesc{
     background-color: rgba(0, 7, 70, 0.108);
     padding: var(--defaultPadding);
-    margin-top: 12px;
-    margin-bottom: 8px;
+    margin-top: 10px;
+    margin-bottom: 0px;
     border-radius: var(--cornerSize);
     box-shadow: inset rgb(0, 0, 0) 0px 0px 5px;
 

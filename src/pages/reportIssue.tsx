@@ -6,6 +6,7 @@ import { AuthData } from "../auth/AuthWrapper";
 import { IPlace, ICategory } from "../types/formPartials.interface";
 import { Notif } from "../components/notificationsWrapper";
 import { ENotifType } from "../types/notification.interface";
+import Dropdown from "../components/partials/Dropdown";
 import Loading from "../assets/loading.gif";
 const ReportIssueScreen = () => {
 
@@ -100,7 +101,7 @@ const ReportIssueScreen = () => {
          </div> */}
 
 
-                <select onChange={(e) => {
+                {/* <select onChange={(e) => {
                     setFormData({ ...formData, PlaceID: e.target.value })
                 }}
                     value={formData.PlaceID}
@@ -110,7 +111,9 @@ const ReportIssueScreen = () => {
                             <option value={place._id}>{place.name}</option>
                         ))
                     }
-                </select>
+                </select> */}
+
+                    <Dropdown options={["10", "11", "12", "15", "16", "18"]}/>
 
                 <br />
                 <label>opis usterki</label>

@@ -712,6 +712,9 @@ nav {
     }
     filter: drop-shadow(0px 0px 5px rgba(0, 110, 255, 0.162));
   }
+  & h2{
+    margin-top: 0px !important;
+  }
 }
 
 .report:hover {
@@ -1033,6 +1036,66 @@ a:hover {
 [data-tooltip]:not([data-tooltip-persistent])::before {
   pointer-events: none;
 }
+
+.intSelect{
+  &.container{
+  }
+  &.field{
+    position: relative;
+    min-width: 512px;
+    max-width: 512px;
+    background-color: red;
+    padding: var(--defaultPadding);
+
+    margin-bottom: 12px;
+    margin-top: 6px;
+    font-family: 'sfProDisplay';
+  
+    background: linear-gradient(0deg, rgb(38, 38, 38) 0%, rgba(34, 34, 34, 1) 100%);
+    border-color: var(--borderColor);
+    border-width: 1px;
+    color: var(--mainText);
+    box-shadow: inset 2px 2px 5px #1010104a, inset -2px -2px 5px #1010104a !important;
+    border-style: none;
+    border-radius: var(--smallCornerSize);
+    .arrow{
+      height: 16px;
+      width: 16px;
+      position: absolute;
+      background-color: red;
+      right: var(--defaultPadding);
+      bottom: 8px;
+      transition: 0.5s;
+      &.active{
+        transform: rotate(180);
+      }
+    }
+  }
+  &.optionContainer{
+    display: none;
+    position: absolute;
+    min-width: 100px;
+    margin-top: -8px;
+    background-color: #333333;
+    border: 1px solid;
+    border-radius: var(--smallCornerSize);
+    border-color: var(--windowBorderColor);
+    border-top-color: var(--windowTopBorderColor);
+    overflow: hidden;
+    &.active{
+      display: block;
+    }
+  }
+  &.option{
+    padding: var(--defaultPadding);
+    padding-top: calc(var(--defaultPadding)/2);
+    padding-bottom: calc(var(--defaultPadding)/2);
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.217);
+    }
+  }
+}
+
 
 /*---------------------------==========================MODALS==========================---------------------------*/
 

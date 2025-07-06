@@ -31,7 +31,7 @@ const CommentModal = ({ _id, handleClose }: ICommentModal) => {
     
     document.addEventListener('mousedown', function (e: MouseEvent) {
         const target = e.target as HTMLElement;
-        if (target.classList.contains('modalTitle')) {
+        if (target.classList.contains('movable')) {
             const parent = target.parentElement as HTMLElement | null;
             if (!parent) return;
     
@@ -82,7 +82,7 @@ const CommentModal = ({ _id, handleClose }: ICommentModal) => {
                 top: `${position.y}px`,
             }}
         >
-            <div className="modalTitle">Komentarze</div>
+            <div className="modalTitle movable">Komentarze</div>
             <div className="newComment">
                 <input className="CommentInput" placeholder="co chcesz napisać?" id="commentInput" onChange={e => setCommentContent(e.target.value)} />
                 <input className="CommentSend" type="submit" value="📨" onClick={handleInsertComment} />
