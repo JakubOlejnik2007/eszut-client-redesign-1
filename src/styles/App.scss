@@ -1037,7 +1037,20 @@ a:hover {
   pointer-events: none;
 }
 
+
+@keyframes showDropDown {
+  from {
+transform: scale(50%);
+opacity: 0;
+  }
+  to {
+    transform: scale(100%);
+    opacity: 1;
+  }
+}
+
 .intSelect{
+  user-select: none;
   &.container{
   }
   &.field{
@@ -1058,6 +1071,7 @@ a:hover {
     box-shadow: inset 2px 2px 5px #1010104a, inset -2px -2px 5px #1010104a !important;
     border-style: none;
     border-radius: var(--smallCornerSize);
+    
     .arrow{
       height: 16px;
       width: 16px;
@@ -1082,9 +1096,12 @@ a:hover {
     border-color: var(--windowBorderColor);
     border-top-color: var(--windowTopBorderColor);
     overflow: hidden;
+    transition: 1s;
     &.active{
       display: block;
+      animation: showDropDown 0.1s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
     }
+    
   }
   &.option{
     padding: var(--defaultPadding);
